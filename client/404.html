@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="th">
+    <head>
+        <meta charset="UTF-8" />
+        <link
+            rel="icon"
+            type="image/svg+xml"
+            href="/TeaChoco-Developer-logo.ico"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>404 Not Found</title>
+        <meta name="description" content="404 Not Found - Page not found" />
+        <meta name="author" content="TeaChoco" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="404 Not Found" />
+        <meta
+            property="og:description"
+            content="404 Not Found - Page not found"
+        />
+        <meta property="og:image" content="/vite.svg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="404 Not Found" />
+        <meta
+            name="twitter:description"
+            content="404 Not Found - Page not found"
+        />
+        <link rel="stylesheet" href="/src/index.css" />
+    </head>
+    <body>
+        <script>
+            (function () {
+                var theme = localStorage.getItem('themeMode');
+                if (
+                    theme === 'dark' ||
+                    (!theme &&
+                        window.matchMedia('(prefers-color-scheme: dark)')
+                            .matches)
+                ) {
+                    document.documentElement.classList.add('dark');
+                }
+            })();
+        </script>
+        <div id="root">
+            <h1>404 Not Found</h1>
+            <p>Page not found</p>
+        </div>
+        <script type="module" src="/src/entry-client.tsx"></script>
+    </body>
+</html>
