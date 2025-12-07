@@ -1,9 +1,9 @@
 //-Path: "TeaChoco-Portfolio/client/src/router/App.tsx"
-import Home from "../pages/Home";
-import Blog from "../pages/Blog";
-import About from "../pages/About";
+import Home from "../pages/home/Home";
+import Blog from "../pages/blog/Blog";
+import About from "../pages/about/About";
 import Layout from "../layout/Layout";
-import Contact from "../pages/Contact";
+import Contact from "../pages/contact/Contact";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 export default function App() {

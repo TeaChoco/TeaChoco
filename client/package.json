@@ -7,10 +7,11 @@
     "dev": "tsx server.ts",
     "build:client": "vite build --outDir dist/client",
     "build:server": "vite build --ssr src/entry-server.tsx --outDir dist/server",
-    "build:ssr": "pnpm build:client && pnpm build:server",
+    "build:ssr": "pnpm build:client && pnpm build:server && pnpm prerender",
     "serve": "cross-env NODE_ENV=production tsx server.ts",
     "preview": "cross-env NODE_ENV=production tsx server.ts",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "prerender": "tsx prerender.ts"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",

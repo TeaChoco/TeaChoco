@@ -1,11 +1,13 @@
+<!-- -Path: "TeaChoco-Portfolio/client/index.html" -->
 <!DOCTYPE html>
 <html lang="th">
     <head>
         <meta charset="UTF-8" />
-        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <link
+            rel="icon"
+            type="image/svg+xml"
+            href="/TeaChoco-Developer-logo.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        <!-- SEO Meta Tags -->
         <title>TeaChoco Portfolio</title>
         <meta
             name="description"
@@ -14,27 +16,20 @@
             name="keywords"
             content="TeaChoco, Portfolio, Developer, Projects" />
         <meta name="author" content="TeaChoco" />
-
-        <!-- Open Graph / Social Media -->
         <meta property="og:type" content="website" />
         <meta property="og:title" content="TeaChoco Portfolio" />
         <meta
             property="og:description"
             content="TeaChoco Portfolio - Developer Portfolio showcasing projects and skills" />
         <meta property="og:image" content="/vite.svg" />
-
-        <!-- Twitter Card -->
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="TeaChoco Portfolio" />
         <meta
             name="twitter:description"
             content="TeaChoco Portfolio - Developer Portfolio showcasing projects and skills" />
-
-        <!-- Critical CSS - Load before JS to prevent FOUC -->
         <link rel="stylesheet" href="/src/index.css" />
     </head>
     <body>
-        <!-- Inline script to set theme before React hydrates - prevents FOUC -->
         <script>
             (function () {
                 var theme = localStorage.getItem("themeMode");
