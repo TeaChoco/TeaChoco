@@ -1,9 +1,18 @@
 //-Path: "TeaChoco-Portfolio/client/src/components/Navbar.tsx"
 import ThemeToggle from "./ThemeToggle";
-import { navLinks } from "../router/links";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "./LanguageSwitcher";
 import { Link, useLocation } from "react-router-dom";
 
+const navLinks = [
+    { path: "/", labelKey: "nav.home" },
+    { path: "/blog", labelKey: "nav.blog" },
+    { path: "/about", labelKey: "nav.about" },
+    { path: "/contact", labelKey: "nav.contact" },
+];
+
 export default function Navbar() {
+    const { t } = useTranslation();
     const location = useLocation();
 
     return (
@@ -11,7 +20,6 @@ export default function Navbar() {
             <Link to="/" className="text-2xl font-bold no-underline">
                 <span className="gradient-text">TeaChoco</span>
             </Link>
-
             <div className="flex items-center gap-2">
                 <nav className="flex gap-1">
                     {navLinks.map((link) => (
@@ -24,10 +32,11 @@ export default function Navbar() {
                                         ? "text-primary-light bg-primary/15"
                                         : "text-text-secondary-light dark:text-text-secondary-dark hover:text-text-light dark:hover:text-text-dark hover:bg-primary/10"
                                 }`}>
-                            {link.label}
+                            {t(link.labelKey)}
                         </Link>
                     ))}
                 </nav>
+                <LanguageSwitcher />
                 <ThemeToggle />
             </div>
         </header>

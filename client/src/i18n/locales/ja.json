@@ -1,0 +1,67 @@
+{
+    "nav": {
+        "home": "ホーム",
+        "blog": "ブログ",
+        "about": "自己紹介",
+        "contact": "お問い合わせ"
+    },
+    "home": {
+        "subtitle": "フルスタック開発者 & クリエイティブデザイナー",
+        "description": "こんにちは！美しく機能的なアプリケーションを作ることに情熱を持つソフトウェア開発者です。",
+        "aboutBtn": "自己紹介",
+        "contactBtn": "お問い合わせ"
+    },
+    "about": {
+        "title": "自己紹介",
+        "subtitle": "私についてもっと知る",
+        "greeting": "こんにちは！TeaChocoです",
+        "intro1": "私は美しく効率的なウェブアプリケーションを作ることに情熱を持つフルスタック開発者です。最新技術を使用したフロントエンドとバックエンドの両方の開発経験があります。",
+        "intro2": "コーディング以外にも、記事を通じて知識を共有し、開発者コミュニティを支援することも楽しんでいます。",
+        "skillsTitle": "スキル",
+        "experienceTitle": "経験",
+        "jobTitle": "フルスタック開発者",
+        "company": "フリーランス",
+        "period": "2023年 - 現在",
+        "jobDesc": "様々なクライアント向けのウェブアプリケーションとシステムを開発"
+    },
+    "blog": {
+        "title": "ブログ",
+        "subtitle": "ソフトウェア開発における知識と経験を共有",
+        "readMore": "続きを読む →",
+        "posts": {
+            "1": {
+                "title": "React Server-Side Renderingを始める",
+                "excerpt": "より良いSEOのためにReactアプリケーションのSSRを設定する方法を学ぶ",
+                "date": "2025年12月7日",
+                "readTime": "5分"
+            },
+            "2": {
+                "title": "なぜTypeScript？",
+                "excerpt": "TypeScriptを使用するメリットとJavaScriptから切り替える理由",
+                "date": "2025年12月5日",
+                "readTime": "8分"
+            },
+            "3": {
+                "title": "モダンCSSテクニック",
+                "excerpt": "すべての開発者が知っておくべきモダンCSSテクニック",
+                "date": "2025年12月3日",
+                "readTime": "6分"
+            }
+        }
+    },
+    "contact": {
+        "title": "お問い合わせ",
+        "subtitle": "面白いプロジェクトがありますか？お話しましょう！",
+        "formTitle": "メッセージを送る",
+        "name": "名前",
+        "namePlaceholder": "あなたの名前",
+        "email": "メール",
+        "emailPlaceholder": "email@example.com",
+        "message": "メッセージ",
+        "messagePlaceholder": "ここにメッセージを書いてください...",
+        "submit": "メッセージを送信"
+    },
+    "footer": {
+        "copyright": "© 2025 TeaChoco. 全著作権所有。"
+    }
+}

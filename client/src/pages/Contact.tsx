@@ -1,4 +1,5 @@
 //-Path: "TeaChoco-Portfolio/client/src/pages/Contact.tsx"
+import { useTranslation } from "react-i18next";
 
 const contactMethods = [
     {
@@ -28,17 +29,16 @@ const contactMethods = [
 ];
 
 export default function Contact() {
+    const { t } = useTranslation();
+
     return (
         <section className="page">
             <div className="page-header">
                 <h1 className="page-title">
-                    <span className="gradient-text">ติดต่อ</span>
+                    <span className="gradient-text">{t("contact.title")}</span>
                 </h1>
-                <p className="page-subtitle">
-                    มีโปรเจคที่น่าสนใจ? มาคุยกันได้เลย!
-                </p>
+                <p className="page-subtitle">{t("contact.subtitle")}</p>
             </div>
-
             <div className="max-w-3xl mx-auto">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
                     {contactMethods.map((method) => (
@@ -69,7 +69,7 @@ export default function Contact() {
                     ))}
                 </div>
                 <div className="card">
-                    <h2 className="section-title">ส่งข้อความ</h2>
+                    <h2 className="section-title">{t("contact.formTitle")}</h2>
                     <form
                         className="flex flex-col gap-5"
                         onSubmit={(e) => e.preventDefault()}>
@@ -77,64 +77,49 @@ export default function Contact() {
                             <label
                                 htmlFor="name"
                                 className="font-medium text-text-secondary-light dark:text-text-secondary-dark">
-                                ชื่อ
+                                {t("contact.name")}
                             </label>
                             <input
                                 type="text"
                                 id="name"
                                 name="name"
-                                placeholder="ชื่อของคุณ"
+                                placeholder={t("contact.namePlaceholder")}
                                 required
-                                className="px-4 py-3 bg-bg-light dark:bg-bg-dark 
-                                           border border-border-light dark:border-border-dark 
-                                           rounded-lg text-text-light dark:text-text-dark
-                                           placeholder:text-text-muted-light dark:placeholder:text-text-muted-dark
-                                           focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20
-                                           transition-all"
+                                className="px-4 py-3 bg-bg-light dark:bg-bg-dark border border-border-light dark:border-border-dark rounded-lg text-text-light dark:text-text-dark placeholder:text-text-muted-light dark:placeholder:text-text-muted-dark focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
                             />
                         </div>
                         <div className="flex flex-col gap-2">
                             <label
                                 htmlFor="email"
                                 className="font-medium text-text-secondary-light dark:text-text-secondary-dark">
-                                อีเมล
+                                {t("contact.email")}
                             </label>
                             <input
                                 type="email"
                                 id="email"
                                 name="email"
-                                placeholder="email@example.com"
+                                placeholder={t("contact.emailPlaceholder")}
                                 required
-                                className="px-4 py-3 bg-bg-light dark:bg-bg-dark 
-                                           border border-border-light dark:border-border-dark 
-                                           rounded-lg text-text-light dark:text-text-dark
-                                           placeholder:text-text-muted-light dark:placeholder:text-text-muted-dark
-                                           focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20
-                                           transition-all"
+                                className="px-4 py-3 bg-bg-light dark:bg-bg-dark border border-border-light dark:border-border-dark rounded-lg text-text-light dark:text-text-dark placeholder:text-text-muted-light dark:placeholder:text-text-muted-dark focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
                             />
                         </div>
                         <div className="flex flex-col gap-2">
                             <label
                                 htmlFor="message"
                                 className="font-medium text-text-secondary-light dark:text-text-secondary-dark">
-                                ข้อความ
+                                {t("contact.message")}
                             </label>
                             <textarea
                                 id="message"
                                 name="message"
                                 rows={5}
-                                placeholder="เขียนข้อความของคุณที่นี่..."
+                                placeholder={t("contact.messagePlaceholder")}
                                 required
-                                className="px-4 py-3 bg-bg-light dark:bg-bg-dark 
-                                           border border-border-light dark:border-border-dark 
-                                           rounded-lg text-text-light dark:text-text-dark
-                                           placeholder:text-text-muted-light dark:placeholder:text-text-muted-dark
-                                           focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20
-                                           transition-all resize-y min-h-[120px]"
+                                className="px-4 py-3 bg-bg-light dark:bg-bg-dark border border-border-light dark:border-border-dark rounded-lg text-text-light dark:text-text-dark placeholder:text-text-muted-light dark:placeholder:text-text-muted-dark focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all resize-y min-h-[120px]"
                             />
                         </div>
                         <button type="submit" className="btn btn-primary">
-                            ส่งข้อความ
+                            {t("contact.submit")}
                         </button>
                     </form>
                 </div>

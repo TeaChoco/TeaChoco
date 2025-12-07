@@ -1,4 +1,5 @@
 //-Path: "TeaChoco-Portfolio/client/src/pages/About.tsx"
+import { useTranslation } from "react-i18next";
 
 const skills = [
     { name: "React / Next.js", level: 90 },
@@ -10,44 +11,37 @@ const skills = [
 ];
 
 export default function About() {
+    const { t } = useTranslation();
+
     return (
         <section className="page">
             <div className="page-header">
                 <h1 className="page-title">
-                    <span className="gradient-text">เกี่ยวกับผม</span>
+                    <span className="gradient-text">{t("about.title")}</span>
                 </h1>
-                <p className="page-subtitle">รู้จักผมให้มากขึ้น</p>
+                <p className="page-subtitle">{t("about.subtitle")}</p>
             </div>
-
             <div className="max-w-3xl mx-auto">
                 <div className="flex gap-8 items-start mb-12 flex-wrap justify-center">
                     <div className="shrink-0">
-                        <div
-                            className="w-36 h-36 rounded-full bg-gradient-to-br from-primary to-accent
-                                       flex items-center justify-center text-6xl
-                                       shadow-lg shadow-primary/30">
+                        <div className="w-36 h-36 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-6xl shadow-lg shadow-primary/30">
                             🧑‍💻
                         </div>
                     </div>
                     <div className="flex-1 min-w-[280px]">
                         <h2 className="text-2xl font-semibold mb-4">
-                            สวัสดีครับ! ผมคือ TeaChoco
+                            {t("about.greeting")}
                         </h2>
                         <p className="text-text-secondary-light dark:text-text-secondary-dark mb-4 leading-relaxed">
-                            ผมเป็นนักพัฒนา Full-Stack
-                            ที่มีความหลงใหลในการสร้างสรรค์
-                            แอปพลิเคชันเว็บที่สวยงามและมีประสิทธิภาพ
-                            ผมมีประสบการณ์ในการพัฒนาทั้ง Frontend และ Backend
-                            ด้วยเทคโนโลยีสมัยใหม่
+                            {t("about.intro1")}
                         </p>
                         <p className="text-text-secondary-light dark:text-text-secondary-dark leading-relaxed">
-                            นอกจากการเขียนโค้ด ผมยังชอบแบ่งปันความรู้ผ่านบทความ
-                            และช่วยเหลือชุมชนนักพัฒนา
+                            {t("about.intro2")}
                         </p>
                     </div>
                 </div>
                 <div className="mb-12">
-                    <h2 className="section-title">ทักษะ</h2>
+                    <h2 className="section-title">{t("about.skillsTitle")}</h2>
                     <div className="grid gap-4">
                         {skills.map((skill) => (
                             <div key={skill.name} className="card">
@@ -59,12 +53,9 @@ export default function About() {
                                         {skill.level}%
                                     </span>
                                 </div>
-                                <div
-                                    className="h-1.5 bg-border-light dark:bg-border-dark 
-                                               rounded-full overflow-hidden">
+                                <div className="h-1.5 bg-border-light dark:bg-border-dark rounded-full overflow-hidden">
                                     <div
-                                        className="h-full bg-gradient-to-r from-primary to-accent 
-                                                   rounded-full transition-all duration-1000"
+                                        className="h-full bg-gradient-to-r from-primary to-accent rounded-full transition-all duration-1000"
                                         style={{ width: `${skill.level}%` }}
                                     />
                                 </div>
@@ -73,27 +64,24 @@ export default function About() {
                     </div>
                 </div>
                 <div className="mb-12">
-                    <h2 className="section-title">ประสบการณ์</h2>
+                    <h2 className="section-title">
+                        {t("about.experienceTitle")}
+                    </h2>
                     <div className="relative pl-8 border-l-2 border-border-light dark:border-border-dark">
                         <div className="relative pb-8">
-                            <div
-                                className="absolute -left-[25px] w-3 h-3 rounded-full 
-                                           bg-gradient-to-r from-primary to-accent
-                                           shadow-lg shadow-primary/50"
-                            />
+                            <div className="absolute -left-[25px] w-3 h-3 rounded-full bg-gradient-to-r from-primary to-accent shadow-lg shadow-primary/50" />
                             <div className="card">
                                 <h3 className="text-lg font-semibold mb-1">
-                                    Full-Stack Developer
+                                    {t("about.jobTitle")}
                                 </h3>
                                 <p className="text-primary-light font-medium mb-1">
-                                    Freelance
+                                    {t("about.company")}
                                 </p>
                                 <p className="text-text-muted-light dark:text-text-muted-dark text-sm mb-3">
-                                    2023 - ปัจจุบัน
+                                    {t("about.period")}
                                 </p>
                                 <p className="text-text-secondary-light dark:text-text-secondary-dark">
-                                    พัฒนาเว็บแอปพลิเคชันและระบบต่างๆ
-                                    สำหรับลูกค้าหลากหลายประเภท
+                                    {t("about.jobDesc")}
                                 </p>
                             </div>
                         </div>

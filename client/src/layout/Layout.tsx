@@ -1,8 +1,11 @@
 //-Path: "TeaChoco-Portfolio/client/src/layout/Layout.tsx"
 import { Outlet } from "react-router";
+import { useTranslation } from "react-i18next";
 import Navbar from "../components/Navbar";
 
 export default function Layout() {
+    const { t } = useTranslation();
+
     return (
         <div className="min-h-screen flex flex-col">
             <Navbar />
@@ -10,7 +13,7 @@ export default function Layout() {
                 <Outlet />
             </main>
             <footer className="text-center py-8 text-text-muted-light dark:text-text-muted-dark border-t border-border-light dark:border-border-dark">
-                <p>© 2025 TeaChoco. All rights reserved.</p>
+                <p>{t("footer.copyright")}</p>
             </footer>
         </div>
     );

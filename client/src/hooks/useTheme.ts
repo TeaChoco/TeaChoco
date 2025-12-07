@@ -12,7 +12,6 @@ export function useTheme() {
         if (saved) setTheme(saved);
         else if (window.matchMedia("(prefers-color-scheme: dark)").matches)
             setTheme("dark");
-
         setMounted(true);
     }, []);
 
@@ -29,5 +28,5 @@ export function useTheme() {
     const toggleTheme = () =>
         setTheme((prev) => (prev === "dark" ? "light" : "dark"));
 
-    return { theme, toggleTheme, mounted };
+    return { theme, mounted, toggleTheme };
 }

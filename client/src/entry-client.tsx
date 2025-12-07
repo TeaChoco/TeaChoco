@@ -1,4 +1,5 @@
 //-Path: "TeaChoco-Portfolio/client/src/entry-client.tsx"
+import "./i18n/i18n";
 import "./index.css";
 import App from "./router/App";
 import { StrictMode } from "react";
