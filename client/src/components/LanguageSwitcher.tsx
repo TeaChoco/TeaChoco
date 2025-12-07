@@ -1,11 +1,12 @@
 //-Path: "TeaChoco-Portfolio/client/src/components/LanguageSwitcher.tsx"
-import { useTranslation } from "react-i18next";
-import { useState, useRef, useEffect } from "react";
+import { useTranslation } from 'react-i18next';
+import { useState, useRef, useEffect } from 'react';
 
 const languages = [
-    { code: "en", label: "English", flag: "🇺🇸" },
-    { code: "th", label: "ไทย", flag: "🇹🇭" },
-    { code: "ja", label: "日本語", flag: "🇯🇵" },
+    { code: 'en', label: 'English', flag: '🇺🇸' },
+    { code: 'th', label: 'ไทย', flag: '🇹🇭' },
+    { code: 'ja', label: '日本語', flag: '🇯🇵' },
+    { code: 'zh', label: '中文', flag: '🇨🇳' },
 ];
 
 export default function LanguageSwitcher() {
@@ -26,9 +27,9 @@ export default function LanguageSwitcher() {
             }
         };
 
-        document.addEventListener("mousedown", handleClickOutside);
+        document.addEventListener('mousedown', handleClickOutside);
         return () =>
-            document.removeEventListener("mousedown", handleClickOutside);
+            document.removeEventListener('mousedown', handleClickOutside);
     }, []);
 
     const handleLanguageChange = (code: string) => {
@@ -46,7 +47,8 @@ export default function LanguageSwitcher() {
                            hover:border-primary hover:scale-105
                            focus:outline-none focus:ring-2 focus:ring-primary/20"
                 aria-label="Select language"
-                aria-expanded={isOpen}>
+                aria-expanded={isOpen}
+            >
                 <span className="text-lg leading-none">
                     {currentLanguage.flag}
                 </span>
@@ -55,8 +57,9 @@ export default function LanguageSwitcher() {
                 </span>
                 <span
                     className={`text-xs ml-1 transition-transform duration-200 ${
-                        isOpen ? "rotate-180" : ""
-                    }`}>
+                        isOpen ? 'rotate-180' : ''
+                    }`}
+                >
                     ▼
                 </span>
             </button>
@@ -67,9 +70,10 @@ export default function LanguageSwitcher() {
                             transition-all duration-200 origin-top-right transform
                             ${
                                 isOpen
-                                    ? "opacity-100 scale-100 translate-y-0"
-                                    : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
-                            }`}>
+                                    ? 'opacity-100 scale-100 translate-y-0'
+                                    : 'opacity-0 scale-95 -translate-y-2 pointer-events-none'
+                            }`}
+            >
                 <div className="p-1">
                     {languages.map((lang) => (
                         <button
@@ -78,9 +82,10 @@ export default function LanguageSwitcher() {
                             className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-150
                                       ${
                                           i18n.language === lang.code
-                                              ? "bg-primary/10 text-primary"
-                                              : "text-text-primary-light dark:text-text-primary-dark hover:bg-bg-hover-light dark:hover:bg-bg-hover-dark"
-                                      }`}>
+                                              ? 'bg-primary/10 text-primary'
+                                              : 'text-text-primary-light dark:text-text-primary-dark hover:bg-bg-hover-light dark:hover:bg-bg-hover-dark'
+                                      }`}
+                        >
                             <span className="text-lg leading-none">
                                 {lang.flag}
                             </span>

@@ -5,7 +5,6 @@ const skills = [
     { name: 'React / Next.js', level: 90 },
     { name: 'TypeScript', level: 85 },
     { name: 'Node.js', level: 80 },
-    { name: 'Python', level: 75 },
     { name: 'CSS / TailwindCSS', level: 88 },
     { name: 'Database (SQL/NoSQL)', level: 70 },
 ];
@@ -28,9 +27,11 @@ export default function About() {
             <div className="max-w-3xl mx-auto">
                 <div className="flex gap-8 items-start mb-12 flex-wrap justify-center">
                     <div className="shrink-0">
-                        <div className="w-36 h-36 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-6xl shadow-lg shadow-primary/30">
-                            🧑‍💻
-                        </div>
+                        <img
+                            src="/TeaChoco-Developer-logo.png"
+                            alt="TeaChoco-Developer-logo"
+                            className="w-36 h-36 object-cover rounded-full"
+                        />
                     </div>
                     <div className="flex-1 min-w-[280px]">
                         <h2 className="text-2xl font-semibold mb-4 text-text-light dark:text-text-dark">

@@ -1,30 +1,44 @@
 //-Path: "TeaChoco-Portfolio/client/src/pages/Contact.tsx"
+import type { IconType } from 'react-icons';
 import { useTranslation } from 'react-i18next';
+import { FaEnvelope, FaGithub, FaYoutube, FaXTwitter } from 'react-icons/fa6';
+import { FaFacebook } from 'react-icons/fa';
 
-const contactMethods = [
+const contactMethods: {
+    icon: IconType;
+    label: string;
+    value: string;
+    href: string;
+}[] = [
     {
-        icon: '📧',
+        icon: FaEnvelope,
         label: 'Email',
-        value: 'contact@teachoco.dev',
-        href: 'mailto:contact@teachoco.dev',
+        value: 'teachocodeveloper@gmail.com',
+        href: 'mailto:teachocodeveloper@gmail.com',
     },
     {
-        icon: '🐙',
+        icon: FaGithub,
         label: 'GitHub',
         value: 'github.com/TeaChoco',
         href: 'https://github.com/TeaChoco',
     },
     {
-        icon: '💼',
-        label: 'LinkedIn',
-        value: 'linkedin.com/in/teachoco',
-        href: 'https://linkedin.com/in/teachoco',
+        icon: FaYoutube,
+        label: 'YouTube',
+        value: 'youtube.com/@TeaChocolater',
+        href: 'https://youtube.com/@TeaChocolater',
     },
     {
-        icon: '🐦',
-        label: 'Twitter',
-        value: '@TeaChoco_dev',
-        href: 'https://twitter.com/TeaChoco_dev',
+        icon: FaXTwitter,
+        label: 'X',
+        value: '@TeaChocolater',
+        href: 'https://x.com/TeaChocolater',
+    },
+    {
+        icon: FaFacebook,
+        label: 'Facebook',
+        value: 'facebook.com/TeaChocoChoco',
+        href: 'https://facebook.com/TeaChocoChoco',
     },
 ];
 
@@ -64,7 +78,7 @@ export default function Contact() {
                                     : undefined
                             }
                         >
-                            <span className="text-3xl">{method.icon}</span>
+                            <method.icon className="size-6 transition-all duration-200" />
                             <div>
                                 <h3 className="font-semibold text-text-light dark:text-text-dark">
                                     {method.label}
@@ -98,25 +112,6 @@ export default function Contact() {
                                 placeholder={t(
                                     'contact.namePlaceholder',
                                     'Your name',
-                                )}
-                                required
-                                className="px-4 py-3 bg-bg-light dark:bg-bg-dark border border-border-light dark:border-border-dark rounded-lg text-text-light dark:text-text-dark placeholder:text-text-muted-light dark:placeholder:text-text-muted-dark focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
-                            />
-                        </div>
-                        <div className="flex flex-col gap-2">
-                            <label
-                                htmlFor="email"
-                                className="font-medium text-text-secondary-light dark:text-text-secondary-dark"
-                            >
-                                {t('contact.email', 'Email')}
-                            </label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                placeholder={t(
-                                    'contact.emailPlaceholder',
-                                    'email@example.com',
                                 )}
                                 required
                                 className="px-4 py-3 bg-bg-light dark:bg-bg-dark border border-border-light dark:border-border-dark rounded-lg text-text-light dark:text-text-dark placeholder:text-text-muted-light dark:placeholder:text-text-muted-dark focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"

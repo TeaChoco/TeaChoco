@@ -1,5 +1,5 @@
 /*-Path: "TeaChoco-Portfolio/client/src/index.css"*/
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @variant dark (&:where(.dark, .dark *));
 
@@ -32,15 +32,15 @@
     --color-border-dark: #1e293b;
 
     /* Fonts */
-    --font-family-sans: "Inter", system-ui, -apple-system, sans-serif;
+    --font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
 
     /* Custom Animations */
-    --animate-fade-in: fade-in 0.5s ease;
+    --animate-fade-in: fade-in 1s ease;
 
     @keyframes fade-in {
         from {
             opacity: 0;
-            transform: translateY(10px);
+            transform: translateY(30px);
         }
         to {
             opacity: 1;
@@ -64,15 +64,39 @@
         @apply dark:bg-bg-dark dark:text-text-dark;
     }
 
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    span {
+        @apply transition-all duration-200;
+    }
+
     #root {
         @apply min-h-screen flex flex-col;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+        @apply w-2;
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply bg-accent/20;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply bg-primary/50 hover:bg-primary rounded-full transition-colors;
     }
 }
 
 @layer components {
     /* ===== Gradient Text ===== */
     .gradient-text {
-        @apply bg-gradient-to-r from-primary via-accent to-accent-secondary bg-clip-text text-transparent;
+        @apply bg-gradient-to-r from-primary via-accent to-accent-secondary bg-clip-text text-transparent transition-all duration-200;
     }
 
     /* ===== Buttons ===== */
