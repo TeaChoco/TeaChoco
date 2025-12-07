@@ -5,10 +5,10 @@ import LanguageSwitcher from './LanguageSwitcher';
 import { Link, useLocation } from 'react-router-dom';
 
 const navLinks = [
-    { path: '/', labelKey: 'nav.home' },
-    { path: '/blog', labelKey: 'nav.blog' },
-    { path: '/about', labelKey: 'nav.about' },
-    { path: '/contact', labelKey: 'nav.contact' },
+    { path: '/', labelKey: 'nav.home', defaultValue: 'Home' },
+    { path: '/blog', labelKey: 'nav.blog', defaultValue: 'Blog' },
+    { path: '/about', labelKey: 'nav.about', defaultValue: 'About' },
+    { path: '/contact', labelKey: 'nav.contact', defaultValue: 'Contact' },
 ];
 
 export default function Navbar() {
@@ -33,7 +33,7 @@ export default function Navbar() {
                                         : 'text-text-secondary-light dark:text-text-secondary-dark hover:text-text-light dark:hover:text-text-dark hover:bg-primary/10'
                                 }`}
                         >
-                            {t(link.labelKey)}
+                            {t(link.labelKey, link.defaultValue)}
                         </Link>
                     ))}
                 </nav>

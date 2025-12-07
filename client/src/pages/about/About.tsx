@@ -1,4 +1,5 @@
 //-Path: "TeaChoco-Portfolio/client/src/pages/about/About.tsx"
+import Section from '../../layout/Section';
 import { useTranslation } from 'react-i18next';
 
 const skills = [
@@ -13,7 +14,7 @@ export default function About() {
     const { t } = useTranslation();
 
     return (
-        <section className="page">
+        <Section>
             <div className="page-header">
                 <h1 className="page-title">
                     <span className="gradient-text">
@@ -107,6 +108,6 @@ export default function About() {
                     </div>
                 </div>
             </div>
-        </section>
+        </Section>
     );
 }

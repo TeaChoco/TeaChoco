@@ -2,12 +2,14 @@
 import { Outlet } from 'react-router';
 import Navbar from '../components/Navbar';
 import { useTranslation } from 'react-i18next';
+import Background from '../components/3d/Background';
 
 export default function Layout() {
     const { t } = useTranslation();
 
     return (
         <div className="min-h-screen flex flex-col">
+            <Background />
             <Navbar />
             <main className="flex-1 p-4 md:p-8 max-w-6xl mx-auto w-full">
                 <Outlet />

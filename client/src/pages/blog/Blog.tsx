@@ -1,6 +1,7 @@
 //-Path: "TeaChoco-Portfolio/client/src/pages/blog/Blog.tsx"
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import Section from '../../layout/Section';
 
 const blogPosts = [
     {
@@ -35,7 +36,7 @@ export default function Blog() {
     const { t } = useTranslation();
 
     return (
-        <section className="page">
+        <Section>
             <div className="page-header">
                 <h1 className="page-title">
                     <span className="gradient-text">
@@ -92,6 +93,6 @@ export default function Blog() {
                     </article>
                 ))}
             </div>
-        </section>
+        </Section>
     );
 }

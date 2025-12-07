@@ -3,6 +3,7 @@ import type { IconType } from 'react-icons';
 import { useTranslation } from 'react-i18next';
 import { FaEnvelope, FaGithub, FaYoutube, FaXTwitter } from 'react-icons/fa6';
 import { FaFacebook } from 'react-icons/fa';
+import Section from '../../layout/Section';
 
 const contactMethods: {
     icon: IconType;
@@ -46,7 +47,7 @@ export default function Contact() {
     const { t } = useTranslation();
 
     return (
-        <section className="page">
+        <Section>
             <div className="page-header">
                 <h1 className="page-title">
                     <span className="gradient-text">
@@ -142,6 +143,6 @@ export default function Contact() {
                     </form>
                 </div>
             </div>
-        </section>
+        </Section>
     );
 }

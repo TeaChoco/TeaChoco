@@ -35,7 +35,7 @@
     --font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
 
     /* Custom Animations */
-    --animate-fade-in: fade-in 1s ease;
+    /* --animate-fade-in: fade-in 1s ease;
 
     @keyframes fade-in {
         from {
@@ -46,7 +46,7 @@
             opacity: 1;
             transform: translateY(0);
         }
-    }
+    } */
 }
 
 @layer base {
@@ -117,9 +117,9 @@
     }
 
     /* ===== Page Layout ===== */
-    .page {
+    /* .page {
         @apply animate-fade-in;
-    }
+    } */
 
     .page-header {
         @apply text-center mb-12;
