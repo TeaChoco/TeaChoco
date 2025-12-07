@@ -10,6 +10,7 @@ const manifest = JSON.parse(
     fs.readFileSync(toAbsolute('dist/client/.vite/ssr-manifest.json'), 'utf-8'),
 );
 const template = fs.readFileSync(toAbsolute('dist/client/index.html'), 'utf-8');
+// @ts-expect-error - generated file, no types available
 const { render } = await import('./dist/server/entry-server.js');
 
 const routesToPrerender = fs
