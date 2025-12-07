@@ -29,8 +29,25 @@
         <meta
             name="twitter:description"
             content="TeaChoco Portfolio - Developer Portfolio showcasing projects and skills" />
+
+        <!-- Critical CSS - Load before JS to prevent FOUC -->
+        <link rel="stylesheet" href="/src/index.css" />
     </head>
     <body>
+        <!-- Inline script to set theme before React hydrates - prevents FOUC -->
+        <script>
+            (function () {
+                var theme = localStorage.getItem("themeMode");
+                if (
+                    theme === "dark" ||
+                    (!theme &&
+                        window.matchMedia("(prefers-color-scheme: dark)")
+                            .matches)
+                ) {
+                    document.documentElement.classList.add("dark");
+                }
+            })();
+        </script>
         <div id="root"><!--app-html--></div>
         <script type="module" src="/src/entry-client.tsx"></script>
     </body>

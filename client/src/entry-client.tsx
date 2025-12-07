@@ -1,6 +1,6 @@
-//-Path: "TeaChoco-Portfolio/src/entry-client.tsx"
+//-Path: "TeaChoco-Portfolio/client/src/entry-client.tsx"
 import "./index.css";
-import App from "./App";
+import App from "./router/App";
 import { StrictMode } from "react";
 import { hydrateRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";

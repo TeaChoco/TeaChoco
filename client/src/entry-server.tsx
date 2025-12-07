@@ -1,8 +1,8 @@
-//-Path: "TeaChoco-Portfolio/src/entry-server.tsx"
-import App from "./App";
+//-Path: "TeaChoco-Portfolio/client/src/entry-server.tsx"
+import App from "./router/App";
 import { StrictMode } from "react";
-import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom";
+import { renderToString } from "react-dom/server";
 
 export function render(url: string) {
     const html = renderToString(

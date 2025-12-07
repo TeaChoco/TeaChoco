@@ -1,0 +1,144 @@
+//-Path: "TeaChoco-Portfolio/client/src/pages/Contact.tsx"
+
+const contactMethods = [
+    {
+        icon: "📧",
+        label: "Email",
+        value: "contact@teachoco.dev",
+        href: "mailto:contact@teachoco.dev",
+    },
+    {
+        icon: "🐙",
+        label: "GitHub",
+        value: "github.com/TeaChoco",
+        href: "https://github.com/TeaChoco",
+    },
+    {
+        icon: "💼",
+        label: "LinkedIn",
+        value: "linkedin.com/in/teachoco",
+        href: "https://linkedin.com/in/teachoco",
+    },
+    {
+        icon: "🐦",
+        label: "Twitter",
+        value: "@TeaChoco_dev",
+        href: "https://twitter.com/TeaChoco_dev",
+    },
+];
+
+export default function Contact() {
+    return (
+        <section className="page">
+            <div className="page-header">
+                <h1 className="page-title">
+                    <span className="gradient-text">ติดต่อ</span>
+                </h1>
+                <p className="page-subtitle">
+                    มีโปรเจคที่น่าสนใจ? มาคุยกันได้เลย!
+                </p>
+            </div>
+
+            <div className="max-w-3xl mx-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
+                    {contactMethods.map((method) => (
+                        <a
+                            key={method.label}
+                            href={method.href}
+                            className="card flex items-center gap-4 no-underline"
+                            target={
+                                method.href.startsWith("http")
+                                    ? "_blank"
+                                    : undefined
+                            }
+                            rel={
+                                method.href.startsWith("http")
+                                    ? "noopener noreferrer"
+                                    : undefined
+                            }>
+                            <span className="text-3xl">{method.icon}</span>
+                            <div>
+                                <h3 className="font-semibold text-text-light dark:text-text-dark">
+                                    {method.label}
+                                </h3>
+                                <p className="text-text-secondary-light dark:text-text-secondary-dark text-sm">
+                                    {method.value}
+                                </p>
+                            </div>
+                        </a>
+                    ))}
+                </div>
+                <div className="card">
+                    <h2 className="section-title">ส่งข้อความ</h2>
+                    <form
+                        className="flex flex-col gap-5"
+                        onSubmit={(e) => e.preventDefault()}>
+                        <div className="flex flex-col gap-2">
+                            <label
+                                htmlFor="name"
+                                className="font-medium text-text-secondary-light dark:text-text-secondary-dark">
+                                ชื่อ
+                            </label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="ชื่อของคุณ"
+                                required
+                                className="px-4 py-3 bg-bg-light dark:bg-bg-dark 
+                                           border border-border-light dark:border-border-dark 
+                                           rounded-lg text-text-light dark:text-text-dark
+                                           placeholder:text-text-muted-light dark:placeholder:text-text-muted-dark
+                                           focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20
+                                           transition-all"
+                            />
+                        </div>
+                        <div className="flex flex-col gap-2">
+                            <label
+                                htmlFor="email"
+                                className="font-medium text-text-secondary-light dark:text-text-secondary-dark">
+                                อีเมล
+                            </label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="email@example.com"
+                                required
+                                className="px-4 py-3 bg-bg-light dark:bg-bg-dark 
+                                           border border-border-light dark:border-border-dark 
+                                           rounded-lg text-text-light dark:text-text-dark
+                                           placeholder:text-text-muted-light dark:placeholder:text-text-muted-dark
+                                           focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20
+                                           transition-all"
+                            />
+                        </div>
+                        <div className="flex flex-col gap-2">
+                            <label
+                                htmlFor="message"
+                                className="font-medium text-text-secondary-light dark:text-text-secondary-dark">
+                                ข้อความ
+                            </label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                rows={5}
+                                placeholder="เขียนข้อความของคุณที่นี่..."
+                                required
+                                className="px-4 py-3 bg-bg-light dark:bg-bg-dark 
+                                           border border-border-light dark:border-border-dark 
+                                           rounded-lg text-text-light dark:text-text-dark
+                                           placeholder:text-text-muted-light dark:placeholder:text-text-muted-dark
+                                           focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20
+                                           transition-all resize-y min-h-[120px]"
+                            />
+                        </div>
+                        <button type="submit" className="btn btn-primary">
+                            ส่งข้อความ
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    );
+}
