@@ -21,9 +21,8 @@ const routesToPrerender = fs
     });
 
 (async () => {
-    // pre-render each route...
     for (const url of routesToPrerender) {
-        const [appHtml, head] = await render(url, manifest);
+        const { html: appHtml, head } = await render(url, manifest);
 
         const html = template
             .replace(`<!--app-head-->`, head ?? '')
@@ -31,7 +30,6 @@ const routesToPrerender = fs
 
         const filePath = `dist/client${url === '/' ? '/index' : url}.html`;
 
-        // Ensure directory exists
         const dir = path.dirname(filePath);
         if (!fs.existsSync(dir)) {
             fs.mkdirSync(dir, { recursive: true });
