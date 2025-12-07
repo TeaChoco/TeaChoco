@@ -8,7 +8,7 @@ import { BrowserRouter } from "react-router-dom";
 hydrateRoot(
     document.getElementById("root")!,
     <StrictMode>
-        <BrowserRouter>
+        <BrowserRouter basename="/TeaChoco">
             <App />
         </BrowserRouter>
     </StrictMode>,
