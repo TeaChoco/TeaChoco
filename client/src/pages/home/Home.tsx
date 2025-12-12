@@ -64,28 +64,31 @@ export default function Home() {
             <main className="relative z-10 w-full max-w-7xl mx-auto pointer-events-none">
                 {/* Hero Section */}
                 <Section className="text-center pb-48">
-                    <div className="pointer-events-auto bg-bg-light/80 dark:bg-bg-dark/80 backdrop-blur-sm p-8 rounded-3xl border border-border-light dark:border-border-dark shadow-2xl max-w-2xl">
-                        <img
-                            alt="TeaChoco-Developer-logo"
-                            src="/TeaChoco-Developer-logo.png"
-                            className="size-64 mx-auto rounded-full shadow-lg"
-                        />
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-tight">
-                            <span className="gradient-text">TeaChoco</span>{' '}
-                            Portfolio
-                        </h1>
-                        <p className="text-xl md:text-2xl text-text-secondary-light dark:text-text-secondary-dark mb-6">
-                            {t('home.subtitle')}
-                        </p>
-                        <div className="flex gap-4 justify-center">
-                            <Link to="/about" className="btn btn-primary">
-                                {t('home.aboutBtn')}
-                            </Link>
-                            <Link to="/contact" className="btn btn-secondary">
-                                {t('home.contactBtn')}
-                            </Link>
-                        </div>
+                    {/* <div className="pointer-events-auto bg-bg-light/80 dark:bg-bg-dark/80 backdrop-blur-sm p-8 rounded-3xl border border-border-light dark:border-border-dark shadow-2xl max-w-2xl"> */}
+                    <img
+                        alt="TeaChoco-Developer-logo"
+                        src="/TeaChoco-Developer-logo.png"
+                        className="size-64 mx-auto rounded-full shadow-lg"
+                    />
+                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-tight">
+                        <span className="gradient-text">TeaChoco</span>{' '}
+                        Portfolio
+                    </h1>
+                    <p className="text-xl md:text-2xl text-text-secondary-light dark:text-text-secondary-dark mb-6">
+                        {t('home.subtitle')}
+                    </p>
+                    <p className="max-w-xl text-text-muted-light dark:text-text-muted-dark mb-8 text-lg">
+                        {t('home.description')}
+                    </p>
+                    <div className="flex gap-4 justify-center">
+                        <Link to="/about" className="btn btn-primary">
+                            {t('home.aboutBtn')}
+                        </Link>
+                        <Link to="/contact" className="btn btn-secondary">
+                            {t('home.contactBtn')}
+                        </Link>
                     </div>
+                    {/* </div> */}
                 </Section>
 
                 {/* About Preview */}
