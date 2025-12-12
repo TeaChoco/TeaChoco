@@ -66,8 +66,10 @@ export default function Home() {
                 <Section className="text-center pb-48">
                     {/* <div className="pointer-events-auto bg-bg-light/80 dark:bg-bg-dark/80 backdrop-blur-sm p-8 rounded-3xl border border-border-light dark:border-border-dark shadow-2xl max-w-2xl"> */}
                     <img
+                        src={`${
+                            import.meta.env.BASE_URL
+                        }TeaChoco-Developer-logo.png`}
                         alt="TeaChoco-Developer-logo"
-                        src="/TeaChoco-Developer-logo.png"
                         className="size-64 mx-auto rounded-full shadow-lg"
                     />
                     <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-tight">
@@ -88,7 +90,6 @@ export default function Home() {
                             {t('home.contactBtn')}
                         </Link>
                     </div>
-                    {/* </div> */}
                 </Section>
 
                 {/* About Preview */}

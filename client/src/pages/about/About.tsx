@@ -29,7 +29,9 @@ export default function About() {
                 <div className="flex gap-8 items-start mb-12 flex-wrap justify-center">
                     <div className="shrink-0">
                         <img
-                            src="/TeaChoco-Developer-logo.png"
+                            src={`${
+                                import.meta.env.BASE_URL
+                            }TeaChoco-Developer-logo.png`}
                             alt="TeaChoco-Developer-logo"
                             className="w-36 h-36 object-cover rounded-full"
                         />
