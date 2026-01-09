@@ -9,6 +9,7 @@ export default defineConfig({
     base: process.env.VITE_IS_GITHUB_PAGE === 'true' ? '/TeaChoco/' : '/',
     plugins: [react(), tailwindcss()],
     resolve: {
+        dedupe: ['react', 'react-dom'],
         alias: {
             '@': path.resolve(__dirname, './src'),
         },
