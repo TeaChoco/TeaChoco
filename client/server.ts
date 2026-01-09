@@ -80,7 +80,7 @@ async function createServer() {
     app.listen(port, () =>
         console.log(
             `🚀 Server running at http://127.0.0.1:${port}${
-                Boolean(process.env.VITE_IS_GITHUB_PAGE) ? '/TeaChoco' : ''
+                process.env.VITE_IS_GITHUB_PAGE === 'true' ? '/TeaChoco' : ''
             }`,
         ),
     );

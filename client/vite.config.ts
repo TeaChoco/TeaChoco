@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://vite.dev/config/
 export default defineConfig({
-    base: '/TeaChoco/',
+    base: process.env.VITE_IS_GITHUB_PAGE === 'true' ? '/TeaChoco/' : '/',
     plugins: [react(), tailwindcss()],
     resolve: {
         alias: {

@@ -10,7 +10,7 @@ export function render(url: string) {
             <StaticRouter
                 location={url}
                 basename={
-                    Boolean(import.meta.env.VITE_IS_GITHUB_PAGE)
+                    import.meta.env.VITE_IS_GITHUB_PAGE === 'true'
                         ? '/TeaChoco'
                         : undefined
                 }
