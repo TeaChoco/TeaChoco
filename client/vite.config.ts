@@ -8,6 +8,19 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
     base: process.env.VITE_IS_GITHUB_PAGE === 'true' ? '/TeaChoco/' : '/',
     plugins: [react(), tailwindcss()],
+    build: {
+        target: 'esnext',
+    },
+    ssr: {
+        noExternal: [
+            'react',
+            'react-dom',
+            'react-router',
+            'react-router-dom',
+            'framer-motion',
+            'react-i18next',
+        ],
+    },
     resolve: {
         dedupe: ['react', 'react-dom'],
         alias: {

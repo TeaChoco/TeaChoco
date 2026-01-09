@@ -1,5 +1,7 @@
 # TeaChoco Portfolio
 
+้https://teachoco.github.io/TeaChoco/
+
 A modern, responsive portfolio website built with React, TypeScript, and Vite. This project showcases my skills as a Full-Stack Developer and Creative Designer, featuring a clean UI, multi-language support, and server-side rendering (SSR) for improved SEO.
 
 ## Features
