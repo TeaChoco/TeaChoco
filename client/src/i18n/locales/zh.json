@@ -7,9 +7,17 @@
     },
     "home": {
         "subtitle": "全栈开发人员与创意设计师",
-        "description": "你好！我是一名软件开发人员，热衷于创建美观且实用的应用程序。",
+        "description": "你好！我是一名 software 开发者，热衷于创建美观且实用的应用程序。",
         "aboutBtn": "关于我",
-        "contactBtn": "联系我"
+        "contactBtn": "联系我",
+        "stats": {
+            "experience": "工作经验",
+            "projects": "完成项目",
+            "coffee": "咖啡杯数",
+            "clients": "满意客户"
+        },
+        "techStackTitle": "技术栈",
+        "scrollDown": "向下滚动"
     },
     "about": {
         "title": "关于我",

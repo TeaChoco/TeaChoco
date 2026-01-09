@@ -7,7 +7,7 @@ const skills = [
     { name: 'TypeScript', level: 85 },
     { name: 'Node.js', level: 80 },
     { name: 'CSS / TailwindCSS', level: 88 },
-    { name: 'Database (SQL/NoSQL)', level: 70 },
+    { name: 'Database (MongoDB)', level: 70 },
 ];
 
 export default function About() {

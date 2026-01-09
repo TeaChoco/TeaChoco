@@ -42,7 +42,7 @@ export default function Avatar() {
 
     useFrame((state, delta) => {
         if (vrm) {
-            // Update physics/expressions
+            // Update VRM internal state
             vrm.update(delta);
         }
     });
@@ -55,5 +55,5 @@ export default function Avatar() {
             position={[0, 0.5, -2]}
             rotation={[0, Math.PI, 0]}
         />
-    ); // Adjust vertical position
+    );
 }

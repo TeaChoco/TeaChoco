@@ -16,7 +16,7 @@ export default function Navbar() {
     const location = useLocation();
 
     return (
-        <header className="flex items-center justify-between px-4 md:px-8 py-4 sticky top-0 z-50 bg-bg-light/80 dark:bg-bg-dark/80 backdrop-blur-xl border-b border-border-light dark:border-border-dark transition-all duration-200">
+        <header className="flex items-center justify-between px-4 md:px-8 py-4 sticky top-0 z-50 bg-bg-light/80 dark:bg-bg-dark/80 backdrop-blur-xl border-b border-border-light dark:border-border-dark transition-all duration-300">
             <Link to="/" className="text-2xl font-bold no-underline">
                 <span className="gradient-text">TeaChoco</span>
             </Link>

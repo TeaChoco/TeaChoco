@@ -17,7 +17,17 @@ async function createServer() {
 
     let vite: any;
     if (!isProduction) {
-        const { createServer: createViteServer } = await import('vite');
+        const { createServer: createViteServer, loadEnv } = await import(
+            'vite'
+        );
+        // Load env variables with VITE_ prefix from .env
+        const env = loadEnv(
+            process.env.NODE_ENV || 'development',
+            process.cwd(),
+            'VITE_',
+        );
+        process.env = { ...process.env, ...env };
+
         vite = await createViteServer({
             server: { middlewareMode: true },
             appType: 'custom',
@@ -68,7 +78,11 @@ async function createServer() {
     });
 
     app.listen(port, () =>
-        console.log(`🚀 Server running at http://localhost:${port}`),
+        console.log(
+            `🚀 Server running at http://127.0.0.1:${port}${
+                process.env.VITE_IS_GITHUB_PAGE ? '/TeaChoco' : ''
+            }`,
+        ),
     );
 }
 

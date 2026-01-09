@@ -15,7 +15,7 @@ export default function Section({
             viewport={{ margin: '-100px' }}
             whileInView={{ opacity: 1, y: 0 }}
             style={{ transform: 'translateY(50px)' }}
-            className={`min-h-[calc(100vh-80px)] flex flex-col justify-center items-center p-6 ${className}`}
+            className={`min-h-[calc(100vh-80px)] flex flex-col justify-center items-center p-4 ${className}`}
         >
             {children}
         </motion.section>

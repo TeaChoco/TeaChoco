@@ -9,7 +9,15 @@
         "subtitle": "フルスタック開発者 & クリエイティブデザイナー",
         "description": "こんにちは！美しく機能的なアプリケーションを作ることに情熱を持つソフトウェア開発者です。",
         "aboutBtn": "自己紹介",
-        "contactBtn": "お問い合わせ"
+        "contactBtn": "お問い合わせ",
+        "stats": {
+            "experience": "経験年数",
+            "projects": "完了したプロジェクト",
+            "coffee": "コーヒーの数",
+            "clients": "満足した顧客"
+        },
+        "techStackTitle": "技術スタック",
+        "scrollDown": "スクロールダウン"
     },
     "about": {
         "title": "自己紹介",

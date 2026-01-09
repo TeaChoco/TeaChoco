@@ -11,7 +11,7 @@ export default function Layout() {
         <div className="min-h-screen flex flex-col">
             <Background />
             <Navbar />
-            <main className="flex-1 p-4 md:p-8 max-w-6xl mx-auto w-full">
+            <main className="w-full flex flex-col items-center">
                 <Outlet />
             </main>
             <footer className="text-center py-8 text-text-muted-light dark:text-text-muted-dark border-t border-border-light dark:border-border-dark">

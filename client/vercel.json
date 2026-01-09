@@ -1,0 +1,11 @@
+{
+    "version": 2,
+    "public": true,
+    "buildCommand": "npm run dev",
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "./src/index.ts"
+        }
+    ]
+}

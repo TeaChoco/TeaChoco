@@ -9,7 +9,15 @@
         "subtitle": "Full-Stack Developer & Creative Designer",
         "description": "สวัสดีครับ! ผมเป็นนักพัฒนาซอฟต์แวร์ที่หลงใหลในการสร้างสรรค์แอปพลิเคชันที่สวยงามและใช้งานได้ดี",
         "aboutBtn": "เกี่ยวกับผม",
-        "contactBtn": "ติดต่อ"
+        "contactBtn": "ติดต่อ",
+        "stats": {
+            "experience": "ปีที่ทำงาน",
+            "projects": "โปรเจคที่เสร็จสิ้น",
+            "coffee": "แก้วกาแฟ",
+            "clients": "ลูกค้าที่พอใจ"
+        },
+        "techStackTitle": "เทคโนโลยีที่ใช้",
+        "scrollDown": "เลื่อนลงเพื่อดูเพิ่มเติม"
     },
     "about": {
         "title": "เกี่ยวกับผม",

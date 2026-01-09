@@ -9,7 +9,15 @@
         "subtitle": "Full-Stack Developer & Creative Designer",
         "description": "Hello! I'm a software developer passionate about creating beautiful and functional applications.",
         "aboutBtn": "About Me",
-        "contactBtn": "Contact"
+        "contactBtn": "Contact",
+        "stats": {
+            "experience": "Years of Experience",
+            "projects": "Projects Completed",
+            "coffee": "Cups of Coffee",
+            "clients": "Happy Clients"
+        },
+        "techStackTitle": "Tech Stack",
+        "scrollDown": "Scroll Down"
     },
     "about": {
         "title": "About Me",

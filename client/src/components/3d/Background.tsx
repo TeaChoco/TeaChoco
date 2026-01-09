@@ -18,7 +18,9 @@ export default function Background() {
                     />
                     <ambientLight intensity={0.5} />
 
-                    <group position={[0, 0, 0]}>{/* <Avatar /> */}</group>
+                    {/* <group position={[0, 0, 0]}>
+                        <Avatar />
+                    </group> */}
 
                     <ContactShadows
                         opacity={0.5}
