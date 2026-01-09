@@ -1,12 +1,14 @@
 //-Path: "TeaChoco-Portfolio/client/src/router/App.tsx"
-import Home from "../pages/home/Home";
-import Blog from "../pages/blog/Blog";
-import About from "../pages/about/About";
-import Layout from "../layout/Layout";
-import Contact from "../pages/contact/Contact";
-import { Routes, Route, Navigate } from "react-router-dom";
+import Home from '../pages/home/Home';
+import Blog from '../pages/blog/Blog';
+import About from '../pages/about/About';
+import Layout from '../layout/Layout';
+import Contact from '../pages/contact/Contact';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 export default function App() {
+    console.log(import.meta.env.VITE_IS_GITHUB_PAGE);
+
     return (
         <Routes>
             <Route path="/" element={<Layout />}>
