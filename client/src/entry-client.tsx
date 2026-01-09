@@ -3,19 +3,12 @@ import './i18n/i18n';
 import './index.css';
 import App from './router/App';
 import { StrictMode } from 'react';
-import { hydrateRoot } from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 
-hydrateRoot(
-    document.getElementById('root')!,
+createRoot(document.getElementById('root')!).render(
     <StrictMode>
-        <BrowserRouter
-            basename={
-                import.meta.env.VITE_IS_GITHUB_PAGE === 'true'
-                    ? '/TeaChoco'
-                    : undefined
-            }
-        >
+        <BrowserRouter basename="/TeaChoco">
             <App />
         </BrowserRouter>
     </StrictMode>,

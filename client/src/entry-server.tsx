@@ -7,14 +7,7 @@ import { renderToString } from 'react-dom/server';
 export function render(url: string) {
     const html = renderToString(
         <StrictMode>
-            <StaticRouter
-                location={url}
-                basename={
-                    import.meta.env.VITE_IS_GITHUB_PAGE === 'true'
-                        ? '/TeaChoco'
-                        : undefined
-                }
-            >
+            <StaticRouter location={url} basename="/TeaChoco">
                 <App />
             </StaticRouter>
         </StrictMode>,

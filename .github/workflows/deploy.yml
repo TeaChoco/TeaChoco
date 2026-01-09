@@ -39,13 +39,8 @@ jobs:
               working-directory: client
 
             - name: Build
-              run: pnpm build:ssr
+              run: pnpm build:client
               working-directory: client
-              env:
-                  VITE_IS_GITHUB_PAGE: true
-
-            - name: Add .nojekyll
-              run: touch client/dist/client/.nojekyll
 
             - name: Setup Pages
               uses: actions/configure-pages@v5

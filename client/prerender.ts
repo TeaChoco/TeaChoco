@@ -20,14 +20,9 @@ const routesToPrerender = fs
         return name === 'home' ? '/' : `/${name}`;
     });
 
-const isGithubPage = process.env.VITE_IS_GITHUB_PAGE === 'true';
-const basename = isGithubPage ? '/TeaChoco' : '';
-
 (async () => {
     for (const url of routesToPrerender) {
-        // Pass the full URL including basename so StaticRouter can match it
-        const fullUrl = basename + (url === '/' ? '' : url) || '/';
-        const { html: appHtml, head } = await render(fullUrl, manifest);
+        const { html: appHtml, head } = await render(url, manifest);
 
         const html = template
             .replace(`<!--app-head-->`, head ?? '')
