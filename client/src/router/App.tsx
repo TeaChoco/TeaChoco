@@ -7,6 +7,9 @@ import Contact from '../pages/contact/Contact';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 export default function App() {
+    const isGithubPage = Boolean(import.meta.env.VITE_IS_GITHUB_PAGE);
+    console.log(isGithubPage);
+
     return (
         <Routes>
             <Route path="/" element={<Layout />}>
