@@ -6,40 +6,65 @@
         <link
             rel="icon"
             type="image/svg+xml"
-            href="/TeaChoco-Developer-logo.ico" />
+            href="/TeaChoco-Developer-logo.ico"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>TeaChoco Portfolio</title>
+        <!--app-head-->
+        <script>
+            // Script to handle GitHub Pages SPA redirect
+            (function (l) {
+                if (l.search[1] === '/') {
+                    var decoded = l.search
+                        .slice(1)
+                        .split('&')
+                        .map(function (s) {
+                            return s.replace(/~and~/g, '&');
+                        })
+                        .join('?');
+                    window.history.replaceState(
+                        null,
+                        null,
+                        l.pathname.slice(0, -1) + decoded + l.hash,
+                    );
+                }
+            })(window.location);
+        </script>
         <meta
             name="description"
-            content="TeaChoco Portfolio - Developer Portfolio showcasing projects and skills" />
+            content="TeaChoco Portfolio - Developer Portfolio showcasing projects and skills"
+        />
         <meta
             name="keywords"
-            content="TeaChoco, Portfolio, Developer, Projects" />
+            content="TeaChoco, Portfolio, Developer, Projects"
+        />
         <meta name="author" content="TeaChoco" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="TeaChoco Portfolio" />
         <meta
             property="og:description"
-            content="TeaChoco Portfolio - Developer Portfolio showcasing projects and skills" />
+            content="TeaChoco Portfolio - Developer Portfolio showcasing projects and skills"
+        />
         <meta property="og:image" content="/vite.svg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="TeaChoco Portfolio" />
         <meta
             name="twitter:description"
-            content="TeaChoco Portfolio - Developer Portfolio showcasing projects and skills" />
+            content="TeaChoco Portfolio - Developer Portfolio showcasing projects and skills"
+        />
         <link rel="stylesheet" href="/src/index.css" />
     </head>
     <body>
         <script>
             (function () {
-                var theme = localStorage.getItem("themeMode");
+                var theme = localStorage.getItem('themeMode');
                 if (
-                    theme === "dark" ||
+                    theme === 'dark' ||
                     (!theme &&
-                        window.matchMedia("(prefers-color-scheme: dark)")
+                        window.matchMedia('(prefers-color-scheme: dark)')
                             .matches)
                 ) {
-                    document.documentElement.classList.add("dark");
+                    document.documentElement.classList.add('dark');
                 }
             })();
         </script>

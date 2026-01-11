@@ -4,7 +4,7 @@ import { StrictMode } from 'react';
 import { StaticRouter } from 'react-router-dom';
 import { renderToString } from 'react-dom/server';
 
-export function render(url: string) {
+export function render(url: string, _manifest?: any) {
     const html = renderToString(
         <StrictMode>
             <StaticRouter location={url} basename="/TeaChoco">
@@ -12,5 +12,5 @@ export function render(url: string) {
             </StaticRouter>
         </StrictMode>,
     );
-    return { html };
+    return { html, head: '' };
 }

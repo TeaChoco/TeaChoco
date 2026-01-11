@@ -39,7 +39,7 @@ jobs:
               working-directory: client
 
             - name: Build
-              run: pnpm build:ssr
+              run: pnpm build:client
               working-directory: client
 
             - name: Setup Pages
