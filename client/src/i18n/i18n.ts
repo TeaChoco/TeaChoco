@@ -14,16 +14,18 @@ const resources = {
     zh: { translation: zh },
 };
 
-i18n.use(LanguageDetector)
-    .use(initReactI18next)
-    .init({
-        resources,
-        fallbackLng: 'en',
-        interpolation: { escapeValue: false },
-        detection: {
-            order: ['localStorage', 'navigator'],
-            caches: ['localStorage'],
-        },
-    });
+i18n.use(initReactI18next);
+
+if (typeof window !== 'undefined') i18n.use(LanguageDetector);
+
+i18n.init({
+    resources,
+    fallbackLng: 'en',
+    interpolation: { escapeValue: false },
+    detection: {
+        order: ['localStorage', 'navigator'],
+        caches: ['localStorage'],
+    },
+});
 
 export default i18n;
