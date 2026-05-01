@@ -83,7 +83,7 @@
             "web": "ウェブ",
             "backend": "バックエンド",
             "bot": "ボット",
-            "mobile": "モバイル"
+            "template": "テンプレート"
         },
         "projects": {
             "pokeRotom": {
@@ -94,21 +94,17 @@
                 "title": "ポートフォリオサイト",
                 "desc": "React、Vite SSR、Three.js、TailwindCSSで構築したこのポートフォリオサイト。"
             },
-            "viteSsr": {
-                "title": "Vite React SSRテンプレート",
-                "desc": "TypeScriptとモダンツーリングを備えたViteによるReact SSRスターターテンプレート。"
+            "viteExtraReactSsr": {
+                "title": "Vite Extra React SSR TypeScript",
+                "desc": "Tailwind CSSとモダンツールを備えたViteによるReact SSR高度スターターテンプレート。"
             },
-            "botDiscord": {
-                "title": "Discordボット",
+            "viteReact": {
+                "title": "Vite React TypeScript",
+                "desc": "Tailwind CSSとモダンツールを備えたViteによる軽量Reactスターターテンプレート。"
+            },
+            "chocoDeveloperBot": {
+                "title": "Choco Developer Bot",
                 "desc": "Node.jsとDiscord.jsで構築したコミュニティ管理用の機能豊富なDiscordボット。"
-            },
-            "apiService": {
-                "title": "APIサービス",
-                "desc": "NestJS、PostgreSQL、Dockerで構築したスケーラブルなREST APIサービス。"
-            },
-            "mobileApp": {
-                "title": "モバイルアプリ",
-                "desc": "React NativeとFirebaseで構築したクロスプラットフォームモバイルアプリケーション。"
             }
         }
     },

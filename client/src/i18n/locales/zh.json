@@ -70,7 +70,7 @@
             "web": "网页",
             "backend": "后端",
             "bot": "机器人",
-            "mobile": "移动端"
+            "template": "模板"
         },
         "projects": {
             "pokeRotom": {
@@ -81,21 +81,17 @@
                 "title": "作品集网站",
                 "desc": "使用React、Vite SSR、Three.js和TailwindCSS构建的这个作品集网站。"
             },
-            "viteSsr": {
-                "title": "Vite React SSR模板",
-                "desc": "一个基于Vite的React SSR启动模板，配备TypeScript和现代工具链。"
+            "viteExtraReactSsr": {
+                "title": "Vite Extra React SSR TypeScript",
+                "desc": "一个基于Vite的高级React SSR启动模板，配备Tailwind CSS和现代工具链。"
             },
-            "botDiscord": {
-                "title": "Discord机器人",
+            "viteReact": {
+                "title": "Vite React TypeScript",
+                "desc": "一个基于Vite的轻量级React启动模板，配备Tailwind CSS和现代工具链。"
+            },
+            "chocoDeveloperBot": {
+                "title": "Choco Developer Bot",
                 "desc": "使用Node.js和Discord.js构建的功能丰富的Discord社区管理机器人。"
-            },
-            "apiService": {
-                "title": "API服务",
-                "desc": "使用NestJS、PostgreSQL和Docker构建的可扩展REST API服务。"
-            },
-            "mobileApp": {
-                "title": "移动应用",
-                "desc": "使用React Native和Firebase构建的跨平台移动应用。"
             }
         }
     },

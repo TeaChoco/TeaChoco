@@ -70,7 +70,7 @@
             "web": "เว็บ",
             "backend": "แบ็กเอนด์",
             "bot": "บอท",
-            "mobile": "มือถือ"
+            "template": "เทมเพลต"
         },
         "projects": {
             "pokeRotom": {
@@ -81,21 +81,17 @@
                 "title": "เว็บไซต์ Portfolio",
                 "desc": "เว็บไซต์ Portfolio นี้ สร้างด้วย React, Vite SSR, Three.js และ TailwindCSS"
             },
-            "viteSsr": {
-                "title": "Vite React SSR Template",
-                "desc": "เทมเพลตเริ่มต้นสำหรับ React SSR กับ Vite พร้อม TypeScript และเครื่องมือสมัยใหม่"
+            "viteExtraReactSsr": {
+                "title": "Vite Extra React SSR TypeScript",
+                "desc": "เทมเพลตขั้นสูงสำหรับ React SSR กับ Vite พร้อม Tailwind CSS และเครื่องมือสมัยใหม่"
             },
-            "botDiscord": {
-                "title": "Discord Bot",
+            "viteReact": {
+                "title": "Vite React TypeScript",
+                "desc": "เทมเพลตเบาเริ่มต้นสำหรับ React กับ Vite พร้อม Tailwind CSS และเครื่องมือสมัยใหม่"
+            },
+            "chocoDeveloperBot": {
+                "title": "Choco Developer Bot",
                 "desc": "Discord Bot ที่มีฟีเจอร์ครบครัน สร้างด้วย Node.js และ Discord.js สำหรับจัดการชุมชน"
-            },
-            "apiService": {
-                "title": "API Service",
-                "desc": "REST API ที่รองรับการขยายตัว สร้างด้วย NestJS, PostgreSQL และ Docker"
-            },
-            "mobileApp": {
-                "title": "Mobile App",
-                "desc": "แอปมือถือข้ามแพลตฟอร์ม สร้างด้วย React Native และ Firebase"
             }
         }
     },

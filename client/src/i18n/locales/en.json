@@ -70,7 +70,7 @@
             "web": "Web",
             "backend": "Backend",
             "bot": "Bot",
-            "mobile": "Mobile"
+            "template": "Template"
         },
         "projects": {
             "pokeRotom": {
@@ -81,21 +81,17 @@
                 "title": "Portfolio Website",
                 "desc": "This portfolio website built with React, Vite SSR, Three.js and TailwindCSS."
             },
-            "viteSsr": {
-                "title": "Vite React SSR Template",
-                "desc": "A starter template for React SSR with Vite, featuring TypeScript and modern tooling."
+            "viteExtraReactSsr": {
+                "title": "Vite Extra React SSR TypeScript",
+                "desc": "An advanced starter template for React SSR with Vite, featuring Tailwind CSS and modern tooling."
             },
-            "botDiscord": {
-                "title": "Discord Bot",
+            "viteReact": {
+                "title": "Vite React TypeScript",
+                "desc": "A lightweight starter template for React with Vite, featuring Tailwind CSS and modern tooling."
+            },
+            "chocoDeveloperBot": {
+                "title": "Choco Developer Bot",
                 "desc": "A feature-rich Discord bot built with Node.js and Discord.js for community management."
-            },
-            "apiService": {
-                "title": "API Service",
-                "desc": "A scalable REST API service built with NestJS, PostgreSQL and Docker."
-            },
-            "mobileApp": {
-                "title": "Mobile App",
-                "desc": "A cross-platform mobile application built with React Native and Firebase."
             }
         }
     },

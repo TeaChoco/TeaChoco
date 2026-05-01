@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import Section from '../../components/layout/Section';
 import { FaNodeJs, FaReact } from 'react-icons/fa6';
 import { SiMongodb, SiNestjs, SiTailwindcss, SiThreedotjs, SiTypescript } from 'react-icons/si';
+import useTextColor from '$/hooks/useTextColor';
 
 type IconType = React.ComponentType<{ className?: string; style?: React.CSSProperties }>;
 
@@ -14,24 +15,25 @@ type Skill = {
     icon: IconType;
 };
 
-const skills: Skill[] = [
-    { name: 'Node.js', level: 80, color: '#339933', icon: FaNodeJs },
-    { name: 'TypeScript', level: 85, color: '#3178C6', icon: SiTypescript },
-    { name: 'React / Next.js', level: 90, color: '#61DAFB', icon: FaReact },
-    { name: 'CSS / TailwindCSS', level: 88, color: '#06B6D4', icon: SiTailwindcss },
-    { name: 'Three.js', level: 70, color: '#ffffff', icon: SiThreedotjs },
-    { name: 'Nest.js', level: 60, color: '#EA2845', icon: SiNestjs },
-    { name: 'Database (MongoDB)', level: 70, color: '#47A248', icon: SiMongodb },
-];
-
-const stats = [
-    { value: '3+', key: 'about.statYears' },
-    { value: '10+', key: 'about.statProjects' },
-    { value: '5+', key: 'about.statTech' },
-];
-
 export default function About() {
     const { t } = useTranslation();
+    const { hex } = useTextColor();
+
+    const skills: Skill[] = [
+        { name: 'Node.js', level: 80, color: '#339933', icon: FaNodeJs },
+        { name: 'TypeScript', level: 85, color: '#3178C6', icon: SiTypescript },
+        { name: 'React / Next.js', level: 90, color: '#61DAFB', icon: FaReact },
+        { name: 'CSS / TailwindCSS', level: 88, color: '#06B6D4', icon: SiTailwindcss },
+        { name: 'Three.js', level: 70, color: hex, icon: SiThreedotjs },
+        { name: 'Nest.js', level: 60, color: '#EA2845', icon: SiNestjs },
+        { name: 'Database (MongoDB)', level: 70, color: '#47A248', icon: SiMongodb },
+    ];
+
+    const stats = [
+        { value: '3+', key: 'about.statYears' },
+        { value: '10+', key: 'about.statProjects' },
+        { value: '5+', key: 'about.statTech' },
+    ];
 
     return (
         <Section>
@@ -137,10 +139,16 @@ export default function About() {
                                     <motion.div
                                         initial={{ width: 0 }}
                                         whileInView={{ width: `${skill.level}%` }}
-                                        transition={{ duration: 1, delay: index * 0.1, ease: 'easeOut' }}
+                                        transition={{
+                                            duration: 1,
+                                            delay: index * 0.1,
+                                            ease: 'easeOut',
+                                        }}
                                         viewport={{ once: true }}
                                         className='h-full rounded-full'
-                                        style={{ background: `linear-gradient(90deg, var(--color-primary), ${skill.color})` }}
+                                        style={{
+                                            background: `linear-gradient(90deg, var(--color-primary), ${skill.color})`,
+                                        }}
                                     />
                                 </div>
                             </motion.div>

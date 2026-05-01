@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { FaFacebook } from 'react-icons/fa';
 import type { IconType } from 'react-icons';
 import { useTranslation } from 'react-i18next';
+import useTextColor from '$/hooks/useTextColor';
 import Section from '../../components/layout/Section';
 import { FaDiscord, FaEnvelope, FaGithub, FaYoutube, FaXTwitter } from 'react-icons/fa6';
 
@@ -11,54 +12,57 @@ type ContactMethod = {
     label: string;
     value: string;
     href: string;
-    color?: string;
+    color: string;
 };
-
-const contactMethods: ContactMethod[] = [
-    {
-        icon: FaEnvelope,
-        label: 'Email',
-        value: 'teachocodeveloper@gmail.com',
-        href: 'mailto:teachocodeveloper@gmail.com',
-        color: '#EA4335',
-    },
-    {
-        icon: FaGithub,
-        label: 'GitHub',
-        value: 'github.com/TeaChoco',
-        href: 'https://github.com/TeaChoco',
-    },
-    {
-        icon: FaYoutube,
-        label: 'YouTube',
-        value: 'youtube.com/@TeaChoco',
-        href: 'https://youtube.com/@TeaChoco',
-        color: '#FF0000',
-    },
-    {
-        icon: FaXTwitter,
-        label: 'X',
-        value: '@TeaChocolater',
-        href: 'https://x.com/TeaChocolater',
-    },
-    {
-        icon: FaFacebook,
-        label: 'Facebook',
-        value: 'facebook.com/TeaChocoLater',
-        href: 'https://facebook.com/TeaChocoLater',
-        color: '#1877F2',
-    },
-    {
-        icon: FaDiscord,
-        label: 'Discord',
-        value: 'TeaChoco#3830',
-        href: 'https://discord.com/users/499788896184565760/',
-        color: '#5865F2',
-    },
-];
 
 export default function Contact() {
     const { t } = useTranslation();
+    const { hex } = useTextColor();
+
+    const contactMethods: ContactMethod[] = [
+        {
+            icon: FaEnvelope,
+            label: 'Email',
+            value: 'teachocodeveloper@gmail.com',
+            href: 'mailto:teachocodeveloper@gmail.com',
+            color: '#EA4335',
+        },
+        {
+            icon: FaGithub,
+            label: 'GitHub',
+            value: 'github.com/TeaChoco',
+            href: 'https://github.com/TeaChoco',
+            color: hex,
+        },
+        {
+            icon: FaYoutube,
+            label: 'YouTube',
+            value: 'youtube.com/@TeaChoco',
+            href: 'https://youtube.com/@TeaChoco',
+            color: '#FF0000',
+        },
+        {
+            icon: FaXTwitter,
+            label: 'X',
+            value: '@TeaChocolater',
+            href: 'https://x.com/TeaChocolater',
+            color: hex,
+        },
+        {
+            icon: FaFacebook,
+            label: 'Facebook',
+            value: 'facebook.com/TeaChocoLater',
+            href: 'https://facebook.com/TeaChocoLater',
+            color: '#1877F2',
+        },
+        {
+            icon: FaDiscord,
+            label: 'Discord',
+            value: 'TeaChoco#3830',
+            href: 'https://discord.com/users/499788896184565760/',
+            color: '#5865F2',
+        },
+    ];
 
     return (
         <Section className='min-h-0!'>
@@ -102,12 +106,10 @@ export default function Contact() {
                         >
                             <div
                                 className='w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg border border-black/10 dark:border-white/15'
-                                style={
-                                    method.color && {
-                                        backgroundColor: `${method.color}20`,
-                                        boxShadow: `0 0 0 1px ${method.color}35`,
-                                    }
-                                }
+                                style={{
+                                    backgroundColor: `${method.color}20`,
+                                    boxShadow: `0 0 0 1px ${method.color}35`,
+                                }}
                             >
                                 <method.icon
                                     className='text-2xl transition-colors duration-300'
