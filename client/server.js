@@ -8,7 +8,8 @@ dotenv.config();
 
 // Constants
 const ABORT_DELAY = 10000;
-const base = process.env.VITE_CLIENT_BASE || '/';
+const base = "/TeaChoco/";
+// const base = process.env.VITE_CLIENT_BASE || '/';
 const port = process.env.VITE_CLIENT_PORT || 5173;
 const host = process.env.VITE_CLIENT_HOST || '127.0.0.1';
 const isProduction = process.env.VITE_MODE === 'production';
