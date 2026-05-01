@@ -1,21 +1,26 @@
 //-Path: "TeaChoco-Portfolio/client/src/pages/Contact.tsx"
+import { motion } from 'framer-motion';
+import { FaFacebook } from 'react-icons/fa';
 import type { IconType } from 'react-icons';
 import { useTranslation } from 'react-i18next';
-import { FaEnvelope, FaGithub, FaYoutube, FaXTwitter } from 'react-icons/fa6';
-import { FaFacebook } from 'react-icons/fa';
-import Section from '../../layout/Section';
+import Section from '../../components/layout/Section';
+import { FaDiscord, FaEnvelope, FaGithub, FaYoutube, FaXTwitter } from 'react-icons/fa6';
 
-const contactMethods: {
+type ContactMethod = {
     icon: IconType;
     label: string;
     value: string;
     href: string;
-}[] = [
+    color?: string;
+};
+
+const contactMethods: ContactMethod[] = [
     {
         icon: FaEnvelope,
         label: 'Email',
         value: 'teachocodeveloper@gmail.com',
         href: 'mailto:teachocodeveloper@gmail.com',
+        color: '#EA4335',
     },
     {
         icon: FaGithub,
@@ -26,8 +31,9 @@ const contactMethods: {
     {
         icon: FaYoutube,
         label: 'YouTube',
-        value: 'youtube.com/@TeaChocolater',
-        href: 'https://youtube.com/@TeaChocolater',
+        value: 'youtube.com/@TeaChoco',
+        href: 'https://youtube.com/@TeaChoco',
+        color: '#FF0000',
     },
     {
         icon: FaXTwitter,
@@ -38,8 +44,16 @@ const contactMethods: {
     {
         icon: FaFacebook,
         label: 'Facebook',
-        value: 'facebook.com/TeaChocoChoco',
-        href: 'https://facebook.com/TeaChocoChoco',
+        value: 'facebook.com/TeaChocoLater',
+        href: 'https://facebook.com/TeaChocoLater',
+        color: '#1877F2',
+    },
+    {
+        icon: FaDiscord,
+        label: 'Discord',
+        value: 'TeaChoco#3830',
+        href: 'https://discord.com/users/499788896184565760/',
+        color: '#5865F2',
     },
 ];
 
@@ -47,100 +61,72 @@ export default function Contact() {
     const { t } = useTranslation();
 
     return (
-        <Section>
-            <div className="page-header">
-                <h1 className="page-title">
-                    <span className="gradient-text">
-                        {t('contact.title', 'Contact')}
-                    </span>
+        <Section className='min-h-0!'>
+            <div className='page-header'>
+                <h1 className='page-title'>
+                    <span className='linear-text'>{t('contact.title', 'Contact')}</span>
                 </h1>
-                <p className="page-subtitle">
-                    {t(
-                        'contact.subtitle',
-                        "Have an interesting project? Let's talk!",
-                    )}
+                <p className='page-subtitle'>
+                    {t('contact.subtitle', "Have an interesting project? Let's talk!")}
                 </p>
             </div>
-            <div className="max-w-3xl mx-auto">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
-                    {contactMethods.map((method) => (
-                        <a
+
+            <div className='max-w-4xl mx-auto w-full'>
+                {/* Intro Card */}
+                <div className='card mb-10 text-center bg-linear-to-br from-primary/5 to-accent/5 border-primary/20'>
+                    <h2 className='text-xl md:text-2xl font-bold text-text-light dark:text-text-dark mb-3'>
+                        {t('contact.subtitle', "Have an interesting project? Let's talk!")}
+                    </h2>
+                    <p className='text-text-secondary-light dark:text-text-secondary-dark max-w-lg mx-auto'>
+                        {t(
+                            'contact.desc',
+                            'Feel free to reach out through any of the platforms below. I usually respond within 24 hours.',
+                        )}
+                    </p>
+                </div>
+
+                {/* Contact Grid */}
+                <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5'>
+                    {contactMethods.map((method, index) => (
+                        <motion.a
                             key={method.label}
                             href={method.href}
-                            className="card flex items-center gap-4 no-underline"
-                            target={
-                                method.href.startsWith('http')
-                                    ? '_blank'
-                                    : undefined
-                            }
-                            rel={
-                                method.href.startsWith('http')
-                                    ? 'noopener noreferrer'
-                                    : undefined
-                            }
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.4, delay: index * 0.08 }}
+                            viewport={{ once: true }}
+                            whileHover={{ scale: 1.03, translateY: -4 }}
+                            className='card group flex flex-col items-center gap-4 p-6 text-center no-underline'
+                            target={method.href.startsWith('http') ? '_blank' : undefined}
+                            rel={method.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                         >
-                            <method.icon className="size-6 transition-all duration-200" />
+                            <div
+                                className='w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg border border-black/10 dark:border-white/15'
+                                style={
+                                    method.color && {
+                                        backgroundColor: `${method.color}20`,
+                                        boxShadow: `0 0 0 1px ${method.color}35`,
+                                    }
+                                }
+                            >
+                                <method.icon
+                                    className='text-2xl transition-colors duration-300'
+                                    style={{
+                                        color: method.color,
+                                        filter: 'drop-shadow(0 0 2px rgba(0,0,0,0.15))',
+                                    }}
+                                />
+                            </div>
                             <div>
-                                <h3 className="font-semibold text-text-light dark:text-text-dark">
+                                <h3 className='font-bold text-text-light dark:text-text-dark mb-1 group-hover:text-primary-light transition-colors'>
                                     {method.label}
                                 </h3>
-                                <p className="text-text-secondary-light dark:text-text-secondary-dark text-sm">
+                                <p className='text-text-muted-light dark:text-text-muted-dark text-sm break-all'>
                                     {method.value}
                                 </p>
                             </div>
-                        </a>
+                        </motion.a>
                     ))}
-                </div>
-                <div className="card">
-                    <h2 className="section-title">
-                        {t('contact.formTitle', 'Send a Message')}
-                    </h2>
-                    <form
-                        className="flex flex-col gap-5"
-                        onSubmit={(e) => e.preventDefault()}
-                    >
-                        <div className="flex flex-col gap-2">
-                            <label
-                                htmlFor="name"
-                                className="font-medium text-text-secondary-light dark:text-text-secondary-dark"
-                            >
-                                {t('contact.name', 'Name')}
-                            </label>
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                placeholder={t(
-                                    'contact.namePlaceholder',
-                                    'Your name',
-                                )}
-                                required
-                                className="px-4 py-3 bg-bg-light dark:bg-bg-dark border border-border-light dark:border-border-dark rounded-lg text-text-light dark:text-text-dark placeholder:text-text-muted-light dark:placeholder:text-text-muted-dark focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
-                            />
-                        </div>
-                        <div className="flex flex-col gap-2">
-                            <label
-                                htmlFor="message"
-                                className="font-medium text-text-secondary-light dark:text-text-secondary-dark"
-                            >
-                                {t('contact.message', 'Message')}
-                            </label>
-                            <textarea
-                                id="message"
-                                name="message"
-                                rows={5}
-                                placeholder={t(
-                                    'contact.messagePlaceholder',
-                                    'Write your message here...',
-                                )}
-                                required
-                                className="px-4 py-3 bg-bg-light dark:bg-bg-dark border border-border-light dark:border-border-dark rounded-lg text-text-light dark:text-text-dark placeholder:text-text-muted-light dark:placeholder:text-text-muted-dark focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all resize-y min-h-[120px]"
-                            />
-                        </div>
-                        <button type="submit" className="btn btn-primary">
-                            {t('contact.submit', 'Send Message')}
-                        </button>
-                    </form>
                 </div>
             </div>
         </Section>
