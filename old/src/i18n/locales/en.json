@@ -1,0 +1,67 @@
+{
+    "nav": {
+        "home": "Home",
+        "blog": "Blog",
+        "about": "About",
+        "contact": "Contact"
+    },
+    "home": {
+        "subtitle": "Full-Stack Developer & Creative Designer",
+        "description": "Hello! I'm a software developer passionate about creating beautiful and functional applications.",
+        "aboutBtn": "About Me",
+        "contactBtn": "Contact"
+    },
+    "about": {
+        "title": "About Me",
+        "subtitle": "Get to know me better",
+        "greeting": "Hello to all the lost souls who have wandered here, I am TeaChoco",
+        "intro1": "I'm a Full-Stack developer passionate about creating simple and efficient web applications. I have experience developing both Frontend and Backend with modern technologies.",
+        "intro2": "Besides coding, I also enjoy sharing knowledge through articles and helping the developer community.",
+        "skillsTitle": "Skills",
+        "experienceTitle": "Experience",
+        "jobTitle": "Full-Stack Developer",
+        "company": "Freelance",
+        "period": "2023 - Present",
+        "jobDesc": "Developing web applications and systems for various clients."
+    },
+    "blog": {
+        "title": "Blog",
+        "subtitle": "Sharing knowledge and experience in software development",
+        "readMore": "Read more →",
+        "posts": {
+            "1": {
+                "title": "Getting Started with React Server-Side Rendering",
+                "excerpt": "Learn how to set up SSR for React Application for better SEO.",
+                "date": "December 7, 2025",
+                "readTime": "5 min"
+            },
+            "2": {
+                "title": "Why TypeScript?",
+                "excerpt": "Benefits of using TypeScript and reasons to switch from JavaScript.",
+                "date": "December 5, 2025",
+                "readTime": "8 min"
+            },
+            "3": {
+                "title": "Modern CSS Techniques",
+                "excerpt": "Modern CSS techniques every developer should know.",
+                "date": "December 3, 2025",
+                "readTime": "6 min"
+            }
+        }
+    },
+    "contact": {
+        "title": "Contact",
+        "subtitle": "Have an interesting project? Let's talk!",
+        "formTitle": "Send a Message",
+        "name": "Name",
+        "namePlaceholder": "Your name",
+        "email": "Email",
+        "emailPlaceholder": "email@example.com",
+        "message": "Message",
+        "messagePlaceholder": "Write your message here...",
+        "submit": "Send Message"
+    },
+    "footer": {
+        "copyright": "© 2025 TeaChoco. All rights reserved."
+    }
+}

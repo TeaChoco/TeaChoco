@@ -3,6 +3,7 @@
         "home": "Home",
         "blog": "Blog",
         "about": "About",
+        "portfolio": "Portfolio",
         "contact": "Contact"
     },
     "home": {
@@ -30,7 +31,10 @@
         "jobTitle": "Full-Stack Developer",
         "company": "Freelance",
         "period": "2023 - Present",
-        "jobDesc": "Developing web applications and systems for various clients."
+        "jobDesc": "Developing web applications and systems for various clients.",
+        "statYears": "Years Experience",
+        "statProjects": "Projects Completed",
+        "statTech": "Technologies"
     },
     "blog": {
         "title": "Blog",
@@ -57,9 +61,48 @@
             }
         }
     },
+    "portfolio": {
+        "title": "Portfolio",
+        "subtitle": "My projects and works",
+        "empty": "No projects in this category yet.",
+        "categories": {
+            "all": "All",
+            "web": "Web",
+            "backend": "Backend",
+            "bot": "Bot",
+            "mobile": "Mobile"
+        },
+        "projects": {
+            "pokeRotom": {
+                "title": "PokeRotom",
+                "desc": "A real-time Pokémon companion app with WebSocket integration and interactive features."
+            },
+            "portfolio": {
+                "title": "Portfolio Website",
+                "desc": "This portfolio website built with React, Vite SSR, Three.js and TailwindCSS."
+            },
+            "viteSsr": {
+                "title": "Vite React SSR Template",
+                "desc": "A starter template for React SSR with Vite, featuring TypeScript and modern tooling."
+            },
+            "botDiscord": {
+                "title": "Discord Bot",
+                "desc": "A feature-rich Discord bot built with Node.js and Discord.js for community management."
+            },
+            "apiService": {
+                "title": "API Service",
+                "desc": "A scalable REST API service built with NestJS, PostgreSQL and Docker."
+            },
+            "mobileApp": {
+                "title": "Mobile App",
+                "desc": "A cross-platform mobile application built with React Native and Firebase."
+            }
+        }
+    },
     "contact": {
         "title": "Contact",
         "subtitle": "Have an interesting project? Let's talk!",
+        "desc": "Feel free to reach out through any of the platforms below. I usually respond within 24 hours.",
         "formTitle": "Send a Message",
         "name": "Name",
         "namePlaceholder": "Your name",
