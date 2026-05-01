@@ -8,7 +8,7 @@ dotenv.config();
 
 // Constants
 const ABORT_DELAY = 10000;
-const base = "/TeaChoco/";
+const base = '/TeaChoco/';
 // const base = process.env.VITE_CLIENT_BASE || '/';
 const port = process.env.VITE_CLIENT_PORT || 5173;
 const host = process.env.VITE_CLIENT_HOST || '127.0.0.1';
@@ -56,11 +56,7 @@ app.use('*all', async (req, res) => {
     }
 
     // ถ้าเป็น root และไม่มี basename ให้ redirect
-    const base = process.env.VITE_CLIENT_BASE || '/';
-    if (base !== '/' && (url === '/' || url === '')) {
-        return res.redirect(302, base);
-    }
-    try {
+    if (base !== '/' && (url === '/' || url === '')) return res.redirect(302, base);    try {
         /** @type {import('./src/entry-server.ts').render} */
         let render;
         /** @type {import('./src/entry-server.ts').getHeadForRoute} */

@@ -9,8 +9,8 @@
     "build:ssg": "pnpm build && node scripts/prerender.mjs",
     "build:client": "vite build --outDir dist/client",
     "build:server": "vite build --ssr src/entry-server.tsx --outDir dist/server",
-    "preview": "cross-env NODE_ENV=production node server",
-    "serve": "cross-env NODE_ENV=production node server",
+    "preview": "cross-env VITE_MODE=production node server",
+    "serve": "cross-env VITE_MODE=production node server",
     "lint": "eslint .",
     "prerender": "tsx prerender.ts"
   },
