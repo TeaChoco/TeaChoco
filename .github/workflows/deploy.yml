@@ -41,6 +41,8 @@ jobs:
             - name: Build
               run: pnpm build:client
               working-directory: client
+              env:
+                  VITE_CLIENT_BASE: ${{ vars.VITE_CLIENT_BASE }}
 
             - name: Setup Pages
               uses: actions/configure-pages@v5
