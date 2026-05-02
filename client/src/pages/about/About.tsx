@@ -1,39 +1,13 @@
 //-Path: "TeaChoco-Portfolio/client/src/pages/about/About.tsx"
+import env from '$/secure/env';
+import Skill from './content/Skill';
 import { motion } from 'framer-motion';
+import { devStats } from '$/data/stats';
 import { useTranslation } from 'react-i18next';
 import Section from '../../components/layout/Section';
-import { FaNodeJs, FaReact } from 'react-icons/fa6';
-import { SiMongodb, SiNestjs, SiTailwindcss, SiThreedotjs, SiTypescript } from 'react-icons/si';
-import useTextColor from '$/hooks/useTextColor';
-
-type IconType = React.ComponentType<{ className?: string; style?: React.CSSProperties }>;
-
-type Skill = {
-    name: string;
-    level: number;
-    color: string;
-    icon: IconType;
-};
 
 export default function About() {
     const { t } = useTranslation();
-    const { hex } = useTextColor();
-
-    const skills: Skill[] = [
-        { name: 'Node.js', level: 80, color: '#339933', icon: FaNodeJs },
-        { name: 'TypeScript', level: 85, color: '#3178C6', icon: SiTypescript },
-        { name: 'React / Next.js', level: 90, color: '#61DAFB', icon: FaReact },
-        { name: 'CSS / TailwindCSS', level: 88, color: '#06B6D4', icon: SiTailwindcss },
-        { name: 'Three.js', level: 70, color: hex, icon: SiThreedotjs },
-        { name: 'Nest.js', level: 60, color: '#EA2845', icon: SiNestjs },
-        { name: 'Database (MongoDB)', level: 70, color: '#47A248', icon: SiMongodb },
-    ];
-
-    const stats: { value: string; key: string }[] = [
-        { value: '3+', key: 'about.statYears' },
-        { value: '10+', key: 'about.statProjects' },
-        { value: '5+', key: 'about.statTech' },
-    ];
 
     return (
         <Section>
@@ -50,7 +24,7 @@ export default function About() {
                     <div className='shrink-0 relative'>
                         <div className='absolute -inset-1 bg-linear-to-r from-primary via-accent to-accent-secondary rounded-full blur-md opacity-50' />
                         <img
-                            src={`${import.meta.env.BASE_URL}TeaChoco-Developer-logo.png`}
+                            src={`${env.BASE}TeaChoco-Developer-logo.png`}
                             alt='TeaChoco-Developer-logo'
                             className='relative w-32 h-32 md:w-40 md:h-40 object-cover rounded-full border-4 border-bg-card-light dark:border-bg-card-dark'
                         />
@@ -76,7 +50,7 @@ export default function About() {
 
                 {/* Stats */}
                 <div className='grid grid-cols-3 gap-4 mb-10'>
-                    {stats.map((stat) => (
+                    {devStats.map((stat) => (
                         <motion.div
                             key={stat.key}
                             whileHover={{ scale: 1.03 }}
@@ -93,68 +67,7 @@ export default function About() {
                 </div>
 
                 {/* Skills */}
-                <div className='mb-10'>
-                    <h2 className='section-title linear-text inline-block'>
-                        {t('about.skillsTitle', 'Skills')}
-                    </h2>
-                    <div className='grid gap-4 mt-2'>
-                        {skills.map((skill, index) => (
-                            <motion.div
-                                key={skill.name}
-                                initial={{ opacity: 0, x: -30 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.4, delay: index * 0.08 }}
-                                viewport={{ once: true }}
-                                className='card group'
-                            >
-                                <div className='flex justify-between items-center mb-3'>
-                                    <div className='flex items-center gap-3'>
-                                        <div
-                                            className='w-9 h-9 rounded-lg flex items-center justify-center border border-black/10 dark:border-white/15'
-                                            style={{
-                                                backgroundColor: `${skill.color}20`,
-                                                boxShadow: `0 0 0 1px ${skill.color}35`,
-                                            }}
-                                        >
-                                            <skill.icon
-                                                className='text-lg'
-                                                style={{
-                                                    color: skill.color,
-                                                    filter: 'drop-shadow(0 0 1px rgba(0,0,0,0.12))',
-                                                }}
-                                            />
-                                        </div>
-                                        <span className='font-semibold text-text-light dark:text-text-dark group-hover:text-primary-light transition-colors'>
-                                            {skill.name}
-                                        </span>
-                                    </div>
-                                    <span
-                                        className='text-sm font-bold'
-                                        style={{ color: skill.color }}
-                                    >
-                                        {skill.level}%
-                                    </span>
-                                </div>
-                                <div className='h-2 bg-border-light dark:bg-border-dark rounded-full overflow-hidden'>
-                                    <motion.div
-                                        initial={{ width: 0 }}
-                                        whileInView={{ width: `${skill.level}%` }}
-                                        transition={{
-                                            duration: 1,
-                                            delay: index * 0.1,
-                                            ease: 'easeOut',
-                                        }}
-                                        viewport={{ once: true }}
-                                        className='h-full rounded-full'
-                                        style={{
-                                            background: `linear-gradient(90deg, var(--color-primary), ${skill.color})`,
-                                        }}
-                                    />
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
+                <Skill />
 
                 {/* Experience */}
                 <div>
@@ -163,7 +76,7 @@ export default function About() {
                     </h2>
                     <div className='relative pl-8 mt-2 border-l-2 border-primary/30'>
                         <div className='relative pb-8'>
-                            <div className='absolute -left-[25px] w-4 h-4 rounded-full bg-linear-to-r from-primary to-accent shadow-lg shadow-primary/50 ring-4 ring-bg-card-light dark:ring-bg-card-dark' />
+                            <div className='absolute -left-6.25 w-4 h-4 rounded-full bg-linear-to-r from-primary to-accent shadow-lg shadow-primary/50 ring-4 ring-bg-card-light dark:ring-bg-card-dark' />
                             <div className='card'>
                                 <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-2'>
                                     <h3 className='text-lg font-bold text-text-light dark:text-text-dark'>

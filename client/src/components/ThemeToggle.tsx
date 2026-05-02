@@ -1,9 +1,26 @@
 //-Path: "TeaChoco-Portfolio/client/src/components/ThemeToggle.tsx"
+import { useEffect, useState } from 'react';
 import { FaSun, FaMoon } from 'react-icons/fa6';
 import { useThemeStore } from '$/stores/themeStore';
 
 export default function ThemeToggle() {
     const { theme, toggleTheme } = useThemeStore();
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
+
+    // Don't render anything on server to prevent hydration mismatch
+    if (!isClient) {
+        return (
+            <div className='relative h-8 w-14 rounded-full bg-slate-700'>
+                <span className='absolute left-1 top-1 flex h-6 w-6 transform items-center justify-center rounded-full bg-white shadow-lg translate-x-6'>
+                    <FaMoon className='h-4 w-4 text-slate-800' />
+                </span>
+            </div>
+        );
+    }
 
     return (
         <button

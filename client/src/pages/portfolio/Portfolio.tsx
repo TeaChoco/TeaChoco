@@ -1,16 +1,18 @@
 //-Path: "TeaChoco-Portfolio/client/src/pages/portfolio/Portfolio.tsx"
 import { motion } from 'framer-motion';
-import { useState } from 'react';
-import Section from '../../components/layout/Section';
+import { getTagIcon } from '$/data/icon';
 import { useTranslation } from 'react-i18next';
-import { FaGithub, FaArrowUpRightFromSquare } from 'react-icons/fa6';
-import { categories, projects, type Category } from '$/components/data/projects';
+import { createElement, useState } from 'react';
+import { categoryIcons } from '$/data/category';
 import { useThemeStore } from '$/stores/themeStore';
+import Section from '../../components/layout/Section';
+import { FaGithub, FaArrowUpRightFromSquare } from 'react-icons/fa6';
+import { projects, categories, type CategoryKeys } from '$/data/projects';
 
 export default function Portfolio() {
     const { t } = useTranslation();
     const { theme } = useThemeStore();
-    const [activeCategory, setActiveCategory] = useState<Category>('all');
+    const [activeCategory, setActiveCategory] = useState<CategoryKeys>('all');
 
     const filteredProjects =
         activeCategory === 'all'
@@ -33,13 +35,14 @@ export default function Portfolio() {
                         <button
                             key={category}
                             onClick={() => setActiveCategory(category)}
-                            className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer border-none
+                            className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer border-none inline-flex items-center gap-1.5
                                 ${
                                     activeCategory === category
                                         ? 'bg-primary text-white shadow-lg shadow-primary/40'
                                         : 'bg-bg-card-light dark:bg-bg-card-dark text-text-secondary-light dark:text-text-secondary-dark hover:bg-bg-card-hover-light dark:hover:bg-bg-card-hover-dark hover:text-text-light dark:hover:text-text-dark'
                                 }`}
                         >
+                            {createElement(categoryIcons[category], { className: 'text-xs' })}
                             {t(
                                 `portfolio.categories.${category}`,
                                 category.charAt(0).toUpperCase() + category.slice(1),
@@ -50,14 +53,14 @@ export default function Portfolio() {
 
                 {/* Project Grid */}
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-                    {filteredProjects.map((project, index) => (
+                    {filteredProjects.map((project) => (
                         <motion.div
                             key={project.id}
                             layout
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.9 }}
-                            transition={{ duration: 0.3, delay: index * 0.05 }}
+                            transition={{ duration: 0.3, delay: 0.05 }}
                             className='card group overflow-hidden p-0'
                         >
                             {/* Project Image */}
@@ -108,14 +111,18 @@ export default function Portfolio() {
 
                                 {/* Tags */}
                                 <div className='flex flex-wrap gap-2'>
-                                    {project.tags.map((tag) => (
-                                        <span
-                                            key={tag}
-                                            className='px-2.5 py-0.5 text-xs font-medium rounded-full bg-primary/10 text-primary-light dark:text-primary-light border border-primary/20'
-                                        >
-                                            {tag}
-                                        </span>
-                                    ))}
+                                    {project.tags.map((tag) => {
+                                        const TagIcon = getTagIcon(tag);
+                                        return (
+                                            <span
+                                                key={tag}
+                                                className='px-2.5 py-0.5 text-xs font-medium rounded-full bg-primary/10 text-primary-light dark:text-primary-light border border-primary/20 inline-flex items-center gap-1'
+                                            >
+                                                {TagIcon && <TagIcon className='text-[10px]' />}
+                                                {tag}
+                                            </span>
+                                        );
+                                    })}
                                 </div>
                             </div>
                         </motion.div>

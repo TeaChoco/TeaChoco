@@ -1,9 +1,9 @@
-//-Path: "vite-extra-react-ssr-ts/src/components/custom/Select.tsx"
+//-Path: "TeaChoco-Portfolio/client/src/components/custom/Select.tsx"
 import { FaChevronDown } from 'react-icons/fa6';
-import { useState, useRef, useEffect, useMemo } from 'react';
+import { useState, useRef, useEffect, useMemo, useCallback } from 'react';
 
-interface SelectOptionProps {
-    value: any;
+interface SelectOptionProps<T = string> {
+    value: T;
     label?: string;
     selected?: boolean;
     className?: string;
@@ -12,7 +12,7 @@ interface SelectOptionProps {
     children?: React.ReactNode;
 }
 
-function SelectOption({
+function SelectOption<T>({
     icon,
     label,
     value,
@@ -20,7 +20,7 @@ function SelectOption({
     selected,
     children,
     className,
-}: SelectOptionProps) {
+}: SelectOptionProps<T>) {
     const content = children || label || value;
 
     return (
@@ -44,32 +44,32 @@ function SelectOption({
                     {icon}
                 </span>
             )}
-            <span className='text-sm tracking-tight'>{content}</span>
+            <span className='text-sm tracking-tight'>{String(content)}</span>
         </button>
     );
 }
 
-export interface OptionSelectType {
-    value: any;
+export interface OptionSelectType<T = string> {
+    value: T;
     label: string;
     icon?: React.ReactNode;
 }
 
-export interface SelectProps {
+export interface SelectProps<T = string> {
+    value?: T;
     label?: string;
     required?: boolean;
     className?: string;
-    icon?: React.ReactNode;
-    value?: string | number;
-    labelClassName?: string;
     placeholder?: string;
-    options: OptionSelectType[];
+    icon?: React.ReactNode;
+    labelClassName?: string;
     containerClassName?: string;
-    onChange?: (event: { target: { value: any } }) => void;
-    children?: (Option: typeof SelectOption, options: OptionSelectType[]) => React.ReactNode;
+    options: OptionSelectType<T>[];
+    onChange?: (value: T) => void;
+    children?: (props: SelectOptionProps<T>, options: OptionSelectType<T>[]) => React.ReactNode;
 }
 
-export default function Select({
+export default function Select<T>({
     icon,
     label,
     value,
@@ -81,48 +81,30 @@ export default function Select({
     placeholder,
     labelClassName,
     containerClassName,
-}: SelectProps) {
+}: SelectProps<T>) {
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
 
     const selectedOption = useMemo(() => {
-        let option = options.find((option) => option.value === value);
-        children?.(
-            ({
-                icon: optionIcon,
-                value: optionValue,
-                label: optionLabel,
-                children: optionChildren,
-            }: SelectOptionProps) => {
-                if (optionValue === value) {
-                    option = {
-                        icon: optionIcon,
-                        value: optionValue,
-                        label: (optionLabel ??
-                            (typeof optionChildren === 'string' ? optionChildren : '')) as string,
-                    };
-                }
-                return <></>;
-            },
-            options,
-        );
-        return option;
-    }, [children, options, value]);
+        return options.find((option) => option.value === value);
+    }, [options, value]);
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
-            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node))
                 setIsOpen(false);
-            }
         };
         document.addEventListener('mousedown', handleClickOutside);
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
 
-    const handleSelect = (optionValue: any) => {
-        if (onChange) onChange({ target: { value: optionValue } });
-        setIsOpen(false);
-    };
+    const handleSelect = useCallback(
+        (optionValue: T) => {
+            if (onChange) onChange(optionValue);
+            setIsOpen(false);
+        },
+        [onChange],
+    );
 
     const displayText =
         selectedOption?.label || selectedOption?.value || placeholder || label || 'Select...';
@@ -162,7 +144,7 @@ export default function Select({
                                 : 'text-text-muted-light dark:text-text-muted-dark'
                         }`}
                     >
-                        {displayText}
+                        {String(displayText)}
                     </span>
                 </div>
                 <FaChevronDown
@@ -173,23 +155,26 @@ export default function Select({
             </button>
 
             {isOpen && (
-                <div className='absolute z-100 mt-2 w-full bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-border-light dark:border-border-dark overflow-hidden py-2 animate-in fade-in zoom-in duration-200 origin-top'>
+                <div className='absolute z-100 mt-2 min-w-full bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-border-light dark:border-border-dark overflow-hidden py-2 animate-in fade-in zoom-in duration-200 origin-top'>
                     {children
-                        ? children(
-                              ({ value: optionValue, selected, ...optionProps }: any) => (
-                                  <SelectOption
-                                      {...optionProps}
-                                      value={optionValue}
-                                      selected={selected || value === optionValue}
-                                      onClick={() => handleSelect(optionValue)}
-                                  />
+                        ? options.map((option) =>
+                              children(
+                                  {
+                                      icon: option.icon,
+                                      value: option.value,
+                                      label: option.label,
+                                      selected: value === option.value,
+                                      onClick: () => handleSelect(option.value),
+                                  },
+                                  options,
                               ),
-                              options,
                           )
                         : options.map((option) => (
-                              <SelectOption
-                                  key={option.value}
-                                  {...option}
+                              <SelectOption<T>
+                                  key={String(option.value)}
+                                  value={option.value}
+                                  label={option.label}
+                                  icon={option.icon}
                                   selected={value === option.value}
                                   onClick={() => handleSelect(option.value)}
                               />

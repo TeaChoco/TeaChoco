@@ -6,17 +6,34 @@
         "portfolio": "ポートフォリオ",
         "contact": "お問い合わせ"
     },
+    "footer": {
+        "copyright": "© 2025 TeaChoco. 全著作権所有。"
+    },
+    "categories": {
+        "title": "カテゴリ",
+        "all": "全て",
+        "web": "ウェブ",
+        "bot": "ボット",
+        "devops": "DevOps",
+        "backend": "バックエンド",
+        "database": "データベース",
+        "template": "テンプレート",
+        "frontend": "フロントエンド",
+        "language": "言語"
+    },
+    "skills": {
+        "count": "スキル",
+        "sortBy": "ソート",
+        "sortByLevel": "レベルでソート",
+        "sortByName": "名前でソート",
+        "noSkillsFound": "このカテゴリにスキルが見つかりません",
+        "showAll": "全てのスキルを表示"
+    },
     "home": {
         "subtitle": "フルスタック開発者 & クリエイティブデザイナー",
         "description": "こんにちは！美しく機能的なアプリケーションを作ることに情熱を持つソフトウェア開発者です。",
         "aboutBtn": "自己紹介",
         "contactBtn": "お問い合わせ",
-        "stats": {
-            "experience": "経験年数",
-            "projects": "完了したプロジェクト",
-            "coffee": "コーヒーの数",
-            "clients": "満足した顧客"
-        },
         "techStackTitle": "技術スタック",
         "scrollDown": "スクロールダウン"
     },
@@ -31,10 +48,10 @@
         "jobTitle": "フルスタック開発者",
         "company": "フリーランス",
         "period": "2023年 - 現在",
-        "jobDesc": "様々なクライアント向けのウェブアプリケーションとシステムを開発",
+        "jobDesc": "様々なクライアント向けのウェブアプリケーションとシステムを開発。",
         "statYears": "年の経験",
         "statProjects": "完了プロジェクト",
-        "statTech": "技術スタック"
+        "statTech": "技術"
     },
     "blog": {
         "title": "ブログ",
@@ -61,30 +78,11 @@
             }
         }
     },
-    "contact": {
-        "title": "お問い合わせ",
-        "subtitle": "面白いプロジェクトがありますか？お話しましょう！",
-        "desc": "下記のプラットフォームからお気軽にご連絡ください。通常24時間以内に返信いたします。",
-        "formTitle": "メッセージを送る",
-        "name": "名前",
-        "namePlaceholder": "あなたの名前",
-        "email": "メール",
-        "emailPlaceholder": "email@example.com",
-        "message": "メッセージ",
-        "messagePlaceholder": "ここにメッセージを書いてください...",
-        "submit": "メッセージを送信"
-    },
     "portfolio": {
         "title": "ポートフォリオ",
         "subtitle": "私のプロジェクトと作品",
+        "readMore": "続きを読む →",
         "empty": "このカテゴリにはまだプロジェクトがありません。",
-        "categories": {
-            "all": "すべて",
-            "web": "ウェブ",
-            "backend": "バックエンド",
-            "bot": "ボット",
-            "template": "テンプレート"
-        },
         "projects": {
             "pokeRotom": {
                 "title": "PokeRotom",
@@ -108,7 +106,17 @@
             }
         }
     },
-    "footer": {
-        "copyright": "© 2025 TeaChoco. 全著作権所有。"
-    }
+    "contact": {
+        "title": "お問い合わせ",
+        "subtitle": "面白いプロジェクトがありますか？お話しましょう！",
+        "desc": "下記のプラットフォームからお気軽にご連絡ください。通常24時間以内に返信いたします。",
+        "formTitle": "メッセージを送る",
+        "name": "名前",
+        "namePlaceholder": "あなたの名前",
+        "email": "メール",
+        "emailPlaceholder": "email@example.com",
+        "message": "メッセージ",
+        "messagePlaceholder": "ここにメッセージを書いてください...",
+        "submit": "メッセージを送信"
+    },
 }

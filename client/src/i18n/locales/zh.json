@@ -6,17 +6,34 @@
         "portfolio": "作品集",
         "contact": "联系"
     },
+    "footer": {
+        "copyright": "© 2025 TeaChoco. 保留所有权利。"
+    },
+    "categories": {
+        "title": "分类",
+        "all": "全部",
+        "web": "网页",
+        "bot": "机器人",
+        "devops": "DevOps",
+        "backend": "后端",
+        "database": "数据库",
+        "template": "模板",
+        "frontend": "前端",
+        "language": "语言"
+    },
+    "skills": {
+        "count": "技能",
+        "sortBy": "排序方式",
+        "sortByLevel": "按级别排序",
+        "sortByName": "按名称排序",
+        "noSkillsFound": "此类别中未找到技能",
+        "showAll": "显示所有技能"
+    },
     "home": {
         "subtitle": "全栈开发人员与创意设计师",
         "description": "你好！我是一名 software 开发者，热衷于创建美观且实用的应用程序。",
         "aboutBtn": "关于我",
         "contactBtn": "联系我",
-        "stats": {
-            "experience": "工作经验",
-            "projects": "完成项目",
-            "coffee": "咖啡杯数",
-            "clients": "满意客户"
-        },
         "techStackTitle": "技术栈",
         "scrollDown": "向下滚动"
     },
@@ -34,7 +51,7 @@
         "jobDesc": "为各种客户开发Web应用程序和系统。",
         "statYears": "年经验",
         "statProjects": "完成项目",
-        "statTech": "技术栈"
+        "statTech": "技术"
     },
     "blog": {
         "title": "博客",
@@ -64,14 +81,8 @@
     "portfolio": {
         "title": "作品集",
         "subtitle": "我的项目和作品",
+        "readMore": "阅读更多 →",
         "empty": "该分类下暂无项目。",
-        "categories": {
-            "all": "全部",
-            "web": "网页",
-            "backend": "后端",
-            "bot": "机器人",
-            "template": "模板"
-        },
         "projects": {
             "pokeRotom": {
                 "title": "PokeRotom",
@@ -107,8 +118,5 @@
         "message": "消息",
         "messagePlaceholder": "在此写下您的消息...",
         "submit": "发送消息"
-    },
-    "footer": {
-        "copyright": "© 2025 TeaChoco. 保留所有权利。"
     }
 }

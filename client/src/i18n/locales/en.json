@@ -6,17 +6,34 @@
         "portfolio": "Portfolio",
         "contact": "Contact"
     },
+    "footer": {
+        "copyright": "© 2025 TeaChoco. All rights reserved."
+    },
+    "categories": {
+        "title": "Categories",
+        "all": "All",
+        "web": "Web",
+        "bot": "Bot",
+        "devops": "DevOps",
+        "backend": "Backend",
+        "database": "Database",
+        "template": "Template",
+        "frontend": "Frontend",
+        "language": "Languages"
+    },
+    "skills": {
+        "count": "skills",
+        "sortBy": "Sort By",
+        "sortByLevel": "By Level",
+        "sortByName": "By Name",
+        "noSkillsFound": "No skills found for this category",
+        "showAll": "Show all skills"
+    },
     "home": {
         "subtitle": "Full-Stack Developer & Creative Designer",
         "description": "Hello! I'm a software developer passionate about creating beautiful and functional applications.",
         "aboutBtn": "About Me",
         "contactBtn": "Contact",
-        "stats": {
-            "experience": "Years of Experience",
-            "projects": "Projects Completed",
-            "coffee": "Cups of Coffee",
-            "clients": "Happy Clients"
-        },
         "techStackTitle": "Tech Stack",
         "scrollDown": "Scroll Down"
     },
@@ -40,6 +57,7 @@
         "title": "Blog",
         "subtitle": "Sharing knowledge and experience in software development",
         "readMore": "Read more →",
+        "empty": "No posts found",
         "posts": {
             "1": {
                 "title": "Getting Started with React Server-Side Rendering",
@@ -107,8 +125,5 @@
         "message": "Message",
         "messagePlaceholder": "Write your message here...",
         "submit": "Send Message"
-    },
-    "footer": {
-        "copyright": "© 2025 TeaChoco. All rights reserved."
     }
 }

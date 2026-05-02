@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import useTextColor from '$/hooks/useTextColor';
 import Section from '../../components/layout/Section';
-import { contactMethods } from '$/components/data/contact';
+import { contactMethods } from '$/data/contact';
 
 export default function Contact() {
     const { t } = useTranslation();

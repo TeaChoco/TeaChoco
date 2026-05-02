@@ -1,4 +1,5 @@
 //-Path: "TeaChoco-Portfolio/client/src/pages/Home.tsx"
+import env from '$/secure/env';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import type { IconType } from 'react-icons';
@@ -67,8 +68,7 @@ export default function Home() {
                     <div className=''>
                         {/* <div className="pointer-events-auto bg-bg-light/80 dark:bg-bg-dark/80 backdrop-blur-sm p-8 rounded-3xl border border-border-light dark:border-border-dark shadow-2xl max-w-2xl"> */}
                         <img
-                            // src={`${env.BASE}TeaChoco-Developer-logo.png`}
-                            src={`/TeaChoco-Developer-logo.png`}
+                            src={`${env.BASE}TeaChoco-Developer-logo.png`}
                             alt='TeaChoco-Developer-logo'
                             className='s size-64 mx-auto rounded-full shadow-lg'
                         />
