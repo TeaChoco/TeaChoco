@@ -4,74 +4,13 @@ import { useState } from 'react';
 import Section from '../../components/layout/Section';
 import { useTranslation } from 'react-i18next';
 import { FaGithub, FaArrowUpRightFromSquare } from 'react-icons/fa6';
-
-type Project = {
-    id: string;
-    titleKey: string;
-    descKey: string;
-    image: string;
-    tags: string[];
-    categorys: string[];
-    github?: string;
-    live?: string;
-};
-
-const projects: Project[] = [
-    {
-        id: 'portfolio',
-        titleKey: 'portfolio.projects.portfolio.title',
-        descKey: 'portfolio.projects.portfolio.desc',
-        image: 'https://placehold.co/600x400/1a1a2e/818cf8?text=Portfolio',
-        tags: ['TypeScript', 'Vite', 'React', 'Three.js'],
-        categorys: ['web'],
-        github: 'https://github.com/TeaChoco/TeaChoco',
-        live: '/',
-    },
-    {
-        id: 'poke-rotom',
-        titleKey: 'portfolio.projects.pokeRotom.title',
-        descKey: 'portfolio.projects.pokeRotom.desc',
-        image: 'https://placehold.co/600x400/1a1a2e/818cf8?text=PokeRotom',
-        tags: ['TypeScript', 'Vite', 'React', 'Node.js', 'Three.js', 'Socket.IO'],
-        categorys: ['web'],
-        github: 'https://github.com/TeaChocoOfficial/PokeRotom',
-        live: 'https://pokerotom.vercel.app',
-    },
-
-    {
-        id: 'vite-extra-react-ssr-typescript-template',
-        titleKey: 'portfolio.projects.viteExtraReactSsr.title',
-        descKey: 'portfolio.projects.viteExtraReactSsr.desc',
-        image: 'https://placehold.co/600x400/1a1a2e/818cf8?text=Vite+React+TS+SSR',
-        tags: ['Vite', 'React', 'SSR', 'Tailwind CSS', 'TypeScript'],
-        categorys: ['web', 'template'],
-        github: 'https://github.com/TeaChoco/Vite-Extra-React-SSR-TypeScript',
-    },
-    {
-        id: 'vite-react-typescript-template',
-        titleKey: 'portfolio.projects.viteReact.title',
-        descKey: 'portfolio.projects.viteReact.desc',
-        image: 'https://placehold.co/600x400/1a1a2e/818cf8?text=Vite+React+TS',
-        tags: ['Vite', 'React', 'Tailwind CSS', 'TypeScript'],
-        categorys: ['web', 'template'],
-        github: 'https://github.com/TeaChoco/Vite-React-TypeScript',
-    },
-    {
-        id: 'choco-developer-bot',
-        titleKey: 'portfolio.projects.chocoDeveloperBot.title',
-        descKey: 'portfolio.projects.chocoDeveloperBot.desc',
-        image: 'https://placehold.co/600x400/1a1a2e/818cf8?text=Choco+Developer+Bot',
-        tags: ['TypeScript', 'Node.js', 'Discord.js', 'MongoDB'],
-        categorys: ['bot'],
-        github: 'https://github.com/TeaChocoOfficial/Choco-Developer-Bot',
-    },
-];
-
-const categories = ['all', 'web', 'backend', 'bot', 'template'] as const;
+import { categories, projects, type Category } from '$/components/data/projects';
+import { useThemeStore } from '$/stores/themeStore';
 
 export default function Portfolio() {
     const { t } = useTranslation();
-    const [activeCategory, setActiveCategory] = useState<string>('all');
+    const { theme } = useThemeStore();
+    const [activeCategory, setActiveCategory] = useState<Category>('all');
 
     const filteredProjects =
         activeCategory === 'all'
@@ -122,13 +61,16 @@ export default function Portfolio() {
                             className='card group overflow-hidden p-0'
                         >
                             {/* Project Image */}
-                            <div className='relative overflow-hidden aspect-[3/2]'>
+                            <div className='relative overflow-hidden aspect-3/2'>
                                 <img
-                                    src={project.image}
+                                    src={
+                                        project.image ??
+                                        `https://placehold.co/600x400/${theme === 'dark' ? '1a1a2e/818cf8' : 'f8f9fa/333'}?text=${project.placehold ?? project.id}`
+                                    }
                                     alt={t(project.titleKey, project.id)}
                                     className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-110'
                                 />
-                                <div className='absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+                                <div className='absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
 
                                 {/* Hover Links */}
                                 <div className='absolute bottom-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300'>

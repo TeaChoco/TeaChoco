@@ -29,7 +29,7 @@ export default function About() {
         { name: 'Database (MongoDB)', level: 70, color: '#47A248', icon: SiMongodb },
     ];
 
-    const stats = [
+    const stats: { value: string; key: string }[] = [
         { value: '3+', key: 'about.statYears' },
         { value: '10+', key: 'about.statProjects' },
         { value: '5+', key: 'about.statTech' },
@@ -86,7 +86,7 @@ export default function About() {
                                 {stat.value}
                             </span>
                             <span className='text-text-muted-light dark:text-text-muted-dark text-sm'>
-                                {t(stat.key, stat.key.split('.').pop())}
+                                {t(stat.key, stat.key.split('.').pop() || '')}
                             </span>
                         </motion.div>
                     ))}
