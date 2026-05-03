@@ -1,10 +1,8 @@
 //-Path: "TeaChoco-Portfolio/client/src/components/3d/useAvatar.tsx"
+import env from '$/secure/env';
 import * as THREE from 'three';
 import { useState, useEffect } from 'react';
-import {
-    type GLTF,
-    GLTFLoader,
-} from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { type GLTF, GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { useLoader, type ObjectMap } from '@react-three/fiber';
 
 export interface UseAvatar {
@@ -15,7 +13,7 @@ export interface UseAvatar {
 }
 
 export default function useAvatar(): UseAvatar {
-    const url = `${import.meta.env.BASE_URL}models/TeaChoco.glb`;
+    const url = `${env.BASE}models/TeaChoco.glb`;
 
     const [progress, setProgress] = useState(0);
     const [isLoading, setIsLoading] = useState(true);

@@ -1,11 +1,15 @@
 //-Path: "vite-extra-react-ssr-ts/server.js"
 import os from 'node:os';
+import chalk from 'chalk';
 import dotenv from 'dotenv';
 import express from 'express';
 import fs from 'node:fs/promises';
+import { ViteDevServer } from 'vite';
 import compression from 'compression';
 import { Transform } from 'node:stream';
 import tailwindcss from '@tailwindcss/vite';
+
+type EntryServer = typeof import('./src/entry-server.tsx');
 
 dotenv.config();
 
@@ -13,11 +17,11 @@ const time = Date.now();
 
 // Constants
 const ABORT_DELAY = 10000;
-const base = '/TeaChoco/';
+const base: string = '/TeaChoco/';
 // const base = process.env.VITE_CLIENT_BASE || '/';
-const port = process.env.VITE_CLIENT_PORT || 5173;
-const host = process.env.VITE_CLIENT_HOST || '127.0.0.1';
-const isProduction = process.env.VITE_MODE === 'production';
+const port: number = Number(process.env.VITE_CLIENT_PORT || 5173);
+const host: string = String(process.env.VITE_CLIENT_HOST || '127.0.0.1');
+const isProduction: boolean = process.env.VITE_MODE === 'production';
 
 // Cached production assets
 const templateHtml = isProduction ? await fs.readFile('./dist/server/index.html', 'utf-8') : '';
@@ -28,8 +32,7 @@ async function createServer() {
     app.use(compression());
 
     // Add Vite or respective production middlewares
-    /** @type {import('vite').ViteDevServer | undefined} */
-    let vite;
+    let vite: ViteDevServer;
     if (!isProduction) {
         const { createServer } = await import('vite');
         vite = await createServer({
@@ -41,11 +44,11 @@ async function createServer() {
         app.use(vite.middlewares);
     } else {
         const sirv = (await import('sirv')).default;
-        app.use(base, sirv('./dist/client', { index: false, extensions: [] }));
+        app.use(base, sirv('./dist/client', { extensions: [] }));
     }
 
     // Serve HTML
-    app.use('*all', async (req, res, next) => {
+    app.use('*all', async (req, res) => {
         // ข้าม request ที่ไม่ใช่ HTML page
         const url = req.originalUrl;
 
@@ -66,41 +69,44 @@ async function createServer() {
         // ถ้าเป็น root และไม่มี basename ให้ redirect
         if (base !== '/' && (url === '/' || url === '')) return res.redirect(302, base);
         try {
-            /** @type {import('./src/entry-server.tsx').render} */
-            let render;
-            /** @type {string} */
-            let template;
-            let didError = false;
-            const url = req.originalUrl.replace(base, '').replace(/^\/?/, '/');
+            let template: string;
+            let didError: boolean = false;
+            let render: EntryServer['render'];
+            let getHeadForRoute: EntryServer['getHeadForRoute'];
+            const requestUrl = req.originalUrl.replace(base, '').replace(/^\/?/, '/');
 
             if (!isProduction) {
                 // Always read fresh template in development
                 template = await fs.readFile('./index.html', 'utf-8');
-                template = await vite.transformIndexHtml(url, template);
+                template = await vite.transformIndexHtml(requestUrl, template);
                 const devModule = await vite.ssrLoadModule('/src/entry-server.tsx');
                 render = devModule.render;
+                getHeadForRoute = devModule.getHeadForRoute;
             } else {
                 template = templateHtml;
                 const prodModule = await import('./dist/server/entry-server.js');
                 render = prodModule.render;
+                getHeadForRoute = prodModule.getHeadForRoute;
             }
 
             const cookies = req.headers.cookie || '';
             const themeMatch = cookies.match(/theme=([^;]+)/);
             const theme = themeMatch ? themeMatch[1] : 'dark';
 
-            if (theme === 'dark') {
+            if (theme === 'dark')
                 template = template.replace('<html lang="en">', '<html lang="en" class="dark">');
-            }
 
             const langMatch = cookies.match(/i18next=([^;]+)/);
             const lang = langMatch ? langMatch[1] : 'en';
+
+            const head = getHeadForRoute(url);
+            template = template.replace('<!--app-head-->', head);
 
             const { pipe, abort } = render(url, lang, {
                 async onShellError(error) {
                     console.error('Shell Error:', error);
                     // ไม่ต้องส่ง error กลับไป client ถ้าเป็น Navigate error
-                    if (error?.message?.includes('<Navigate>')) {
+                    if (error instanceof Error && error?.message?.includes('<Navigate>')) {
                         // ส่งหน้า index กลับไปให้ client จัดการ navigation เอง
                         const html = template.replace('<!--app-html-->', '');
                         res.status(200).set({ 'Content-Type': 'text/html' }).send(html);
@@ -108,7 +114,9 @@ async function createServer() {
                     }
                     res.status(500);
                     console.error(error);
+
                     res.set({ 'Content-Type': 'text/html' });
+                    if (!(error instanceof Error)) return;
                     try {
                         let html = await fs.readFile('./error.html', 'utf-8');
                         html = html.replace(
@@ -147,9 +155,9 @@ async function createServer() {
                     console.error(error);
                 },
             });
-
             setTimeout(() => abort(), ABORT_DELAY);
-        } catch (error) {
+        } catch (error: unknown) {
+            if (!(error instanceof Error)) throw new Error('Unknown error', { cause: error });
             if (!isProduction && vite) vite.ssrFixStacktrace(error);
             console.error(error.stack);
             try {
@@ -173,20 +181,19 @@ createServer()
     .then((server) => {
         server.listen(port, host, () => {
             const interfaces = os.networkInterfaces();
-            /** @type {string[]} */
-            const addresses = [];
+            const addresses: string[] = [];
             Object.values(interfaces).forEach((ifaces) =>
                 ifaces?.forEach((iface) => {
                     if (iface.family === 'IPv4' && !iface.internal) addresses.push(iface.address);
                 }),
             );
             console.log(
-                `\n    VITE Extra React TypeScript SSR by TeaChoco ready in ${Date.now() - time}ms\n`,
+                `\n    ${chalk.green('VITE')} ${chalk.hex('#FF69B4')('Extra React TypeScript SSR')} by ${chalk.bold(chalk.blue('TeaChoco'))} ${chalk.gray(`ready in ${Date.now() - time} ms`)}\n`,
             );
 
-            console.log(`    - Local: http://${host}:${port}${base}`);
+            console.log(`    ${chalk.green('➜')}  Local:    ${chalk.cyan(`http://${host}:${port}${base}`)}`);
             addresses.forEach((addr) =>
-                console.log(`    - Network: http://${addr}:${port}${base}`),
+                console.log(`    ${chalk.green('➜')}  Network:  ${chalk.cyan(`http://${addr}:${port}${base}`)}`),
             );
         });
     })

@@ -18,6 +18,14 @@ const routeMetaMap: Record<string, RouteMeta> = {
         description:
             'Production-ready Vite + React SSR template with TypeScript, Tailwind CSS, i18next, Zustand, and Socket.io',
     },
+    '/about': {
+        title: 'About — Vite Extra React SSR',
+        description: 'Explore the architecture and tech stack behind this SSR template',
+    },
+    '/socket': {
+        title: 'Socket.io Demo — Vite Extra React SSR',
+        description: 'Real-time Socket.io integration demo with live player count',
+    },
 };
 
 /** Generate SEO head tags based on the current route */
