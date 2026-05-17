@@ -1,15 +1,25 @@
 // -Path: "TeaChoco-Portfolio/client/src/components/3d/Scene.tsx"
 import { useEffect } from 'react';
 import useAvatar from './useAvatar';
+import { useControls } from 'leva';
 import { useFrame } from '@react-three/fiber';
-import { Environment } from '@react-three/drei';
 
 export default function Scene() {
-    const { vrm, Avatar, animator, isLoading } = useAvatar();
+    const { name } = useControls({
+        name: {
+            value: 'Hitori Gotoh (Bocchi the Rock!)',
+            options: ['Hitori Gotoh (Bocchi the Rock!)', 'TeaChoco'],
+        },
+    });
+    const { vrm, progress, animator, isLoading, Avatar } = useAvatar(name);
 
     useEffect(() => {
-        console.log(vrm);
+        console.log('vrm', vrm);
     }, [vrm]);
+
+    useEffect(() => {
+        console.log('progress', progress);
+    }, [progress]);
 
     useEffect(() => {
         if (isLoading) return;
@@ -23,15 +33,10 @@ export default function Scene() {
 
     return (
         <>
-            <Environment preset="apartment" />
-            <ambientLight intensity={0.5} />
-            <directionalLight
-                castShadow
-                intensity={1.5}
-                position={[1, 2, 3]}
-                shadow-mapSize={1024}
-            />
-            <group position={[0, 0, 0]} castShadow receiveShadow>
+            <ambientLight intensity={0.6} />
+            <directionalLight intensity={1.2} position={[1, 2, 3]} />
+            <directionalLight intensity={0.4} position={[-1, 1, -2]} />
+            <group position={[0, 0, 0]} rotation={[0, Math.PI, 0]}>
                 <Avatar />
             </group>
         </>

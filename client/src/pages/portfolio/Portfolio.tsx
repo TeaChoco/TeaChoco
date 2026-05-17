@@ -118,7 +118,7 @@ export default function Portfolio() {
                                                 key={tag}
                                                 className='px-2.5 py-0.5 text-xs font-medium rounded-full bg-primary/10 text-primary-light dark:text-primary-light border border-primary/20 inline-flex items-center gap-1'
                                             >
-                                                {TagIcon && <TagIcon className='text-[10px]' />}
+                                                {TagIcon && <TagIcon.icon className='text-[10px]' />}
                                                 {tag}
                                             </span>
                                         );

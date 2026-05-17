@@ -180,8 +180,8 @@ async function createServer() {
 createServer()
     .then((server) => {
         server.listen(port, host, () => {
-            const interfaces = os.networkInterfaces();
             const addresses: string[] = [];
+            const interfaces = os.networkInterfaces();
             Object.values(interfaces).forEach((ifaces) =>
                 ifaces?.forEach((iface) => {
                     if (iface.family === 'IPv4' && !iface.internal) addresses.push(iface.address);

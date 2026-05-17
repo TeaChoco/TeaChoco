@@ -2,56 +2,46 @@
 import env from '$/secure/env';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import type { IconType } from 'react-icons';
 import { useTranslation } from 'react-i18next';
 import Section from '../../components/layout/Section';
-import { FaGithub, FaReact, FaNodeJs, FaDocker } from 'react-icons/fa6';
-import { SiTypescript, SiTailwindcss, SiVite, SiNestjs } from 'react-icons/si';
+import { getTagIcon, type TagIconKey } from '$/data/icon';
 
 type TechStack = {
-    icon: IconType;
+    id: TagIconKey;
     name: string;
-    color?: string;
 };
 
 const techStacks: TechStack[] = [
     {
-        icon: FaReact,
-        name: 'React',
-        color: '#61DAFB',
+        id: 'React',
+        name: 'React.js',
     },
     {
-        icon: SiTypescript,
+        id: 'TypeScript',
         name: 'TypeScript',
-        color: '#3178C6',
     },
     {
-        icon: SiVite,
+        id: 'Vite',
         name: 'Vite',
-        color: '#646CFF',
     },
     {
-        icon: SiTailwindcss,
+        id: 'TailwindCSS',
         name: 'Tailwind',
-        color: '#06B6D4',
     },
     {
-        icon: FaNodeJs,
+        id: 'Nodejs',
         name: 'Node.js',
-        color: '#339933',
     },
     {
-        icon: SiNestjs,
+        id: 'Nestjs',
         name: 'NestJS',
-        color: '#E0234E',
     },
     {
-        icon: FaDocker,
+        id: 'Docker',
         name: 'Docker',
-        color: '#2496ED',
     },
     {
-        icon: FaGithub,
+        id: 'GitGitHub',
         name: 'GitHub',
     },
 ];
@@ -92,6 +82,36 @@ export default function Home() {
                     </div>
                 </Section>
 
+                {/* Tech Stack */}
+                <Section>
+                    <div className='pointer-events-auto w-full max-w-4xl text-center'>
+                        <h2 className='text-3xl font-bold mb-12 linear-text drop-shadow-md bg-bg-light/50 dark:bg-bg-dark/50 inline-block px-4 py-2 rounded-lg'>
+                            Tech Stack
+                        </h2>
+                        <div className='grid grid-cols-2 md:grid-cols-4 gap-6'>
+                            {techStacks.map((tech) => {
+                                const icon = getTagIcon(tech.id);
+
+                                return (
+                                    <motion.div
+                                        key={tech.name}
+                                        whileHover={{ scale: 1.05, translateY: -5 }}
+                                        className='card flex flex-col items-center gap-3 shadow-lg hover:shadow-primary/20 transition-all cursor-default hover:translate-y-0'
+                                    >
+                                        {icon.icon && (
+                                            <icon.icon
+                                                className='text-4xl'
+                                                style={{ color: icon.color }}
+                                            />
+                                        )}
+                                        <span className='font-medium'>{tech.name}</span>
+                                    </motion.div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                </Section>
+
                 {/* About Preview */}
                 <Section>
                     <div className='card pointer-events-auto bg-white/90 dark:bg-slate-900/90 p-8 md:p-12 rounded-3xl shadow-xl max-w-4xl w-full border border-primary/20'>
@@ -102,27 +122,6 @@ export default function Home() {
                         <p className='text-lg text-text-secondary-light dark:text-text-secondary-dark leading-relaxed'>
                             {t('about.intro2')}
                         </p>
-                    </div>
-                </Section>
-
-                {/* Tech Stack */}
-                <Section>
-                    <div className='pointer-events-auto w-full max-w-4xl text-center'>
-                        <h2 className='text-3xl font-bold mb-12 linear-text drop-shadow-md bg-bg-light/50 dark:bg-bg-dark/50 inline-block px-4 py-2 rounded-lg'>
-                            Tech Stack
-                        </h2>
-                        <div className='grid grid-cols-2 md:grid-cols-4 gap-6'>
-                            {techStacks.map((tech) => (
-                                <motion.div
-                                    key={tech.name}
-                                    whileHover={{ scale: 1.05, translateY: -5 }}
-                                    className='card flex flex-col items-center gap-3 shadow-lg hover:shadow-primary/20 transition-all cursor-default hover:translate-y-0'
-                                >
-                                    <tech.icon className='text-4xl' style={{ color: tech.color }} />
-                                    <span className='font-medium'>{tech.name}</span>
-                                </motion.div>
-                            ))}
-                        </div>
                     </div>
                 </Section>
 
