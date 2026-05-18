@@ -2,17 +2,16 @@
 import env from '$/secure/env';
 import type { TagIconKey } from './icon';
 
-export const categories = ['all', 'public', 'web', 'backend', 'bot', 'template'] as const;
+export const categories = ['all', 'public', 'web', 'server', 'bot', 'template'] as const;
 
 export type CategoryKeys = (typeof categories)[number];
 
-type Project = {
+export type Project = {
     id: string;
     titleKey: string;
     descKey: string;
     tags: TagIconKey[];
     image?: string;
-    placehold?: string;
     categorys: CategoryKeys[];
     github?: string;
     live?: string;
@@ -44,8 +43,7 @@ export const projects: Project[] = [
         id: 'vite-extra-react-ssr-typescript-template',
         titleKey: 'portfolio.projects.viteExtraReactSsr.title',
         descKey: 'portfolio.projects.viteExtraReactSsr.desc',
-        tags: ['Vite', 'React', 'SSR', 'TailwindCSS', 'TypeScript'],
-        placehold: 'Vite+React+TS+SSR',
+        tags: ['TypeScript', 'Vite', 'React', 'SSR', 'TailwindCSS'],
         categorys: ['web', 'template'],
         github: 'https://github.com/TeaChoco/Vite-Extra-React-SSR-TypeScript',
     },
@@ -53,17 +51,23 @@ export const projects: Project[] = [
         id: 'vite-react-typescript-template',
         titleKey: 'portfolio.projects.viteReact.title',
         descKey: 'portfolio.projects.viteReact.desc',
-        tags: ['Vite', 'React', 'TailwindCSS', 'TypeScript'],
-        placehold: 'Vite+React+TS',
+        tags: ['TypeScript', 'Vite', 'React', 'TailwindCSS', 'SocketIO'],
         categorys: ['web', 'template'],
         github: 'https://github.com/TeaChoco/Vite-React-TypeScript',
+    },
+    {
+        id: 'express-typescript-template',
+        titleKey: 'portfolio.projects.express.title',
+        descKey: 'portfolio.projects.express.desc',
+        tags: ['TypeScript', 'Nodejs', 'Expressjs', 'SocketIO'],
+        categorys: ['server', 'template'],
+        github: 'https://github.com/TeaChoco/Express-TypeScript',
     },
     {
         id: 'choco-developer-bot',
         titleKey: 'portfolio.projects.chocoDeveloperBot.title',
         descKey: 'portfolio.projects.chocoDeveloperBot.desc',
         tags: ['TypeScript', 'Nodejs', 'Discordjs', 'MongoDB'],
-        placehold: 'Choco+Developer+Bot',
         categorys: ['bot'],
         github: 'https://github.com/TeaChocoOfficial/Choco-Developer-Bot',
     },

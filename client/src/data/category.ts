@@ -9,6 +9,7 @@ export type CategoryKeys =
     | 'bot'
     | 'devops'
     | 'public'
+    | 'server'
     | 'language'
     | 'frontend'
     | 'backend'
@@ -21,6 +22,7 @@ export const categoryIcons: Record<CategoryKeys, IconType> = {
     bot: FaRobot,
     devops: FaCode,
     public: FaGlobe,
+    server: FaServer,
     language: FaCode,
     frontend: FaGlobe,
     backend: FaServer,

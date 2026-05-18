@@ -1,109 +1,82 @@
-# TeaChoco Portfolio
+<!-- -Path: "TeaChoco-Portfolio/README.md" -->
 
-https://teachoco.github.io/TeaChoco/
+<div align="center">
 
-A modern, responsive portfolio website built with React, TypeScript, and Vite. This project showcases my skills as a Full-Stack Developer and Creative Designer, featuring a clean UI, multi-language support, and server-side rendering (SSR) for improved SEO.
+# 👋 Hi, I'm TeaChoco
 
-## Features
+**Full-Stack Developer & Creative Designer**
 
-- **Modern Tech Stack**: Built with React 19, TypeScript, and Vite for lightning-fast performance.
-- **Server-Side Rendering (SSR)**: Implemented for better SEO and initial load performance using Express and customization for GitHub Pages.
-- **Responsive Design**: Mobile-first architecture ensuring a great experience on all devices.
-- **Styling**: Beautiful, fast styling with Tailwind CSS v4, featuring a "Sky Blue & Pink" theme (`se-fah` and `chom-poo`).
-- **Dark/Light Mode**: Fully supported theme toggling.
-- **Internationalization (i18n)**: Support for multiple languages:
-    - Thai (th)
-    - English (en)
-    - Japanese (ja)
-    - Chinese (zh)
-- **Routing**: Client-side routing with React Router v7.
+[![Portfolio](https://img.shields.io/badge/🌐-Portfolio-blue?style=for-the-badge)](https://teachoco.github.io/TeaChoco/)
+[![Email](https://img.shields.io/badge/📧-Email-red?style=for-the-badge)](mailto:teachocodeveloper@gmail.com)
 
-## Tech Stack
-
-- **Runtime**: [Node.js](https://nodejs.org/)
-- **Package Manager**: [pnpm](https://pnpm.io/)
-- **Framework**: [Vite](https://vitejs.dev/) with React
-- **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **Routing**: [React Router](https://reactrouter.com/)
-- **Internationalization**: [i18next](https://www.i18next.com/)
-- **Server**: [Express](https://expressjs.com/) (for SSR)
-
-## Getting Started
-
-### Prerequisites
-
-Ensure you have Node.js installed. We recommend using `pnpm` as the package manager.
-
-```bash
-npm install -g pnpm
-```
-
-### Installation
-
-1.  Clone the repository:
-
-    ```bash
-    git clone https://github.com/TeaChoco/TeaChoco-Portfolio.git
-    cd TeaChoco-Portfolio
-    ```
-
-2.  Install dependencies:
-    ```bash
-    cd client
-    pnpm install
-    ```
-
-### Development
-
-To start the development server with HMR:
-
-```bash
-pnpm dev
-```
-
-### Build & Production
-
-To build the project for production (Client + SSR + Prerendering):
-
-```bash
-pnpm build:ssr
-```
-
-To preview the production build:
-
-```bash
-pnpm preview
-```
-
-## Project Structure
-
-```
-TeaChoco-Portfolio/
-├── client/                 # Client-side application code
-│   ├── public/             # Static assets
-│   ├── src/
-│   │   ├── components/     # Reusable UI components
-│   │   ├── i18n/          # Internationalization configuration & locales
-│   │   ├── pages/          # Page components (Home, About, Blog, Contact)
-│   │   ├── router/         # Application routing
-│   │   ├── entry-client.tsx # Client entry point
-│   │   ├── entry-server.tsx # Server entry point for SSR
-│   │   └── ...
-│   ├── index.html          # HTML template
-│   ├── server.ts           # Express server for dev/SSR
-│   ├── prerender.ts        # Script for static pre-rendering
-│   ├── vite.config.ts      # Vite configuration
-│   └── ...
-└── ...
-```
-
-## Contact
-
-- **Name**: TeaChoco
-- **Email**: [teachocodeveloper@gmail.com](mailto:teachocodeveloper@gmail.com)
-- **Role**: Full-Stack Developer & Creative Designer
+</div>
 
 ---
 
-© 2025 TeaChoco. All rights reserved.
+## 🚀 About Me
+
+I'm a passionate Full-Stack Developer and Creative Designer who loves building modern, responsive web applications. I specialize in creating beautiful user interfaces with clean code and best practices.
+
+- 🌐 **Portfolio**: [teachoco.github.io/TeaChoco](https://teachoco.github.io/TeaChoco/)
+- 📧 **Email**: teachocodeveloper@gmail.com
+- 💼 **Role**: Full-Stack Developer & Creative Designer
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+
+### Backend & Tools
+![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
+![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)
+![pnpm](https://img.shields.io/badge/pnpm-F69220?style=for-the-badge&logo=pnpm&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+
+### Other Skills
+- 🌍 **Internationalization**: Thai, English, Japanese, Chinese
+- 🎨 **UI/UX Design**: Modern, responsive, accessible
+- ⚡ **Performance**: SSR, optimization, fast load times
+- 🌙 **Theme**: Dark/Light mode support
+
+---
+
+## 📦 Featured Project
+
+### TeaChoco Portfolio
+
+A modern, responsive portfolio website built with React, TypeScript, and Vite.
+
+**Key Features:**
+- ⚡ Server-Side Rendering (SSR) for SEO
+- 📱 Mobile-first responsive design
+- 🎨 Beautiful "Sky Blue & Pink" theme
+- 🌍 Multi-language support (TH, EN, JA, ZH)
+- 🌙 Dark/Light mode
+- 🚀 Built with React 19, TypeScript, Vite
+
+[![View Project](https://img.shields.io/badge/🔗-View_Project-green?style=for-the-badge)](https://teachoco.github.io/TeaChoco/)
+[![GitHub](https://img.shields.io/badge/📂-Repository-black?style=for-the-badge)](https://github.com/TeaChoco/TeaChoco-Portfolio)
+
+---
+
+## 🤝 Let's Connect
+
+<div align="center">
+
+[![Email](https://img.shields.io/badge/📧-Email_me-red?style=for-the-badge)](mailto:teachocodeveloper@gmail.com)
+[![Portfolio](https://img.shields.io/badge/🌐-My_Portfolio-blue?style=for-the-badge)](https://teachoco.github.io/TeaChoco/)
+
+</div>
+
+---
+
+<div align="center">
+
+**© 2025 TeaChoco. Built with ❤️**
+
+</div>

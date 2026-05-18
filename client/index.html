@@ -5,7 +5,26 @@
         <meta charset="UTF-8" />
         <link rel="icon" type="image/svg+xml" href="/TeaChoco-Developer-logo.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>TeaChoco Portfolio</title>
+        <meta
+            name="description"
+            content="TeaChoco Portfolio - Developer Portfolio showcasing projects and skills"
+        />
+        <meta name="keywords" content="TeaChoco, Portfolio, Developer, Projects" />
+        <meta name="author" content="TeaChoco" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="TeaChoco Portfolio" />
+        <meta
+            property="og:description"
+            content="TeaChoco Portfolio - Developer Portfolio showcasing projects and skills"
+        />
+        <meta property="og:image" content="/TeaChoco-Developer-logo.ico" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="TeaChoco Portfolio" />
+        <meta
+            name="twitter:description"
+            content="TeaChoco Portfolio - Developer Portfolio showcasing projects and skills"
+        />
+        <link rel="stylesheet" href="/src/index.css" />
         <!--app-head-->
         <script>
             // Script to handle GitHub Pages SPA redirect
@@ -25,27 +44,15 @@
                     );
                 }
             })(window.location);
+            (function () {
+                const match = document.cookie.match(/(?:^|;\s*)theme=([^;]+)/);
+                const theme = match ? match[1] : null;
+                const isDarkSystem =
+                    !theme && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (theme === 'dark' || isDarkSystem)
+                    document.documentElement.classList.add('dark');
+            })();
         </script>
-        <meta
-            name="description"
-            content="TeaChoco Portfolio - Developer Portfolio showcasing projects and skills"
-        />
-        <meta name="keywords" content="TeaChoco, Portfolio, Developer, Projects" />
-        <meta name="author" content="TeaChoco" />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="TeaChoco Portfolio" />
-        <meta
-            property="og:description"
-            content="TeaChoco Portfolio - Developer Portfolio showcasing projects and skills"
-        />
-        <meta property="og:image" content="/vite.svg" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="TeaChoco Portfolio" />
-        <meta
-            name="twitter:description"
-            content="TeaChoco Portfolio - Developer Portfolio showcasing projects and skills"
-        />
-        <link rel="stylesheet" href="/src/index.css" />
     </head>
     <body>
         <div id="root"><!--app-html--></div>

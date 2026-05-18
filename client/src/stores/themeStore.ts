@@ -6,65 +6,63 @@ export type ThemeMode = 'dark' | 'light';
 
 interface ThemeState {
     theme: ThemeMode;
+    _hydrated: boolean;
     toggleTheme: () => void;
     setTheme: (theme: ThemeMode) => void;
-    initializeTheme: () => void;
 }
 
-const getMediaTheme = (): ThemeMode => {
-    if (typeof window !== 'undefined') {
-        const stored = localStorage.getItem('theme');
-        if (stored === 'dark' || stored === 'light') return stored;
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    }
-    return 'dark';
+const getInitialTheme = (): ThemeMode => {
+    if (typeof document === 'undefined') return 'light';
+
+    const match = document.cookie.match(/(?:^|;\s*)theme=([^;]+)/);
+    if (match && ['dark', 'light'].includes(match[1])) return match[1] as ThemeMode;
+
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+};
+
+const cookieStorage = {
+    getItem: (_name: string): StorageValue<ThemeState> | null => {
+        if (typeof document === 'undefined') return null;
+        const match = document.cookie.match(/(?:^|;\s*)theme=([^;]+)/);
+        if (!match) return null;
+        return { state: { theme: match[1] as ThemeMode } } as StorageValue<ThemeState>;
+    },
+    setItem: (_name: string, value: StorageValue<ThemeState>) => {
+        if (typeof document === 'undefined') return;
+        const theme = value.state.theme;
+        document.cookie = `theme=${theme}; path=/; max-age=31536000; SameSite=Lax`;
+    },
+    removeItem: (_name: string) => {
+        if (typeof document === 'undefined') return;
+        document.cookie = 'theme=; path=/; max-age=0';
+    },
+};
+const applyTheme = (theme: ThemeMode) => {
+    if (typeof document === 'undefined') return;
+    document.documentElement.classList.toggle('dark', theme === 'dark');
 };
 
 export const useThemeStore = create<ThemeState>()(
     persist(
         (set) => ({
-            theme: 'dark', // Always start with 'dark' on both server and client
+            theme: getInitialTheme(),
+            _hydrated: false,
             toggleTheme: () =>
                 set((state) => {
                     const newTheme = state.theme === 'dark' ? 'light' : 'dark';
-                    // บันทึกคุกกี้ (Manual)
-                    if (typeof document !== 'undefined')
-                        document.cookie = `theme=${newTheme};path=/;max-age=31536000`;
+                    applyTheme(newTheme);
                     return { theme: newTheme };
                 }),
-            setTheme: (theme: ThemeMode) => {
-                if (typeof document !== 'undefined')
-                    document.cookie = `theme=${theme};path=/;max-age=31536000`;
+            setTheme: (theme) => {
+                applyTheme(theme);
                 set({ theme });
             },
-            initializeTheme: () => {
-                // Initialize theme with stored value on client-side only
-                if (typeof window !== 'undefined') {
-                    const mediaTheme = getMediaTheme();
-                    set({ theme: mediaTheme });
-                }
-            },
         }),
-        { 
+        {
             name: 'theme',
-            storage: {
-                getItem: (name) => {
-                    if (typeof window !== 'undefined') {
-                        const item = localStorage.getItem(name);
-                        return item ? (JSON.parse(item) as StorageValue<ThemeState>) : null;
-                    }
-                    return null;
-                },
-                setItem: (name, value) => {
-                    if (typeof window !== 'undefined') {
-                        localStorage.setItem(name, JSON.stringify(value));
-                    }
-                },
-                removeItem: (name) => {
-                    if (typeof window !== 'undefined') {
-                        localStorage.removeItem(name);
-                    }
-                },
+            storage: cookieStorage,
+            onRehydrateStorage: () => (state) => {
+                if (state) state._hydrated = true;
             },
         },
     ),

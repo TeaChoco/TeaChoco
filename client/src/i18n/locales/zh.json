@@ -15,6 +15,8 @@
         "web": "网页",
         "bot": "机器人",
         "devops": "DevOps",
+        "public": "公开",
+        "server": "服务器",
         "backend": "后端",
         "database": "数据库",
         "template": "模板",
@@ -34,8 +36,9 @@
         "description": "你好！我是一名 software 开发者，热衷于创建美观且实用的应用程序。",
         "aboutBtn": "关于我",
         "contactBtn": "联系我",
+        "scrollDown": "向下滚动",
         "techStackTitle": "技术栈",
-        "scrollDown": "向下滚动"
+        "viewMore": "查看所有技能"
     },
     "about": {
         "title": "关于我",

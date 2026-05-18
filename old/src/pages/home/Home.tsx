@@ -80,10 +80,18 @@ export default function Home() {
                         {t('home.description')}
                     </p>
                     <div className='flex gap-4 justify-center'>
-                        <Link to='/about' className='btn btn-primary'>
+                        <Link
+                            onClick={() => window.scrollTo(0, 0)}
+                            to='/about'
+                            className='btn btn-primary'
+                        >
                             {t('home.aboutBtn')}
                         </Link>
-                        <Link to='/contact' className='btn btn-secondary'>
+                        <Link
+                            onClick={() => window.scrollTo(0, 0)}
+                            to='/contact'
+                            className='btn btn-secondary'
+                        >
                             {t('home.contactBtn')}
                         </Link>
                     </div>

@@ -23,13 +23,11 @@ export default function Skill() {
     }, [selectedCategory, sortBy]);
 
     return (
-        <div className='mb-10'>
+        <div className='mb-10 w-full'>
             <div className='flex items-center justify-between mb-4'>
-                <h2 className='section-title linear-text inline-block'>
-                    {t('about.skillsTitle', 'Skills')}
-                </h2>
-                <span className='text-sm text-text-muted-light dark:text-text-muted-dark bg-bg-card-light dark:bg-bg-card-dark px-3 py-1 rounded-full border border-border-light dark:border-border-dark'>
-                    {filteredAndSortedSkills.length} {t('skills.count', 'skills')}
+                <h2 className='section-title linear-text inline-block'>{t('about.skillsTitle')}</h2>
+                <span className='text-sm text-surface-muted bg-surface-overlay px-3 py-1 rounded-full border border-border'>
+                    {filteredAndSortedSkills.length} {t('skills.count')}
                 </span>
             </div>
 

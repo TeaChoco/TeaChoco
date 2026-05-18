@@ -15,10 +15,12 @@
         "web": "Web",
         "bot": "Bot",
         "devops": "DevOps",
-        "backend": "Backend",
+        "public": "Public",
+        "server": "Server",
+        "backend": "Back-end",
         "database": "Database",
         "template": "Template",
-        "frontend": "Frontend",
+        "frontend": "Front-end",
         "language": "Languages"
     },
     "skills": {
@@ -34,8 +36,9 @@
         "description": "Hello! I'm a software developer passionate about creating beautiful and functional applications.",
         "aboutBtn": "About Me",
         "contactBtn": "Contact",
+        "scrollDown": "Scroll Down",
         "techStackTitle": "Tech Stack",
-        "scrollDown": "Scroll Down"
+        "viewMore": "View all skills"
     },
     "about": {
         "title": "About Me",
@@ -83,13 +86,6 @@
         "title": "Portfolio",
         "subtitle": "My projects and works",
         "empty": "No projects in this category yet.",
-        "categories": {
-            "all": "All",
-            "web": "Web",
-            "backend": "Backend",
-            "bot": "Bot",
-            "template": "Template"
-        },
         "projects": {
             "pokeRotom": {
                 "title": "PokeRotom",

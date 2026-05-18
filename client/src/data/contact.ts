@@ -8,7 +8,7 @@ import {
     FaFacebook,
 } from 'react-icons/fa6';
 
-type ContactMethod = {
+export type ContactMethod = {
     icon: IconType;
     label: string;
     value: string;

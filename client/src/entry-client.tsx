@@ -1,5 +1,4 @@
 // -Path: "TeaChoco-Portfolio/client/src/entry-client.tsx"
-import './index.css';
 import App from './App';
 import env from './secure/env';
 import { StrictMode } from 'react';

@@ -5,7 +5,7 @@ export default function Footer() {
     const { t } = useTranslation();
 
     return (
-        <footer className='text-center py-8 text-text-muted-light dark:text-text-muted-dark border-t border-border-light dark:border-border-dark'>
+        <footer className='text-center py-8 text-surface-muted border-t border-border'>
             <p>{t('footer.copyright', '© 2025 TeaChoco. All rights reserved.')}</p>
         </footer>
     );

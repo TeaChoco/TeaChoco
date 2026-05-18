@@ -21,10 +21,7 @@ export default function SkillsFilter({
 
     const categoryOptions: OptionSelectType<SkillCategory>[] = categories.map((category) => ({
         value: category,
-        label: t(
-            `categories.${category}`,
-            category.charAt(0).toUpperCase() + category.slice(1),
-        ),
+        label: t(`categories.${category}`),
         icon: createElement(categoryIcons[category], { className: 'text-sm' }),
     }));
 
@@ -32,12 +29,12 @@ export default function SkillsFilter({
         {
             value: 'level',
             icon: <FaSort className='text-sm' />,
-            label: t('skills.sortByLevel', 'By Level'),
+            label: t('skills.sortByLevel'),
         },
         {
             value: 'name',
             icon: <FaFont className='text-sm' />,
-            label: t('skills.sortByName', 'By Name'),
+            label: t('skills.sortByName'),
         },
     ];
 
@@ -46,17 +43,19 @@ export default function SkillsFilter({
             <div className='flex flex-col sm:flex-row gap-4'>
                 {/* Category Filter */}
                 <Select
+                    className='w-38!'
                     value={selectedCategory}
                     options={categoryOptions}
+                    label={t('categories.title')}
                     onChange={(value) => onCategoryChange(value)}
-                    label={t('categories.title', 'Category')}
                 />
 
                 {/* Sort Options */}
                 <Select
+                    className='w-38!'
                     value={sortBy}
                     options={sortOptions}
-                    label={t('skills.sortBy', 'Sort By')}
+                    label={t('skills.sortBy')}
                     onChange={(value) => onSortChange(value)}
                 />
             </div>

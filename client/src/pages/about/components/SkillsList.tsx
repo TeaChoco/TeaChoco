@@ -1,8 +1,8 @@
 // -Path: "TeaChoco-Portfolio/client/src/components/about/SkillsList.tsx"
 import { motion } from 'framer-motion';
+import { getTagIcon } from '$/data/icon';
 import type { Skill } from '$/data/skill';
 import useTextColor from '$/hooks/useTextColor';
-import { getTagIcon } from '$/data/icon';
 
 export default function SkillsList({ skills }: { skills: Skill[] }) {
     const { hex } = useTextColor();
@@ -60,7 +60,7 @@ export default function SkillsList({ skills }: { skills: Skill[] }) {
                                 viewport={{ once: true }}
                                 className='h-full rounded-full'
                                 style={{
-                                    background: `linear-gradient(90deg, var(--color-primary), ${icon.color ?? hex})`,
+                                    background: `linear-gradient(90deg, var(--color-secondary), ${icon.color ?? hex})`,
                                 }}
                             />
                         </div>

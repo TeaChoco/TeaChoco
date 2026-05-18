@@ -1,15 +1,16 @@
 // -Path: "TeaChoco-Portfolio/client/src/components/data/navLinks.ts"
+import type { IconType } from 'react-icons';
+import { FaHome, FaUser, FaBriefcase, FaEnvelope } from 'react-icons/fa';
 
 export type NavLink = {
     path: string;
     labelKey: string;
-    defaultValue: string;
+    icon: IconType;
 };
 
 export const navLinks: NavLink[] = [
-    { path: '/', labelKey: 'nav.home', defaultValue: 'Home' },
-    // { path: '/blog', labelKey: 'nav.blog', defaultValue: 'Blog' },
-    { path: '/about', labelKey: 'nav.about', defaultValue: 'About' },
-    { path: '/portfolio', labelKey: 'nav.portfolio', defaultValue: 'Portfolio' },
-    { path: '/contact', labelKey: 'nav.contact', defaultValue: 'Contact' },
+    { path: '/', labelKey: 'nav.home', icon: FaHome },
+    { path: '/about', labelKey: 'nav.about', icon: FaUser },
+    { path: '/portfolio', labelKey: 'nav.portfolio', icon: FaBriefcase },
+    { path: '/contact', labelKey: 'nav.contact', icon: FaEnvelope },
 ];
