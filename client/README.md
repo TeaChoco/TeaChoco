@@ -1,9 +1,87 @@
-# React + Vite
+# Welcome to React Router!
 
-This template sets up server-side rendering (SSR) with streaming for a React application using Vite.
+A modern, production-ready template for building full-stack React applications using React Router.
 
-Note that this template does not fully support [React Suspense](https://react.dev/reference/react/Suspense). If they are used, the site will only hydrate when suspense if fully resolved on the server-side.
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
 
-Why? Suspense works by sending the initial HTML with placeholders, and then stream additional scripts to replace the placeholders when the resource is ready on the server-side. This delay in the stream interferes with script execution as module scripts in Vite are only executed when the DOM is ready (when the stream ends). To remedy this, suspense requires module scripts to be [async](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script#async) and in the correct HTML order for it to hydrate as soon as possible. This is too complex to implement in a template right now.
+## Features
 
-Check out the [React docs](https://react.dev/learn/creating-a-react-app) for suggested full-stack frameworks that implement this.
+- 🚀 Server-side rendering
+- ⚡️ Hot Module Replacement (HMR)
+- 📦 Asset bundling and optimization
+- 🔄 Data loading and mutations
+- 🔒 TypeScript by default
+- 🎉 TailwindCSS for styling
+- 📖 [React Router docs](https://reactrouter.com/)
+
+## Getting Started
+
+### Installation
+
+Install the dependencies:
+
+```bash
+npm install
+```
+
+### Development
+
+Start the development server with HMR:
+
+```bash
+npm run dev
+```
+
+Your application will be available at `http://localhost:5173`.
+
+## Building for Production
+
+Create a production build:
+
+```bash
+npm run build
+```
+
+## Deployment
+
+### Docker Deployment
+
+To build and run using Docker:
+
+```bash
+docker build -t my-app .
+
+# Run the container
+docker run -p 3000:3000 my-app
+```
+
+The containerized application can be deployed to any platform that supports Docker, including:
+
+- AWS ECS
+- Google Cloud Run
+- Azure Container Apps
+- Digital Ocean App Platform
+- Fly.io
+- Railway
+
+### DIY Deployment
+
+If you're familiar with deploying Node applications, the built-in app server is production-ready.
+
+Make sure to deploy the output of `npm run build`
+
+```
+├── package.json
+├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
+├── build/
+│   ├── client/    # Static assets
+│   └── server/    # Server-side code
+```
+
+## Styling
+
+This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+
+---
+
+Built with ❤️ using React Router.

@@ -1,11 +1,4 @@
-node_modules
-npm-debug.log
-pnpm-debug.log
-dist
+.react-router
 build
-.git
-.gitignore
-.DS_Store
-Dockerfile
-.dockerignore
-*.md
+node_modules
+README.md

@@ -1,0 +1,131 @@
+{
+    "nav": {
+        "home": "Home",
+        "blog": "Blog",
+        "about": "About",
+        "portfolio": "Portfolio",
+        "contact": "Contact"
+    },
+    "notfound": {
+        "title": "Page Not Found",
+        "description": "The page you are looking for doesn't exist or has been moved.",
+        "back_home": "Back to Home",
+        "error_code": "404"
+    },
+    "footer": {
+        "copyright": "© 2025 TeaChoco. All rights reserved."
+    },
+    "categories": {
+        "title": "Categories",
+        "all": "All",
+        "web": "Web",
+        "bot": "Bot",
+        "devops": "DevOps",
+        "public": "Public",
+        "server": "Server",
+        "backend": "Back-end",
+        "database": "Database",
+        "template": "Template",
+        "frontend": "Front-end",
+        "language": "Languages"
+    },
+    "skills": {
+        "count": "skills",
+        "sortBy": "Sort By",
+        "sortByLevel": "By Level",
+        "sortByName": "By Name",
+        "noSkillsFound": "No skills found for this category",
+        "showAll": "Show all skills"
+    },
+    "home": {
+        "subtitle": "Full-Stack Developer & Creative Designer",
+        "description": "Hello! I'm a software developer passionate about creating beautiful and functional applications.",
+        "aboutBtn": "About Me",
+        "contactBtn": "Contact",
+        "scrollDown": "Scroll Down",
+        "techStackTitle": "Tech Stack",
+        "viewMore": "View all skills"
+    },
+    "about": {
+        "title": "About Me",
+        "subtitle": "Get to know me better",
+        "greeting": "Hello to all the lost souls who have wandered here, I am TeaChoco",
+        "intro1": "I'm a Full-Stack developer passionate about creating simple and efficient web applications. I have experience developing both Frontend and Backend with modern technologies.",
+        "intro2": "Besides coding, I also enjoy sharing knowledge through articles and helping the developer community.",
+        "skillsTitle": "Skills",
+        "experienceTitle": "Experience",
+        "jobTitle": "Full-Stack Developer",
+        "company": "Freelance",
+        "period": "2023 - Present",
+        "jobDesc": "Developing web applications and systems for various clients.",
+        "statYears": "Years Experience",
+        "statProjects": "Projects Completed",
+        "statTech": "Technologies"
+    },
+    "blog": {
+        "title": "Blog",
+        "subtitle": "Sharing knowledge and experience in software development",
+        "readMore": "Read more →",
+        "empty": "No posts found",
+        "posts": {
+            "1": {
+                "title": "Getting Started with React Server-Side Rendering",
+                "excerpt": "Learn how to set up SSR for React Application for better SEO.",
+                "date": "December 7, 2025",
+                "readTime": "5 min"
+            },
+            "2": {
+                "title": "Why TypeScript?",
+                "excerpt": "Benefits of using TypeScript and reasons to switch from JavaScript.",
+                "date": "December 5, 2025",
+                "readTime": "8 min"
+            },
+            "3": {
+                "title": "Modern CSS Techniques",
+                "excerpt": "Modern CSS techniques every developer should know.",
+                "date": "December 3, 2025",
+                "readTime": "6 min"
+            }
+        }
+    },
+    "portfolio": {
+        "title": "Portfolio",
+        "subtitle": "My projects and works",
+        "empty": "No projects in this category yet.",
+        "projects": {
+            "pokeRotom": {
+                "title": "PokeRotom",
+                "desc": "A real-time Pokémon companion app with WebSocket integration and interactive features."
+            },
+            "portfolio": {
+                "title": "Portfolio Website",
+                "desc": "This portfolio website built with React, Vite SSR, Three.js and TailwindCSS."
+            },
+            "viteExtraReactSsr": {
+                "title": "Vite Extra React SSR TypeScript",
+                "desc": "An advanced starter template for React SSR with Vite, featuring Tailwind CSS and modern tooling."
+            },
+            "viteReact": {
+                "title": "Vite React TypeScript",
+                "desc": "A lightweight starter template for React with Vite, featuring Tailwind CSS and modern tooling."
+            },
+            "chocoDeveloperBot": {
+                "title": "Choco Developer Bot",
+                "desc": "A feature-rich Discord bot built with Node.js and Discord.js for community management."
+            }
+        }
+    },
+    "contact": {
+        "title": "Contact",
+        "subtitle": "Have an interesting project? Let's talk!",
+        "desc": "Feel free to reach out through any of the platforms below. I usually respond within 24 hours.",
+        "formTitle": "Send a Message",
+        "name": "Name",
+        "namePlaceholder": "Your name",
+        "email": "Email",
+        "emailPlaceholder": "email@example.com",
+        "message": "Message",
+        "messagePlaceholder": "Write your message here...",
+        "submit": "Send Message"
+    }
+}

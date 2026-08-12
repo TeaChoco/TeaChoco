@@ -1,45 +1,59 @@
-// -Path: "vite-extra-react-ssr-ts/vite.config.ts"
-import path from 'path';
-import { fileURLToPath } from 'url';
-import react from '@vitejs/plugin-react';
-import tsconfig from './tsconfig.app.json';
+// -Path: 'Vite-React-Router-TypeScript/vite.config.ts'
+import chalk from 'chalk';
+import type { PluginOption } from 'vite';
 import tailwindcss from '@tailwindcss/vite';
-import { defineConfig, loadEnv, type AliasOptions } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
+import { reactRouter } from '@react-router/dev/vite';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const time = Date.now();
 
-/**
- * Generate Vite aliases from tsconfig paths
- */
-const getAliases = (): AliasOptions => {
-    const alias: AliasOptions = {};
-    const paths = tsconfig.compilerOptions.paths || {};
+function wellKnownHandler() {
+    return {
+        name: 'well-known-handler',
+        configureServer(server) {
+            server.middlewares.use((req, res, next) => {
+                if (req.url?.startsWith('/.well-known/')) {
+                    res.statusCode = 404;
+                    res.end();
+                    return;
+                }
+                next();
+            });
+        },
+    } satisfies PluginOption;
+}
 
-    Object.entries(paths).forEach(([key, value]) => {
-        const cleanKey = key.replace(/\/\*$/, '');
-        const cleanPath = (Array.isArray(value) ? value[0] : value).replace(/\/\*$/, '');
-        alias[cleanKey] = path.resolve(__dirname, cleanPath);
-    });
+function teachocoBanner() {
+    return {
+        name: 'custom-banner',
+        configureServer(server) {
+            const originalPrint = server.printUrls.bind(server);
+            server.printUrls = () => {
+                console.log(
+                    `\n    ${chalk.bold.green('VITE')} ${chalk.red('React Router TypeScript')} by ${chalk.bold.blue('TeaChoco')} ${chalk.gray(`ready in ${Date.now() - time} ms`)}\n`,
+                );
+                originalPrint();
+            };
+        },
+    } satisfies PluginOption;
+}
 
-    return alias;
-};
-
-// https://vite.dev/config/
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, process.cwd(), '');
-    const base = env.VITE_CLIENT_BASE;
-    const host = env.VITE_CLIENT_HOST;
-    const port = Number(env.VITE_CLIENT_PORT);
+    const base = String(env.VITE_CLIENT_BASE || '/');
+    const port = Number(env.VITE_CLIENT_PORT || 8000);
+    const host = String(env.VITE_CLIENT_HOST || '0.0.0.0');
     const isDev = env.VITE_MODE === 'development';
 
     return {
-        base: base ? base : '/',
-        resolve: { alias: getAliases() },
-        plugins: [react(), tailwindcss()],
+        base,
+        plugins: [teachocoBanner(), tailwindcss(), reactRouter(), wellKnownHandler()],
+        resolve: {
+            tsconfigPaths: true,
+        },
         server: {
-            port: port || 8000,
-            host: host || '0.0.0.0',
+            port,
+            host,
             strictPort: isDev ? true : undefined,
         },
     };

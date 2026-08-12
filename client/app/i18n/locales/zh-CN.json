@@ -1,0 +1,125 @@
+{
+    "nav": {
+        "home": "首页",
+        "blog": "博客",
+        "about": "关于",
+        "portfolio": "作品集",
+        "contact": "联系"
+    },
+    "footer": {
+        "copyright": "© 2025 TeaChoco. 保留所有权利。"
+    },
+    "categories": {
+        "title": "分类",
+        "all": "全部",
+        "web": "网页",
+        "bot": "机器人",
+        "devops": "DevOps",
+        "public": "公开",
+        "server": "服务器",
+        "backend": "后端",
+        "database": "数据库",
+        "template": "模板",
+        "frontend": "前端",
+        "language": "语言"
+    },
+    "skills": {
+        "count": "技能",
+        "sortBy": "排序方式",
+        "sortByLevel": "按级别排序",
+        "sortByName": "按名称排序",
+        "noSkillsFound": "此类别中未找到技能",
+        "showAll": "显示所有技能"
+    },
+    "home": {
+        "subtitle": "全栈开发人员与创意设计师",
+        "description": "你好！我是一名 software 开发者，热衷于创建美观且实用的应用程序。",
+        "aboutBtn": "关于我",
+        "contactBtn": "联系我",
+        "scrollDown": "向下滚动",
+        "techStackTitle": "技术栈",
+        "viewMore": "查看所有技能"
+    },
+    "about": {
+        "title": "关于我",
+        "subtitle": "更好地了解我",
+        "greeting": "大家好，迷路来到这里的各位，我是 TeaChoco",
+        "intro1": "我是一名全栈开发人员，热衷于创建简单高效的Web应用程序。我在使用现代技术开发前端和后端方面拥有丰富的经验。",
+        "intro2": "除了编程，我还喜欢通过文章分享知识并帮助开发者社区。",
+        "skillsTitle": "技能",
+        "experienceTitle": "工作经历",
+        "jobTitle": "全栈开发者",
+        "company": "自由职业",
+        "period": "2023 - 至今",
+        "jobDesc": "为各种客户开发Web应用程序和系统。",
+        "statYears": "年经验",
+        "statProjects": "完成项目",
+        "statTech": "技术"
+    },
+    "blog": {
+        "title": "博客",
+        "subtitle": "分享软件开发知识和经验",
+        "readMore": "阅读更多 →",
+        "posts": {
+            "1": {
+                "title": "React 服务端渲染入门",
+                "excerpt": "学习如何为 React 应用程序设置 SSR 以获得更好的 SEO。",
+                "date": "2025年12月7日",
+                "readTime": "5 分钟"
+            },
+            "2": {
+                "title": "为什么选择 TypeScript？",
+                "excerpt": "使用 TypeScript 的好处以及从 JavaScript 迁移的原因。",
+                "date": "2025年12月5日",
+                "readTime": "8 分钟"
+            },
+            "3": {
+                "title": "现代 CSS 技术",
+                "excerpt": "每个开发者都应该知道的现代 CSS 技术。",
+                "date": "2025年12月3日",
+                "readTime": "6 分钟"
+            }
+        }
+    },
+    "portfolio": {
+        "title": "作品集",
+        "subtitle": "我的项目和作品",
+        "readMore": "阅读更多 →",
+        "empty": "该分类下暂无项目。",
+        "projects": {
+            "pokeRotom": {
+                "title": "PokeRotom",
+                "desc": "一个集成了WebSocket和交互功能的实时Pokémon伴侣应用。"
+            },
+            "portfolio": {
+                "title": "作品集网站",
+                "desc": "使用React、Vite SSR、Three.js和TailwindCSS构建的这个作品集网站。"
+            },
+            "viteExtraReactSsr": {
+                "title": "Vite Extra React SSR TypeScript",
+                "desc": "一个基于Vite的高级React SSR启动模板，配备Tailwind CSS和现代工具链。"
+            },
+            "viteReact": {
+                "title": "Vite React TypeScript",
+                "desc": "一个基于Vite的轻量级React启动模板，配备Tailwind CSS和现代工具链。"
+            },
+            "chocoDeveloperBot": {
+                "title": "Choco Developer Bot",
+                "desc": "使用Node.js和Discord.js构建的功能丰富的Discord社区管理机器人。"
+            }
+        }
+    },
+    "contact": {
+        "title": "联系我",
+        "subtitle": "有有趣的项目吗？让我们聊聊！",
+        "desc": "欢迎通过以下平台联系我，通常会在24小时内回复。",
+        "formTitle": "发送消息",
+        "name": "姓名",
+        "namePlaceholder": "您的姓名",
+        "email": "电子邮件",
+        "emailPlaceholder": "email@example.com",
+        "message": "消息",
+        "messagePlaceholder": "在此写下您的消息...",
+        "submit": "发送消息"
+    }
+}

@@ -1,9 +1,7 @@
 //-Path: "TeaChoco-Portfolio/client/src/components/3d/vrm/Animation.tsx"
-// components/3d/vrm/useVRMAnimator.ts
-import { VRMPoseLoader, type VRMPoseData } from './Pose';
 import { VRM } from '@pixiv/three-vrm';
-import { useFrame } from '@react-three/fiber';
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useState } from 'react';
+import { VRMPoseLoader, type VRMPoseData } from './Pose';
 
 interface AnimationClip {
     name: string;
@@ -15,9 +13,7 @@ interface AnimationClip {
 }
 
 export function useVRMAnimator(vrmRef: React.RefObject<VRM | null>) {
-    const [currentAnimation, setCurrentAnimation] = useState<string | null>(
-        null,
-    );
+    const [currentAnimation, setCurrentAnimation] = useState<string | null>(null);
     const [isPlaying, setIsPlaying] = useState(false);
     const poseQueueRef = useRef<Array<AnimationClip>>([]);
     const currentTimeRef = useRef<number>(0);
@@ -81,11 +77,7 @@ export function useVRMAnimator(vrmRef: React.RefObject<VRM | null>) {
             if (!vrmRef.current) break;
 
             const pose = clip.poses[i];
-            await VRMPoseLoader.interpolatePose(
-                vrmRef.current,
-                pose.pose,
-                pose.duration,
-            );
+            await VRMPoseLoader.interpolatePose(vrmRef.current, pose.pose, pose.duration);
             currentPoseIndexRef.current = i;
         }
 
@@ -103,9 +95,7 @@ export function useVRMAnimator(vrmRef: React.RefObject<VRM | null>) {
     /**
      * โหลด pose library จากไฟล์ JSON
      */
-    const loadPoseLibrary = async (
-        libraryUrl: string,
-    ): Promise<VRMPoseData> => {
+    const loadPoseLibrary = async (libraryUrl: string): Promise<VRMPoseData> => {
         const response = await fetch(libraryUrl);
         const library = await response.json();
         return library;
