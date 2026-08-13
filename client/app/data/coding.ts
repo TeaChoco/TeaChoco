@@ -1,18 +1,9 @@
-// -Path: "TeaChoco-Portfolio/client/src/data/skill.ts"
-import { type TagIconKey } from './icon';
+// -Path: "TeaChoco-Portfolio/client/src/data/codingSkill.ts"
+import type { CodingSkill, CodingSkillCategory } from '~/types/coding';
 
-export const categories = ['all', 'frontend', 'backend', 'devops', 'database', 'language'] as const;
+export const categories: CodingSkillCategory[] = ['all', 'frontend', 'backend', 'devops', 'database', 'language'];
 
-export type SkillCategory = (typeof categories)[number];
-
-export type Skill = {
-    id: TagIconKey;
-    name: string;
-    level: number;
-    category: SkillCategory;
-};
-
-export const skills: Skill[] = [
+export const codingSkills: CodingSkill[] = [
     {
         id: 'Nodejs',
         name: 'Node.js',

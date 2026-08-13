@@ -1,9 +1,9 @@
 // -Path: 'Vite-React-Router-TypeScript/app/components/layout/Navbar.tsx'
 import DeskMenu from './DeskMenu';
 import { Link } from '~/i18n/routing';
-import ThemeToggle from '../config/ThemeToggle';
 import MobileBottomBar from './MobileBottomBar';
-import LanguageSwitcher from '../config/LanguageSwitcher';
+import ThemeToggle from '../../config/ThemeToggle';
+import LanguageSwitcher from '../../config/LanguageSwitcher';
 
 export default function Navbar() {
     return (

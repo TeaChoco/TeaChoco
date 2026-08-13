@@ -1,9 +1,10 @@
 // -Path: "TeaChoco-Portfolio/client/src/pages/about/components/SkillsFilter.tsx"
 import { createElement } from 'react';
 import { useTranslation } from 'react-i18next';
-import { categoryIcons } from '~/data/category';
+import { categoryIcons } from '~/constants/category';
 import { FaFont, FaSort } from 'react-icons/fa6';
-import { categories, type SkillCategory } from '~/data/skill';
+import { categories } from '~/data/coding';
+import type { CodingSkillCategory } from '~/types/coding';
 import Select, { type OptionSelectType } from '~/components/custom/Select';
 
 export default function SkillsFilter({
@@ -13,13 +14,13 @@ export default function SkillsFilter({
     selectedCategory,
 }: {
     sortBy: 'name' | 'level';
-    selectedCategory: SkillCategory;
+    selectedCategory: CodingSkillCategory;
     onSortChange: (sortBy: 'name' | 'level') => void;
-    onCategoryChange: (category: SkillCategory) => void;
+    onCategoryChange: (category: CodingSkillCategory) => void;
 }) {
     const { t } = useTranslation();
 
-    const categoryOptions: OptionSelectType<SkillCategory>[] = categories.map((category) => ({
+    const categoryOptions: OptionSelectType<CodingSkillCategory>[] = categories.map((category) => ({
         value: category,
         label: t(`categories.${category}`),
         icon: createElement(categoryIcons[category], { className: 'text-sm' }),

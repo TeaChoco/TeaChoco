@@ -1,9 +1,9 @@
 //-Path: "vite-extra-react-ssr-ts/src/components/custom/Badge.tsx"
 
 interface BadgeProps {
+    variant?: 'default' | 'success' | 'error' | 'warning' | 'info';
     children: React.ReactNode;
     className?: string;
-    variant?: 'default' | 'success' | 'error' | 'warning' | 'info';
 }
 
 const variantClasses: Record<string, string> = {

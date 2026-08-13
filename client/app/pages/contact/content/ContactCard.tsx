@@ -1,7 +1,7 @@
 // -Path: "TeaChoco-Portfolio/client/src/pages/contact/content/ContactCard.tsx"
 import { motion } from 'framer-motion';
 import useTextColor from '~/hooks/useTextColor';
-import { type ContactMethod } from '~/data/contact';
+import { type ContactMethod } from '~/types/contact';
 
 export default function ContactCard({ index, method }: { index: number; method: ContactMethod }) {
     const { hex } = useTextColor();

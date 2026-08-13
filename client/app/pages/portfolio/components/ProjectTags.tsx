@@ -1,5 +1,6 @@
 // -Path: "TeaChoco-Portfolio/client/src/pages/portfolio/components/ProjectTags.tsx"
-import { getTagIcon, type TagIconKey } from '~/data/icon';
+import { getTagIcon } from '~/constants/icon';
+import type { TagIconKey } from '~/types/icon';
 
 export default function ProjectTags({ tags }: { tags: TagIconKey[] }) {
     return (

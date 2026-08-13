@@ -1,6 +1,6 @@
 // -Path: "TeaChoco-Portfolio/client/src/pages/portfolio/components/ProjectInfo.tsx"
 import ProjectTags from './ProjectTags';
-import type { Project } from '~/data/projects';
+import type { Project } from '~/types/projects';
 import { useTranslation } from 'react-i18next';
 
 export function ProjectInfo({ project }: { project: Project }) {

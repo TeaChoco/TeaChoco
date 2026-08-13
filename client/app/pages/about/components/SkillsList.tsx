@@ -1,10 +1,10 @@
 // -Path: "TeaChoco-Portfolio/client/src/components/about/SkillsList.tsx"
 import { motion } from 'framer-motion';
-import { getTagIcon } from '~/data/icon';
-import type { Skill } from '~/data/skill';
+import { getTagIcon } from '~/constants/icon';
+import type { CodingSkill } from '~/types/coding';
 import useTextColor from '~/hooks/useTextColor';
 
-export default function SkillsList({ skills }: { skills: Skill[] }) {
+export default function SkillsList({ skills }: { skills: CodingSkill[] }) {
     const { hex } = useTextColor();
 
     return (

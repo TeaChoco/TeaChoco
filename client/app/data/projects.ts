@@ -1,21 +1,8 @@
 // -Path: "TeaChoco-Portfolio/client/src/components/data/projects.ts"
 import env from '~/secure/env';
-import type { TagIconKey } from './icon';
+import type { Project, CategoryKeys } from '~/types/projects';
 
-export const categories = ['all', 'public', 'web', 'server', 'bot', 'template'] as const;
-
-export type CategoryKeys = (typeof categories)[number];
-
-export type Project = {
-    id: string;
-    titleKey: string;
-    descKey: string;
-    tags: TagIconKey[];
-    image?: string;
-    categorys: CategoryKeys[];
-    github?: string;
-    live?: string;
-};
+export const categories: CategoryKeys[] = ['all', 'public', 'web', 'server', 'bot', 'template'];
 
 export const projects: Project[] = [
     {
@@ -54,6 +41,22 @@ export const projects: Project[] = [
         tags: ['TypeScript', 'Vite', 'React', 'TailwindCSS', 'SocketIO'],
         categorys: ['web', 'template'],
         github: 'https://github.com/TeaChoco/Vite-React-TypeScript',
+    },
+    {
+        id: 'vite-react-router-typescirpt-template',
+        titleKey: 'portfolio.projects.reactRouter.title',
+        descKey: 'portfolio.projects.reactRouter.desc',
+        tags: ['TypeScript', 'Vite', 'React', 'TailwindCSS', 'SocketIO'],
+        categorys: ['web', 'template'],
+        github: 'https://github.com/TeaChoco/Tauri-Vite-React-TypeScript',
+    },
+    {
+        id: 'next-typescirpt-template',
+        titleKey: 'portfolio.projects.next.title',
+        descKey: 'portfolio.projects.next.desc',
+        tags: ['TypeScript', 'Nextjs', 'React', 'TailwindCSS', 'SocketIO'],
+        categorys: ['web', 'template'],
+        github: 'https://github.com/TeaChoco/Next-TypeScript',
     },
     {
         id: 'express-typescript-template',

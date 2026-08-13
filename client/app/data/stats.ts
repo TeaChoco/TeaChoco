@@ -1,11 +1,7 @@
 // -Path: "TeaChoco-Portfolio/client/src/components/data/stats.ts"
-import { skills } from "./skill";
 import { projects } from "./projects";
-
-export type StatsType = {
-    value: string;
-    key: string;
-};
+import { codingSkills } from "./coding";
+import type { StatsType } from '~/types/stats';
 
 const getYearsOfExperience = (
     startYear: number,
@@ -26,5 +22,5 @@ const getYearsOfExperience = (
 export const devStats: StatsType[] = [
     { value: `${getYearsOfExperience(2019)}+`, key: 'about.statYears' },
     { value: `${projects.length}+`, key: 'about.statProjects' },
-    { value: `${skills.length}+`, key: 'about.statTech' },
+    { value: `${codingSkills.length}+`, key: 'about.statTech' },
 ];

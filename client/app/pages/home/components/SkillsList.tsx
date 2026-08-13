@@ -1,12 +1,13 @@
 // -Path: "TeaChoco-Portfolio/client/src/pages/home/components/SkillsList.tsx"
 import { Link } from '~/i18n/routing';
 import { motion } from 'framer-motion';
-import { getTagIcon } from '~/data/icon';
-import type { Skill } from '~/data/skill';
+import { getTagIcon } from '~/constants/icon';
 import { useTranslation } from 'react-i18next';
 import useTextColor from '~/hooks/useTextColor';
+import type { CodingSkill } from '~/types/coding';
+import FadeOverflow from '~/components/layout/FadeOverflow';
 
-export default function SkillsList({ skills }: { skills: Skill[] }) {
+export default function SkillsList({ skills }: { skills: CodingSkill[] }) {
     const { t } = useTranslation();
     const { hex } = useTextColor();
 
@@ -15,15 +16,7 @@ export default function SkillsList({ skills }: { skills: Skill[] }) {
 
     return (
         <div className='relative'>
-            <div
-                className='grid gap-4 mt-2'
-                style={{
-                    maskImage:
-                        skills.length > maxSkill
-                            ? 'linear-gradient(to bottom, black 0%, black 55%, transparent 100%)'
-                            : undefined,
-                }}
-            >
+            <FadeOverflow className='grid gap-4 mt-2' active={skills.length > maxSkill}>
                 {displayedSkills.map((skill) => {
                     const icon = getTagIcon(skill.id);
 
@@ -82,7 +75,7 @@ export default function SkillsList({ skills }: { skills: Skill[] }) {
                         </motion.div>
                     );
                 })}
-            </div>
+            </FadeOverflow>
             {skills.length > 8 && (
                 <div className='flex justify-center mt-4'>
                     <Link

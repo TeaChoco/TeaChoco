@@ -4,7 +4,8 @@ import { useTranslation } from 'react-i18next';
 import FilterTabs from './components/FilterTabs';
 import ProjectGrid from './content/ProjectGrid';
 import Section from '../../components/layout/Section';
-import { projects, type CategoryKeys } from '~/data/projects';
+import { projects } from '~/data/projects';
+import type { CategoryKeys } from '~/types/projects';
 
 export default function Portfolio() {
     const { t } = useTranslation();

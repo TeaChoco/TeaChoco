@@ -1,7 +1,8 @@
 // -Path: 'TeaChoco-Portfolio/client/src/pages/home/content/TechStack.tsx'
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { getTagIcon, type TagIconKey } from '~/data/icon';
+import { getTagIcon } from '~/constants/icon';
+import type { TagIconKey } from '~/types/icon';
 
 type TechStack = {
     id: TagIconKey;

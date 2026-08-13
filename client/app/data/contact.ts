@@ -1,4 +1,3 @@
-import type { IconType } from 'react-icons';
 import {
     FaDiscord,
     FaEnvelope,
@@ -7,14 +6,7 @@ import {
     FaXTwitter,
     FaFacebook,
 } from 'react-icons/fa6';
-
-export type ContactMethod = {
-    icon: IconType;
-    label: string;
-    value: string;
-    href: string;
-    color?: string;
-};
+import type { ContactMethod } from '~/types/contact';
 
 export const contactMethods: ContactMethod[] = [
     {

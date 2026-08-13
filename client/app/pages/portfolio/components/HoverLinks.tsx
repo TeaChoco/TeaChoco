@@ -1,5 +1,5 @@
 // -Path: "TeaChoco-Portfolio/client/src/pages/portfolio/components/HoverLinks.tsx"
-import type { Project } from '~/data/projects';
+import type { Project } from '~/types/projects';
 import { FaGithub, FaArrowUpRightFromSquare } from 'react-icons/fa6';
 
 export default function HoverLinks({ project }: { project: Project }) {

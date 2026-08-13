@@ -1,12 +1,12 @@
-// -Path: "TeaChoco-Portfolio/client/src/pages/about/content/Skill.tsx"
-import { skills } from '~/data/skill';
+// -Path: "TeaChoco-Portfolio/client/src/pages/home/content/CodingSkill.tsx"
+import { codingSkills } from '~/data/coding';
 import { useTranslation } from 'react-i18next';
 import SkillsList from '../components/SkillsList';
 
-export default function Skill() {
+export default function CodingSkill() {
     const { t } = useTranslation();
 
-    const sortedSkills = skills.sort((a, b) => b.level - a.level);
+    const sortedSkills = [...codingSkills].sort((a, b) => b.level - a.level);
 
     return (
         <div className='mb-10 w-full'>

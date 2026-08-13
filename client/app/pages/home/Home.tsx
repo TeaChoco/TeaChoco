@@ -1,6 +1,7 @@
 //-Path: "TeaChoco-Portfolio/client/src/pages/Home.tsx"
 import Hero from './content/Hero';
-import Skill from './content/Skill';
+import CodingSkill from './content/CodingSkill';
+import LanguageSkill from '~/components/content/LanguageSkill';
 import { Link } from '~/i18n/routing';
 import TechStack from './content/TechStack';
 import { useTranslation } from 'react-i18next';
@@ -36,9 +37,14 @@ export default function Home() {
                     </div>
                 </Section>
 
+                {/* Language Skills Preview */}
+                <Section>
+                    <LanguageSkill />
+                </Section>
+
                 {/* Skills Preview */}
                 <Section>
-                    <Skill />
+                    <CodingSkill />
                 </Section>
 
                 {/* Call to Action */}

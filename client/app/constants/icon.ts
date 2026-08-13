@@ -21,35 +21,7 @@ import {
     SiTailwindcss,
     SiSocketdotio,
 } from 'react-icons/si';
-import type { IconType } from 'react-icons';
-
-export type TagIconKey =
-    | 'CSS'
-    | 'SSR'
-    | 'HTML'
-    | 'Vite'
-    | 'React'
-    | 'Python'
-    | 'Docker'
-    | 'Vercel'
-    | 'Nodejs'
-    | 'Nextjs'
-    | 'Nestjs'
-    | 'MongoDB'
-    | 'Threejs'
-    | 'SocketIO'
-    | 'Discordjs'
-    | 'Expressjs'
-    | 'Rendercom'
-    | 'GitGitHub'
-    | 'JavaScript'
-    | 'TypeScript'
-    | 'TailwindCSS';
-
-export type TagIcon = {
-    icon: IconType;
-    color?: string;
-};
+import type { TagIcon, TagIconKey } from '~/types/icon';
 
 export const tagIcons = {
     CSS: { icon: SiCss, color: '#1572B6' },

@@ -2,19 +2,7 @@
 import { TbTemplate } from 'react-icons/tb';
 import type { IconType } from 'react-icons';
 import { FaList, FaGlobe, FaRobot, FaServer, FaCode, FaDatabase } from 'react-icons/fa6';
-
-export type CategoryKeys =
-    | 'all'
-    | 'web'
-    | 'bot'
-    | 'devops'
-    | 'public'
-    | 'server'
-    | 'language'
-    | 'frontend'
-    | 'backend'
-    | 'database'
-    | 'template';
+import type { CategoryKeys } from '~/types/category';
 
 export const categoryIcons: Record<CategoryKeys, IconType> = {
     all: FaList,

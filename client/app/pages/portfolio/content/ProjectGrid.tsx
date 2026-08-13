@@ -1,6 +1,6 @@
 // -Path: "TeaChoco-Portfolio/client/src/pages/portfolio/components/ProjectGrid.tsx"
 import ProjectCard from './ProjectCard';
-import type { Project } from '~/data/projects';
+import type { Project } from '~/types/projects';
 import { useTranslation } from 'react-i18next';
 
 /** Grid แสดงรายการ project พร้อม empty state */

@@ -1,6 +1,6 @@
 //-Path: 'Vite-React-Router-TypeScript/app/routes/Layout.tsx'
 import { Outlet } from 'react-router';
-import Navbar from '~/components/layout/Navbar';
+import Navbar from '~/components/layout/navbar/Navbar';
 import Footer from '~/components/layout/Footer';
 import { ToasterProvider } from '~/components/provider/ToasterProvider';
 

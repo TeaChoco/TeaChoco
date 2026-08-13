@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 import ProjectImage from '../components/ProjectImage';
 import { ProjectInfo } from '../components/ProjectInfo';
-import type { Project } from '~/data/projects';
+import type { Project } from '~/types/projects';
 
 /** Card แสดงข้อมูล project แต่ละชิ้น */
 export default function ProjectCard({ project }: { project: Project }) {
