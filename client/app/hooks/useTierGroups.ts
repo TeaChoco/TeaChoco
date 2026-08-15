@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { characterTiers } from '~/data/favorites';
+import { characterTiers } from '~/data/favorites/character';
 import type { CharacterItem, CharacterTier, CharacterTiers } from '~/types/favorites';
 
 /**

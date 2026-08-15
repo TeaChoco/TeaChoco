@@ -5,7 +5,7 @@ import FavoriteSection from '../components/FavoriteSection';
 import StarRating from '../components/StarRating';
 import ShowMoreButton from '../components/ShowMoreButton';
 import FadeOverflow from '../../../components/layout/FadeOverflow';
-import { gameList, gameTypeLabels } from '~/data/favorites';
+import { gameList, gameTypeLabels } from '~/data/favorites/game';
 
 const ROW_HEIGHT = 224;
 const GAP = 24;

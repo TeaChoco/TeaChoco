@@ -23,7 +23,24 @@
     "empty": "这里还没有内容。",
     "showMore": "查看全部",
     "disclaimer": "这只是我的个人喜好——每个人口味不同！",
-    "back": "返回"
+    "back": "返回",
+    "appearance": "外貌",
+    "nature": "性格",
+    "voice": "声音",
+    "warm": "温暖感",
+    "age": "年龄",
+    "height": "身高",
+    "birthday": "生日",
+    "close": "关闭",
+    "toolbar": {
+      "search": "搜索角色…",
+      "reset": "重置",
+      "count": "共 {{count}} 位角色",
+      "noResult": "没有匹配的角色",
+      "all": "全部",
+      "favorite": "Favorite",
+      "waifu": "Waifu"
+    }
   },
   "notfound": {
     "title": "未找到页面",

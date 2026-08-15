@@ -20,11 +20,11 @@ export default function Favorites() {
                 <PreferenceDisclaimer />
             </div>
 
-            <div className='flex flex-col max-w-6xl mx-auto w-full gap-12'>
+            <div className='flex flex-col max-w-6xl mx-auto w-full gap-12 overflow-hidden'>
                 <AnimeList rows={3} viewMoreTo='/favorites/anime' />
                 <GameList rows={3} viewMoreTo='/favorites/game' />
                 <MvList rows={2} viewMoreTo='/favorites/mv' />
-                <CharacterTierList />
+                <CharacterTierList viewMoreTo='/favorites/character' />
             </div>
         </Section>
     );

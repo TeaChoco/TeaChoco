@@ -6,7 +6,7 @@ import { ToasterProvider } from '~/components/provider/ToasterProvider';
 
 export default function Layout() {
     return (
-        <div className='flex flex-col min-h-dvh overflow-auto'>
+        <div className='flex flex-col min-h-dvh overflow-auto mb-20 md:mb-0'>
             <ToasterProvider />
             <Navbar />
             <main className='flex-1'>

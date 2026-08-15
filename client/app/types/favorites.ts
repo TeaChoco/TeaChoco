@@ -27,22 +27,25 @@ export type GameItem = {
 };
 
 export type MvItem = {
-    id: string;
-    title: string;
     rating: number;
     videoId: string;
-    artist?: string;
-    note?: string;
 };
 
 export type CharacterFrom = Partial<Record<'anime' | 'game', string>>;
 export type CharacterTier = 'ssss' | 'sss' | 'ss' | 's' | 'a' | 'b' | 'c' | 'd' | 'f';
 export type CharacterTiers = Record<'favorite' | 'waifu', CharacterTier>;
+export type CharacterRating = Partial<Record<'appearance' | 'nature' | 'voice' | 'warm', number>>;
 
 export type CharacterItem = {
     id: string;
     name: string;
     from: CharacterFrom;
     tier: CharacterTiers;
-    image?: string;
+    rating: CharacterRating;
+    info?: {
+        age?: number;
+        height?: number;
+        birtday?: string;
+    };
+    images?: string[];
 };

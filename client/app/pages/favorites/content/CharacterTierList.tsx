@@ -1,19 +1,28 @@
 import { useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useTierGroups } from '~/hooks/useTierGroups';
 import ErrorBound from '~/components/custom/ErrorBound';
-import { TierRow } from '../components/character/TierRow';
-import { characters, characterTiers } from '~/data/favorites';
+import { TierRow, type TierRowAxis } from '../components/character/TierRow';
+import ShowMoreButton from '../components/ShowMoreButton';
+import { characters, characterTiers } from '~/data/favorites/character';
 import { TierListToolbar } from '../components/character/TierListToolbar';
 
 /**
- * Dual-axis tier list board.
- * Renders a "Favorite" tier list on the left and a "Waifu" tier list on the
- * right, sharing the same SSSS..F tier scale in the middle column — matching
- * the reference board layout.
+ * Tier list board.
+ * Defaults to a dual-axis board rendering the "Favorite" tier list on the
+ * left and the "Waifu" tier list on the right, sharing the same SSSS..F
+ * tier scale in the middle column — matching the reference board layout.
+ * Can also be switched to a single "favorite" or "waifu" view.
  */
-export default function CharacterTierList() {
+interface CharacterTierListProps {
+    viewMoreTo?: string;
+}
+
+export default function CharacterTierList({ viewMoreTo }: CharacterTierListProps) {
+    const { t } = useTranslation();
     const [selectedSource, setSelectedSource] = useState('all');
-    const [showName, setShowName] = useState(false);
+    const [search, setSearch] = useState('');
+    const [axis, setAxis] = useState<TierRowAxis>('both');
 
     const sourceOptions = useMemo(() => {
         const sources = new Set<string>();
@@ -28,50 +37,79 @@ export default function CharacterTierList() {
     }, [characters]);
 
     const filteredCharacters = useMemo(() => {
-        if (selectedSource === 'all') return characters;
-        return characters.filter(
-            (character) =>
-                character.from.anime === selectedSource || character.from.game === selectedSource,
-        );
-    }, [characters, selectedSource]);
+        const query = search.trim().toLowerCase();
+        return characters.filter((character) => {
+            const matchesSource =
+                selectedSource === 'all' ||
+                character.from.anime === selectedSource ||
+                character.from.game === selectedSource;
+            const matchesSearch = query === '' || character.name.toLowerCase().includes(query);
+            return matchesSource && matchesSearch;
+        });
+    }, [characters, selectedSource, search]);
 
     const favoriteGroups = useTierGroups(filteredCharacters, 'favorite');
     const waifuGroups = useTierGroups(filteredCharacters, 'waifu');
 
+    const handleReset = () => {
+        setSelectedSource('all');
+        setSearch('');
+    };
+
     return (
         <ErrorBound>
-            <div className='w-full overflow-x-auto'>
+            <div className='w-full'>
                 <TierListToolbar
                     sourceOptions={sourceOptions}
                     selectedSource={selectedSource}
                     onSourceChange={setSelectedSource}
-                    showName={showName}
-                    onShowNameChange={setShowName}
-                    onReset={() => setSelectedSource('all')}
+                    search={search}
+                    onSearchChange={setSearch}
+                    axis={axis}
+                    onAxisChange={setAxis}
+                    count={filteredCharacters.length}
+                    onReset={handleReset}
                 />
 
                 <div className='overflow-hidden rounded-lg'>
-                    <div className='flex min-w-4xl'>
-                        <div className='flex-1 bg-primary py-2 text-center text-4xl font-extrabold tracking-wide text-primary-foreground'>
+                    {axis === 'both' ? (
+                        <div className='flex bg-linear-to-r from-primary to-secondary'>
+                            <div className='flex-1 py-2 text-center text-lg sm:text-2xl lg:text-4xl font-extrabold tracking-wide text-primary-foreground'>
+                                Favorite
+                            </div>
+                            <div className='flex-1 py-2 text-center text-lg sm:text-2xl lg:text-4xl font-extrabold tracking-wide text-secondary-foreground'>
+                                Waifu
+                            </div>
+                        </div>
+                    ) : axis === 'favorite' ? (
+                        <div className='py-2 text-center text-lg sm:text-2xl lg:text-4xl font-extrabold tracking-wide bg-linear-to-r from-primary to-primary-subtle text-primary-foreground'>
                             Favorite
                         </div>
-                        <div className='flex-1 bg-secondary py-2 text-center text-4xl font-extrabold tracking-wide text-secondary-foreground'>
+                    ) : (
+                        <div className='py-2 text-center text-lg sm:text-2xl lg:text-4xl font-extrabold tracking-wide bg-linear-to-r from-secondary to-secondary-subtle text-secondary-foreground'>
                             Waifu
                         </div>
-                    </div>
+                    )}
 
-                    <div className='flex min-w-3xl flex-col'>
-                        {characterTiers.map((tier) => (
-                            <TierRow
-                                key={tier}
-                                tier={tier}
-                                favoriteCharacters={favoriteGroups[tier]}
-                                waifuCharacters={waifuGroups[tier]}
-                                showName={showName}
-                            />
-                        ))}
+                    <div className='flex flex-col'>
+                        {filteredCharacters.length === 0 ? (
+                            <div className='flex items-center justify-center py-12 text-surface-muted text-sm bg-surface-overlay'>
+                                {t('favorites.toolbar.noResult')}
+                            </div>
+                        ) : (
+                            characterTiers.map((tier) => (
+                                <TierRow
+                                    key={tier}
+                                    tier={tier}
+                                    axis={axis}
+                                    waifuCharacters={waifuGroups[tier]}
+                                    favoriteCharacters={favoriteGroups[tier]}
+                                />
+                            ))
+                        )}
                     </div>
                 </div>
+                {viewMoreTo && <ShowMoreButton to={viewMoreTo} />}
             </div>
         </ErrorBound>
     );

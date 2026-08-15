@@ -5,7 +5,7 @@ import FavoriteSection from '../components/FavoriteSection';
 import StarRating from '../components/StarRating';
 import ShowMoreButton from '../components/ShowMoreButton';
 import FadeOverflow from '../../../components/layout/FadeOverflow';
-import { animeList } from '~/data/favorites';
+import { animeList } from '~/data/favorites/anime';
 
 const GAP = 24;
 const ROW_HEIGHT = 224;

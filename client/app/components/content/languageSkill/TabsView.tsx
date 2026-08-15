@@ -3,8 +3,8 @@ import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { languageSkills } from '~/data/language';
-import type { LanguageSkill, LanguageSkillAbility } from '~/types/language';
 import { abilityKeys, getOverall } from '../LanguageSkill';
+import type { LanguageSkillAbility } from '~/types/language';
 import { languageFlags } from '~/data/languageIcon';
 import AbilityBar from './AbilityBar';
 
@@ -27,12 +27,16 @@ export default function TabsView({ hex }: TabsViewProps) {
                     <button
                         key={language.id}
                         onClick={() => setActiveId(language.id)}
-                        className={`px-4 py-2 rounded-full text-sm font-medium border transition-colors cursor-pointer ${
+                        className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium border transition-colors cursor-pointer ${
                             language.id === activeId
                                 ? 'bg-primary/10 text-primary-light border-primary/20'
                                 : 'bg-surface-overlay text-surface-muted border-border hover:text-primary-light'
                         }`}
                     >
+                        {(() => {
+                            const Flag = languageFlags[language.flag];
+                            return <Flag className='w-5 h-5 rounded' />;
+                        })()}
                         {t(`languages.${language.id}`)}
                     </button>
                 ))}

@@ -1,6 +1,6 @@
 // -Path: 'Vite-React-Router-TypeScript/app/routes/page/favorites-game.tsx'
+import type { Route } from './+types/game';
 import GamePage from '~/pages/favorites/category/GamePage';
-import type { Route } from './+types/favorites-game';
 
 export function meta({}: Route.MetaArgs) {
     return [

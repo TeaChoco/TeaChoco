@@ -23,7 +23,24 @@
     "empty": "Nothing here yet.",
     "showMore": "Show more",
     "disclaimer": "This is just my personal preference — everyone has different tastes!",
-    "back": "Back"
+    "back": "Back",
+    "appearance": "Appearance",
+    "nature": "Nature",
+    "voice": "Voice",
+    "warm": "Warmth",
+    "age": "Age",
+    "height": "Height",
+    "birthday": "Birthday",
+    "close": "Close",
+    "toolbar": {
+      "search": "Search characters…",
+      "reset": "Reset",
+      "count": "{{count}} characters",
+      "noResult": "No matching characters",
+      "all": "All",
+      "favorite": "Favorite",
+      "waifu": "Waifu"
+    }
   },
   "notfound": {
     "title": "Page Not Found",

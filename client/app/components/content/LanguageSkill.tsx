@@ -2,12 +2,12 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import useTextColor from '~/hooks/useTextColor';
-import { type LanguageSkill, type LanguageSkillAbility } from '~/types/language';
-import { viewOptions, type ViewMode } from './languageSkill/viewOptions';
-import RadarView from './languageSkill/RadarView';
-import CardsView from './languageSkill/CardsView';
 import TabsView from './languageSkill/TabsView';
 import GridView from './languageSkill/GridView';
+import RadarView from './languageSkill/RadarView';
+import CardsView from './languageSkill/CardsView';
+import { viewOptions, type ViewMode } from './languageSkill/viewOptions';
+import { type LanguageSkill, type LanguageSkillAbility } from '~/types/language';
 
 export const abilityKeys: LanguageSkillAbility[] = ['read', 'speak', 'listen', 'write', 'type'];
 

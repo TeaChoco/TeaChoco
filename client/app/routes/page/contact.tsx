@@ -5,7 +5,7 @@ import type { Route } from './+types/contact';
 export function meta({}: Route.MetaArgs) {
     return [
         { title: 'React Router App - Contact' },
-        { name: 'description', content: 'Welcome to React Router!' },
+        { name: 'description', content: 'Welcome to TeaChoco Portfolio!' },
     ];
 }
 

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { languageSkills } from '~/data/language';
 import type { LanguageSkill } from '~/types/language';
+import { languageFlags } from '~/data/languageIcon';
 import { abilityKeys, getOverall } from '../LanguageSkill';
 import RadarChart from './RadarChart';
 
@@ -24,6 +25,10 @@ export default function RadarView({ hex }: RadarViewProps) {
                     transition={{ duration: 0.4, delay: 0.1 }}
                 >
                     <div className='flex items-center gap-3'>
+                        {(() => {
+                            const Flag = languageFlags[language.flag];
+                            return <Flag className='w-6 h-6 rounded-[3px]' />;
+                        })()}
                         <span className='font-semibold text-text-light dark:text-text-dark group-hover:text-primary-light transition-colors'>
                             {t(`languages.${language.id}`)}
                         </span>

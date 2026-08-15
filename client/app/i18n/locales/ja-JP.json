@@ -23,7 +23,24 @@
     "empty": "まだ何もありません。",
     "showMore": "もっと見る",
     "disclaimer": "これはあくまで私個人の好みです。人それぞれ好みは違います！",
-    "back": "戻る"
+    "back": "戻る",
+    "appearance": "外見",
+    "nature": "性格",
+    "voice": "声",
+    "warm": "温かさ",
+    "age": "年齢",
+    "height": "身長",
+    "birthday": "誕生日",
+    "close": "閉じる",
+    "toolbar": {
+      "search": "キャラクターを検索…",
+      "reset": "リセット",
+      "count": "{{count}}人のキャラクター",
+      "noResult": "一致するキャラクターなし",
+      "all": "すべて",
+      "favorite": "Favorite",
+      "waifu": "Waifu"
+    }
   },
   "notfound": {
     "title": "ページが見つかりません",

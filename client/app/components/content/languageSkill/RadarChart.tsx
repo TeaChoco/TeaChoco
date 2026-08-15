@@ -1,11 +1,11 @@
 // -Path: "TeaChoco-Portfolio/client/src/components/content/languageSkill/RadarChart.tsx"
 import { useTranslation } from 'react-i18next';
+import type { LanguageSkill } from '~/types/language';
 import { abilityKeys, abilityColors } from '~/data/language';
-import type { LanguageSkill, LanguageSkillAbility } from '~/types/language';
 
 interface RadarChartProps {
-    language: LanguageSkill;
     hex: string;
+    language: LanguageSkill;
 }
 
 export default function RadarChart({ language, hex }: RadarChartProps) {
@@ -31,10 +31,12 @@ export default function RadarChart({ language, hex }: RadarChartProps) {
     };
 
     const gridPolygon = (level: number) =>
-        abilityKeys.map((_, i) => {
-            const p = point(i, level);
-            return `${p.x},${p.y}`;
-        }).join(' ');
+        abilityKeys
+            .map((_, i) => {
+                const p = point(i, level);
+                return `${p.x},${p.y}`;
+            })
+            .join(' ');
 
     return (
         <svg
@@ -78,7 +80,7 @@ export default function RadarChart({ language, hex }: RadarChartProps) {
                             fill={abilityColors[key]}
                             fontWeight='600'
                         >
-                            {t(`languages.${key}`)}
+                            {`${t(`languages.${key}`)} ${language.abilities[key]}%`}
                         </text>
                     </g>
                 );
@@ -102,7 +104,14 @@ export default function RadarChart({ language, hex }: RadarChartProps) {
                             strokeWidth='2.5'
                             strokeLinecap='round'
                         />
-                        <circle cx={p.x} cy={p.y} r='4' fill={abilityColors[key]} stroke={hex} strokeWidth='1.5' />
+                        <circle
+                            cx={p.x}
+                            cy={p.y}
+                            r='4'
+                            fill={abilityColors[key]}
+                            stroke={hex}
+                            strokeWidth='1.5'
+                        />
                     </g>
                 );
             })}
