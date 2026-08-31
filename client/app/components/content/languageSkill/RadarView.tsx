@@ -1,11 +1,11 @@
 // -Path: "TeaChoco-Portfolio/client/src/components/content/languageSkill/RadarView.tsx"
+import RadarChart from './RadarChart';
 import { motion } from 'framer-motion';
+import { getOverall } from '../LanguageSkill';
 import { useTranslation } from 'react-i18next';
 import { languageSkills } from '~/data/language';
-import type { LanguageSkill } from '~/types/language';
 import { languageFlags } from '~/data/languageIcon';
-import { abilityKeys, getOverall } from '../LanguageSkill';
-import RadarChart from './RadarChart';
+import type { LanguageSkill } from '~/types/language';
 
 interface RadarViewProps {
     hex: string;
@@ -19,7 +19,7 @@ export default function RadarView({ hex }: RadarViewProps) {
             {languageSkills.map((language: LanguageSkill) => (
                 <motion.div
                     key={language.id}
-                    className='card group p-6 flex flex-col items-center gap-3'
+                    className='card group px-6 flex flex-col items-center gap-3'
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: 0.1 }}

@@ -199,6 +199,7 @@ export default function Select<ValueType>({
                             dropdownDirection === 'up' ? 'bottom-full mb-2' : 'mt-2'
                         }`}
                     >
+                        <div className='max-h-64 overflow-y-auto'>
                         {children
                             ? children(
                                   ({ value: optionValue, selected, ...optionProps }) => (
@@ -219,6 +220,7 @@ export default function Select<ValueType>({
                                       onClick={() => handleSelect(option.value)}
                                   />
                               ))}
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>

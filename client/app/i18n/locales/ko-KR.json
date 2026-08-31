@@ -1,0 +1,188 @@
+{
+  "nav": {
+    "home": "홈",
+    "blog": "블로그",
+    "about": "소개",
+    "favorites": "좋아요",
+    "portfolio": "포트폴리오",
+    "contact": "연락처"
+  },
+  "favorites": {
+    "title": "내 좋아요",
+    "subtitle": "좋아하는 애니메이션, 게임, 뮤직비디오, 캐릭터입니다.",
+    "anime": "애니메이션",
+    "game": "게임",
+    "mv": "뮤직비디오",
+    "character": "캐릭터",
+    "tier": {
+      "favorite": "좋아요",
+      "waifu": "와이프"
+    },
+    "view": "보기",
+    "urlSoon": "링크는 나중에 추가됩니다",
+    "empty": "아직 아무것도 없습니다.",
+    "showMore": "더 보기",
+    "disclaimer": "이것은 제 개인적인 취향입니다 — 모든 사람은 다른 취향을 가지고 있습니다!",
+    "back": "뒤로",
+    "appearance": "외모",
+    "nature": "성격",
+    "voice": "목소리",
+    "warm": "따뜻함",
+    "age": "나이",
+    "height": "키",
+    "birthday": "생일",
+    "close": "닫기",
+    "toolbar": {
+      "search": "캐릭터 검색…",
+      "reset": "초기화",
+      "count": "{{count}} 캐릭터",
+      "noResult": "일치하는 캐릭터가 없습니다",
+      "all": "전체",
+      "favorite": "좋아요",
+      "waifu": "와이프"
+    }
+  },
+  "notfound": {
+    "title": "페이지를 찾을 수 없습니다",
+    "description": "찾으시는 페이지가 존재하지 않거나 이동되었습니다.",
+    "back_home": "홈으로 돌아가기",
+    "error_code": "404"
+  },
+  "footer": {
+    "copyright": "© 2025 TeaChoco. All rights reserved."
+  },
+  "categories": {
+    "title": "카테고리",
+    "all": "전체",
+    "web": "웹",
+    "bot": "봇",
+    "devops": "DevOps",
+    "public": "공개",
+    "server": "서버",
+    "backend": "백엔드",
+    "database": "데이터베이스",
+    "template": "템플릿",
+    "frontend": "프론트엔드",
+    "language": "프로그래밍 언어"
+  },
+  "skills": {
+    "count": "스킬",
+    "sortBy": "정렬",
+    "sortByLevel": "레벨별",
+    "sortByName": "이름별",
+    "viewList": "목록",
+    "viewCards": "카드",
+    "viewGrid": "그리드",
+    "noSkillsFound": "이 카테고리에 대한 스킬이 없습니다",
+    "showAll": "모든 스킬 보기"
+  },
+  "home": {
+    "subtitle": "풀스택 개발자 & 크리에이티브 디자이너",
+    "description": "안녕하세요! 아름답고 기능적인 애플리케이션을 만드는 것에 열정적인 소프트웨어 개발자입니다.",
+    "aboutBtn": "자기소개",
+    "contactBtn": "연락처",
+    "scrollDown": "스크롤 다운",
+    "techStackTitle": "기술 스택",
+    "viewMore": "모든 스킬 보기"
+  },
+  "about": {
+    "title": "자기소개",
+    "subtitle": "저에 대해 더 알아보세요",
+    "greeting": "여기까지 온 모든 길 잃은 영혼들에게 안녕하세요, 저는 TeaChoco입니다",
+    "intro1": "저는 간단하고 효율적인 웹 애플리케이션을 만드는 것에 열정적인 풀스택 개발자입니다. 최신 기술을 사용하여 프론트엔드와 백엔드 모두 개발한 경험이 있습니다.",
+    "intro2": "코딩 외에도 기사를 통해 지식을 공유하고 개발자 커뮤니티를 돕는 것을 즐깁니다.",
+    "skillsTitle": "코딩 스킬",
+    "languagesTitle": "언어 스킬",
+    "experienceTitle": "경력",
+    "jobTitle": "풀스택 개발자",
+    "company": "프리랜서",
+    "period": "2023 - 현재",
+    "jobDesc": "다양한 클라이언트를 위한 웹 애플리케이션 및 시스템을 개발하고 있습니다.",
+    "statYears": "경력 연수",
+    "statProjects": "완료된 프로젝트",
+    "statTech": "사용 기술"
+  },
+  "blog": {
+    "title": "블로그",
+    "subtitle": "소프트웨어 개발에 대한 지식과 경험을 공유합니다",
+    "readMore": "더 읽기 →",
+    "empty": "게시물이 없습니다",
+    "posts": {
+      "1": {
+        "title": "React 서버 사이드 렌더링 시작하기",
+        "excerpt": "더 나은 SEO를 위해 React 애플리케이션에 SSR을 설정하는 방법을 알아보세요.",
+        "date": "2025년 12월 7일",
+        "readTime": "5분"
+      },
+      "2": {
+        "title": "왜 TypeScript인가?",
+        "excerpt": "TypeScript를 사용하는 이점과 JavaScript에서 전환해야 하는 이유.",
+        "date": "2025년 12월 5일",
+        "readTime": "8분"
+      },
+      "3": {
+        "title": "모던 CSS 기법",
+        "excerpt": "모든 개발자가 알아야 할 모던 CSS 기법.",
+        "date": "2025년 12월 3일",
+        "readTime": "6분"
+      }
+    }
+  },
+  "portfolio": {
+    "title": "포트폴리오",
+    "subtitle": "저의 프로젝트와 작업들",
+    "readMore": "더 읽기 →",
+    "empty": "이 카테고리에 아직 프로젝트가 없습니다.",
+    "projects": {
+      "pokeRotom": {
+        "title": "PokeRotom",
+        "desc": "WebSocket 통합과 인터랙티브 기능을 갖춘 실시간 포켓몬 컴패니언 앱."
+      },
+      "portfolio": {
+        "title": "포트폴리오 웹사이트",
+        "desc": "React, Vite SSR, Three.js 및 TailwindCSS로 만든 이 포트폴리오 웹사이트."
+      },
+      "viteExtraReactSsr": {
+        "title": "Vite Extra React SSR TypeScript",
+        "desc": "Tailwind CSS와 최신 도구를 특징으로 하는 React SSR용 고급 스타터 템플릿."
+      },
+      "viteReact": {
+        "title": "Vite React TypeScript",
+        "desc": "Tailwind CSS와 최신 도구를 특징으로 하는 React용 경량 스타터 템플릿."
+      },
+      "chocoDeveloperBot": {
+        "title": "Choco Developer Bot",
+        "desc": "Node.js와 Discord.js로 만든 커뮤니티 관리용 기능 풍부한 Discord 봇."
+      }
+    }
+  },
+  "contact": {
+    "title": "연락처",
+    "subtitle": "흥미로운 프로젝트가 있으신가요? 이야기해요!",
+    "desc": "아래 플랫폼을 통해 연락주세요. 보통 24시간 이내에 답변드립니다.",
+    "formTitle": "메시지 보내기",
+    "name": "이름",
+    "namePlaceholder": "이름을 입력하세요",
+    "email": "이메일",
+    "emailPlaceholder": "email@example.com",
+    "message": "메시지",
+    "messagePlaceholder": "메시지를 여기에 작성하세요...",
+    "submit": "메시지 보내기"
+  },
+  "languages": {
+    "thai": "태국어",
+    "english": "영어",
+    "japanese": "일본어",
+    "native": "원어",
+    "read": "읽기",
+    "speak": "말하기",
+    "listen": "듣기",
+    "write": "쓰기",
+    "type": "타이핑",
+    "overall": "전체",
+    "viewRadar": "레이더",
+    "viewCards": "카드",
+    "viewTabs": "탭",
+    "viewGrid": "그리드"
+  }
+}

@@ -10,7 +10,7 @@ interface RadarChartProps {
 
 export default function RadarChart({ language, hex }: RadarChartProps) {
     const { t } = useTranslation();
-    const size = 220;
+    const size = 230;
     const radius = 66;
     const center = size / 2;
 
@@ -40,9 +40,9 @@ export default function RadarChart({ language, hex }: RadarChartProps) {
 
     return (
         <svg
-            viewBox={`0 0 ${size} ${size}`}
-            className='w-full max-w-60 mx-auto'
             role='img'
+            className='w-full'
+            viewBox={`0 0 ${size} ${size}`}
             aria-label={`${t(`languages.${language.id}`)} ${t('about.languagesTitle')}`}
         >
             {[25, 50, 75, 100].map((level) => (
@@ -76,7 +76,7 @@ export default function RadarChart({ language, hex }: RadarChartProps) {
                             y={label.y}
                             textAnchor='middle'
                             dominantBaseline='middle'
-                            fontSize='11'
+                            fontSize='10'
                             fill={abilityColors[key]}
                             fontWeight='600'
                         >

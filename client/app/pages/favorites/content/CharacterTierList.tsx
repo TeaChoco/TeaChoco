@@ -6,6 +6,7 @@ import { TierRow, type TierRowAxis } from '../components/character/TierRow';
 import ShowMoreButton from '../components/ShowMoreButton';
 import { characters, characterTiers } from '~/data/favorites/character';
 import { TierListToolbar } from '../components/character/TierListToolbar';
+import { useLangTextResolver } from '../hooks/useLocalizedText';
 
 /**
  * Tier list board.
@@ -20,6 +21,7 @@ interface CharacterTierListProps {
 
 export default function CharacterTierList({ viewMoreTo }: CharacterTierListProps) {
     const { t } = useTranslation();
+    const resolve = useLangTextResolver();
     const [selectedSource, setSelectedSource] = useState('all');
     const [search, setSearch] = useState('');
     const [axis, setAxis] = useState<TierRowAxis>('both');
@@ -27,26 +29,28 @@ export default function CharacterTierList({ viewMoreTo }: CharacterTierListProps
     const sourceOptions = useMemo(() => {
         const sources = new Set<string>();
         characters.forEach((character) => {
-            if (character.from.anime) sources.add(character.from.anime);
-            if (character.from.game) sources.add(character.from.game);
+            const anime = resolve(character.from.anime);
+            const game = resolve(character.from.game);
+            if (anime) sources.add(anime);
+            if (game) sources.add(game);
         });
         return [
             { label: 'ทั้งหมด', value: 'all' },
             ...Array.from(sources).map((source) => ({ label: source, value: source })),
         ];
-    }, [characters]);
+    }, [characters, resolve]);
 
     const filteredCharacters = useMemo(() => {
         const query = search.trim().toLowerCase();
         return characters.filter((character) => {
+            const anime = resolve(character.from.anime);
+            const game = resolve(character.from.game);
             const matchesSource =
-                selectedSource === 'all' ||
-                character.from.anime === selectedSource ||
-                character.from.game === selectedSource;
+                selectedSource === 'all' || anime === selectedSource || game === selectedSource;
             const matchesSearch = query === '' || character.name.toLowerCase().includes(query);
             return matchesSource && matchesSearch;
         });
-    }, [characters, selectedSource, search]);
+    }, [characters, selectedSource, search, resolve]);
 
     const favoriteGroups = useTierGroups(filteredCharacters, 'favorite');
     const waifuGroups = useTierGroups(filteredCharacters, 'waifu');
@@ -72,24 +76,29 @@ export default function CharacterTierList({ viewMoreTo }: CharacterTierListProps
                 />
 
                 <div className='overflow-hidden rounded-lg'>
-                    {axis === 'both' ? (
-                        <div className='flex bg-linear-to-r from-primary to-secondary'>
-                            <div className='flex-1 py-2 text-center text-lg sm:text-2xl lg:text-4xl font-extrabold tracking-wide text-primary-foreground'>
-                                Favorite
-                            </div>
-                            <div className='flex-1 py-2 text-center text-lg sm:text-2xl lg:text-4xl font-extrabold tracking-wide text-secondary-foreground'>
-                                Waifu
-                            </div>
-                        </div>
-                    ) : axis === 'favorite' ? (
-                        <div className='py-2 text-center text-lg sm:text-2xl lg:text-4xl font-extrabold tracking-wide bg-linear-to-r from-primary to-primary-subtle text-primary-foreground'>
+                    <div
+                        className={`flex tracking-wide bg-linear-to-r ${axis === 'both' ? 'from-primary to-secondary' : axis === 'favorite' ? 'from-primary-subtle to-primary' : ' from-secondary to-secondary-subtle'} overflow-hidden`}
+                    >
+                        {/* Axis Type */}
+                        <div
+                            className='py-2 text-center text-lg sm:text-2xl lg:text-4xl font-extrabold tracking-wide text-primary-foreground transition-all duration-300 ease-in-out shrink-0 overflow-hidden'
+                            style={{
+                                width:
+                                    axis === 'waifu' ? '0%' : axis === 'favorite' ? '100%' : '50%',
+                            }}
+                        >
                             Favorite
                         </div>
-                    ) : (
-                        <div className='py-2 text-center text-lg sm:text-2xl lg:text-4xl font-extrabold tracking-wide bg-linear-to-r from-secondary to-secondary-subtle text-secondary-foreground'>
+                        <div
+                            className='py-2 text-center text-lg sm:text-2xl lg:text-4xl font-extrabold tracking-wide text-secondary-foreground transition-all duration-300 ease-in-out shrink-0 overflow-hidden'
+                            style={{
+                                width:
+                                    axis === 'favorite' ? '0%' : axis === 'waifu' ? '100%' : '50%',
+                            }}
+                        >
                             Waifu
                         </div>
-                    )}
+                    </div>
 
                     <div className='flex flex-col'>
                         {filteredCharacters.length === 0 ? (

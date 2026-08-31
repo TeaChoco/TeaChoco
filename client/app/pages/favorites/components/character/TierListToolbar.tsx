@@ -1,15 +1,8 @@
 import { useTranslation } from 'react-i18next';
-import {
-    FaMagnifyingGlass,
-    FaRotateLeft,
-    FaXmark,
-    FaFilter,
-    FaTableCells,
-    FaHeart,
-    FaHeartCrack,
-} from 'react-icons/fa6';
+import { FaRotateLeft, FaFilter, FaTableCells, FaHeart, FaHeartCrack } from 'react-icons/fa6';
 import Select from '~/components/custom/Select';
 import Button from '~/components/custom/Button';
+import Search from '~/components/custom/Search';
 import clsx from 'clsx';
 import type { TierRowAxis } from './TierRow';
 
@@ -26,8 +19,8 @@ interface TierListToolbarProps {
 }
 
 const AXIS_OPTIONS: { value: TierRowAxis; icon: React.ReactNode; labelKey: string }[] = [
-    { value: 'both', icon: <FaTableCells aria-hidden='true' />, labelKey: 'favorites.toolbar.all' },
     { value: 'favorite', icon: <FaHeart aria-hidden='true' />, labelKey: 'favorites.toolbar.favorite' },
+    { value: 'both', icon: <FaTableCells aria-hidden='true' />, labelKey: 'favorites.toolbar.all' },
     { value: 'waifu', icon: <FaHeartCrack aria-hidden='true' />, labelKey: 'favorites.toolbar.waifu' },
 ];
 
@@ -55,29 +48,13 @@ export function TierListToolbar({
     return (
         <div className='rounded-2xl border border-border bg-surface-overlay/60 p-4 mb-4 flex flex-col gap-4'>
             <div className='grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-3'>
-                <div className='relative'>
-                    <FaMagnifyingGlass
-                        className='absolute left-3.5 top-1/2 -translate-y-1/2 text-surface-muted pointer-events-none'
-                        aria-hidden='true'
-                    />
-                    <input
-                        type='text'
-                        value={search}
-                        onChange={(event) => onSearchChange(event.target.value)}
-                        placeholder={t('favorites.toolbar.search')}
-                        className='w-full pl-10 pr-9 py-3.5 rounded-2xl border border-border bg-surface/20 text-sm text-surface-foreground placeholder:text-surface-muted focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all'
-                    />
-                    {search && (
-                        <button
-                            type='button'
-                            onClick={() => onSearchChange('')}
-                            aria-label={t('favorites.toolbar.reset')}
-                            className='absolute right-2.5 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full flex items-center justify-center text-surface-muted hover:text-surface-foreground hover:bg-surface-overlay cursor-pointer transition-colors'
-                        >
-                            <FaXmark className='text-xs' />
-                        </button>
-                    )}
-                </div>
+                <Search
+                    value={search}
+                    onChange={onSearchChange}
+                    placeholder={t('favorites.toolbar.search')}
+                    ariaLabel={t('favorites.toolbar.search')}
+                    clearTitle={t('favorites.toolbar.reset')}
+                />
 
                 <div className='w-full sm:w-52'>
                     <Select

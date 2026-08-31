@@ -6,8 +6,9 @@ import { useTranslation } from 'react-i18next';
 
 const languages = [
     { code: 'en-US', label: 'English', flag: '🇺🇸' },
-    { code: 'th-TH', label: 'ไทย', flag: '🇹🇭' },
     { code: 'ja-JP', label: '日本語', flag: '🇯🇵' },
+    { code: 'ko-KR', label: '한국어', flag: '🇰🇷' },
+    { code: 'th-TH', label: 'ไทย', flag: '🇹🇭' },
     { code: 'zh-CN', label: '中文', flag: '🇨🇳' },
 ] as const;
 
