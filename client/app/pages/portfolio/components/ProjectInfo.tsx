@@ -9,10 +9,10 @@ export function ProjectInfo({ project }: { project: Project }) {
     return (
         <div className='p-5'>
             <h3 className='text-lg font-semibold text-surface-foreground mb-2'>
-                {t(project.titleKey)}
+                {t(`portfolio.projects.${project.key}.title`)}
             </h3>
             <p className='text-surface-muted text-sm mb-4 line-clamp-2'>
-                {t(project.descKey)}
+                {t(`portfolio.projects.${project.key}.desc`)}
             </p>
             <ProjectTags tags={project.tags} />
         </div>

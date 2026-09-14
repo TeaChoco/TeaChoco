@@ -1,5 +1,6 @@
 // -Path: 'Vite-React-Router-TypeScript/vite.config.ts'
 import chalk from 'chalk';
+import pkg from './package.json';
 import type { PluginOption } from 'vite';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig, loadEnv } from 'vite';
@@ -48,6 +49,9 @@ export default defineConfig(({ mode }) => {
     return {
         base,
         plugins: [teachocoBanner(), tailwindcss(), reactRouter(), wellKnownHandler()],
+        define: {
+            __APP_VERSION__: JSON.stringify(pkg.version),
+        },
         resolve: {
             tsconfigPaths: true,
         },

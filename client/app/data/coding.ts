@@ -1,7 +1,14 @@
 // -Path: "TeaChoco-Portfolio/client/src/data/codingSkill.ts"
 import type { CodingSkill, CodingSkillCategory } from '~/types/coding';
 
-export const categories: CodingSkillCategory[] = ['all', 'frontend', 'backend', 'devops', 'database', 'language'];
+export const categories: CodingSkillCategory[] = [
+    'all',
+    'frontend',
+    'backend',
+    'devops',
+    'database',
+    'language',
+];
 
 export const codingSkills: CodingSkill[] = [
     {
@@ -66,4 +73,10 @@ export const codingSkills: CodingSkill[] = [
         level: 20,
         category: 'language',
     },
+    { id: 'Rust', name: 'Rust', level: 5, category: 'language' },
+    { id: 'Pnpm', name: 'pnpm', level: 65, category: 'devops' },
+    { id: 'Zustand', name: 'Zustand', level: 73, category: 'frontend' },
+    { id: 'Redux', name: 'Redux Toolkit', level: 30, category: 'frontend' },
+    { id: 'MaterialUI', name: 'Material UI', level: 60, category: 'frontend' },
+    { id: 'MinecraftServer', name: '@minecraft/server', level: 55, category: 'backend' },
 ];

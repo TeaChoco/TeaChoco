@@ -22,7 +22,13 @@ export type TagIconKey =
     | 'GitGitHub'
     | 'JavaScript'
     | 'TypeScript'
-    | 'TailwindCSS';
+    | 'TailwindCSS'
+    | 'Rust'
+    | 'Pnpm'
+    | 'Zustand'
+    | 'Redux'
+    | 'MaterialUI'
+    | 'MinecraftServer';
 
 export type TagIcon = {
     icon: IconType;

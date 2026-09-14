@@ -1,11 +1,11 @@
 // -Path: "TeaChoco-Portfolio/client/src/pages/portfolio/Portfolio.tsx"
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import FilterTabs from './components/FilterTabs';
-import ProjectGrid from './content/ProjectGrid';
-import Section from '../../components/layout/Section';
 import { projects } from '~/data/projects';
-import type { CategoryKeys } from '~/types/projects';
+import { useTranslation } from 'react-i18next';
+import ProjectGrid from './content/ProjectGrid';
+import FilterTabs from './components/FilterTabs';
+import type { CategoryKeys } from '~/types/category';
+import Section from '../../components/layout/Section';
 
 export default function Portfolio() {
     const { t } = useTranslation();

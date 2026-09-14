@@ -8,7 +8,7 @@ import LanguageSwitcher from '../../config/LanguageSwitcher';
 export default function Navbar() {
     return (
         <>
-            <header className='flex items-center justify-between px-4 md:px-8 sticky top-0 z-50 h-16 bg-surface/50 backdrop-blur-xl border-b border-border transition-all duration-200'>
+            <header className='fixed flex items-center justify-between px-4 md:px-8 top-0 z-50 h-16 w-dvw bg-surface/50 backdrop-blur-xl border-b border-border transition-all duration-200'>
                 <Link
                     to='/'
                     onClick={() => window.scrollTo(0, 0)}

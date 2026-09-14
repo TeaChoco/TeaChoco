@@ -13,6 +13,7 @@ import {
 } from 'react-router';
 import i18n from '~/i18n';
 import env, { isDev } from '~/secure/env';
+import { SITE_URL } from '~/lib/seo';
 import type { Route } from './+types/root';
 import { useTranslation } from 'react-i18next';
 import { SUPPORTED_LANGS, type Lang } from '~/i18n/locales';
@@ -66,7 +67,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                         key={lang}
                         rel='alternate'
                         hrefLang={lang}
-                        href={`https://example.com/${lang}`}
+                        href={`${SITE_URL}/${lang}`}
                     />
                 ))}
                 <script

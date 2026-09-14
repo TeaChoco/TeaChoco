@@ -1,33 +1,32 @@
 //-Path: "TeaChoco-Portfolio/client/src/pages/Contact.tsx"
 import { useTranslation } from 'react-i18next';
-import ContactGrid from './content/ContactGrid';
+import { contactProfiles } from '~/data/contact';
 import Section from '../../components/layout/Section';
+import ProfileCard from './content/ProfileCard';
+import AvailabilityBadge from './content/AvailabilityBadge';
+import DiscordServers from './content/DiscordServers';
 
 export default function Contact() {
     const { t } = useTranslation();
 
     return (
-        <Section className='min-h-0!'>
-            <div className='page-header'>
+        <Section className='min-h-0! relative overflow-hidden'>
+            <div className='page-header relative'>
                 <h1 className='page-title'>
                     <span className='linear-text'>{t('contact.title')}</span>
                 </h1>
                 <p className='page-subtitle'>{t('contact.subtitle')}</p>
             </div>
 
-            <div className='max-w-4xl mx-auto w-full'>
-                {/* Intro Card */}
-                <div className='card mb-10 text-center bg-linear-to-br from-primary/5 to-accent/5 border-primary/20'>
-                    <h2 className='text-xl md:text-2xl font-bold text-surface-foreground mb-3'>
-                        {t('contact.subtitle')}
-                    </h2>
-                    <p className='text-surface-subtle max-w-lg mx-auto'>
-                        {t('contact.desc')}
-                    </p>
-                </div>
+            <AvailabilityBadge />
 
-                <ContactGrid />
+            <div className='relative mx-auto grid w-full max-w-6xl gap-6 md:grid-cols-2 xl:grid-cols-3'>
+                {contactProfiles.map((profile, index) => (
+                    <ProfileCard key={profile.labelKey} profile={profile} index={index} />
+                ))}
             </div>
+
+            <DiscordServers />
         </Section>
     );
 }

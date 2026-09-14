@@ -49,6 +49,9 @@
     "error_code": "404"
   },
   "footer": {
+    "linksTitle": "Quick Links",
+    "contactTitle": "Connect",
+    "backToTop": "Back to top",
     "copyright": "© 2025 TeaChoco. All rights reserved."
   },
   "categories": {
@@ -63,7 +66,8 @@
     "database": "Database",
     "template": "Template",
     "frontend": "Front-end",
-    "language": "Languages"
+    "language": "Languages",
+    "addon": "Add-on"
   },
   "skills": {
     "count": "skills",
@@ -153,6 +157,46 @@
       "chocoDeveloperBot": {
         "title": "Choco Developer Bot",
         "desc": "A feature-rich Discord bot built with Node.js and Discord.js for community management."
+      },
+      "chocomemo": {
+        "title": "Choco Memo",
+        "desc": "A lightweight memo app built with React SSR, Vite, and TailwindCSS."
+      },
+      "teachocoHospital": {
+        "title": "TeaChoco Hospital",
+        "desc": "A real-time hospital simulation web app built with React, TailwindCSS, and Socket.io."
+      },
+      "unoTool": {
+        "title": "Uno Tool",
+        "desc": "A UNO card game companion tool built with React and Material UI."
+      },
+      "reactRouter": {
+        "title": "Vite React Router TypeScript Template",
+        "desc": "A starter template for React with Vite and React Router, featuring TailwindCSS and Socket.io."
+      },
+      "tauriViteReact": {
+        "title": "Tauri Vite React TypeScript Template",
+        "desc": "A desktop app template using Tauri with Vite, React, TailwindCSS, and Socket.io."
+      },
+      "next": {
+        "title": "Next.js TypeScript Template",
+        "desc": "A starter template for Next.js with TypeScript, TailwindCSS, and Socket.io."
+      },
+      "express": {
+        "title": "Express TypeScript Template",
+        "desc": "A starter template for Express.js with TypeScript and Socket.io."
+      },
+      "nest": {
+        "title": "Nest TypeScript Template",
+        "desc": "A starter template for NestJS with TypeScript, Express, and Socket.io."
+      },
+      "nestViteReact": {
+        "title": "Nest Vite React TypeScript Template",
+        "desc": "A full-stack starter template combining NestJS backend with Vite, React, TailwindCSS, and Socket.io."
+      },
+      "mcpeAddonRespirationSword": {
+        "title": "MCPE Respiration Sword Addon",
+        "desc": "A Minecraft Bedrock Edition addon that adds a respiration sword, built with @minecraft/server."
       }
     }
   },
@@ -160,6 +204,9 @@
     "title": "Contact",
     "subtitle": "Have an interesting project? Let's talk!",
     "desc": "Feel free to reach out through any of the platforms below. I usually respond within 24 hours.",
+    "developer": "Developer",
+    "official": "Official",
+    "private": "Private",
     "formTitle": "Send a Message",
     "name": "Name",
     "namePlaceholder": "Your name",
@@ -167,7 +214,17 @@
     "emailPlaceholder": "email@example.com",
     "message": "Message",
     "messagePlaceholder": "Write your message here...",
-    "submit": "Send Message"
+    "submit": "Send Message",
+    "available": "Available for freelance & collaboration",
+    "discordTitle": "Discord Servers",
+    "discordLink": {
+      "private": {
+        "desc": "General community server"
+      },
+      "developer": {
+        "desc": "Developer community server"
+      }
+    }
   },
   "languages": {
     "thai": "Thai",

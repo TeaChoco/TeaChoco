@@ -49,6 +49,9 @@
     "error_code": "404"
   },
   "footer": {
+    "linksTitle": "快速链接",
+    "contactTitle": "联系方式",
+    "backToTop": "返回顶部",
     "copyright": "© 2025 TeaChoco. 保留所有权利。"
   },
   "categories": {
@@ -63,7 +66,8 @@
     "database": "数据库",
     "template": "模板",
     "frontend": "前端",
-    "language": "语言"
+    "language": "语言",
+    "addon": "附加组件"
   },
   "skills": {
     "count": "技能",
@@ -153,6 +157,46 @@
       "chocoDeveloperBot": {
         "title": "Choco Developer Bot",
         "desc": "使用Node.js和Discord.js构建的功能丰富的Discord社区管理机器人。"
+      },
+      "chocomemo": {
+        "title": "Choco Memo",
+        "desc": "使用React SSR、Vite和TailwindCSS构建的轻量级备忘录应用。"
+      },
+      "teachocoHospital": {
+        "title": "TeaChoco Hospital",
+        "desc": "使用React、TailwindCSS和Socket.io构建的实时医院模拟网页应用。"
+      },
+      "unoTool": {
+        "title": "Uno Tool",
+        "desc": "使用React和Material UI构建的UNO纸牌游戏辅助工具。"
+      },
+      "reactRouter": {
+        "title": "Vite React Router TypeScript Template",
+        "desc": "基于Vite和React Router的React启动模板，配备TailwindCSS和Socket.io。"
+      },
+      "tauriViteReact": {
+        "title": "Tauri Vite React TypeScript Template",
+        "desc": "使用Tauri的桌面应用模板，集成Vite、React、TailwindCSS和Socket.io。"
+      },
+      "next": {
+        "title": "Next.js TypeScript Template",
+        "desc": "Next.js启动模板，配备TypeScript、TailwindCSS和Socket.io。"
+      },
+      "express": {
+        "title": "Express TypeScript Template",
+        "desc": "Express.js启动模板，配备TypeScript和Socket.io。"
+      },
+      "nest": {
+        "title": "Nest TypeScript Template",
+        "desc": "NestJS启动模板，配备TypeScript、Express和Socket.io。"
+      },
+      "nestViteReact": {
+        "title": "Nest Vite React TypeScript Template",
+        "desc": "全栈启动模板，将NestJS后端与Vite、React、TailwindCSS和Socket.io相结合。"
+      },
+      "mcpeAddonRespirationSword": {
+        "title": "MCPE Respiration Sword Addon",
+        "desc": "使用@minecraft/server构建的Minecraft基岩版呼吸之剑附加组件。"
       }
     }
   },
@@ -160,6 +204,9 @@
     "title": "联系我",
     "subtitle": "有有趣的项目吗？让我们聊聊！",
     "desc": "欢迎通过以下平台联系我，通常会在24小时内回复。",
+    "developer": "开发者",
+    "official": "官方",
+    "private": "个人",
     "formTitle": "发送消息",
     "name": "姓名",
     "namePlaceholder": "您的姓名",
@@ -167,7 +214,17 @@
     "emailPlaceholder": "email@example.com",
     "message": "消息",
     "messagePlaceholder": "在此写下您的消息...",
-    "submit": "发送消息"
+    "submit": "发送消息",
+    "available": "可接自由职业与协作项目",
+    "discordTitle": "Discord 服务器",
+    "discordLink": {
+      "private": {
+        "desc": "通用社区服务器"
+      },
+      "developer": {
+        "desc": "开发者社区服务器"
+      }
+    }
   },
   "languages": {
     "thai": "泰语",

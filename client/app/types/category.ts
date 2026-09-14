@@ -11,4 +11,5 @@ export type CategoryKeys =
     | 'frontend'
     | 'backend'
     | 'database'
-    | 'template';
+    | 'template'
+    | 'addon';

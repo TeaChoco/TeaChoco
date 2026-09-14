@@ -1,9 +1,9 @@
 // -Path: "TeaChoco-Portfolio/client/src/pages/portfolio/components/FilterTabs.tsx"
 import { createElement } from 'react';
-import { useTranslation } from 'react-i18next';
-import { categoryIcons } from '~/constants/category';
 import { categories } from '~/data/projects';
-import type { CategoryKeys } from '~/types/projects';
+import { useTranslation } from 'react-i18next';
+import type { CategoryKeys } from '~/types/category';
+import { categoryIcons } from '~/constants/category';
 
 type Props = {
     activeCategory: CategoryKeys;

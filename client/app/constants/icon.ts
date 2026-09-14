@@ -20,7 +20,13 @@ import {
     SiTypescript,
     SiTailwindcss,
     SiSocketdotio,
+    SiRust,
+    SiPnpm,
+    SiRedux,
+    SiMui,
 } from 'react-icons/si';
+import { GiBearFace } from 'react-icons/gi';
+import { FaCube } from 'react-icons/fa';
 import type { TagIcon, TagIconKey } from '~/types/icon';
 
 export const tagIcons = {
@@ -45,6 +51,12 @@ export const tagIcons = {
     JavaScript: { icon: SiJavascript, color: '#F7DF1E' },
     TypeScript: { icon: SiTypescript, color: '#3178C6' },
     TailwindCSS: { icon: SiTailwindcss, color: '#06B6D4' },
+    Rust: { icon: SiRust, color: '#f74c00' },
+    Pnpm: { icon: SiPnpm, color: '#F69220' },
+    Zustand: { icon: GiBearFace, color: '#B45309' },
+    Redux: { icon: SiRedux, color: '#764ABC' },
+    MaterialUI: { icon: SiMui, color: '#007FFF' },
+    MinecraftServer: { icon: FaCube, color: '#62B47A' },
 } as Record<TagIconKey, TagIcon>;
 
 export const getTagIcon = (tag: TagIconKey): TagIcon => tagIcons[tag];

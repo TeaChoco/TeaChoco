@@ -49,6 +49,9 @@
     "error_code": "404"
   },
   "footer": {
+    "linksTitle": "ลิงก์ด่วน",
+    "contactTitle": "ติดต่อ",
+    "backToTop": "กลับขึ้นบน",
     "copyright": "© 2025 TeaChoco. สงวนลิขสิทธิ์ทั้งหมด"
   },
   "categories": {
@@ -63,7 +66,8 @@
     "database": "ฐานข้อมูล",
     "template": "เทมเพลต",
     "frontend": "ฟรอนต์เอนด์",
-    "language": "ภาษา"
+    "language": "ภาษา",
+    "addon": "Add-on"
   },
   "skills": {
     "count": "ทักษะ",
@@ -153,6 +157,46 @@
       "chocoDeveloperBot": {
         "title": "Choco Developer Bot",
         "desc": "Discord Bot ที่มีฟีเจอร์ครบครัน สร้างด้วย Node.js และ Discord.js สำหรับจัดการชุมชน"
+      },
+      "chocomemo": {
+        "title": "Choco Memo",
+        "desc": "แอปบันทึกข้อความเบาๆ สร้างด้วย React SSR, Vite และ TailwindCSS"
+      },
+      "teachocoHospital": {
+        "title": "TeaChoco Hospital",
+        "desc": "เว็บแอปจำลองโรงพยาบาลแบบเรียลไทม์ สร้างด้วย React, TailwindCSS และ Socket.io"
+      },
+      "unoTool": {
+        "title": "Uno Tool",
+        "desc": "เครื่องมือช่วยเล่น UNO สร้างด้วย React และ Material UI"
+      },
+      "reactRouter": {
+        "title": "Vite React Router TypeScript Template",
+        "desc": "เทมเพลตเริ่มต้นสำหรับ React กับ Vite และ React Router พร้อม TailwindCSS และ Socket.io"
+      },
+      "tauriViteReact": {
+        "title": "Tauri Vite React TypeScript Template",
+        "desc": "เทมเพลตแอปเดสก์ท็อปที่ใช้ Tauri ร่วมกับ Vite, React, TailwindCSS และ Socket.io"
+      },
+      "next": {
+        "title": "Next.js TypeScript Template",
+        "desc": "เทมเพลตเริ่มต้นสำหรับ Next.js พร้อม TypeScript, TailwindCSS และ Socket.io"
+      },
+      "express": {
+        "title": "Express TypeScript Template",
+        "desc": "เทมเพลตเริ่มต้นสำหรับ Express.js พร้อม TypeScript และ Socket.io"
+      },
+      "nest": {
+        "title": "Nest TypeScript Template",
+        "desc": "เทมเพลตเริ่มต้นสำหรับ NestJS พร้อม TypeScript, Express และ Socket.io"
+      },
+      "nestViteReact": {
+        "title": "Nest Vite React TypeScript Template",
+        "desc": "เทมเพลตฟูลสแต็กที่รวม NestJS backend เข้ากับ Vite, React, TailwindCSS และ Socket.io"
+      },
+      "mcpeAddonRespirationSword": {
+        "title": "MCPE Respiration Sword Addon",
+        "desc": "Add-on สำหรับ Minecraft Bedrock Edition ที่เพิ่มดาบหายใจ สร้างด้วย @minecraft/server"
       }
     }
   },
@@ -160,6 +204,9 @@
     "title": "ติดต่อ",
     "subtitle": "ถ้าอยากติดต่อผม สามารถทักมาได้เลย",
     "desc": "ทักมาได้เลยผ่านแพลตฟอร์มด้านล่าง ผมมักจะตอบภายใน 24 ชั่วโมง",
+    "developer": "นักพัฒนา",
+    "official": "ทางการ",
+    "private": "ส่วนตัว",
     "formTitle": "ส่งข้อความ",
     "name": "ชื่อ",
     "namePlaceholder": "ชื่อของคุณ",
@@ -167,7 +214,17 @@
     "emailPlaceholder": "email@example.com",
     "message": "ข้อความ",
     "messagePlaceholder": "เขียนข้อความของคุณที่นี่...",
-    "submit": "ส่งข้อความ"
+    "submit": "ส่งข้อความ",
+    "available": "พร้อมรับงานฟรีแลนซ์และร่วมงาน",
+    "discordTitle": "เซิร์ฟเวอร์ Discord",
+    "discordLink": {
+      "private": {
+        "desc": "เซิร์ฟเวอร์ชุมชนทั่วไป"
+      },
+      "developer": {
+        "desc": "เซิร์ฟเวอร์ชุมชนนักพัฒนา"
+      }
+    }
   },
   "languages": {
     "thai": "ภาษาไทย",

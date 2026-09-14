@@ -9,7 +9,7 @@ export default function DeskMenu() {
     const pathname = usePathname();
 
     return (
-        <div className='hidden md:flex items-center gap-2'>
+        <div className='hidden lg:flex items-center gap-2'>
             <nav className='flex gap-1'>
                 {navLinks.map(({ path, labelKey, icon: Icon }) => {
                     const isActive = pathname === path;

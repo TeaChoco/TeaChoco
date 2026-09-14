@@ -1,18 +1,10 @@
 // -Path: "TeaChoco-Portfolio/client/src/types/projects.ts"
 import type { TagIconKey } from './icon';
-
-export type CategoryKeys =
-    | 'all'
-    | 'public'
-    | 'web'
-    | 'server'
-    | 'bot'
-    | 'template';
+import type { CategoryKeys } from './category';
 
 export type Project = {
     id: string;
-    titleKey: string;
-    descKey: string;
+    key: string;
     tags: TagIconKey[];
     image?: string;
     categorys: CategoryKeys[];

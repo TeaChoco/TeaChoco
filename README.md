@@ -6,7 +6,7 @@
 
 **Full-Stack Developer & Creative Designer**
 
-[![Portfolio](https://img.shields.io/badge/🌐-Portfolio-blue?style=for-the-badge)](https://teachoco.github.io/TeaChoco/)
+[![Portfolio](https://img.shields.io/badge/🌐-Portfolio-blue?style=for-the-badge)](https://tea-choco.vercel.app)
 [![Email](https://img.shields.io/badge/📧-Email-red?style=for-the-badge)](mailto:teachocodeveloper@gmail.com)
 
 </div>
@@ -17,7 +17,7 @@
 
 I'm a passionate Full-Stack Developer and Creative Designer who loves building modern, responsive web applications. I specialize in creating beautiful user interfaces with clean code and best practices.
 
-- 🌐 **Portfolio**: [teachoco.github.io/TeaChoco](https://teachoco.github.io/TeaChoco/)
+- 🌐 **Portfolio**: [teachoco.github.io/TeaChoco](https://tea-choco.vercel.app)
 - 📧 **Email**: teachocodeveloper@gmail.com
 - 💼 **Role**: Full-Stack Developer & Creative Designer
 
@@ -59,7 +59,7 @@ A modern, responsive portfolio website built with React, TypeScript, and Vite.
 - 🌙 Dark/Light mode
 - 🚀 Built with React 19, TypeScript, Vite
 
-[![View Project](https://img.shields.io/badge/🔗-View_Project-green?style=for-the-badge)](https://teachoco.github.io/TeaChoco/)
+[![View Project](https://img.shields.io/badge/🔗-View_Project-green?style=for-the-badge)](https://tea-choco.vercel.app)
 [![GitHub](https://img.shields.io/badge/📂-Repository-black?style=for-the-badge)](https://github.com/TeaChoco/TeaChoco-Portfolio)
 
 ---
@@ -69,7 +69,7 @@ A modern, responsive portfolio website built with React, TypeScript, and Vite.
 <div align="center">
 
 [![Email](https://img.shields.io/badge/📧-Email_me-red?style=for-the-badge)](mailto:teachocodeveloper@gmail.com)
-[![Portfolio](https://img.shields.io/badge/🌐-My_Portfolio-blue?style=for-the-badge)](https://teachoco.github.io/TeaChoco/)
+[![Portfolio](https://img.shields.io/badge/🌐-My_Portfolio-blue?style=for-the-badge)](https://tea-choco.vercel.app)
 
 </div>
 

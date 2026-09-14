@@ -49,6 +49,9 @@
     "error_code": "404"
   },
   "footer": {
+    "linksTitle": "クイックリンク",
+    "contactTitle": "コンタクト",
+    "backToTop": "トップへ戻る",
     "copyright": "© 2025 TeaChoco. 全著作権所有。"
   },
   "categories": {
@@ -63,7 +66,8 @@
     "database": "データベース",
     "template": "テンプレート",
     "frontend": "フロントエンド",
-    "language": "言語"
+    "language": "言語",
+    "addon": "アドオン"
   },
   "skills": {
     "count": "スキル",
@@ -153,6 +157,46 @@
       "chocoDeveloperBot": {
         "title": "Choco Developer Bot",
         "desc": "Node.jsとDiscord.jsで構築したコミュニティ管理用の機能豊富なDiscordボット。"
+      },
+      "chocomemo": {
+        "title": "Choco Memo",
+        "desc": "React SSR、Vite、TailwindCSSで構築した軽量メモアプリ。"
+      },
+      "teachocoHospital": {
+        "title": "TeaChoco Hospital",
+        "desc": "React、TailwindCSS、Socket.ioで構築したリアルタイム病院シミュレーションウェブアプリ。"
+      },
+      "unoTool": {
+        "title": "Uno Tool",
+        "desc": "ReactとMaterial UIで構築したUNOカードゲームのコンパニオンツール。"
+      },
+      "reactRouter": {
+        "title": "Vite React Router TypeScript Template",
+        "desc": "ViteとReact RouterによるReactスターターテンプレート。TailwindCSSとSocket.ioを搭載。"
+      },
+      "tauriViteReact": {
+        "title": "Tauri Vite React TypeScript Template",
+        "desc": "Tauriを使用したデスクトップアプリテンプレート。Vite、React、TailwindCSS、Socket.ioを搭載。"
+      },
+      "next": {
+        "title": "Next.js TypeScript Template",
+        "desc": "Next.jsのスターターテンプレート。TypeScript、TailwindCSS、Socket.ioを搭載。"
+      },
+      "express": {
+        "title": "Express TypeScript Template",
+        "desc": "Express.jsのスターターテンプレート。TypeScriptとSocket.ioを搭載。"
+      },
+      "nest": {
+        "title": "Nest TypeScript Template",
+        "desc": "NestJSのスターターテンプレート。TypeScript、Express、Socket.ioを搭載。"
+      },
+      "nestViteReact": {
+        "title": "Nest Vite React TypeScript Template",
+        "desc": "NestJSバックエンドとVite、React、TailwindCSS、Socket.ioを組み合わせたフルスタックテンプレート。"
+      },
+      "mcpeAddonRespirationSword": {
+        "title": "MCPE Respiration Sword Addon",
+        "desc": "@minecraft/serverで構築したMinecraft Bedrock Editionの呼吸の剣を追加するアドオン。"
       }
     }
   },
@@ -160,6 +204,9 @@
     "title": "お問い合わせ",
     "subtitle": "面白いプロジェクトがありますか？お話しましょう！",
     "desc": "下記のプラットフォームからお気軽にご連絡ください。通常24時間以内に返信いたします。",
+    "developer": "デベロッパー",
+    "official": "公式",
+    "private": "プライベート",
     "formTitle": "メッセージを送る",
     "name": "名前",
     "namePlaceholder": "あなたの名前",
@@ -167,7 +214,17 @@
     "emailPlaceholder": "email@example.com",
     "message": "メッセージ",
     "messagePlaceholder": "ここにメッセージを書いてください...",
-    "submit": "メッセージを送信"
+    "submit": "メッセージを送信",
+    "available": "フリーランス・コラボ募集中",
+    "discordTitle": "Discordサーバー",
+    "discordLink": {
+      "private": {
+        "desc": "一般コミュニティサーバー"
+      },
+      "developer": {
+        "desc": "開発者コミュニティサーバー"
+      }
+    }
   },
   "languages": {
     "thai": "タイ語",

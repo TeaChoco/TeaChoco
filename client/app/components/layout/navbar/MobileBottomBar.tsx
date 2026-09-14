@@ -11,7 +11,7 @@ export default function MobileBottomBar() {
     return (
         <nav
             aria-label='Mobile navigation'
-            className='md:hidden fixed bottom-0 inset-x-0 z-50 pb-[env(safe-area-inset-bottom)]'
+            className='lg:hidden fixed bottom-0 inset-x-0 z-50 pb-[env(safe-area-inset-bottom)]'
         >
             <div className='flex justify-around items-center bg-surface/60 backdrop-blur-xl border border-border rounded-t-2xl px-2 py-3 gap-1 shadow-lg shadow-black/5'>
                 {navLinks.map(({ path, labelKey, icon: Icon }) => {
