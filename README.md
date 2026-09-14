@@ -17,7 +17,7 @@
 
 I'm a passionate Full-Stack Developer and Creative Designer who loves building modern, responsive web applications. I specialize in creating beautiful user interfaces with clean code and best practices.
 
-- 🌐 **Portfolio**: [teachoco.github.io/TeaChoco](https://tea-choco.vercel.app)
+- 🌐 **Portfolio**: [tea-choco.vercel.app](https://tea-choco.vercel.app)
 - 📧 **Email**: teachocodeveloper@gmail.com
 - 💼 **Role**: Full-Stack Developer & Creative Designer
 
