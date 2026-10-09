@@ -3,7 +3,7 @@ import { Link } from '~/i18n/routing';
 import type { ReactNode } from 'react';
 import { FaArrowLeft } from 'react-icons/fa6';
 import { useTranslation } from 'react-i18next';
-import Section from '../../../components/layout/Section';
+import Section from '../../../components/custom/Section';
 import PreferenceDisclaimer from '../components/PreferenceDisclaimer';
 
 type Props = {

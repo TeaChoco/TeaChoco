@@ -1,11 +1,12 @@
 // -Path: 'TeaChoco-Portfolio/client/app/pages/about/About.tsx'
 import { motion } from 'framer-motion';
+import Setup from './content/setup/Setup';
 import { devStats } from '~/data/about/stats';
 import Experience from './content/Experience';
 import { useTranslation } from 'react-i18next';
 import CodingSkill from './content/CodingSkill';
 import Profile from '~/components/content/Profile';
-import Section from '../../components/layout/Section';
+import Section from '../../components/custom/Section';
 import LanguageSkill from '~/components/content/LanguageSkill';
 
 export default function About() {
@@ -65,6 +66,9 @@ export default function About() {
 
                 {/* Experience */}
                 <Experience />
+
+                {/* Setup */}
+                <Setup />
             </div>
         </Section>
     );

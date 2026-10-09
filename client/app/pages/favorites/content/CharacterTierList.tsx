@@ -1,3 +1,5 @@
+// -Path: 'TeaChoco-Portfolio/client/app/pages/favorites/content/CharacterTierList.tsx'
+import { motion } from 'framer-motion';
 import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useTierGroups } from '~/hooks/useTierGroups';
@@ -62,7 +64,11 @@ export default function CharacterTierList({ viewMoreTo }: CharacterTierListProps
 
     return (
         <ErrorBound>
-            <div className='w-full'>
+            <motion.div
+                className='w-full'
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+            >
                 <TierListToolbar
                     sourceOptions={sourceOptions}
                     selectedSource={selectedSource}
@@ -81,22 +87,30 @@ export default function CharacterTierList({ viewMoreTo }: CharacterTierListProps
                     >
                         {/* Axis Type */}
                         <div
+                            title={t('favorites.category.favorite.desc')}
                             className='py-2 text-center text-lg sm:text-2xl lg:text-4xl font-extrabold tracking-wide text-primary-foreground transition-all duration-300 ease-in-out shrink-0 overflow-hidden'
                             style={{
                                 width:
                                     axis === 'waifu' ? '0%' : axis === 'favorite' ? '100%' : '50%',
                             }}
                         >
-                            Favorite
+                            <span className='block leading-tight'>Favorite</span>
+                            <span className='hidden sm:block mx-auto max-w-full text-[0.65rem] sm:text-xs font-medium opacity-90 px-2'>
+                                {t('favorites.category.favorite.short')}
+                            </span>
                         </div>
                         <div
+                            title={t('favorites.category.waifu.desc')}
                             className='py-2 text-center text-lg sm:text-2xl lg:text-4xl font-extrabold tracking-wide text-secondary-foreground transition-all duration-300 ease-in-out shrink-0 overflow-hidden'
                             style={{
                                 width:
                                     axis === 'favorite' ? '0%' : axis === 'waifu' ? '100%' : '50%',
                             }}
                         >
-                            Waifu
+                            <span className='block leading-tight'>Waifu</span>
+                            <span className='hidden sm:block mx-auto max-w-full text-[0.65rem] sm:text-xs font-medium opacity-90 px-2'>
+                                {t('favorites.category.waifu.short')}
+                            </span>
                         </div>
                     </div>
 
@@ -119,7 +133,7 @@ export default function CharacterTierList({ viewMoreTo }: CharacterTierListProps
                     </div>
                 </div>
                 {viewMoreTo && <ShowMoreButton to={viewMoreTo} />}
-            </div>
+            </motion.div>
         </ErrorBound>
     );
 }

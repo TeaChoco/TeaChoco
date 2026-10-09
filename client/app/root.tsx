@@ -13,10 +13,11 @@ import {
 } from 'react-router';
 import i18n from '~/i18n';
 import env, { isDev } from '~/secure/env';
-import { SITE_URL } from '~/lib/seo';
+import { getAssetUrl } from './utils/url';
 import type { Route } from './+types/root';
 import { useTranslation } from 'react-i18next';
 import { SUPPORTED_LANGS, type Lang } from '~/i18n/locales';
+import { seo, SITE_NAME, SITE_URL, SOCIAL_URLS } from '~/lib/seo';
 
 export async function loader({ request }: LoaderFunctionArgs) {
     const url = new URL(request.url);
@@ -36,6 +37,32 @@ export async function loader({ request }: LoaderFunctionArgs) {
     }
 
     return {};
+}
+
+export function meta({ params }: Route.MetaArgs) {
+    const lang = params.lang ?? 'en';
+    const title = 'TeaChoco Portfolio | Full-Stack Developer & Creative Designer';
+    const description =
+        'Explore the TeaChoco portfolio — a full-stack developer and creative designer building modern web apps with React, TypeScript, Vite and Tailwind CSS. View projects, coding skills, tech stack and personal favorites.';
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: SITE_NAME,
+        url: `${SITE_URL}/${lang}`,
+        description,
+        author: { '@type': 'Person', name: SITE_NAME, sameAs: Object.values(SOCIAL_URLS) },
+    };
+
+    return seo({
+        lang,
+        title,
+        description,
+        keywords:
+            'TeaChoco, TeaChoco portfolio, full-stack developer, creative designer, web developer, software engineer, React developer, TypeScript, Vite, TailwindCSS',
+        path: '/',
+        image: '/TeaChoco-logo.png',
+        jsonLd,
+    });
 }
 
 export const links: Route.LinksFunction = () => [
@@ -59,16 +86,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <head>
                 <meta charSet='utf-8' />
                 <meta name='viewport' content='width=device-width, initial-scale=1' />
-                <link rel='icon' type='image/x-icon' href={env.BASE + 'favicon.ico'} />
+                <link rel='icon' type='image/x-icon' href={getAssetUrl('favicon.ico')} />
                 <Meta />
                 <Links />
                 {SUPPORTED_LANGS.map((lang) => (
-                    <link
-                        key={lang}
-                        rel='alternate'
-                        hrefLang={lang}
-                        href={`${SITE_URL}/${lang}`}
-                    />
+                    <link key={lang} rel='alternate' hrefLang={lang} href={`${SITE_URL}/${lang}`} />
                 ))}
                 <script
                     dangerouslySetInnerHTML={{

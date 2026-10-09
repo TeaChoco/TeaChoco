@@ -1,4 +1,5 @@
 // -Path: "TeaChoco-Portfolio/client/src/pages/favorites/content/GameList.tsx"
+import { motion } from 'framer-motion';
 import { useEffect, useMemo, useState } from 'react';
 import { FaGamepad } from 'react-icons/fa6';
 import { useTranslation } from 'react-i18next';
@@ -9,7 +10,7 @@ import GameCard from '../components/card/GameCard';
 import { gameList } from '~/data/favorites/game';
 import FadeOverflow from '../../../components/layout/FadeOverflow';
 import type { GameItem } from '~/types/favorites';
-import type { SortMode, ViewMode } from '../types';
+import type { SortMode, ViewMode } from '../../../types/types';
 
 const ROW_HEIGHT = 224;
 const GAP = 24;
@@ -34,14 +35,14 @@ type Props = {
 };
 
 export default function GameList({ rows, viewMoreTo, initialItemId }: Props) {
-    const { t } = useTranslation();
-    const [viewMode, setViewMode] = useState<ViewMode>('grid');
-    const [size, setSize] = useState(2);
-    const [maxSize, setMaxSize] = useState(SIZE_MAX_FULL);
-    const [query, setQuery] = useState('');
-    const [sort, setSort] = useState<SortMode>('title-az');
     const isPreview = rows != null;
+    const { t } = useTranslation();
+    const [size, setSize] = useState(2);
+    const [query, setQuery] = useState('');
+    const [maxSize, setMaxSize] = useState(SIZE_MAX_FULL);
     const showMore = isPreview && gameList.length > rows!;
+    const [sort, setSort] = useState<SortMode>('rating-desc');
+    const [viewMode, setViewMode] = useState<ViewMode>('grid');
 
     useEffect(() => {
         const update = () => {
@@ -121,7 +122,11 @@ export default function GameList({ rows, viewMoreTo, initialItemId }: Props) {
     );
 
     return (
-        <div className='mb-16'>
+        <motion.div
+            className='mb-16'
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+        >
             <FavoriteTitle<SortMode>
                 favoriteSection={
                     <FavoriteSection
@@ -150,12 +155,16 @@ export default function GameList({ rows, viewMoreTo, initialItemId }: Props) {
                     </p>
                 </div>
             ) : (
-                <FadeOverflow active={isPreview} maxHeight={rows! * ROW_HEIGHT + (rows! - 1) * GAP} className='pt-4'>
+                <FadeOverflow
+                    active={isPreview}
+                    maxHeight={rows! * ROW_HEIGHT + (rows! - 1) * GAP}
+                    className='pt-4'
+                >
                     {viewMode === 'grid' ? grid : list}
                 </FadeOverflow>
             )}
 
             {showMore && viewMoreTo && <ShowMoreButton to={viewMoreTo} />}
-        </div>
+        </motion.div>
     );
 }

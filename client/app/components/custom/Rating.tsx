@@ -4,7 +4,8 @@ import { useId } from 'react';
 type Props = {
     max?: number;
     color?: string;
-    rating: number;
+    /** Rating value, or `null` when the item has not been rated yet. */
+    rating: number | null;
     showNumber?: boolean;
     type?: 'heart' | 'star';
 };
@@ -61,19 +62,23 @@ export default function Rating({
     max = 5,
     showNumber = true,
 }: Props) {
-    const display = (Math.floor(rating * 10) / 10).toFixed(1);
+    const rated = rating != null;
+    const value = rating ?? 0;
+    const display = rated ? (Math.floor(value * 10) / 10).toFixed(1) : '—';
     const styleColor = color ?? (type === 'heart' ? '#ff6666' : '#f59e0b');
 
     return (
-        <div className='flex items-center gap-2' aria-label={`${rating} / ${max}`}>
+        <div className='flex items-center gap-2' aria-label={rated ? `${value} / ${max}` : 'Not rated'}>
             <div className='flex items-center gap-0.5'>
                 {Array.from({ length: max }, (_, i) => {
-                    const fill = Math.max(0, Math.min(1, rating - i));
+                    const fill = Math.max(0, Math.min(1, value - i));
                     return <FractionalIcon key={i} type={type} fill={fill} color={styleColor} />;
                 })}
             </div>
             {showNumber && (
-                <span className='text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark'>
+                <span
+                    className={`text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark ${rated ? '' : 'opacity-50'}`}
+                >
                     {display}
                 </span>
             )}

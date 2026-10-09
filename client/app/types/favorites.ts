@@ -8,13 +8,14 @@ export type AnimeType = 'yuri';
 export type AnimeItem = {
     id: string;
     names: LangNames;
-    rating: number;
+    rating: number | null;
     type?: AnimeType[];
     note?: string;
     image?: string | null;
 };
 
 export type GameType =
+    | 'pokemon'
     | 'openworld'
     | 'creative'
     | 'rpg'

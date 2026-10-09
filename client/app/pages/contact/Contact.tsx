@@ -1,7 +1,7 @@
 //-Path: "TeaChoco-Portfolio/client/src/pages/Contact.tsx"
 import { useTranslation } from 'react-i18next';
 import { contactProfiles } from '~/data/contact';
-import Section from '../../components/layout/Section';
+import Section from '../../components/custom/Section';
 import ProfileCard from './content/ProfileCard';
 import AvailabilityBadge from './content/AvailabilityBadge';
 import DiscordServers from './content/DiscordServers';

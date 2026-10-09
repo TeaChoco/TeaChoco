@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { useTranslation } from 'react-i18next';
 import { AnimatePresence, motion } from 'framer-motion';
 import type { CharacterItem, CharacterTier } from '~/types/favorites';
 import { TIER_STYLES } from '~/constants/Tier';
@@ -37,9 +38,15 @@ export function TierRow({
     favoriteCharacters,
     waifuCharacters,
 }: TierRowProps) {
+    const { t } = useTranslation();
     const tierStyle = style || TIER_STYLES[tier];
     const badge = (
-        <BoxTier className={clsx(tierStyle.bg, tierStyle.text)}>{tierStyle.label}</BoxTier>
+        <BoxTier
+            title={t(`favorites.tierDesc.${tier}`)}
+            className={clsx(tierStyle.bg, tierStyle.text)}
+        >
+            {tierStyle.label}
+        </BoxTier>
     );
 
     const favVisible = axis !== 'waifu';

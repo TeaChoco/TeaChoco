@@ -18,6 +18,27 @@
       "favorite": "最爱",
       "waifu": "老婆"
     },
+    "category": {
+      "favorite": {
+        "desc": "让我在他们身上看到自己的角色——既是一面映照自我的镜子，也是我现实中想要拥有的挚友",
+        "short": "在他们身上看到自己——并想成为挚友"
+      },
+      "waifu": {
+        "desc": "我想娶为妻子的角色——想珍惜、想陪伴，想一起共度人生",
+        "short": "想与她们结婚——并永远相伴"
+      }
+    },
+    "tierDesc": {
+      "ssss": "传说——难以言表，无人可替代的传说",
+      "sss": "心中的最爱——深爱到难以形容",
+      "ss": "特别特别喜欢——对我的人生意义重大",
+      "s": "很喜欢——常驻心中，时常想起",
+      "a": "喜欢——印象深刻，有魅力且难忘",
+      "b": "还行——能一直看下去，但没有特别的感觉",
+      "c": "一般——记得，但没留在心里",
+      "d": "不太喜欢——不太合我心意",
+      "f": "完全不喜欢——想忘记这个角色的存在"
+    },
     "view": "查看",
     "urlSoon": "稍后添加链接",
     "empty": "这里还没有内容。",
@@ -152,7 +173,58 @@
     },
     "statYears": "年经验",
     "statProjects": "完成项目",
-    "statTech": "技术"
+    "statTech": "技术",
+    "setup": {
+      "title": "我的设备",
+      "subtitle": "用于工作、看动漫和玩游戏的机器与装备",
+      "device": {
+        "hp": {
+          "nickname": "TeaChoco",
+          "type": "商务笔记本",
+          "note": "当前主力机——兼顾工作和日常生活"
+        },
+        "dell": {
+          "nickname": "旧机器",
+          "type": "游戏笔记本",
+          "note": "第一台认真写代码的机器——如今屏幕和主板已损坏"
+        }
+      },
+      "status": {
+        "current": "使用中",
+        "retired": "已收藏",
+        "broken": "已损坏"
+      },
+      "spec": {
+        "cpu": "CPU",
+        "gpu": "GPU",
+        "gpuIntegrated": "GPU（集成）",
+        "ram": "RAM",
+        "storage": "存储空间",
+        "storageMoved": "HDD（已移至 HP）",
+        "display": "显示屏",
+        "monitor": "外接显示器",
+        "weight": "重量",
+        "os": "操作系统",
+        "battery": "电池"
+      },
+      "gear": {
+        "title": "正在使用的装备",
+        "cat": {
+          "microphone": "麦克风",
+          "keyboard": "键盘",
+          "mouse": "鼠标",
+          "headset": "耳机",
+          "monitor": "显示器",
+          "other": "其他"
+        },
+        "onikuma": {
+          "note": "粉色麦克风——用于录音和 VRChat"
+        },
+        "oker": {
+          "note": "Blue Switch 键盘——敲击声很带感"
+        }
+      }
+    }
   },
   "blog": {
     "title": "博客",

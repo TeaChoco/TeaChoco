@@ -1,8 +1,9 @@
 //-Path: "Vite-React-TypeScript/src/components/custom/Select.tsx"
 import { useTranslation } from 'react-i18next';
-import { FaChevronDown } from 'react-icons/fa6';
+import { FaCheck, FaChevronDown } from 'react-icons/fa6';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useState, useRef, useEffect, useMemo } from 'react';
+import { createPortal } from 'react-dom';
+import React, { useState, useRef, useEffect, useLayoutEffect, useMemo } from 'react';
 
 interface SelectOptionProps<ValueType = string> {
     value: ValueType;
@@ -29,22 +30,23 @@ function SelectOption<ValueType>({
         <button
             type='button'
             onClick={onClick}
-            className={`w-full px-4 py-3 text-left transition-all flex items-center gap-3 group ${
+            className={`w-full px-4 py-3 text-left flex items-center gap-3 group ${
                 selected
-                    ? 'font-black text-primary bg-primary/15 hover:bg-primary/20'
-                    : 'text-surface-foreground hover:pl-6 hover:bg-primary/10'
+                    ? 'font-black text-primary-foreground bg-primary hover:bg-primary-emphasis'
+                    : 'text-surface-foreground hover:bg-surface-overlay'
             } ${className}`}
         >
             {icon && (
                 <span
-                    className={`transition-transform duration-300 group-hover:scale-110 ${
-                        selected ? 'text-primary' : 'text-surface-foreground'
+                    className={`${
+                        selected ? 'text-primary-foreground' : 'text-surface-muted'
                     }`}
                 >
                     {icon}
                 </span>
             )}
             <span className='text-sm tracking-tight'>{String(content)}</span>
+            {selected && <FaCheck className='absolute h-3.5 w-3.5 right-4' />}
         </button>
     );
 }
@@ -63,13 +65,31 @@ export interface SelectProps<ValueType = string> {
     placeholder?: string;
     icon?: React.ReactNode;
     labelClassName?: string;
-    options: OptionSelectType<ValueType>[];
+    optionsClassName?: string;
     containerClassName?: string;
+    options: OptionSelectType<ValueType>[];
     onChange?: (value: ValueType) => void;
     children?: (
         Option: typeof SelectOption<ValueType>,
         options: OptionSelectType<ValueType>[],
     ) => React.ReactNode;
+}
+
+const TRIGGER_GAP = 8;
+const VIEWPORT_PAD = 8;
+/** Preferred cap on the options list; it shrinks to fit tight viewports. */
+const MAX_PANEL_HEIGHT = 256;
+/** Never collapse the list below this, even on very short viewports. */
+const MIN_PANEL_HEIGHT = 120;
+
+interface PanelPosition {
+    /** Anchored to the top for a downward panel, ignored when `bottom` is set. */
+    top?: number;
+    /** Anchored to the viewport bottom for an upward panel. */
+    bottom?: number;
+    left: number;
+    minWidth: number;
+    maxHeight: number;
 }
 
 export default function Select<ValueType>({
@@ -83,22 +103,16 @@ export default function Select<ValueType>({
     className = '',
     placeholder,
     labelClassName = '',
+    optionsClassName = '',
     containerClassName = '',
 }: SelectProps<ValueType>) {
     const { t } = useTranslation();
     const [isOpen, setIsOpen] = useState(false);
+    const optionsRef = useRef<HTMLDivElement>(null);
     const dropdownRef = useRef<HTMLDivElement>(null);
-    const [dropdownDirection, setDropdownDirection] = useState<'down' | 'up'>('down');
+    const [panelPos, setPanelPos] = useState<PanelPosition | null>(null);
 
-    const handleToggle = () => {
-        if (!isOpen && dropdownRef.current) {
-            const rect = dropdownRef.current.getBoundingClientRect();
-            const spaceBelow = window.innerHeight - rect.bottom;
-            const spaceAbove = rect.top;
-            setDropdownDirection(spaceBelow < 200 && spaceAbove > spaceBelow ? 'up' : 'down');
-        }
-        setIsOpen((prev) => !prev);
-    };
+    const handleToggle = () => setIsOpen((prev) => !prev);
 
     const selectedOption = useMemo(() => {
         let option = options.find((option) => option.value === value);
@@ -126,12 +140,65 @@ export default function Select<ValueType>({
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
-            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node))
+            const target = event.target as Node;
+            // The options panel lives in a portal, so it is NOT inside
+            // dropdownRef — both must count as "inside" or picking an
+            // option would close the list before its click lands.
+            if (!dropdownRef.current?.contains(target) && !optionsRef.current?.contains(target)) {
                 setIsOpen(false);
+            }
         };
         document.addEventListener('mousedown', handleClickOutside);
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
+
+    /* The options panel is portalled to <body> so ancestor scroll/overflow
+       containers (nav dropdowns, modals) can never clip it. Position it
+       against the trigger's viewport rect and keep it there on scroll/resize. */
+    useLayoutEffect(() => {
+        if (!isOpen) {
+            setPanelPos(null);
+            return;
+        }
+
+        const place = () => {
+            const trigger = dropdownRef.current;
+            const panel = optionsRef.current;
+            if (!trigger || !panel) return;
+
+            const rect = trigger.getBoundingClientRect();
+            const spaceBelow = window.innerHeight - rect.bottom - TRIGGER_GAP - VIEWPORT_PAD;
+            const spaceAbove = rect.top - TRIGGER_GAP - VIEWPORT_PAD;
+
+            // Open toward the roomier side, and cap the list to whatever that
+            // side actually offers — so the panel can never grow off-screen.
+            const direction = spaceBelow >= spaceAbove ? 'down' : 'up';
+            const available = direction === 'down' ? spaceBelow : spaceAbove;
+            const maxHeight = Math.max(MIN_PANEL_HEIGHT, Math.min(MAX_PANEL_HEIGHT, available));
+
+            setPanelPos({
+                // Anchoring the upward panel to the viewport bottom keeps it
+                // correct without needing to measure its height first.
+                ...(direction === 'down'
+                    ? { top: rect.bottom + TRIGGER_GAP }
+                    : { bottom: window.innerHeight - rect.top + TRIGGER_GAP }),
+                left: Math.max(
+                    VIEWPORT_PAD,
+                    Math.min(rect.left, window.innerWidth - panel.offsetWidth - VIEWPORT_PAD),
+                ),
+                minWidth: rect.width,
+                maxHeight,
+            });
+        };
+
+        place();
+        window.addEventListener('scroll', place, true);
+        window.addEventListener('resize', place);
+        return () => {
+            window.removeEventListener('scroll', place, true);
+            window.removeEventListener('resize', place);
+        };
+    }, [isOpen]);
 
     const handleSelect = (optionValue: ValueType) => {
         if (onChange) onChange(optionValue);
@@ -146,13 +213,13 @@ export default function Select<ValueType>({
         t('common.select');
     const labelClass = 'flex gap-2 text-sm font-bold text-surface-foreground mb-2 ml-1';
     const triggerClass =
-        'w-full px-5 py-3.5 rounded-2xl border border-border transition-all duration-300 flex items-center justify-between gap-3 text-left shadow-sm hover:shadow-md';
+        'w-full px-4 py-3 rounded-sm border transition-colors duration-200 flex items-center justify-between gap-3 text-left';
 
     return (
         <div ref={dropdownRef} className={`relative ${containerClassName}`}>
             {label && (
                 <label className={`${labelClass} ${labelClassName}`}>
-                    {icon && <span className='text-primary/70'>{icon}</span>}
+                    {icon && <span className='text-primary/80'>{icon}</span>}
                     {label}
                     {required && <span className='text-red-500 font-black'>*</span>}
                 </label>
@@ -162,9 +229,7 @@ export default function Select<ValueType>({
                 type='button'
                 onClick={handleToggle}
                 className={`${triggerClass} ${className} ${
-                    isOpen
-                        ? 'border-primary ring-4 ring-primary/10 bg-surface-elevated/50'
-                        : 'border-border-foreground bg-surface/20'
+                    isOpen ? 'bg-surface-elevated/50 border-primary' : 'bg-surface/20 border-border'
                 }`}
             >
                 <div className='flex items-center gap-3 truncate'>
@@ -182,48 +247,66 @@ export default function Select<ValueType>({
                     </span>
                 </div>
                 <FaChevronDown
-                    className={`w-3.5 h-3.5 transition-transform duration-500 ${
-                        isOpen ? 'rotate-180 text-primary' : 'text-surface-foreground'
+                    className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                        isOpen ? 'rotate-180 text-primary' : 'text-surface-muted'
                     }`}
                 />
             </button>
 
-            <AnimatePresence>
-                {isOpen && (
-                    <motion.div
-                        transition={{ duration: 0.2 }}
-                        exit={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        className={`absolute z-100 w-full bg-surface-elevated rounded-2xl shadow-2xl border border-border overflow-hidden ${
-                            dropdownDirection === 'up' ? 'bottom-full mb-2' : 'mt-2'
-                        }`}
-                    >
-                        <div className='max-h-64 overflow-y-auto'>
-                        {children
-                            ? children(
-                                  ({ value: optionValue, selected, ...optionProps }) => (
-                                      <SelectOption<ValueType>
-                                          {...optionProps}
-                                          value={optionValue}
-                                          onClick={() => handleSelect(optionValue)}
-                                          selected={selected || value === optionValue}
-                                      />
-                                  ),
-                                  options,
-                              )
-                            : options.map((option) => (
-                                  <SelectOption<ValueType>
-                                      key={String(option.value)}
-                                      {...option}
-                                      selected={value === option.value}
-                                      onClick={() => handleSelect(option.value)}
-                                  />
-                              ))}
-                        </div>
-                    </motion.div>
+            {typeof document !== 'undefined' &&
+                createPortal(
+                    <AnimatePresence>
+                        {isOpen && (
+                            <motion.div
+                                key='select-options'
+                                ref={optionsRef}
+                                transition={{ duration: 0.15 }}
+                                exit={{ opacity: 0, y: 4 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                initial={{ opacity: 0, y: 4 }}
+                                style={{
+                                    position: 'fixed',
+                                    top: panelPos?.top,
+                                    bottom: panelPos?.bottom,
+                                    left: panelPos?.left ?? 0,
+                                    minWidth: panelPos?.minWidth,
+                                }}
+                                className={`z-100 w-max overflow-hidden rounded-sm border border-border bg-surface-elevated/50 shadow-xl shadow-black/10 ${optionsClassName}`}
+                            >
+                                <div
+                                    className='overflow-y-auto overscroll-contain'
+                                    style={{ maxHeight: panelPos?.maxHeight ?? MAX_PANEL_HEIGHT }}
+                                >
+                                    {children
+                                        ? children(
+                                              ({
+                                                  value: optionValue,
+                                                  selected,
+                                                  ...optionProps
+                                              }) => (
+                                                  <SelectOption<ValueType>
+                                                      {...optionProps}
+                                                      value={optionValue}
+                                                      onClick={() => handleSelect(optionValue)}
+                                                      selected={selected || value === optionValue}
+                                                  />
+                                              ),
+                                              options,
+                                          )
+                                        : options.map((option) => (
+                                              <SelectOption<ValueType>
+                                                  key={String(option.value)}
+                                                  {...option}
+                                                  selected={value === option.value}
+                                                  onClick={() => handleSelect(option.value)}
+                                              />
+                                          ))}
+                                </div>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>,
+                    document.body,
                 )}
-            </AnimatePresence>
         </div>
     );
 }

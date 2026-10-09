@@ -5,6 +5,7 @@ import Rating from '~/components/custom/Rating';
 import { Modal, ModalBody, ModalHeader } from '~/components/custom/Modal';
 import type { Lang } from '~/i18n/locales';
 import { languageFlags } from '~/data/languageIcon';
+import { getAssetUrl } from '~/utils/url';
 
 const LANG_FLAG: Record<string, keyof typeof languageFlags> = {
     en: 'US',
@@ -14,23 +15,25 @@ const LANG_FLAG: Record<string, keyof typeof languageFlags> = {
 };
 
 export interface MediaItem {
+    id: string;
     names: Partial<Record<Lang, string>>;
-    rating: number;
+    rating: number | null;
     note?: string;
     image?: string | null;
     type?: string[];
 }
 
 interface MediaCardProps {
+    href?: string;
     item: MediaItem;
+    forceOpen?: boolean;
+    interactive?: boolean;
+    type: 'anime' | 'game';
     layout?: 'grid' | 'list';
     thumbnailClass?: string;
     ratingType?: 'heart' | 'star';
     nameWeight?: 'font-medium' | 'font-semibold';
     getTypeLabel?: (type: string) => string | undefined;
-    interactive?: boolean;
-    href?: string;
-    forceOpen?: boolean;
 }
 
 function TypeChips({
@@ -74,7 +77,7 @@ function Names({
                 const Flag: IconType | undefined = languageFlags[LANG_FLAG[lang]];
                 return (
                     <div key={lang} className='flex items-center gap-2 leading-snug'>
-                        {Flag ? <Flag className='h-3 w-4 shrink-0 rounded-[2px]' /> : null}
+                        {Flag ? <Flag className='h-3 w-4 shrink-0 rounded-xs' /> : null}
                         <span className={`leading-tight ${nameWeight}`}>{name}</span>
                     </div>
                 );
@@ -85,14 +88,15 @@ function Names({
 
 export default function MediaCard({
     item,
+    type,
+    href,
     layout = 'grid',
     thumbnailClass,
+    forceOpen = false,
+    interactive = true,
     ratingType = 'star',
     nameWeight = 'font-medium',
     getTypeLabel,
-    interactive = true,
-    href,
-    forceOpen = false,
 }: MediaCardProps) {
     const primaryName = Object.values(item.names)[0] ?? '';
     const isList = layout === 'list';
@@ -100,22 +104,20 @@ export default function MediaCard({
 
     const content = (
         <>
-            {item.image && (
-                <div
-                    className={`relative shrink-0 overflow-hidden bg-surface-overlay-light dark:bg-surface-overlay-dark ${
-                        isList
-                            ? `aspect-video w-full sm:aspect-square ${thumbnailClass ?? 'sm:w-32'}`
-                            : 'aspect-[3/4] w-full'
-                    }`}
-                >
-                    <img
-                        src={item.image}
-                        alt={primaryName}
-                        loading='lazy'
-                        className='absolute inset-0 h-full w-full object-cover transition-transform duration-300 hover:scale-105'
-                    />
-                </div>
-            )}
+            <div
+                className={`relative shrink-0 overflow-hidden bg-surface-overlay-light dark:bg-surface-overlay-dark ${
+                    isList
+                        ? `aspect-video w-full sm:aspect-square ${thumbnailClass ?? 'sm:w-32'}`
+                        : 'aspect-3/4 w-full'
+                }`}
+            >
+                <img
+                    loading='lazy'
+                    alt={primaryName}
+                    src={item.image ? item.image : getAssetUrl(`/images/${type}/${item.id}.png`)}
+                    className='absolute inset-0 w-full transition-transform duration-300 hover:scale-105'
+                />
+            </div>
 
             <div className='flex w-full min-w-0 flex-col gap-3 p-5'>
                 <Names names={item.names} nameWeight={nameWeight} />
@@ -166,7 +168,7 @@ export default function MediaCard({
                                 <img
                                     src={item.image}
                                     alt={primaryName}
-                                    className='aspect-[3/4] w-full object-cover'
+                                    className='aspect-3/4 w-full object-cover'
                                 />
                             </div>
                         )}

@@ -18,6 +18,27 @@
       "favorite": "Favorite",
       "waifu": "Waifu"
     },
+    "category": {
+      "favorite": {
+        "desc": "Characters who feel like a mirror of myself — people I see myself in, and would love to have as close friends in real life.",
+        "short": "See myself in them — and want them as close friends."
+      },
+      "waifu": {
+        "desc": "Characters I'd want as my wife — to cherish, to stand beside, and to share a life with.",
+        "short": "Want to marry them — and stay together forever."
+      }
+    },
+    "tierDesc": {
+      "ssss": "Legendary — beyond words, irreplaceable",
+      "sss": "All-time favorite — love so deep it's hard to explain",
+      "ss": "Very special — deeply meaningful to me",
+      "s": "Love — always on my mind",
+      "a": "Like — charming and memorable",
+      "b": "Okay — enjoyable but not special",
+      "c": "Neutral — forgettable",
+      "d": "Dislike — not my type",
+      "f": "Hate — wish I could forget"
+    },
     "view": "View",
     "urlSoon": "Link added later",
     "empty": "Nothing here yet.",
@@ -152,7 +173,58 @@
     },
     "statYears": "Years Experience",
     "statProjects": "Projects Completed",
-    "statTech": "Technologies"
+    "statTech": "Technologies",
+    "setup": {
+      "title": "My Setup",
+      "subtitle": "Devices and gear I use for work, anime, and gaming",
+      "device": {
+        "hp": {
+          "nickname": "TeaChoco",
+          "type": "Business Laptop",
+          "note": "My main daily driver — work and life"
+        },
+        "dell": {
+          "nickname": "The Old One",
+          "type": "Gaming Laptop",
+          "note": "The first machine I coded seriously on — screen and motherboard are dead now"
+        }
+      },
+      "status": {
+        "current": "In Use",
+        "retired": "Retired",
+        "broken": "Broken"
+      },
+      "spec": {
+        "cpu": "CPU",
+        "gpu": "GPU",
+        "gpuIntegrated": "GPU (Integrated)",
+        "ram": "RAM",
+        "storage": "Storage",
+        "storageMoved": "HDD (moved to HP)",
+        "display": "Display",
+        "monitor": "Monitor",
+        "weight": "Weight",
+        "os": "OS",
+        "battery": "Battery"
+      },
+      "gear": {
+        "title": "My Gear",
+        "cat": {
+          "microphone": "Microphone",
+          "keyboard": "Keyboard",
+          "mouse": "Mouse",
+          "headset": "Headset",
+          "monitor": "Monitor",
+          "other": "Other"
+        },
+        "onikuma": {
+          "note": "Pink mic — for recording and VRChat"
+        },
+        "oker": {
+          "note": "Blue switch keyboard — clicky and satisfying"
+        }
+      }
+    }
   },
   "blog": {
     "title": "Blog",

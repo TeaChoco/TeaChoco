@@ -25,8 +25,9 @@ export type TagIconKey =
     | 'TailwindCSS'
     | 'Rust'
     | 'Pnpm'
-    | 'Zustand'
+    | 'Godot'
     | 'Redux'
+    | 'Zustand'
     | 'MaterialUI'
     | 'MinecraftServer';
 

@@ -1,15 +1,16 @@
 // -Path: "TeaChoco-Portfolio/client/src/pages/favorites/content/AnimeList.tsx"
-import { useEffect, useMemo, useState } from 'react';
+import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { FaClapperboard } from 'react-icons/fa6';
 import { animeList } from '~/data/favorites/anime';
 import type { AnimeItem } from '~/types/favorites';
-import type { SortMode, ViewMode } from '../types';
+import AnimeCard from '../components/card/AnimeCard';
+import { useEffect, useMemo, useState } from 'react';
+import type { SortMode, ViewMode } from '~/types/types';
+import FavoriteTitle from '../components/FavoriteTitle';
 import ShowMoreButton from '../components/ShowMoreButton';
 import FavoriteSection from '../components/FavoriteSection';
-import FavoriteTitle from '../components/FavoriteTitle';
-import AnimeCard from '../components/card/AnimeCard';
-import FadeOverflow from '../../../components/layout/FadeOverflow';
+import FadeOverflow from '~/components/layout/FadeOverflow';
 
 const GAP = 24;
 const ROW_HEIGHT = 224;
@@ -34,14 +35,14 @@ type Props = {
 };
 
 export default function AnimeList({ rows, viewMoreTo, initialItemId }: Props) {
-    const { t } = useTranslation();
-    const [viewMode, setViewMode] = useState<ViewMode>('grid');
-    const [size, setSize] = useState(2);
-    const [maxSize, setMaxSize] = useState(SIZE_MAX_FULL);
-    const [query, setQuery] = useState('');
-    const [sort, setSort] = useState<SortMode>('title-az');
     const isPreview = rows != null;
+    const { t } = useTranslation();
+    const [size, setSize] = useState(2);
+    const [query, setQuery] = useState('');
+    const [maxSize, setMaxSize] = useState(SIZE_MAX_FULL);
     const showMore = isPreview && animeList.length > rows!;
+    const [sort, setSort] = useState<SortMode>('rating-desc');
+    const [viewMode, setViewMode] = useState<ViewMode>('grid');
 
     useEffect(() => {
         const update = () => {
@@ -72,9 +73,7 @@ export default function AnimeList({ rows, viewMoreTo, initialItemId }: Props) {
 
         const filtered = animeList.filter((item) => {
             if (!q) return true;
-            return Object.values(item.names).some((name) =>
-                name.toLowerCase().includes(q)
-            );
+            return Object.values(item.names).some((name) => name.toLowerCase().includes(q));
         });
 
         const key = (item: AnimeItem) => Object.values(item.names)[0] ?? '';
@@ -85,9 +84,13 @@ export default function AnimeList({ rows, viewMoreTo, initialItemId }: Props) {
             case 'title-za':
                 return [...filtered].sort((a, b) => collator.compare(key(b), key(a)));
             case 'rating-desc':
-                return [...filtered].sort((a, b) => b.rating - a.rating);
+                return [...filtered].sort(
+                    (a, b) => (b.rating ?? -Infinity) - (a.rating ?? -Infinity),
+                );
             case 'rating-asc':
-                return [...filtered].sort((a, b) => a.rating - b.rating);
+                return [...filtered].sort(
+                    (a, b) => (a.rating ?? Infinity) - (b.rating ?? Infinity),
+                );
         }
     }, [query, sort]);
 
@@ -123,7 +126,11 @@ export default function AnimeList({ rows, viewMoreTo, initialItemId }: Props) {
     );
 
     return (
-        <div className='mb-16'>
+        <motion.div
+            className='mb-16'
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+        >
             <FavoriteTitle<SortMode>
                 favoriteSection={
                     <FavoriteSection
@@ -152,12 +159,16 @@ export default function AnimeList({ rows, viewMoreTo, initialItemId }: Props) {
                     </p>
                 </div>
             ) : (
-                <FadeOverflow active={isPreview} maxHeight={rows! * ROW_HEIGHT + (rows! - 1) * GAP} className='pt-4'>
+                <FadeOverflow
+                    active={isPreview}
+                    maxHeight={rows! * ROW_HEIGHT + (rows! - 1) * GAP}
+                    className='pt-4'
+                >
                     {viewMode === 'grid' ? grid : list}
                 </FadeOverflow>
             )}
 
             {showMore && viewMoreTo && <ShowMoreButton to={viewMoreTo} />}
-        </div>
+        </motion.div>
     );
 }

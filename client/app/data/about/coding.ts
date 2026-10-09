@@ -67,6 +67,7 @@ export const codingSkills: CodingSkill[] = [
     { id: 'Expressjs', name: 'Express.js', level: 75, category: 'backend' },
     { id: 'GitGitHub', name: 'Git & GitHub', level: 80, category: 'devops' },
     { id: 'Docker', name: 'Docker', level: 30, category: 'devops' },
+    { id: 'Godot', name: 'Godot', level: 35, category: 'language' },
     {
         id: 'Python',
         name: 'Python',

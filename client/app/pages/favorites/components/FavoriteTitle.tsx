@@ -5,7 +5,7 @@ import { Link } from '~/i18n/routing';
 import Select from '~/components/custom/Select';
 import Search from '~/components/custom/Search';
 import RangeSlider from '~/components/custom/RangeSlider';
-import type { ViewMode } from '../types';
+import type { ViewMode } from '../../../types/types';
 
 const SIZE_MIN = 0;
 const SIZE_NAMES = ['X1', 'X2', 'X3', 'X4', 'X5'];

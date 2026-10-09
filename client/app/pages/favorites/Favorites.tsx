@@ -1,6 +1,6 @@
 // -Path: "TeaChoco-Portfolio/client/src/pages/favorites/Favorites.tsx"
 import { useTranslation } from 'react-i18next';
-import Section from '../../components/layout/Section';
+import Section from '~/components/custom/Section';
 import AnimeList from './content/AnimeList';
 import GameList from './content/GameList';
 import MvList from './content/MvList';

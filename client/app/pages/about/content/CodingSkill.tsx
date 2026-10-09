@@ -1,25 +1,30 @@
 // -Path: "TeaChoco-Portfolio/client/src/pages/about/content/CodingSkill.tsx"
 import { useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { codingSkills } from '~/data/about/coding';
-import type { CodingSkill, CodingSkillCategory } from '~/types/coding';
-import { codingViewOptions, type CodingViewMode } from './components/codingViewOptions';
-import CodingSkillList from './components/CodingSkillList';
-import CodingSkillCards from './components/CodingSkillCards';
-import CodingSkillGrid from './components/CodingSkillGrid';
-import SkillsFilter from '../components/SkillsFilter';
 import EmptyState from '../components/EmptyState';
+import { codingSkills } from '~/data/about/coding';
+import SkillsFilter from '../components/SkillsFilter';
+import CodingSkillList from './coding/CodingSkillList';
+import CodingSkillGrid from './coding/CodingSkillGrid';
+import CodingSkillCards from './coding/CodingSkillCards';
+import type { CodingSkill, CodingSkillCategory } from '~/types/coding';
+import { codingViewOptions, type CodingViewMode } from './coding/codingViewOptions';
 
 export default function CodingSkill() {
     const { t } = useTranslation();
+    const [view, setView] = useState<CodingViewMode>('list');
     const [sortBy, setSortBy] = useState<'name' | 'level'>('level');
     const [selectedCategory, setSelectedCategory] = useState<CodingSkillCategory>('all');
-    const [view, setView] = useState<CodingViewMode>('list');
 
     const filteredAndSortedSkills = useMemo(() => {
-        let filtered = selectedCategory === 'all' ? codingSkills : codingSkills.filter((skill) => skill.category === selectedCategory);
+        let filtered =
+            selectedCategory === 'all'
+                ? codingSkills
+                : codingSkills.filter((skill) => skill.category === selectedCategory);
 
-        return filtered.sort((a, b) => (sortBy === 'name' ? a.name.localeCompare(b.name) : b.level - a.level));
+        return filtered.sort((a, b) =>
+            sortBy === 'name' ? a.name.localeCompare(b.name) : b.level - a.level,
+        );
     }, [selectedCategory, sortBy]);
 
     return (
@@ -39,7 +44,9 @@ export default function CodingSkill() {
                                 aria-pressed={active}
                                 title={t(option.labelKey)}
                                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium transition-colors cursor-pointer ${
-                                    active ? 'bg-primary/10 text-primary-light' : 'text-surface-muted hover:text-primary-light'
+                                    active
+                                        ? 'bg-primary/10 text-primary-light'
+                                        : 'text-surface-muted hover:text-primary-light'
                                 }`}
                             >
                                 <Icon className='text-sm' />

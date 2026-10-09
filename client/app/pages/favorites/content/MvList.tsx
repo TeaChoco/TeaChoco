@@ -1,4 +1,5 @@
 // -Path: "TeaChoco-Portfolio/client/src/pages/favorites/content/MvList.tsx"
+import { motion } from 'framer-motion';
 import { FaMusic } from 'react-icons/fa6';
 import { useEffect, useMemo, useState } from 'react';
 import { mvList } from '~/data/favorites/mv';
@@ -166,7 +167,11 @@ export default function MvList({ rows, viewMoreTo }: Props) {
     ];
 
     return (
-        <div className='mb-16'>
+        <motion.div
+            className='mb-16'
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+        >
             <FavoriteTitle<SortMode>
                 favoriteSection={
                     <FavoriteSection
@@ -203,6 +208,6 @@ export default function MvList({ rows, viewMoreTo }: Props) {
                 </FadeOverflow>
             )}
             {showMore && viewMoreTo && <ShowMoreButton to={viewMoreTo} />}
-        </div>
+        </motion.div>
     );
 }

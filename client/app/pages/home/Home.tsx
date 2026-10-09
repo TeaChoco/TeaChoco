@@ -5,7 +5,7 @@ import LanguageSkill from '~/components/content/LanguageSkill';
 import { Link } from '~/i18n/routing';
 import TechStack from './content/TechStack';
 import { useTranslation } from 'react-i18next';
-import Section from '../../components/layout/Section';
+import Section from '../../components/custom/Section';
 
 export default function Home() {
     const { t } = useTranslation();
