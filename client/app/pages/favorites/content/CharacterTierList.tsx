@@ -4,11 +4,11 @@ import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useTierGroups } from '~/hooks/useTierGroups';
 import ErrorBound from '~/components/custom/ErrorBound';
-import { TierRow, type TierRowAxis } from '../components/character/TierRow';
 import ShowMoreButton from '../components/ShowMoreButton';
+import { useLangTextResolver } from '../hooks/useLocalizedText';
 import { characters, characterTiers } from '~/data/favorites/character';
 import { TierListToolbar } from '../components/character/TierListToolbar';
-import { useLangTextResolver } from '../hooks/useLocalizedText';
+import { TierRow, type TierRowAxis } from '../components/character/TierRow';
 
 /**
  * Tier list board.
@@ -24,9 +24,9 @@ interface CharacterTierListProps {
 export default function CharacterTierList({ viewMoreTo }: CharacterTierListProps) {
     const { t } = useTranslation();
     const resolve = useLangTextResolver();
-    const [selectedSource, setSelectedSource] = useState('all');
     const [search, setSearch] = useState('');
     const [axis, setAxis] = useState<TierRowAxis>('both');
+    const [selectedSource, setSelectedSource] = useState('all');
 
     const sourceOptions = useMemo(() => {
         const sources = new Set<string>();
@@ -37,10 +37,10 @@ export default function CharacterTierList({ viewMoreTo }: CharacterTierListProps
             if (game) sources.add(game);
         });
         return [
-            { label: 'ทั้งหมด', value: 'all' },
+            { label: t('favorites.toolbar.all'), value: 'all' },
             ...Array.from(sources).map((source) => ({ label: source, value: source })),
         ];
-    }, [characters, resolve]);
+    }, [characters, resolve, t]);
 
     const filteredCharacters = useMemo(() => {
         const query = search.trim().toLowerCase();
@@ -95,7 +95,7 @@ export default function CharacterTierList({ viewMoreTo }: CharacterTierListProps
                             }}
                         >
                             <span className='block leading-tight'>Favorite</span>
-                            <span className='hidden sm:block mx-auto max-w-full text-[0.65rem] sm:text-xs font-medium opacity-90 px-2'>
+                            <span className='block mx-auto max-w-full text-[0.65rem] sm:text-xs font-medium opacity-90 px-2'>
                                 {t('favorites.category.favorite.short')}
                             </span>
                         </div>
@@ -108,7 +108,7 @@ export default function CharacterTierList({ viewMoreTo }: CharacterTierListProps
                             }}
                         >
                             <span className='block leading-tight'>Waifu</span>
-                            <span className='hidden sm:block mx-auto max-w-full text-[0.65rem] sm:text-xs font-medium opacity-90 px-2'>
+                            <span className='block mx-auto max-w-full text-[0.65rem] sm:text-xs font-medium opacity-90 px-2'>
                                 {t('favorites.category.waifu.short')}
                             </span>
                         </div>

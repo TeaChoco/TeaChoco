@@ -77,7 +77,7 @@ export default function SetTabs<T extends SetTabOption>({
                         {isUnderline && isActive && (
                             <motion.span
                                 layoutId={indicatorLayoutId}
-                                className='absolute left-0 right-0 -bottom-px h-[2px] bg-primary'
+                                className='absolute left-0 right-0 -bottom-px h-xs bg-primary'
                                 transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                             />
                         )}
