@@ -1,6 +1,7 @@
 // -Path: 'Vite-React-Router-TypeScript/app/utils/url.ts'
 import i18n from '~/i18n';
 import env from '~/secure/env';
+import { resolveLang } from '~/i18n/locales';
 
 export function getFullUrl(path: string = ''): string {
     const baseUrl =
@@ -17,7 +18,7 @@ export function getFullUrl(path: string = ''): string {
 
 export function getLocaleUrl(path: string = ''): string {
     const cleanPath = path.startsWith('/') ? path : `/${path}`;
-    return getFullUrl(`/${i18n.language}${cleanPath}`);
+    return getFullUrl(`/${resolveLang(i18n.resolvedLanguage ?? i18n.language)}${cleanPath}`);
 }
 
 export function getAssetUrl(path: string = ''): string {

@@ -17,3 +17,21 @@ export const SUPPORTED_LANGS = Object.keys(resources) as (keyof typeof resources
 export type Lang = (typeof SUPPORTED_LANGS)[number];
 
 export const isValidLang = (lang: string): lang is Lang => SUPPORTED_LANGS.includes(lang as Lang);
+
+/**
+ * Resolves any language code to a supported language.
+ * `en-US` -> `en`, `zh-CN` -> `zh`; unknown codes fall back to `en`.
+ *
+ * @param code - Raw language code, possibly including a region.
+ * @returns A supported language code.
+ */
+export function resolveLang(code?: string | null): Lang {
+    const value = code?.toLowerCase();
+    if (!value) return SUPPORTED_LANGS[0];
+
+    return (
+        SUPPORTED_LANGS.find((lang) => value === lang) ??
+        SUPPORTED_LANGS.find((lang) => value.startsWith(`${lang}-`)) ??
+        SUPPORTED_LANGS[0]
+    );
+}

@@ -1,14 +1,16 @@
 // -Path: 'Vite-React-Router-TypeScript/app/routes/$lang.tsx'
 import i18n from '~/i18n';
 import { redirect } from 'react-router';
-import { isValidLang } from '~/i18n/locales';
+import { isValidLang, resolveLang } from '~/i18n/locales';
 import { Outlet, useParams } from 'react-router';
 import type { LoaderFunctionArgs } from 'react-router';
 
 export async function loader({ params }: LoaderFunctionArgs) {
     const lang = params.lang;
 
-    if (!lang || !isValidLang(lang)) return redirect(`/${i18n.language}`);
+    if (!lang || !isValidLang(lang)) {
+        return redirect(`/${resolveLang(i18n.resolvedLanguage ?? i18n.language)}`);
+    }
 
     return { lang };
 }

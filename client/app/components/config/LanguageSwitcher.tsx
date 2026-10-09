@@ -1,7 +1,7 @@
 // -Path: 'Vite-React-Router-TypeScript/app/components/config/LanguageSwitcher.tsx'
 import Select from '../custom/Select';
 import { useRouter } from '~/i18n/routing';
-import type { Lang } from '~/i18n/locales';
+import { resolveLang, type Lang } from '~/i18n/locales';
 import { useTranslation } from 'react-i18next';
 
 const languages = [
@@ -28,7 +28,7 @@ export default function LanguageSwitcher() {
         <Select
             onChange={handleChange}
             options={languageOptions}
-            value={i18n.language as Lang}
+            value={resolveLang(i18n.resolvedLanguage ?? i18n.language)}
             className='py-3! px-4! rounded-lg! text-xs'
         />
     );

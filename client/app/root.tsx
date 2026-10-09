@@ -16,7 +16,7 @@ import env, { isDev } from '~/secure/env';
 import { getAssetUrl } from './utils/url';
 import type { Route } from './+types/root';
 import { useTranslation } from 'react-i18next';
-import { SUPPORTED_LANGS, type Lang } from '~/i18n/locales';
+import { SUPPORTED_LANGS, isValidLang, resolveLang } from '~/i18n/locales';
 import { seo, SITE_NAME, SITE_URL, SOCIAL_URLS } from '~/lib/seo';
 
 export async function loader({ request }: LoaderFunctionArgs) {
@@ -30,10 +30,10 @@ export async function loader({ request }: LoaderFunctionArgs) {
     );
 
     if (isRootPath && !isLanguagePath) {
-        let targetLang = i18n.language;
+        let targetLang = resolveLang(i18n.resolvedLanguage ?? i18n.language);
         const cookieLang = request.headers.get('cookie')?.match(/lang=([^;]+)/)?.[1];
-        if (cookieLang && SUPPORTED_LANGS.includes(cookieLang as Lang)) targetLang = cookieLang;
-        return redirect(`${basePath}/${targetLang}`.replace(/\/+/g, '/'));
+        if (cookieLang && isValidLang(cookieLang)) targetLang = cookieLang;
+        return redirect(`/${targetLang}`);
     }
 
     return {};
