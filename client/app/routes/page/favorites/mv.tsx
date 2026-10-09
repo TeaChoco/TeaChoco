@@ -4,7 +4,7 @@ import MvPage from '~/pages/favorites/category/MvPage';
 import { SITE_NAME, SITE_URL, seo } from '~/lib/seo';
 
 export function meta({ params }: Route.MetaArgs) {
-    const lang = params.lang ?? 'en-US';
+    const lang = params.lang ?? 'en';
     const title = 'Favorite Music Videos | TeaChoco MV Picks';
     const description =
         'Check out TeaChoco favorite music videos — a hand-picked collection of music videos and MV edits with personal ratings.';

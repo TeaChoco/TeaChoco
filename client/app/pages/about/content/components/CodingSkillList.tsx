@@ -13,7 +13,7 @@ export default function CodingSkillList({ skills }: CodingSkillListProps) {
 
     return (
         <div className='space-y-3 mt-2'>
-            {skills.map((skill, idx) => {
+            {skills.map((skill) => {
                 const icon = getTagIcon(skill.id);
 
                 return (
@@ -22,7 +22,6 @@ export default function CodingSkillList({ skills }: CodingSkillListProps) {
                         className='card group p-4'
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.4, delay: 0.1 * idx }}
                     >
                         <div className='flex justify-between items-center mb-3'>
                             <div className='flex items-center gap-3'>
@@ -45,7 +44,10 @@ export default function CodingSkillList({ skills }: CodingSkillListProps) {
                                     {skill.name}
                                 </span>
                             </div>
-                            <span className='text-sm font-bold' style={{ color: icon.color ?? hex }}>
+                            <span
+                                className='text-sm font-bold'
+                                style={{ color: icon.color ?? hex }}
+                            >
                                 {skill.level}%
                             </span>
                         </div>

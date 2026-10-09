@@ -97,11 +97,59 @@
     "intro2": "除了编程，我还喜欢通过文章分享知识并帮助开发者社区。",
     "skillsTitle": "编码技能",
     "languagesTitle": "语言技能",
-    "experienceTitle": "工作经历",
-    "jobTitle": "全栈开发者",
-    "company": "自由职业",
-    "period": "2023 - 至今",
-    "jobDesc": "为各种客户开发Web应用程序和系统。",
+    "experienceTitle": "我的旅程",
+    "highlight": "亮点",
+    "category": {
+      "all": "全部",
+      "creative": "艺术与写作",
+      "game": "游戏",
+      "web": "网页与代码",
+      "tooling": "工具与硬件",
+      "life": "生活"
+    },
+    "era": {
+      "origin": {
+        "title": "起点",
+        "desc": "从艺术、游戏和故事开始，那时我甚至还不懂代码。"
+      },
+      "codeEntry": {
+        "title": "进入代码世界",
+        "desc": "第一台电脑、第一个机器人、第一个网站——一切都变了。"
+      },
+      "expansion": {
+        "title": "拓宽边界",
+        "desc": "硬件、3D 和 TypeScript 拓宽了我的工具箱。"
+      },
+      "professional": {
+        "title": "走向专业",
+        "desc": "NPM 库、Docker、Linux，以及通过 VR 练习语言。"
+      }
+    },
+    "timeline": {
+      "ibispaint": "用手机上的 ibisPaint 画动漫——一切的起点",
+      "mcMiniGame": "没有电脑，却用 Command Block 做出了 Minecraft 小游戏",
+      "novelist": "开始写小说——看动漫看得想拥有自己的故事",
+      "youtube": "开始做 YouTube——分享自己感兴趣的东西",
+      "mcAddonMobile": "因为还没有电脑，就用手机做 Minecraft Addon",
+      "coach": "做过自我成长顾问",
+      "newPc2021": "得到第一台电脑——Dell 打开了通往新世界的大门",
+      "discordBot": "编写了第一个 Discord 机器人",
+      "phpSite": "用 HTML、CSS、JS、PHP 迈出做真正网站的第一步",
+      "reactSite": "技术栈大升级——React、Express、MUI、Socket.io、Three.js",
+      "firstGithub": "第一次使用 GitHub——进入真正开发者的世界",
+      "arduino": "为 Arduino 编写程序——代码变得触手可及",
+      "blender": "用 Blender 做 3D 建模——艺术进入新维度",
+      "typescript": "转向 TypeScript——写出更有条理的代码",
+      "npmLib": "发布了自己的 npm 库",
+      "nextjs": "用 Next.js + Tailwind 做网站——完美的技术栈",
+      "mcAddonPc": "在完整电脑上重新制作 Minecraft Addon",
+      "godot": "第一次使用 Godot，做出我的第一款游戏",
+      "nest": "用 NestJS 编写服务器——迈向真正的后端",
+      "docker": "开始使用 Docker——理解容器的世界",
+      "reactRouter": "用 React Router Framework 做网站——全栈",
+      "manjaro": "把新电脑换成 HP + Linux Manjaro——彻底自由",
+      "vrchat": "通过 VRChat 练习日语和英语——在玩耍中学习语言"
+    },
     "statYears": "年经验",
     "statProjects": "完成项目",
     "statTech": "技术"

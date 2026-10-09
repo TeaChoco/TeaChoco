@@ -7,10 +7,10 @@ import type { Lang } from '~/i18n/locales';
 import { languageFlags } from '~/data/languageIcon';
 
 const LANG_FLAG: Record<string, keyof typeof languageFlags> = {
-    'en-US': 'US',
-    'th-TH': 'TH',
-    'ja-JP': 'JP',
-    'zh-CN': 'CN',
+    en: 'US',
+    th: 'TH',
+    ja: 'JP',
+    zh: 'CN',
 };
 
 export interface MediaItem {

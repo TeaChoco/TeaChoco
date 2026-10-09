@@ -1,8 +1,8 @@
 // -Path: "TeaChoco-Portfolio/client/src/pages/about/content/components/CodingSkillGrid.tsx"
 import { motion } from 'framer-motion';
 import { getTagIcon } from '~/constants/icon';
-import type { CodingSkill } from '~/types/coding';
 import useTextColor from '~/hooks/useTextColor';
+import type { CodingSkill } from '~/types/coding';
 
 interface CodingSkillGridProps {
     skills: CodingSkill[];
@@ -14,7 +14,7 @@ export default function CodingSkillGrid({ skills }: CodingSkillGridProps) {
     return (
         <div className='card p-4'>
             <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3'>
-                {skills.map((skill, idx) => {
+                {skills.map((skill) => {
                     const icon = getTagIcon(skill.id);
 
                     return (
@@ -23,7 +23,6 @@ export default function CodingSkillGrid({ skills }: CodingSkillGridProps) {
                             className='p-3 rounded-xl border border-border bg-surface-overlay/50 group'
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.4, delay: 0.1 * idx }}
                         >
                             <div className='flex items-center justify-between mb-2'>
                                 <div
@@ -41,7 +40,10 @@ export default function CodingSkillGrid({ skills }: CodingSkillGridProps) {
                                         }}
                                     />
                                 </div>
-                                <span className='text-xs font-bold' style={{ color: icon.color ?? hex }}>
+                                <span
+                                    className='text-xs font-bold'
+                                    style={{ color: icon.color ?? hex }}
+                                >
                                     {skill.level}%
                                 </span>
                             </div>

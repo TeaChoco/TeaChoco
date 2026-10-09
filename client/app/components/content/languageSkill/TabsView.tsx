@@ -2,7 +2,7 @@
 import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { languageSkills } from '~/data/language';
+import { languageSkills } from '~/data/about/language';
 import { abilityKeys, getOverall } from '../LanguageSkill';
 import type { LanguageSkillAbility } from '~/types/language';
 import { languageFlags } from '~/data/languageIcon';

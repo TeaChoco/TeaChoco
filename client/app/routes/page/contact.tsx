@@ -4,7 +4,7 @@ import { SITE_NAME, SITE_URL, seo, SOCIAL_URLS } from '~/lib/seo';
 import type { Route } from './+types/contact';
 
 export function meta({ params }: Route.MetaArgs) {
-    const lang = params.lang ?? 'en-US';
+    const lang = params.lang ?? 'en';
     const title = 'Contact TeaChoco | Get in Touch With a Full-Stack Developer';
     const description =
         'Contact TeaChoco for collaboration, freelance projects or just to say hi. Reach me through GitHub, YouTube, X (Twitter), Facebook, Discord or email.';

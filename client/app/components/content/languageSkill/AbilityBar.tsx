@@ -1,7 +1,7 @@
 // -Path: "TeaChoco-Portfolio/client/src/pages/about/content/components/AbilityBar.tsx"
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { abilityColors } from '~/data/language';
+import { abilityColors } from '~/data/about/language';
 import type { LanguageSkillAbility } from '~/types/language';
 import { abilityIcons } from '~/data/languageIcon';
 

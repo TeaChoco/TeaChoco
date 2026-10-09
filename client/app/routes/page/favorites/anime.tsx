@@ -5,7 +5,7 @@ import { animeList } from '~/data/favorites/anime';
 import { localizedName, SITE_NAME, SITE_URL, seo } from '~/lib/seo';
 
 export function meta({ params }: Route.MetaArgs) {
-    const lang = params.lang ?? 'en-US';
+    const lang = params.lang ?? 'en';
     const title = 'Favorite Anime | TeaChoco Anime List & Ratings';
     const description =
         'Discover TeaChoco favorite anime — a curated list of anime series with ratings, including titles like Bocchi the Rock, Re:Zero and Jujutsu Kaisen.';

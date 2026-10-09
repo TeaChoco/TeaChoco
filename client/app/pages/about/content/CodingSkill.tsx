@@ -1,7 +1,7 @@
 // -Path: "TeaChoco-Portfolio/client/src/pages/about/content/CodingSkill.tsx"
 import { useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { codingSkills } from '~/data/coding';
+import { codingSkills } from '~/data/about/coding';
 import type { CodingSkill, CodingSkillCategory } from '~/types/coding';
 import { codingViewOptions, type CodingViewMode } from './components/codingViewOptions';
 import CodingSkillList from './components/CodingSkillList';

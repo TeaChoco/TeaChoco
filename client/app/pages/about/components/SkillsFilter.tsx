@@ -3,7 +3,7 @@ import { createElement } from 'react';
 import { useTranslation } from 'react-i18next';
 import { categoryIcons } from '~/constants/category';
 import { FaFont, FaSort } from 'react-icons/fa6';
-import { categories } from '~/data/coding';
+import { categories } from '~/data/about/coding';
 import type { CodingSkillCategory } from '~/types/coding';
 import Select, { type OptionSelectType } from '~/components/custom/Select';
 

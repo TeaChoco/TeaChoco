@@ -97,13 +97,61 @@
     "intro2": "นอกจากการเขียนโค้ด ผมยังชอบแบ่งปันความรู้ผ่านบทความและช่วยเหลือชุมชนนักพัฒนา",
     "skillsTitle": "ทักษะการเขียนโค้ด",
     "languagesTitle": "ทักษะภาษา",
-    "experienceTitle": "ประสบการณ์",
-    "jobTitle": "Full-Stack Developer",
-    "company": "Freelance",
-    "period": "2023 - ปัจจุบัน",
-    "jobDesc": "พัฒนาเว็บแอปพลิเคชันและระบบต่างๆ สำหรับลูกค้าหลากหลายประเภท",
-    "statYears": "ปีประสบการณ์",
-    "statProjects": "โปรเจคที่เสร็จแล้ว",
+    "experienceTitle": "การเดินทางของผม",
+    "highlight": "ไฮไลต์",
+    "category": {
+      "all": "ทั้งหมด",
+      "creative": "ศิลป์ & เขียน",
+      "game": "เกม",
+      "web": "เว็บ & โค้ด",
+      "tooling": "เครื่องมือ & ฮาร์ดแวร์",
+      "life": "ชีวิต"
+    },
+    "era": {
+      "origin": {
+        "title": "จุดเริ่มต้น",
+        "desc": "เริ่มจากศิลปะ เกม และเรื่องราว ก่อนที่ผมจะรู้จักโค้ดด้วยซ้ำ"
+      },
+      "codeEntry": {
+        "title": "ก้าวสู่โลกโค้ด",
+        "desc": "คอมเครื่องแรก บอทตัวแรก เว็บไซต์แรก ทุกอย่างเปลี่ยนไป"
+      },
+      "expansion": {
+        "title": "ขยายขอบเขต",
+        "desc": "ฮาร์ดแวร์ 3D และ TypeScript เปิดกว้างเครื่องมือของผม"
+      },
+      "professional": {
+        "title": "สู่ระดับมืออาชีพ",
+        "desc": "ไลบรารี NPM, Docker, Linux และฝึกภาษาผ่าน VR"
+      }
+    },
+    "timeline": {
+      "ibispaint": "วาดรูปอนิเมะบนโทรศัพท์ด้วย IbisPaint — จุดเริ่มต้นของทุกอย่าง",
+      "mcMiniGame": "สร้างมินิเกม Minecraft ด้วย Command Block ทั้งที่ไม่มีคอม",
+      "novelist": "เริ่มเป็นนักเขียนนิยาย — ดูอนิเมะจนอยากมีเรื่องเล่าของตัวเอง",
+      "youtube": "เริ่มทำ YouTube — เริ่มแบ่งปันสิ่งที่สนใจ",
+      "mcAddonMobile": "สร้าง Addon Minecraft บนโทรศัพท์ เพราะยังไม่มีคอม",
+      "coach": "เป็นที่ปรึกษาด้านการพัฒนาตัวเอง",
+      "newPc2021": "ได้คอมเครื่องแรก — Dell เปิดประตูสู่โลกใหม่",
+      "discordBot": "เขียนบอท Discord ตัวแรก",
+      "phpSite": "ก้าวแรกสู่เว็บจริงจังด้วย HTML, CSS, JS, PHP",
+      "reactSite": "อัปเกรดสแต็กครั้งใหญ่ — React, Express, MUI, Socket.io, Three.js",
+      "firstGithub": "ใช้ GitHub ครั้งแรก — เข้าสู่โลกนักพัฒนาตัวจริง",
+      "arduino": "เขียนโปรแกรมให้ Arduino — โค้ดจับต้องได้",
+      "blender": "ปั้นโมเดล 3D ด้วย Blender — ศิลปะในมิติใหม่",
+      "typescript": "ย้ายมา TypeScript — เขียนโค้ดอย่างมีระเบียบ",
+      "npmLib": "ปล่อยไลบรารี npm ของตัวเอง",
+      "nextjs": "เขียนเว็บด้วย Next.js + Tailwind — สแต็กที่ลงตัว",
+      "mcAddonPc": "กลับมาเขียน Addon Minecraft อีกครั้ง บนคอมเต็มรูปแบบ",
+      "godot": "วันแรกที่ได้ใช้ Godot สร้างเกมแรก",
+      "nest": "เขียนเซิร์ฟเวอร์ด้วย NestJS — ก้าวสู่ Backend จริงจัง",
+      "docker": "เริ่มใช้ Docker — เข้าใจโลกของ container",
+      "reactRouter": "เขียนเว็บด้วย React Router Framework — Full-stack",
+      "manjaro": "เปลี่ยนเครื่องใหม่เป็น HP + Linux Manjaro — อิสระเต็มที่",
+      "vrchat": "ฝึกญี่ปุ่นและอังกฤษผ่าน VRChat — ภาษาเรียนผ่านการเล่น"
+    },
+    "statYears": "ปีประสบการณ์โค้ด",
+    "statProjects": "โปรเจค",
     "statTech": "เทคโนโลยี"
   },
   "blog": {

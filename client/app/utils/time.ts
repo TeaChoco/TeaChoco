@@ -12,3 +12,4 @@ export function timeAgo(date: Date): string {
     const months = Math.floor(days / 30);
     return `${months}mo ago`;
 }
+

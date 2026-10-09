@@ -29,7 +29,7 @@ type SeoOptions = {
 };
 
 export function seo(options: SeoOptions): MetaDescriptor[] {
-    const lang = options.lang ?? 'en-US';
+    const lang = options.lang ?? 'en';
     const canonical = `${SITE_URL}/${lang}${options.path}`;
     const image = options.image ?? DEFAULT_OG_IMAGE;
     const ogImage = image.startsWith('http') ? image : `${SITE_URL}${image}`;
@@ -64,14 +64,14 @@ export function seo(options: SeoOptions): MetaDescriptor[] {
 export function localizedName(names: LangNames, lng: string): string {
     return (
         names[lng as Lang] ??
-        names['en-US'] ??
+        names['en'] ??
         Object.values(names)[0] ??
         ''
     );
 }
 
 export function personJsonLd(lang?: string): Record<string, unknown> {
-    const lng = lang ?? 'en-US';
+    const lng = lang ?? 'en';
     return {
         '@context': 'https://schema.org',
         '@type': 'Person',

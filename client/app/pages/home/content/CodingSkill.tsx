@@ -1,5 +1,5 @@
 // -Path: "TeaChoco-Portfolio/client/src/pages/home/content/CodingSkill.tsx"
-import { codingSkills } from '~/data/coding';
+import { codingSkills } from '~/data/about/coding';
 import { useTranslation } from 'react-i18next';
 import SkillsList from '../components/SkillsList';
 

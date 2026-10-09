@@ -1,7 +1,7 @@
 // -Path: "TeaChoco-Portfolio/client/src/components/content/languageSkill/RadarChart.tsx"
 import { useTranslation } from 'react-i18next';
 import type { LanguageSkill } from '~/types/language';
-import { abilityKeys, abilityColors } from '~/data/language';
+import { abilityKeys, abilityColors } from '~/data/about/language';
 
 interface RadarChartProps {
     hex: string;

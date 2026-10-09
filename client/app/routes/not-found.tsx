@@ -4,7 +4,7 @@ import { seo } from '~/lib/seo';
 import type { Route } from './+types/not-found';
 
 export function meta({ params }: Route.MetaArgs) {
-    const lang = params.lang ?? 'en-US';
+    const lang = params.lang ?? 'en';
     const title = '404 - Page Not Found | TeaChoco Portfolio';
     const description =
         'The page you were looking for does not exist or has been moved. Browse TeaChoco portfolio, projects, about and favorites instead.';

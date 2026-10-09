@@ -5,7 +5,7 @@ import { characters } from '~/data/favorites/character';
 import { SITE_NAME, SITE_URL, seo } from '~/lib/seo';
 
 export function meta({ params }: Route.MetaArgs) {
-    const lang = params.lang ?? 'en-US';
+    const lang = params.lang ?? 'en';
     const title = 'Favorite Characters | TeaChoco Waifu Tier List';
     const description =
         'Browse TeaChoco favorite characters — a waifu and favorite character tier list with appearance, nature, voice and warmth ratings across anime and games.';

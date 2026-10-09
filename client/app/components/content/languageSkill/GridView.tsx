@@ -1,7 +1,7 @@
 // -Path: "TeaChoco-Portfolio/client/src/components/content/languageSkill/GridView.tsx"
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { languageSkills, abilityColors } from '~/data/language';
+import { languageSkills, abilityColors } from '~/data/about/language';
 import type { LanguageSkill, LanguageSkillAbility } from '~/types/language';
 import { abilityKeys, getOverall } from '../LanguageSkill';
 import { languageFlags, abilityIcons } from '~/data/languageIcon';

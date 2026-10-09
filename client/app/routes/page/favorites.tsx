@@ -4,7 +4,7 @@ import { SITE_NAME, SITE_URL, seo } from '~/lib/seo';
 import type { Route } from './+types/favorites';
 
 export function meta({ params }: Route.MetaArgs) {
-    const lang = params.lang ?? 'en-US';
+    const lang = params.lang ?? 'en';
     const title = 'Favorites | TeaChoco Anime, Games, Music Videos & Characters';
     const description =
         'A look at TeaChoco personal favorites — favorite anime, games, music videos and waifu characters, with ratings, tier lists and personal preferences.';

@@ -9,7 +9,7 @@ export const characters: CharacterItem[] = [
         name: 'Takanashi Hoshino',
         from: {
             game: {
-                'en-US': 'Blue Archive',
+                'en': 'Blue Archive',
             },
         },
         tier: {
@@ -37,7 +37,7 @@ export const characters: CharacterItem[] = [
         name: 'Gotoh Hitori',
         from: {
             anime: {
-                'en-US': 'Bocchi the Rock!',
+                'en': 'Bocchi the Rock!',
             },
         },
         tier: {
@@ -66,7 +66,7 @@ export const characters: CharacterItem[] = [
         name: 'Hu Tao',
         from: {
             game: {
-                'en-US': 'Genshin Impact',
+                'en': 'Genshin Impact',
             },
         },
         tier: {
@@ -96,7 +96,7 @@ export const characters: CharacterItem[] = [
         name: 'Nijika Ijichi',
         from: {
             anime: {
-                'en-US': 'Bocchi the Rock!',
+                'en': 'Bocchi the Rock!',
             },
         },
         tier: {
@@ -125,7 +125,7 @@ export const characters: CharacterItem[] = [
         name: 'Shizuka Mikazuki',
         from: {
             anime: {
-                'en-US': 'Zom 100: Bucket List of the Dead',
+                'en': 'Zom 100: Bucket List of the Dead',
             },
         },
         tier: {
@@ -155,8 +155,8 @@ export const characters: CharacterItem[] = [
         name: 'Megumi Kato',
         from: {
             anime: {
-                'ja-JP': 'Saenai Heroine no Sodatekata',
-                'en-US': 'Saekano: How to Raise a Boring Girlfriend',
+                'ja': 'Saenai Heroine no Sodatekata',
+                'en': 'Saekano: How to Raise a Boring Girlfriend',
             },
         },
         tier: {
@@ -182,7 +182,7 @@ export const characters: CharacterItem[] = [
         name: 'Yuutani Yuu',
         from: {
             anime: {
-                'en-US': 'Bad Girl',
+                'en': 'Bad Girl',
             },
         },
         tier: {
@@ -211,8 +211,8 @@ export const characters: CharacterItem[] = [
         name: 'Marie Evans',
         from: {
             anime: {
-                'en-US': 'Mechanical Marie',
-                'ja-JP': 'Kikaijikake no Mari',
+                'en': 'Mechanical Marie',
+                'ja': 'Kikaijikake no Mari',
             },
         },
         tier: {
@@ -238,7 +238,7 @@ export const characters: CharacterItem[] = [
         name: 'Noelle',
         from: {
             game: {
-                'en-US': 'Genshin Impact',
+                'en': 'Genshin Impact',
             },
         },
         tier: {
@@ -267,8 +267,8 @@ export const characters: CharacterItem[] = [
         name: 'Kubo Nagisa',
         from: {
             anime: {
-                'en-US': "Kubo Won't Let Me Be Invisible",
-                'ja-JP': 'Kubo-san wa Boku wo Yurusanai',
+                'en': "Kubo Won't Let Me Be Invisible",
+                'ja': 'Kubo-san wa Boku wo Yurusanai',
             },
         },
         tier: {
@@ -297,7 +297,7 @@ export const characters: CharacterItem[] = [
         name: 'Hoshimi Miyabi',
         from: {
             game: {
-                'en-US': 'Zenless Zone Zero',
+                'en': 'Zenless Zone Zero',
             },
         },
         tier: {
@@ -327,8 +327,8 @@ export const characters: CharacterItem[] = [
         name: 'Sylpha Langlis',
         from: {
             anime: {
-                'en-US': 'I Was Reincarnated as the 7th Prince',
-                'ja-JP': 'Tensei Shitara Dai Nana Ouji Dattanode',
+                'en': 'I Was Reincarnated as the 7th Prince',
+                'ja': 'Tensei Shitara Dai Nana Ouji Dattanode',
             },
         },
         tier: {
@@ -357,7 +357,7 @@ export const characters: CharacterItem[] = [
         name: 'Satou Matsuzaka',
         from: {
             anime: {
-                'en-US': 'Happy Sugar Life',
+                'en': 'Happy Sugar Life',
             },
         },
         tier: {
@@ -386,8 +386,8 @@ export const characters: CharacterItem[] = [
         name: 'Mahiru Shiina',
         from: {
             anime: {
-                'en-US': 'The Angel Next Door Spoils Me Rotten',
-                'ja-JP': 'Otonari no Tenshi-sama ni Itsunomanika Dame Ningen ni Sareteita Ken',
+                'en': 'The Angel Next Door Spoils Me Rotten',
+                'ja': 'Otonari no Tenshi-sama ni Itsunomanika Dame Ningen ni Sareteita Ken',
             },
         },
         tier: {
@@ -415,7 +415,7 @@ export const characters: CharacterItem[] = [
         name: 'Varesa',
         from: {
             game: {
-                'en-US': 'Genshin Impact',
+                'en': 'Genshin Impact',
             },
         },
         tier: {
@@ -442,7 +442,7 @@ export const characters: CharacterItem[] = [
         name: 'Kurokawa Akane',
         from: {
             anime: {
-                'en-US': 'Oshi no Ko',
+                'en': 'Oshi no Ko',
             },
         },
         tier: {
@@ -471,8 +471,8 @@ export const characters: CharacterItem[] = [
         name: 'Nukumizu Kaju',
         from: {
             anime: {
-                'en-US': 'The Story of a Girl Who Decided to Live Alone',
-                'ja-JP': 'Hitorigurashi no Shougakusei',
+                'en': 'The Story of a Girl Who Decided to Live Alone',
+                'ja': 'Hitorigurashi no Shougakusei',
             },
         },
         tier: {
@@ -501,7 +501,7 @@ export const characters: CharacterItem[] = [
         name: 'Yuna Kuma',
         from: {
             anime: {
-                'en-US': 'Kuma Kuma Kuma Bear',
+                'en': 'Kuma Kuma Kuma Bear',
             },
         },
         tier: {
@@ -527,8 +527,8 @@ export const characters: CharacterItem[] = [
         name: 'Kaguya Shinomiya',
         from: {
             anime: {
-                'en-US': 'Kaguya-sama: Love Is War',
-                'ja-JP': 'Kaguya-sama wa Kokurasetai',
+                'en': 'Kaguya-sama: Love Is War',
+                'ja': 'Kaguya-sama wa Kokurasetai',
             },
         },
         tier: {
@@ -556,8 +556,8 @@ export const characters: CharacterItem[] = [
         name: 'Minakami Noa',
         from: {
             anime: {
-                'en-US': 'Henjin no Salad Bowl',
-                'ja-JP': '変人のサラダボウル',
+                'en': 'Henjin no Salad Bowl',
+                'ja': '変人のサラダボウル',
             },
         },
         tier: {
@@ -583,8 +583,8 @@ export const characters: CharacterItem[] = [
         name: 'Mao Mao',
         from: {
             anime: {
-                'en-US': 'The Apothecary Diaries',
-                'ja-JP': 'Kusuriya no Hitorigoto',
+                'en': 'The Apothecary Diaries',
+                'ja': 'Kusuriya no Hitorigoto',
             },
         },
         tier: {
@@ -612,8 +612,8 @@ export const characters: CharacterItem[] = [
         name: 'Nanakura Rin',
         from: {
             anime: {
-                'en-US': 'Pseudo Harem',
-                'ja-JP': 'Giji Harem',
+                'en': 'Pseudo Harem',
+                'ja': 'Giji Harem',
             },
         },
         tier: {
@@ -640,7 +640,7 @@ export const characters: CharacterItem[] = [
         name: 'Ai Hoshino',
         from: {
             anime: {
-                'en-US': 'Oshi no Ko',
+                'en': 'Oshi no Ko',
             },
         },
         tier: {
@@ -668,8 +668,8 @@ export const characters: CharacterItem[] = [
         name: 'Ogiwara Sayu',
         from: {
             anime: {
-                'en-US': 'The Helpful Fox Senko-san',
-                'ja-JP': 'Sewayaki Kitsune no Senko-san',
+                'en': 'The Helpful Fox Senko-san',
+                'ja': 'Sewayaki Kitsune no Senko-san',
             },
         },
         tier: {
@@ -697,8 +697,8 @@ export const characters: CharacterItem[] = [
         name: 'Elfaria Albis Serfort',
         from: {
             anime: {
-                'en-US': 'The Misfit of Demon King Academy',
-                'ja-JP': 'Maou Gakuin no Futekigousha',
+                'en': 'The Misfit of Demon King Academy',
+                'ja': 'Maou Gakuin no Futekigousha',
             },
         },
         tier: {
@@ -727,8 +727,8 @@ export const characters: CharacterItem[] = [
         name: 'Beatrice',
         from: {
             anime: {
-                'en-US': 'Re:Zero - Starting Life in Another World',
-                'ja-JP': 'Re:Zero kara Hajimeru Isekai Seikatsu',
+                'en': 'Re:Zero - Starting Life in Another World',
+                'ja': 'Re:Zero kara Hajimeru Isekai Seikatsu',
             },
         },
         tier: {
@@ -759,8 +759,8 @@ export const characters: CharacterItem[] = [
         name: 'Rem',
         from: {
             anime: {
-                'en-US': 'Re:Zero - Starting Life in Another World',
-                'ja-JP': 'Re:Zero kara Hajimeru Isekai Seikatsu',
+                'en': 'Re:Zero - Starting Life in Another World',
+                'ja': 'Re:Zero kara Hajimeru Isekai Seikatsu',
             },
         },
         tier: {
@@ -788,9 +788,9 @@ export const characters: CharacterItem[] = [
         name: 'Hiiragi Nana',
         from: {
             anime: {
-                'en-US': 'Talentless Nana',
-                'ja-JP': 'Munou na Nana',
-                'th-TH': 'แผนลับดับศัตรู',
+                'en': 'Talentless Nana',
+                'ja': 'Munou na Nana',
+                'th': 'แผนลับดับศัตรู',
             },
         },
         tier: {
@@ -818,8 +818,8 @@ export const characters: CharacterItem[] = [
         name: 'Yuno Gasai',
         from: {
             anime: {
-                'en-US': 'Future Diary',
-                'ja-JP': 'Mirai Nikki',
+                'en': 'Future Diary',
+                'ja': 'Mirai Nikki',
             },
         },
         tier: {
@@ -849,7 +849,7 @@ export const characters: CharacterItem[] = [
         name: 'Mita Cappie',
         from: {
             game: {
-                'en-US': 'Miside',
+                'en': 'Miside',
             },
         },
         tier: {

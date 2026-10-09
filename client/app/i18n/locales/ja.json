@@ -97,11 +97,59 @@
     "intro2": "コーディング以外にも、記事を通じて知識を共有し、開発者コミュニティを支援することも楽しんでいます。",
     "skillsTitle": "コーディングスキル",
     "languagesTitle": "言語スキル",
-    "experienceTitle": "経験",
-    "jobTitle": "フルスタック開発者",
-    "company": "フリーランス",
-    "period": "2023年 - 現在",
-    "jobDesc": "様々なクライアント向けのウェブアプリケーションとシステムを開発。",
+    "experienceTitle": "私の歩み",
+    "highlight": "ハイライト",
+    "category": {
+      "all": "すべて",
+      "creative": "アート & 執筆",
+      "game": "ゲーム",
+      "web": "ウェブ & コード",
+      "tooling": "ツール & ハードウェア",
+      "life": "生活"
+    },
+    "era": {
+      "origin": {
+        "title": "始まり",
+        "desc": "芸術、ゲーム、物語から始まった。コードを知るよりも前に。"
+      },
+      "codeEntry": {
+        "title": "コードの世界へ",
+        "desc": "最初のパソコン、最初のボット、最初のウェブサイト。すべてが変わった。"
+      },
+      "expansion": {
+        "title": "領域を広げる",
+        "desc": "ハードウェア、3D、TypeScriptが道具箱を広げてくれた。"
+      },
+      "professional": {
+        "title": "プロの道へ",
+        "desc": "NPMライブラリ、Docker、Linux、そしてVRで語学練習。"
+      }
+    },
+    "timeline": {
+      "ibispaint": "スマホでibisPaintを使いアニメの絵を描いた — すべての始まり",
+      "mcMiniGame": "パソコンもないのにCommand BlockでMinecraftのミニゲームを作った",
+      "novelist": "小説家として書き始めた — アニメを見て自分の物語が欲しくなった",
+      "youtube": "YouTubeを始めた — 興味のあることを共有し始めた",
+      "mcAddonMobile": "まだパソコンがなかったので、スマホでMinecraftのAddonを作った",
+      "coach": "自己啓発のコンサルタントをしていた",
+      "newPc2021": "初めてのパソコンを手に入れた — Dellが新しい世界への扉を開いた",
+      "discordBot": "初めてのDiscordボットを書いた",
+      "phpSite": "HTML、CSS、JS、PHPで本格的なウェブへの第一歩",
+      "reactSite": "スタックを大きくアップグレード — React、Express、MUI、Socket.io、Three.js",
+      "firstGithub": "初めてGitHubを使った — 本物の開発者の世界へ",
+      "arduino": "Arduinoをプログラミングした — コードが手に触れるものになった",
+      "blender": "Blenderで3Dモデルを作った — 新しい次元の芸術",
+      "typescript": "TypeScriptに移行した — 整理されたコードを書くように",
+      "npmLib": "自分のnpmライブラリを公開した",
+      "nextjs": "Next.js + Tailwindでウェブを作った — 完璧なスタック",
+      "mcAddonPc": "フルPCでMinecraftのAddon作りに再び戻った",
+      "godot": "Godotを使い始め、初めてのゲームを作った",
+      "nest": "NestJSでサーバーを書いた — 本格的なバックエンドへ",
+      "docker": "Dockerを使い始めた — コンテナの世界を理解した",
+      "reactRouter": "React Router Frameworkでウェブを作った — フルスタック",
+      "manjaro": "新しいPCをHP + Linux Manjaroにした — 完全な自由",
+      "vrchat": "VRChatで日本語と英語を練習 — 遊びながら語学学習"
+    },
     "statYears": "年の経験",
     "statProjects": "完了プロジェクト",
     "statTech": "技術"

@@ -5,7 +5,7 @@ import { gameList } from '~/data/favorites/game';
 import { localizedName, SITE_NAME, SITE_URL, seo } from '~/lib/seo';
 
 export function meta({ params }: Route.MetaArgs) {
-    const lang = params.lang ?? 'en-US';
+    const lang = params.lang ?? 'en';
     const title = 'Favorite Games | TeaChoco Game List & Ratings';
     const description =
         'Explore TeaChoco favorite games — a curated list of the games I love across open world, RPG, sandbox, gacha and indie genres, with ratings and notes.';

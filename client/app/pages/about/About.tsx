@@ -1,11 +1,12 @@
-//-Path: "TeaChoco-Portfolio/client/src/pages/about/About.tsx"
+// -Path: 'TeaChoco-Portfolio/client/app/pages/about/About.tsx'
 import { motion } from 'framer-motion';
-import { devStats } from '~/data/stats';
+import { devStats } from '~/data/about/stats';
+import Experience from './content/Experience';
 import { useTranslation } from 'react-i18next';
 import CodingSkill from './content/CodingSkill';
 import Profile from '~/components/content/Profile';
-import LanguageSkill from '~/components/content/LanguageSkill';
 import Section from '../../components/layout/Section';
+import LanguageSkill from '~/components/content/LanguageSkill';
 
 export default function About() {
     const { t } = useTranslation();
@@ -63,30 +64,7 @@ export default function About() {
                 <CodingSkill />
 
                 {/* Experience */}
-                <div>
-                    <h2 className='section-title linear-text inline-block'>
-                        {t('about.experienceTitle')}
-                    </h2>
-                    <div className='relative pl-8 mt-2 border-l-2 border-primary/30'>
-                        <div className='relative pb-8'>
-                            <div className='absolute -left-6.25 w-4 h-4 rounded-full bg-linear-to-r from-primary to-secondary shadow-lg shadow-primary/50 ring-4 ring-surface-overlay' />
-                            <div className='card'>
-                                <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-2'>
-                                    <h3 className='text-lg font-bold'>{t('about.jobTitle')}</h3>
-                                    <span className='text-xs font-medium px-3 py-1 rounded-full bg-primary/10 text-primary-light border border-primary/20 w-fit'>
-                                        {t('about.period')}
-                                    </span>
-                                </div>
-                                <p className='text-primary font-medium mb-2'>
-                                    {t('about.company')}
-                                </p>
-                                <p className='text-text-secondary-light dark:text-text-secondary-dark leading-relaxed'>
-                                    {t('about.jobDesc')}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <Experience />
             </div>
         </Section>
     );

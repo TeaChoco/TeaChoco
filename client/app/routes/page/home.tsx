@@ -4,7 +4,7 @@ import { seo, SITE_NAME, SITE_URL, SOCIAL_URLS } from '~/lib/seo';
 import type { Route } from './+types/home';
 
 export function meta({ params }: Route.MetaArgs) {
-    const lang = params.lang ?? 'en-US';
+    const lang = params.lang ?? 'en';
     const title = 'TeaChoco Portfolio | Full-Stack Developer & Creative Designer';
     const description =
         'Explore the TeaChoco portfolio — a full-stack developer and creative designer building modern web apps with React, TypeScript, Vite and Tailwind CSS. View projects, coding skills, tech stack and personal favorites.';

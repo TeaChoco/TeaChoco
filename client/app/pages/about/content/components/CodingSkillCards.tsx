@@ -13,7 +13,7 @@ export default function CodingSkillCards({ skills }: CodingSkillCardsProps) {
 
     return (
         <div className='grid gap-4 mt-2 md:grid-cols-2 lg:grid-cols-3'>
-            {skills.map((skill, idx) => {
+            {skills.map((skill) => {
                 const icon = getTagIcon(skill.id);
 
                 return (
@@ -22,7 +22,6 @@ export default function CodingSkillCards({ skills }: CodingSkillCardsProps) {
                         className='card group p-5'
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.4, delay: 0.1 * idx }}
                     >
                         <div className='flex justify-between items-start mb-3'>
                             <div className='flex items-center gap-3'>
@@ -45,7 +44,10 @@ export default function CodingSkillCards({ skills }: CodingSkillCardsProps) {
                                     {skill.name}
                                 </span>
                             </div>
-                            <span className='text-lg font-bold' style={{ color: icon.color ?? hex }}>
+                            <span
+                                className='text-lg font-bold'
+                                style={{ color: icon.color ?? hex }}
+                            >
                                 {skill.level}%
                             </span>
                         </div>
@@ -54,7 +56,6 @@ export default function CodingSkillCards({ skills }: CodingSkillCardsProps) {
                                 initial={{ width: 0 }}
                                 whileInView={{ width: `${skill.level}%` }}
                                 transition={{ delay: 0.1, duration: 1, ease: 'easeOut' }}
-                                viewport={{ once: true }}
                                 className='h-full rounded-full'
                                 style={{
                                     background: `linear-gradient(90deg, ${icon.color ?? hex}66, ${icon.color ?? hex})`,

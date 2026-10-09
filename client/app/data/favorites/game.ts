@@ -18,7 +18,7 @@ export const gameTypeLabels: Record<GameType, string> = {
 export const gameList: GameItem[] = [
     {
         id: 'game-1',
-        names: { 'en-US': 'MineCraft' },
+        names: { 'en': 'MineCraft' },
         rating: 4.7,
         type: ['creative', 'sandbox'],
         note: 'Exploration done right.',
@@ -26,7 +26,7 @@ export const gameList: GameItem[] = [
     },
     {
         id: 'game-2',
-        names: { 'en-US': 'Genshin Impact' },
+        names: { 'en': 'Genshin Impact' },
         rating: 4.8,
         type: ['openworld', 'rpg', 'gacha'],
         note: 'Open-world adventure with gacha.',
@@ -34,7 +34,7 @@ export const gameList: GameItem[] = [
     },
     {
         id: 'game-3',
-        names: { 'en-US': 'Zenless Zone Zero' },
+        names: { 'en': 'Zenless Zone Zero' },
         rating: 4.3,
         type: ['adventure', 'gacha'],
         note: 'Masterclass of atmosphere and controls.',
@@ -42,7 +42,7 @@ export const gameList: GameItem[] = [
     },
     {
         id: 'game-4',
-        names: { 'en-US': 'Blue Archive' },
+        names: { 'en': 'Blue Archive' },
         rating: 4,
         type: ['gacha'],
         note: 'Open-world adventure with gacha.',
@@ -50,7 +50,7 @@ export const gameList: GameItem[] = [
     },
     {
         id: 'game-5',
-        names: { 'en-US': 'Bloody Roar 2' },
+        names: { 'en': 'Bloody Roar 2' },
         rating: 2.4,
         type: ['fighting'],
         note: '',
@@ -58,7 +58,7 @@ export const gameList: GameItem[] = [
     },
     {
         id: 'game-6',
-        names: { 'en-US': 'Pokémon Emerald' },
+        names: { 'en': 'Pokémon Emerald' },
         rating: 3,
         type: ['adventure', 'rpg', 'openworld'],
         note: '',
@@ -66,7 +66,7 @@ export const gameList: GameItem[] = [
     },
     {
         id: 'game-7',
-        names: { 'en-US': 'Arena of Valor (ROV)' },
+        names: { 'en': 'Arena of Valor (ROV)' },
         rating: 4.2,
         type: ['moba'],
         note: '',
@@ -74,7 +74,7 @@ export const gameList: GameItem[] = [
     },
     {
         id: 'game-8',
-        names: { 'en-US': 'MilkChoco - Online FPS' },
+        names: { 'en': 'MilkChoco - Online FPS' },
         rating: 2.7,
         type: ['fps'],
         note: '',
@@ -83,7 +83,7 @@ export const gameList: GameItem[] = [
     {
         id: 'game-9',
         names: {
-            'en-US': 'Miside',
+            'en': 'Miside',
         },
         rating: 2.6,
         type: ['horror', 'novel', 'indie'],

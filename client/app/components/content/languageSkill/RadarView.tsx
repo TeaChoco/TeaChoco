@@ -3,7 +3,7 @@ import RadarChart from './RadarChart';
 import { motion } from 'framer-motion';
 import { getOverall } from '../LanguageSkill';
 import { useTranslation } from 'react-i18next';
-import { languageSkills } from '~/data/language';
+import { languageSkills } from '~/data/about/language';
 import { languageFlags } from '~/data/languageIcon';
 import type { LanguageSkill } from '~/types/language';
 

@@ -4,7 +4,7 @@ import { personJsonLd, seo } from '~/lib/seo';
 import type { Route } from './+types/about';
 
 export function meta({ params }: Route.MetaArgs) {
-    const lang = params.lang ?? 'en-US';
+    const lang = params.lang ?? 'en';
     const title = 'About TeaChoco | Full-Stack Developer & Creative Designer';
     const description =
         'Learn about TeaChoco, a full-stack developer and creative designer. Discover my background, coding skills, language abilities, work experience and the technologies I use to build modern web applications.';

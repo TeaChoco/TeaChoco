@@ -6,7 +6,7 @@ import { SITE_NAME, SITE_URL, seo } from '~/lib/seo';
 import type { Route } from './+types/portfolio';
 
 export function meta({ params }: Route.MetaArgs) {
-    const lang = params.lang ?? 'en-US';
+    const lang = params.lang ?? 'en';
     const title = 'Portfolio | TeaChoco Projects & Web Applications';
     const description =
         'Browse the TeaChoco portfolio — web applications, developer tools, Discord bots and starter templates built with TypeScript, React, Vite, Node.js and Tailwind CSS.';

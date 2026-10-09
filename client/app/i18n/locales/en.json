@@ -97,11 +97,59 @@
     "intro2": "Besides coding, I also enjoy sharing knowledge through articles and helping the developer community.",
     "skillsTitle": "Coding Skills",
     "languagesTitle": "Language Skills",
-    "experienceTitle": "Experience",
-    "jobTitle": "Full-Stack Developer",
-    "company": "Freelance",
-    "period": "2023 - Present",
-    "jobDesc": "Developing web applications and systems for various clients.",
+    "experienceTitle": "My Journey",
+    "highlight": "Highlight",
+    "category": {
+      "all": "All",
+      "creative": "Art & Writing",
+      "game": "Games",
+      "web": "Web & Code",
+      "tooling": "Tools & Hardware",
+      "life": "Life"
+    },
+    "era": {
+      "origin": {
+        "title": "The Beginning",
+        "desc": "Started with art, games, and stories — before I even knew what code was."
+      },
+      "codeEntry": {
+        "title": "Entering the Code World",
+        "desc": "First PC, first bot, first website — everything changed."
+      },
+      "expansion": {
+        "title": "Expanding Horizons",
+        "desc": "Hardware, 3D, and TypeScript — broadening my toolkit."
+      },
+      "professional": {
+        "title": "Going Professional",
+        "desc": "NPM libraries, Docker, Linux, and VR language practice."
+      }
+    },
+    "timeline": {
+      "ibispaint": "Drew anime art on my phone with ibisPaint",
+      "mcMiniGame": "Built Minecraft mini-game maps with command blocks on mobile",
+      "novelist": "Became a novelist",
+      "youtube": "Started making YouTube videos",
+      "mcAddonMobile": "Created Minecraft addons on mobile",
+      "coach": "Worked as a self-development consultant",
+      "newPc2021": "Got a new computer",
+      "discordBot": "Wrote Discord bots",
+      "phpSite": "Built websites with HTML, CSS, JS, PHP",
+      "reactSite": "Built websites with React, Express, MUI, Socket.io, Three.js",
+      "firstGithub": "Used GitHub for the first time",
+      "arduino": "Programmed Arduino boards",
+      "blender": "Sculpted 3D models in Blender",
+      "typescript": "Started building websites with TypeScript",
+      "npmLib": "Published my own npm library",
+      "nextjs": "Built websites with Next.js + Tailwind",
+      "mcAddonPc": "Created Minecraft addons on PC",
+      "godot": "First used Godot and made my first game",
+      "nest": "Built servers with NestJS",
+      "docker": "Started using Docker",
+      "reactRouter": "Built websites with React Router Framework",
+      "manjaro": "Switched to a new PC and started using Manjaro Linux",
+      "vrchat": "Playing VRChat to practice Japanese and English"
+    },
     "statYears": "Years Experience",
     "statProjects": "Projects Completed",
     "statTech": "Technologies"

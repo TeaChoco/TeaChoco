@@ -27,7 +27,7 @@ export const projects: Project[] = [
         id: 'choco-memo',
         key: 'chocomemo',
         tags: ['TypeScript', 'Vite', 'React', 'SSR', 'TailwindCSS'],
-        image: `https://choco-memo.vercel.app/icon.svg`,
+        image: `https://choco-memo.vercel.app/logo.png`,
         categorys: ['public', 'web'],
         live: 'https://choco-memo.vercel.app',
     },
