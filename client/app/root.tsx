@@ -16,8 +16,8 @@ import env, { isDev } from '~/secure/env';
 import { getAssetUrl } from './utils/url';
 import type { Route } from './+types/root';
 import { useTranslation } from 'react-i18next';
-import { SUPPORTED_LANGS, isValidLang, resolveLang } from '~/i18n/locales';
 import { seo, SITE_NAME, SITE_URL, SOCIAL_URLS } from '~/lib/seo';
+import { SUPPORTED_LANGS, isValidLang, resolveLang } from '~/i18n/locales';
 
 export async function loader({ request }: LoaderFunctionArgs) {
     const url = new URL(request.url);
