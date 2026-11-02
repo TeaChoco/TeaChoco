@@ -39,7 +39,7 @@ export type GameItem = {
 };
 
 export type MvItem = {
-    rating: number;
+    rating: number | null;
     videoId: string;
 };
 

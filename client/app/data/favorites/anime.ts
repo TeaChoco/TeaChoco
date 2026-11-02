@@ -658,6 +658,22 @@ const animes: Omit<AnimeItem, 'id'>[] = [
         },
         rating: null,
     },
+    {
+        names: {
+            en: 'Even the Student Council Has Its Holes!',
+            ja: '生徒会にも穴はある',
+            th: 'สภานักเรียนฉบับรั่ว!',
+        },
+        rating: 3.4,
+    },
+    {
+        names: {
+            en: 'Lycoris Recoil',
+            ja: 'リコリス・リコイル',
+            th: 'ไลโคริส รีคอยล์',
+        },
+        rating: 3.3,
+    },
 ];
 
 export const animeList: AnimeItem[] = animes.map((anime, index) => ({
