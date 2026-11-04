@@ -1,7 +1,6 @@
 import type { MvItem } from '~/types/favorites';
 
-// const mvs: MvItem[] = [
-export const mvList: MvItem[] = [
+const mvs: Omit<MvItem, 'id' | 'names'>[] = [
     { rating: 1.8, videoId: 'qR2pggPX_Sc' },
     { rating: null, videoId: 'Ttk0D_qzCXo' },
     { rating: 3.8, videoId: 'UN0pPZ_hXrA' },
@@ -251,30 +250,29 @@ export const mvList: MvItem[] = [
     { rating: 2.6, videoId: 'c2y8Ba3WwPY' },
 ];
 
-// export function getYouTubeId(url: string): string | null {
-//     try {
-//         const parsed = new URL(url);
+export function getYouTubeId(url: string): string {
+    try {
+        const parsed = new URL(url);
+        // กรณี youtu.be/xxxxx
+        if (parsed.hostname === 'youtu.be') return parsed.pathname.slice(1) || '';
+        // กรณี youtube.com/watch?v=xxxxx
+        if (parsed.hostname.includes('youtube.com')) {
+            // watch?v=
+            if (parsed.pathname === '/watch') return parsed.searchParams.get('v') || '';
+            // shorts/xxxxx, embed/xxxxx, live/xxxxx
+            const match = parsed.pathname.match(/^\/(shorts|embed|live)\/([^/?]+)/);
+            if (match) return match[2];
+        }
 
-//         // กรณี youtu.be/xxxxx
-//         if (parsed.hostname === 'youtu.be') {
-//             return parsed.pathname.slice(1) || null;
-//         }
+        return url;
+    } catch {
+        return url;
+    }
+}
 
-//         // กรณี youtube.com/watch?v=xxxxx
-//         if (parsed.hostname.includes('youtube.com')) {
-//             // watch?v=
-//             if (parsed.pathname === '/watch') {
-//                 return parsed.searchParams.get('v');
-//             }
-//             // shorts/xxxxx, embed/xxxxx, live/xxxxx
-//             const match = parsed.pathname.match(/^\/(shorts|embed|live)\/([^/?]+)/);
-//             if (match) return match[2];
-//         }
-
-//         return url;
-//     } catch {
-//         return url;
-//     }
-// }
-
-// export const mvList = mvs.map((value) => ({ ...value, videoId: getYouTubeId(value.videoId) }));
+export const mvList: MvItem[] = mvs.map((value, index) => ({
+    id: `mv-${index + 1}`,
+    ...value,
+    names: {},
+    videoId: getYouTubeId(value.videoId),
+}));

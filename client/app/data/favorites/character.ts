@@ -203,7 +203,7 @@ export const characters: CharacterItem[] = [
         images: [
             'https://i.pinimg.com/736x/17/77/ab/1777abe4e8c47c64cefc224aa6e899c4.jpg',
             'https://i.pinimg.com/736x/a1/2f/77/a12f77fb76577b94bdf3952f8dc3f316.jpg',
-            'https://i.pinimg.com/736x/a1/2f/77/a12f77fb76577b94bdf3952f8dc3f316.jpg',
+            'https://i.pinimg.com/736x/8c/3a/92/8c3a92f7e8b4d6a1c5e7f9b2d4a6c8e0.jpg',
         ],
     },
     {

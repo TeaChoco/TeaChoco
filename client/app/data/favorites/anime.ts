@@ -71,7 +71,7 @@ const animes: Omit<AnimeItem, 'id'>[] = [
             ja: '機械じかけのマリー',
             th: 'แมรี่ กลไกหัวใจสายซึน',
         },
-        rating: 3.8,
+        rating: 3.7,
     },
     {
         names: {
@@ -167,7 +167,7 @@ const animes: Omit<AnimeItem, 'id'>[] = [
             ja: '世話やきキツネの仙狐さん',
             th: 'คุณจิ้งจอกเซ็นโกะซัง',
         },
-        rating: 3.5,
+        rating: 3.3,
     },
     {
         names: {
@@ -512,7 +512,7 @@ const animes: Omit<AnimeItem, 'id'>[] = [
             ja: 'ハンマバキ',
             th: 'ฮันมะ บากิ',
         },
-        rating: 3.4,
+        rating: 3.5,
     },
     {
         names: {
@@ -576,7 +576,7 @@ const animes: Omit<AnimeItem, 'id'>[] = [
             ja: '氷菓',
             th: 'ปริศนาความทรงจำ (เฮียวคะ)',
         },
-        rating: 3.8,
+        rating: 3.6,
     },
     {
         names: {
@@ -672,7 +672,15 @@ const animes: Omit<AnimeItem, 'id'>[] = [
             ja: 'リコリス・リコイル',
             th: 'ไลโคริส รีคอยล์',
         },
-        rating: 3.3,
+        rating: 3.7,
+    },
+    {
+        names: {
+            en: 'Dandadan',
+            ja: 'ダンダダン',
+            th: 'ดันดาดัน',
+        },
+        rating: 3.8,
     },
 ];
 

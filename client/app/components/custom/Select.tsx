@@ -1,9 +1,9 @@
 //-Path: "Vite-React-TypeScript/src/components/custom/Select.tsx"
-import { useTranslation } from 'react-i18next';
-import { FaCheck, FaChevronDown } from 'react-icons/fa6';
-import { AnimatePresence, motion } from 'framer-motion';
 import { createPortal } from 'react-dom';
-import React, { useState, useRef, useEffect, useLayoutEffect, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { AnimatePresence, motion } from 'framer-motion';
+import { FaCheck, FaChevronDown } from 'react-icons/fa6';
+import { useState, useRef, useEffect, useLayoutEffect, useMemo } from 'react';
 
 interface SelectOptionProps<ValueType = string> {
     value: ValueType;
@@ -37,11 +37,7 @@ function SelectOption<ValueType>({
             } ${className}`}
         >
             {icon && (
-                <span
-                    className={`${
-                        selected ? 'text-primary-foreground' : 'text-surface-muted'
-                    }`}
-                >
+                <span className={`${selected ? 'text-primary-foreground' : 'text-surface-muted'}`}>
                     {icon}
                 </span>
             )}
@@ -271,7 +267,7 @@ export default function Select<ValueType>({
                                     left: panelPos?.left ?? 0,
                                     minWidth: panelPos?.minWidth,
                                 }}
-                                className={`z-100 w-max overflow-hidden rounded-sm border border-border bg-surface-elevated/50 shadow-xl shadow-black/10 ${optionsClassName}`}
+                                className={`z-100 w-max overflow-hidden rounded-sm border border-border bg-surface-elevated/60 shadow-xl shadow-black/10 backdrop-blur-md ${optionsClassName}`}
                             >
                                 <div
                                     className='overflow-y-auto overscroll-contain'

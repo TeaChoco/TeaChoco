@@ -1,18 +1,23 @@
 // -Path: "TeaChoco-Portfolio/client/src/types/favorites.ts"
 import type { Lang } from '~/i18n/locales';
 
+export type FavoriteType = 'anime' | 'game' | 'mv' | 'character';
+
 export type LangNames = Partial<Record<Lang, string>>;
 
 export type AnimeType = 'yuri';
 
-export type AnimeItem = {
+export interface DataItem {
     id: string;
     names: LangNames;
     rating: number | null;
+}
+
+export interface AnimeItem extends DataItem {
     type?: AnimeType[];
     note?: string;
     image?: string | null;
-};
+}
 
 export type GameType =
     | 'pokemon'
@@ -29,19 +34,15 @@ export type GameType =
     | 'horror'
     | 'novel';
 
-export type GameItem = {
-    id: string;
-    names: LangNames;
-    rating: number;
+export interface GameItem extends DataItem {
     type?: GameType[];
     note?: string;
     image?: string | null;
-};
+}
 
-export type MvItem = {
-    rating: number | null;
+export interface MvItem extends DataItem {
     videoId: string;
-};
+}
 
 export type CharacterFrom = Partial<Record<'anime' | 'game', LangNames>>;
 export type CharacterTier = 'ssss' | 'sss' | 'ss' | 's' | 'a' | 'b' | 'c' | 'd' | 'f';

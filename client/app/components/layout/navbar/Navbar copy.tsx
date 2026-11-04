@@ -1,0 +1,46 @@
+// -Path: 'Vite-React-Router-TypeScript/app/components/layout/Navbar.tsx'
+import DeskMenu from './DeskMenu';
+import { Link } from '~/i18n/routing';
+import { useEffect, useState } from 'react';
+import MobileBottomBar from './MobileBottomBar';
+import ThemeToggle from '../../config/ThemeToggle';
+import LanguageSwitcher from '../../config/LanguageSwitcher';
+
+export default function Navbar() {
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 8);
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
+
+    return (
+        <>
+            <header
+                className={`fixed flex items-center justify-between px-4 md:px-8 top-0 z-50 h-16 w-dvw border-b transition-all duration-200 ${
+                    scrolled
+                        ? 'bg-surface/90 backdrop-blur-xl border-line'
+                        : 'bg-surface/60 backdrop-blur-md border-transparent'
+                }`}
+            >
+                <Link
+                    to='/'
+                    onClick={() => window.scrollTo(0, 0)}
+                    className='text-2xl font-bold no-underline z-50'
+                >
+                    <span className='linear-text'>TeaChoco</span>
+                </Link>
+                <DeskMenu />
+                <div className='flex items-center gap-2'>
+                    <LanguageSwitcher />
+                    <ThemeToggle />
+                </div>
+            </header>
+
+            {/* bottom bar สำหรับ mobile แทน hamburger menu */}
+            <MobileBottomBar />
+        </>
+    );
+}

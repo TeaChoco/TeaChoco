@@ -1,14 +1,30 @@
 // -Path: 'Vite-React-Router-TypeScript/app/components/layout/Navbar.tsx'
 import DeskMenu from './DeskMenu';
 import { Link } from '~/i18n/routing';
+import { useEffect, useState } from 'react';
 import MobileBottomBar from './MobileBottomBar';
 import ThemeToggle from '../../config/ThemeToggle';
 import LanguageSwitcher from '../../config/LanguageSwitcher';
 
 export default function Navbar() {
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 8);
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
+
     return (
         <>
-            <header className='fixed flex items-center justify-between px-4 md:px-8 top-0 z-50 h-16 w-dvw bg-surface/50 backdrop-blur-xl border-b border-border transition-all duration-200'>
+            <header
+                className={`fixed flex items-center justify-between px-4 md:px-8 top-0 z-50 h-16 w-dvw border-b transition-all duration-200 ${
+                    scrolled
+                        ? 'bg-surface/90 backdrop-blur-xl border-border'
+                        : 'bg-surface/60 backdrop-blur-md border-transparent'
+                }`}
+            >
                 <Link
                     to='/'
                     onClick={() => window.scrollTo(0, 0)}
