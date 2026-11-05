@@ -1,13 +1,13 @@
 import clsx from 'clsx';
 
 export default function BoxTier({
-    className,
-    children,
     title,
+    children,
+    className,
 }: {
+    title?: string;
     className?: string;
     children?: React.ReactNode;
-    title?: string;
 }) {
     return (
         <div

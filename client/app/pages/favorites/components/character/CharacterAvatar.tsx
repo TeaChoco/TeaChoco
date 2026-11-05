@@ -1,13 +1,13 @@
 import clsx from 'clsx';
-import { useCallback, useRef, useState } from 'react';
-import { createPortal } from 'react-dom';
-import { AnimatePresence, motion } from 'framer-motion';
-import Skeleton from '~/components/custom/Skeleton';
-import type { CharacterItem } from '~/types/favorites';
 import BoxTier from './BoxTier';
-import { useRandomImage } from '../../hooks/useRandomImage';
+import { createPortal } from 'react-dom';
+import Skeleton from '~/components/custom/Skeleton';
+import { useCallback, useRef, useState } from 'react';
+import type { CharacterItem } from '~/types/favorites';
+import { AnimatePresence, motion } from 'framer-motion';
 import CharacterDetailsCard from './CharacterDetailsCard';
 import CharacterDetailsModal from './CharacterDetailsModal';
+import { useRandomImage } from '../../hooks/useRandomImage';
 
 const POPOVER_GAP = 8;
 const POPOVER_WIDTH = 240;
@@ -24,10 +24,10 @@ interface CharacterAvatarProps {
  * Supports multiple images via `character.images`.
  */
 export function CharacterAvatar({ hide = false, character }: CharacterAvatarProps) {
-    const [loaded, setLoaded] = useState(false);
-    const [hover, setHover] = useState(false);
-    const [rect, setRect] = useState<DOMRect | null>(null);
     const [open, setOpen] = useState(false);
+    const [hover, setHover] = useState(false);
+    const [loaded, setLoaded] = useState(false);
+    const [rect, setRect] = useState<DOMRect | null>(null);
     const hideTimer = useRef<number | undefined>(undefined);
     const sizeClass = 'w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20';
     const images = character.images ?? [];

@@ -1,19 +1,19 @@
 import clsx from 'clsx';
+import BoxTier from './BoxTier';
+import { TIER_STYLES } from '~/constants/Tier';
 import { useTranslation } from 'react-i18next';
+import { CharacterAvatar } from './CharacterAvatar';
 import { AnimatePresence, motion } from 'framer-motion';
 import type { CharacterItem, CharacterTier } from '~/types/favorites';
-import { TIER_STYLES } from '~/constants/Tier';
-import { CharacterAvatar } from './CharacterAvatar';
-import BoxTier from './BoxTier';
 
 export type TierRowAxis = 'both' | 'favorite' | 'waifu';
 
 interface TierRowProps {
+    axis?: TierRowAxis;
     tier: CharacterTier;
     waifuCharacters: CharacterItem[];
     favoriteCharacters: CharacterItem[];
     style?: (typeof TIER_STYLES)[CharacterTier];
-    axis?: TierRowAxis;
 }
 
 const SPRING = { type: 'spring', stiffness: 260, damping: 24 } as const;
@@ -35,10 +35,12 @@ export function TierRow({
     tier,
     style,
     axis = 'both',
-    favoriteCharacters,
     waifuCharacters,
+    favoriteCharacters,
 }: TierRowProps) {
     const { t } = useTranslation();
+    const favVisible = axis !== 'waifu';
+    const waifuVisible = axis !== 'favorite';
     const tierStyle = style || TIER_STYLES[tier];
     const badge = (
         <BoxTier
@@ -49,9 +51,6 @@ export function TierRow({
         </BoxTier>
     );
 
-    const favVisible = axis !== 'waifu';
-    const waifuVisible = axis !== 'favorite';
-
     const renderSide = (
         characters: CharacterItem[],
         visible: boolean,
@@ -59,22 +58,22 @@ export function TierRow({
         flexGrow: number,
     ) => (
         <motion.div
+            transition={SPRING}
+            animate={{ flexGrow }}
             className={`flex min-w-0 basis-0 overflow-hidden ${
                 reverse ? 'flex-row-reverse' : 'flex-row'
             }`}
-            animate={{ flexGrow }}
-            transition={SPRING}
         >
             <AnimatePresence mode='popLayout'>
                 {(visible ? characters : []).map((character) => (
                     <motion.div
                         key={character.id}
                         layout
-                        initial={{ opacity: 0, scale: 0.6 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.6 }}
                         transition={SPRING}
                         className='shrink-0'
+                        exit={{ opacity: 0, scale: 0.6 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        initial={{ opacity: 0, scale: 0.6 }}
                     >
                         <CharacterAvatar character={character} />
                     </motion.div>
@@ -85,19 +84,9 @@ export function TierRow({
 
     return (
         <div className='flex w-full min-h-12 sm:min-h-16 lg:min-h-20 bg-surface-overlay overflow-hidden'>
-            {renderSide(
-                favoriteCharacters,
-                favVisible,
-                true,
-                getFlexGrow(axis, 'favorite'),
-            )}
+            {renderSide(favoriteCharacters, favVisible, true, getFlexGrow(axis, 'favorite'))}
             {badge}
-            {renderSide(
-                waifuCharacters,
-                waifuVisible,
-                false,
-                getFlexGrow(axis, 'waifu'),
-            )}
+            {renderSide(waifuCharacters, waifuVisible, false, getFlexGrow(axis, 'waifu'))}
         </div>
     );
 }

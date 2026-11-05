@@ -7,6 +7,8 @@ type Props = {
     /** Rating value, or `null` when the item has not been rated yet. */
     rating: number | null;
     showNumber?: boolean;
+    sizeClass?: string;
+    compact?: boolean;
     type?: 'heart' | 'star';
 };
 
@@ -26,10 +28,12 @@ function FractionalIcon({
     type,
     fill,
     color,
+    sizeClass,
 }: {
     type: 'heart' | 'star';
     fill: number;
     color: string;
+    sizeClass: string;
 }) {
     const clipId = useId();
     const path = type === 'heart' ? HEART_PATH : STAR_PATH;
@@ -40,7 +44,7 @@ function FractionalIcon({
         <svg
             viewBox={viewBox}
             aria-hidden='true'
-            className='w-[1em] h-[1em] inline-block text-sm'
+            className={`inline-block h-[1em] w-[1em] ${sizeClass}`}
         >
             <defs>
                 <clipPath id={clipId}>
@@ -60,24 +64,55 @@ export default function Rating({
     rating,
     color,
     max = 5,
+    compact = false,
     showNumber = true,
+    sizeClass = 'text-sm',
 }: Props) {
     const rated = rating != null;
     const value = rating ?? 0;
     const display = rated ? (Math.floor(value * 10) / 10).toFixed(1) : '—';
     const styleColor = color ?? (type === 'heart' ? '#ff6666' : '#f59e0b');
 
+    if (compact) {
+        return (
+            <div
+                className='flex items-center gap-2'
+                aria-label={rated ? `${value} / ${max}` : 'Not rated'}
+            >
+                <FractionalIcon
+                    type={type}
+                    fill={max > 0 ? value / max : 0}
+                    color={styleColor}
+                    sizeClass={sizeClass}
+                />
+                <span
+                    className={`${sizeClass} font-medium text-surface-subtle ${rated ? '' : 'opacity-50'}`}
+                >
+                    {display}/{max}
+                </span>
+            </div>
+        );
+    }
+
     return (
         <div className='flex items-center gap-2' aria-label={rated ? `${value} / ${max}` : 'Not rated'}>
             <div className='flex items-center gap-0.5'>
                 {Array.from({ length: max }, (_, i) => {
                     const fill = Math.max(0, Math.min(1, value - i));
-                    return <FractionalIcon key={i} type={type} fill={fill} color={styleColor} />;
+                    return (
+                        <FractionalIcon
+                            key={i}
+                            type={type}
+                            fill={fill}
+                            color={styleColor}
+                            sizeClass={sizeClass}
+                        />
+                    );
                 })}
             </div>
             {showNumber && (
                 <span
-                    className={`text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark ${rated ? '' : 'opacity-50'}`}
+                    className={`${sizeClass} font-medium text-surface-subtle ${rated ? '' : 'opacity-50'}`}
                 >
                     {display}
                 </span>

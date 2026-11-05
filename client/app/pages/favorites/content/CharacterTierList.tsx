@@ -6,6 +6,7 @@ import { useTierGroups } from '~/hooks/useTierGroups';
 import ErrorBound from '~/components/custom/ErrorBound';
 import ShowMoreButton from '../components/ShowMoreButton';
 import { useLangTextResolver } from '../hooks/useLocalizedText';
+import { useCharacterSources } from '../hooks/useCharacterSources';
 import { characters, characterTiers } from '~/data/favorites/character';
 import { TierListToolbar } from '../components/character/TierListToolbar';
 import { TierRow, type TierRowAxis } from '../components/character/TierRow';
@@ -24,6 +25,7 @@ interface CharacterTierListProps {
 export default function CharacterTierList({ viewMoreTo }: CharacterTierListProps) {
     const { t } = useTranslation();
     const resolve = useLangTextResolver();
+    const getSources = useCharacterSources();
     const [search, setSearch] = useState('');
     const [axis, setAxis] = useState<TierRowAxis>('both');
     const [selectedSource, setSelectedSource] = useState('all');
@@ -31,8 +33,9 @@ export default function CharacterTierList({ viewMoreTo }: CharacterTierListProps
     const sourceOptions = useMemo(() => {
         const sources = new Set<string>();
         characters.forEach((character) => {
-            const anime = resolve(character.from.anime);
-            const game = resolve(character.from.game);
+            const links = getSources(character.from);
+            const anime = resolve(links.anime?.names);
+            const game = resolve(links.game?.names);
             if (anime) sources.add(anime);
             if (game) sources.add(game);
         });
@@ -40,19 +43,20 @@ export default function CharacterTierList({ viewMoreTo }: CharacterTierListProps
             { label: t('favorites.toolbar.all'), value: 'all' },
             ...Array.from(sources).map((source) => ({ label: source, value: source })),
         ];
-    }, [characters, resolve, t]);
+    }, [characters, resolve, getSources, t]);
 
     const filteredCharacters = useMemo(() => {
         const query = search.trim().toLowerCase();
         return characters.filter((character) => {
-            const anime = resolve(character.from.anime);
-            const game = resolve(character.from.game);
+            const links = getSources(character.from);
+            const anime = resolve(links.anime?.names);
+            const game = resolve(links.game?.names);
             const matchesSource =
                 selectedSource === 'all' || anime === selectedSource || game === selectedSource;
             const matchesSearch = query === '' || character.name.toLowerCase().includes(query);
             return matchesSource && matchesSearch;
         });
-    }, [characters, selectedSource, search, resolve]);
+    }, [characters, selectedSource, search, resolve, getSources]);
 
     const favoriteGroups = useTierGroups(filteredCharacters, 'favorite');
     const waifuGroups = useTierGroups(filteredCharacters, 'waifu');

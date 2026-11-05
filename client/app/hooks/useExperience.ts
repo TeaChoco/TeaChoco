@@ -1,8 +1,8 @@
 // -Path: 'TeaChoco-Portfolio/client/app/hooks/useExperience.ts'
 import { useMemo, useState } from 'react';
+import { groupByYear } from '../utils/experience';
 import { EXPERIENCE_ERAS } from '../data/about/experience';
 import type { CategoryId, EraView } from '../types/experience';
-import { groupByYear } from '../utils/experience';
 
 /** Active filter value. `all` disables filtering. */
 export type ExperienceFilter = CategoryId | 'all';

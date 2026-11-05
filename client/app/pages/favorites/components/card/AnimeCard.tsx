@@ -8,6 +8,11 @@ interface AnimeCardProps {
     forceOpen?: boolean;
     interactive?: boolean;
     thumbnailClass?: string;
+    textClass?: string;
+    contentClass?: string;
+    ratingClass?: string;
+    chipClass?: string;
+    chipBoxClass?: string;
 }
 
 export default function AnimeCard(props: AnimeCardProps) {

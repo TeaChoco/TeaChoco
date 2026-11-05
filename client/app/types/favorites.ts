@@ -44,12 +44,12 @@ export interface MvItem extends DataItem {
     videoId: string;
 }
 
-export type CharacterFrom = Partial<Record<'anime' | 'game', LangNames>>;
+export type CharacterFrom = Partial<Record<'anime' | 'game', number>>;
 export type CharacterTier = 'ssss' | 'sss' | 'ss' | 's' | 'a' | 'b' | 'c' | 'd' | 'f';
 export type CharacterTiers = Record<'favorite' | 'waifu', CharacterTier>;
 export type CharacterRating = Partial<Record<'appearance' | 'nature' | 'voice' | 'warm', number>>;
 
-export type CharacterItem = {
+export interface CharacterItem {
     id: string;
     name: string;
     from: CharacterFrom;

@@ -1,16 +1,16 @@
 // -Path: 'client/src/components/custom/Modal.tsx'
-import { useEffect, useCallback, type ReactNode } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { FaXmark } from 'react-icons/fa6';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useEffect, useCallback, type ReactNode } from 'react';
 
 interface ModalProps {
     isOpen: boolean;
+    className?: string;
     onClose: () => void;
     children: ReactNode;
-    size?: 'sm' | 'md' | 'lg' | 'xl';
-    closeOnBackdrop?: boolean;
     closeOnEsc?: boolean;
-    className?: string;
+    closeOnBackdrop?: boolean;
+    size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
 }
 
 export function Modal({
@@ -18,9 +18,9 @@ export function Modal({
     onClose,
     children,
     size = 'md',
-    closeOnBackdrop = true,
-    closeOnEsc = true,
     className = '',
+    closeOnEsc = true,
+    closeOnBackdrop = true,
 }: ModalProps) {
     const handleKeyDown = useCallback(
         (e: KeyboardEvent) => {
@@ -45,6 +45,8 @@ export function Modal({
         md: 'max-w-lg',
         lg: 'max-w-xl',
         xl: 'max-w-2xl',
+        '2xl': 'max-w-4xl',
+        full: '',
     }[size];
 
     return (
@@ -123,9 +125,7 @@ interface ModalFooterProps {
 
 export function ModalFooter({ children, className = '' }: ModalFooterProps) {
     return (
-        <div
-            className={`flex items-center justify-end gap-3 border-t border-border ${className}`}
-        >
+        <div className={`flex items-center justify-end gap-3 border-t border-border ${className}`}>
             {children}
         </div>
     );

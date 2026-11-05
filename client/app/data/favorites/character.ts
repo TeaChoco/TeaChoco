@@ -3,15 +3,10 @@ import type { CharacterTier, CharacterItem } from '~/types/favorites';
 
 export const characterTiers: CharacterTier[] = ['ssss', 'sss', 'ss', 's', 'a', 'b', 'c', 'd', 'f'];
 
-export const characters: CharacterItem[] = [
+const chars: Omit<CharacterItem, 'id'>[] = [
     {
-        id: 'char-1',
         name: 'Takanashi Hoshino',
-        from: {
-            game: {
-                'en': 'Blue Archive',
-            },
-        },
+        from: { game: 4 },
         tier: {
             favorite: 'ssss',
             waifu: 'b',
@@ -33,13 +28,8 @@ export const characters: CharacterItem[] = [
         ],
     },
     {
-        id: 'char-2',
         name: 'Gotoh Hitori',
-        from: {
-            anime: {
-                'en': 'Bocchi the Rock!',
-            },
-        },
+        from: { anime: 1 },
         tier: {
             favorite: 'ssss',
             waifu: 'a',
@@ -62,13 +52,8 @@ export const characters: CharacterItem[] = [
         ],
     },
     {
-        id: 'char-3',
         name: 'Hu Tao',
-        from: {
-            game: {
-                'en': 'Genshin Impact',
-            },
-        },
+        from: { game: 2 },
         tier: {
             favorite: 'ssss',
             waifu: 's',
@@ -92,13 +77,8 @@ export const characters: CharacterItem[] = [
         ],
     },
     {
-        id: 'char-4',
         name: 'Nijika Ijichi',
-        from: {
-            anime: {
-                'en': 'Bocchi the Rock!',
-            },
-        },
+        from: { anime: 1 },
         tier: {
             favorite: 'b',
             waifu: 'a',
@@ -121,13 +101,8 @@ export const characters: CharacterItem[] = [
         ],
     },
     {
-        id: 'char-5',
         name: 'Shizuka Mikazuki',
-        from: {
-            anime: {
-                'en': 'Zom 100: Bucket List of the Dead',
-            },
-        },
+        from: { anime: 6 },
         tier: {
             favorite: 'sss',
             waifu: 's',
@@ -151,14 +126,8 @@ export const characters: CharacterItem[] = [
         ],
     },
     {
-        id: 'char-6',
         name: 'Megumi Kato',
-        from: {
-            anime: {
-                'ja': 'Saenai Heroine no Sodatekata',
-                'en': 'Saekano: How to Raise a Boring Girlfriend',
-            },
-        },
+        from: { anime: 7 },
         tier: {
             favorite: 'sss',
             waifu: 'sss',
@@ -178,13 +147,8 @@ export const characters: CharacterItem[] = [
         images: ['https://i.pinimg.com/736x/90/13/59/901359b75eb85e46456b7cbe4ef8e8c3.jpg'],
     },
     {
-        id: 'char-7',
         name: 'Yuutani Yuu',
-        from: {
-            anime: {
-                'en': 'Bad Girl',
-            },
-        },
+        from: { anime: 8 },
         tier: {
             favorite: 'ss',
             waifu: 'a',
@@ -203,18 +167,11 @@ export const characters: CharacterItem[] = [
         images: [
             'https://i.pinimg.com/736x/17/77/ab/1777abe4e8c47c64cefc224aa6e899c4.jpg',
             'https://i.pinimg.com/736x/a1/2f/77/a12f77fb76577b94bdf3952f8dc3f316.jpg',
-            'https://i.pinimg.com/736x/8c/3a/92/8c3a92f7e8b4d6a1c5e7f9b2d4a6c8e0.jpg',
         ],
     },
     {
-        id: 'char-8',
         name: 'Marie Evans',
-        from: {
-            anime: {
-                'en': 'Mechanical Marie',
-                'ja': 'Kikaijikake no Mari',
-            },
-        },
+        from: { anime: 9 },
         tier: {
             favorite: 'a',
             waifu: 'a',
@@ -234,13 +191,8 @@ export const characters: CharacterItem[] = [
         ],
     },
     {
-        id: 'char-9',
         name: 'Noelle',
-        from: {
-            game: {
-                'en': 'Genshin Impact',
-            },
-        },
+        from: { game: 2 },
         tier: {
             favorite: 's',
             waifu: 'ss',
@@ -263,14 +215,8 @@ export const characters: CharacterItem[] = [
         ],
     },
     {
-        id: 'char-10',
         name: 'Kubo Nagisa',
-        from: {
-            anime: {
-                'en': "Kubo Won't Let Me Be Invisible",
-                'ja': 'Kubo-san wa Boku wo Yurusanai',
-            },
-        },
+        from: { anime: 10 },
         tier: {
             favorite: 'a',
             waifu: 'b',
@@ -293,13 +239,8 @@ export const characters: CharacterItem[] = [
         ],
     },
     {
-        id: 'char-11',
         name: 'Hoshimi Miyabi',
-        from: {
-            game: {
-                'en': 'Zenless Zone Zero',
-            },
-        },
+        from: { game: 3 },
         tier: {
             favorite: 'ss',
             waifu: 's',
@@ -323,14 +264,8 @@ export const characters: CharacterItem[] = [
         ],
     },
     {
-        id: 'char-12',
         name: 'Sylpha Langlis',
-        from: {
-            anime: {
-                'en': 'I Was Reincarnated as the 7th Prince',
-                'ja': 'Tensei Shitara Dai Nana Ouji Dattanode',
-            },
-        },
+        from: { anime: 11 },
         tier: {
             favorite: 's',
             waifu: 'b',
@@ -353,13 +288,8 @@ export const characters: CharacterItem[] = [
         ],
     },
     {
-        id: 'char-13',
         name: 'Satou Matsuzaka',
-        from: {
-            anime: {
-                'en': 'Happy Sugar Life',
-            },
-        },
+        from: { anime: 12 },
         tier: {
             favorite: 's',
             waifu: 'f',
@@ -382,14 +312,8 @@ export const characters: CharacterItem[] = [
         ],
     },
     {
-        id: 'char-14',
         name: 'Mahiru Shiina',
-        from: {
-            anime: {
-                'en': 'The Angel Next Door Spoils Me Rotten',
-                'ja': 'Otonari no Tenshi-sama ni Itsunomanika Dame Ningen ni Sareteita Ken',
-            },
-        },
+        from: { anime: 13 },
         tier: {
             favorite: 'a',
             waifu: 'sss',
@@ -411,13 +335,8 @@ export const characters: CharacterItem[] = [
         ],
     },
     {
-        id: 'char-15',
         name: 'Varesa',
-        from: {
-            game: {
-                'en': 'Genshin Impact',
-            },
-        },
+        from: { game: 2 },
         tier: {
             favorite: 'b',
             waifu: 'c',
@@ -438,13 +357,8 @@ export const characters: CharacterItem[] = [
         ],
     },
     {
-        id: 'char-16',
         name: 'Kurokawa Akane',
-        from: {
-            anime: {
-                'en': 'Oshi no Ko',
-            },
-        },
+        from: { anime: 14 },
         tier: {
             favorite: 'a',
             waifu: 's',
@@ -467,14 +381,8 @@ export const characters: CharacterItem[] = [
         ],
     },
     {
-        id: 'char-17',
         name: 'Nukumizu Kaju',
-        from: {
-            anime: {
-                'en': 'The Story of a Girl Who Decided to Live Alone',
-                'ja': 'Hitorigurashi no Shougakusei',
-            },
-        },
+        from: {},
         tier: {
             favorite: 'a',
             waifu: 's',
@@ -497,13 +405,8 @@ export const characters: CharacterItem[] = [
         ],
     },
     {
-        id: 'char-18',
         name: 'Yuna Kuma',
-        from: {
-            anime: {
-                'en': 'Kuma Kuma Kuma Bear',
-            },
-        },
+        from: { anime: 16 },
         tier: {
             favorite: 'b',
             waifu: 'a',
@@ -523,14 +426,8 @@ export const characters: CharacterItem[] = [
         ],
     },
     {
-        id: 'char-19',
         name: 'Kaguya Shinomiya',
-        from: {
-            anime: {
-                'en': 'Kaguya-sama: Love Is War',
-                'ja': 'Kaguya-sama wa Kokurasetai',
-            },
-        },
+        from: { anime: 17 },
         tier: {
             favorite: 'c',
             waifu: 'd',
@@ -552,14 +449,8 @@ export const characters: CharacterItem[] = [
         ],
     },
     {
-        id: 'char-20',
         name: 'Minakami Noa',
-        from: {
-            anime: {
-                'en': 'Henjin no Salad Bowl',
-                'ja': '変人のサラダボウル',
-            },
-        },
+        from: { anime: 18 },
         tier: {
             favorite: 'b',
             waifu: 'c',
@@ -579,14 +470,8 @@ export const characters: CharacterItem[] = [
         ],
     },
     {
-        id: 'char-21',
         name: 'Mao Mao',
-        from: {
-            anime: {
-                'en': 'The Apothecary Diaries',
-                'ja': 'Kusuriya no Hitorigoto',
-            },
-        },
+        from: { anime: 19 },
         tier: {
             favorite: 'a',
             waifu: 's',
@@ -608,14 +493,8 @@ export const characters: CharacterItem[] = [
         ],
     },
     {
-        id: 'char-22',
         name: 'Nanakura Rin',
-        from: {
-            anime: {
-                'en': 'Pseudo Harem',
-                'ja': 'Giji Harem',
-            },
-        },
+        from: { anime: 20 },
         tier: {
             favorite: 'b',
             waifu: 'b',
@@ -636,13 +515,8 @@ export const characters: CharacterItem[] = [
         ],
     },
     {
-        id: 'char-23',
         name: 'Ai Hoshino',
-        from: {
-            anime: {
-                'en': 'Oshi no Ko',
-            },
-        },
+        from: { anime: 14 },
         tier: {
             favorite: 'a',
             waifu: 'a',
@@ -664,14 +538,8 @@ export const characters: CharacterItem[] = [
         ],
     },
     {
-        id: 'char-24',
         name: 'Ogiwara Sayu',
-        from: {
-            anime: {
-                'en': 'The Helpful Fox Senko-san',
-                'ja': 'Sewayaki Kitsune no Senko-san',
-            },
-        },
+        from: { anime: 21 },
         tier: {
             favorite: 'a',
             waifu: 'ss',
@@ -693,14 +561,8 @@ export const characters: CharacterItem[] = [
         ],
     },
     {
-        id: 'char-25',
         name: 'Elfaria Albis Serfort',
-        from: {
-            anime: {
-                'en': 'The Misfit of Demon King Academy',
-                'ja': 'Maou Gakuin no Futekigousha',
-            },
-        },
+        from: { anime: 5 },
         tier: {
             favorite: 's',
             waifu: 'a',
@@ -723,14 +585,8 @@ export const characters: CharacterItem[] = [
         ],
     },
     {
-        id: 'char-26',
         name: 'Beatrice',
-        from: {
-            anime: {
-                'en': 'Re:Zero - Starting Life in Another World',
-                'ja': 'Re:Zero kara Hajimeru Isekai Seikatsu',
-            },
-        },
+        from: { anime: 2 },
         tier: {
             favorite: 's',
             waifu: 'd',
@@ -755,14 +611,8 @@ export const characters: CharacterItem[] = [
         ],
     },
     {
-        id: 'char-27',
         name: 'Rem',
-        from: {
-            anime: {
-                'en': 'Re:Zero - Starting Life in Another World',
-                'ja': 'Re:Zero kara Hajimeru Isekai Seikatsu',
-            },
-        },
+        from: { anime: 2 },
         tier: {
             favorite: 's',
             waifu: 's',
@@ -784,15 +634,8 @@ export const characters: CharacterItem[] = [
         ],
     },
     {
-        id: 'char-28',
         name: 'Hiiragi Nana',
-        from: {
-            anime: {
-                'en': 'Talentless Nana',
-                'ja': 'Munou na Nana',
-                'th': 'แผนลับดับศัตรู',
-            },
-        },
+        from: { anime: 22 },
         tier: {
             favorite: 'ss',
             waifu: 'f',
@@ -814,14 +657,8 @@ export const characters: CharacterItem[] = [
         ],
     },
     {
-        id: 'char-29',
         name: 'Yuno Gasai',
-        from: {
-            anime: {
-                'en': 'Future Diary',
-                'ja': 'Mirai Nikki',
-            },
-        },
+        from: { anime: 23 },
         tier: {
             favorite: 'c',
             waifu: 'f',
@@ -845,13 +682,8 @@ export const characters: CharacterItem[] = [
         ],
     },
     {
-        id: 'char-30',
         name: 'Mita Cappie',
-        from: {
-            game: {
-                'en': 'Miside',
-            },
-        },
+        from: { game: 9 },
         tier: {
             favorite: 'b',
             waifu: 'b',
@@ -873,3 +705,8 @@ export const characters: CharacterItem[] = [
         ],
     },
 ];
+
+export const characters: CharacterItem[] = chars.map((char, index) => ({
+    id: `char-${index + 1}`,
+    ...char,
+}));

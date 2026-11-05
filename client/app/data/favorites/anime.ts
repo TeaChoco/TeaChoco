@@ -11,9 +11,9 @@ const animes: Omit<AnimeItem, 'id'>[] = [
     },
     {
         names: {
-            en: 'Re:ZERO -Starting Life in Another World-',
+            en: 'Re:ZERO Starting Life in Another World',
             ja: 'Re:ゼロから始める異世界生活',
-            th: 'Re:ZERO -รีเซทชีวิต ฝ่าวิกฤตต่างโลก-',
+            th: 'Re:ZERO รีเซทชีวิต ฝ่าวิกฤตต่างโลก',
         },
         rating: 4.9,
     },

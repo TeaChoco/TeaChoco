@@ -1,12 +1,13 @@
-import { useState } from 'react';
+// -Path: 'TeaChoco-Portfolio/client/app/pages/favorites/components/character/CharacterDetailsCard.tsx'
 import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
-import { FaArrowLeft, FaArrowRight, FaClapperboard, FaGamepad, FaShuffle } from 'react-icons/fa6';
-import type { CharacterItem, CharacterRating, CharacterTier } from '~/types/favorites';
 import { TIER_STYLES } from '~/constants/Tier';
-import { useRandomImage } from '../../hooks/useRandomImage';
-import { langTextLabels } from '../../hooks/useLocalizedText';
 import Rating from '~/components/custom/Rating';
+import SourceLink from './SourceLink';
+import { useRandomImage } from '../../hooks/useRandomImage';
+import { useCharacterSources } from '../../hooks/useCharacterSources';
+import CharacterGallery, { CharacterPlaceholder } from './CharacterGallery';
+import type { CharacterItem, CharacterRating, CharacterTier } from '~/types/favorites';
 
 type RatingKey = keyof CharacterRating;
 
@@ -17,12 +18,15 @@ interface CharacterDetailsCardProps {
     variant?: 'mini' | 'full';
 }
 
+/**
+ * Character tier badge with the tier label and colour from `TIER_STYLES`.
+ */
 function TierBadge({ tier, label }: { tier: CharacterTier; label: string }) {
     const style = TIER_STYLES[tier];
     return (
         <span
             className={clsx(
-                'inline-flex items-center px-2 py-0.5 rounded text-xs font-extrabold border border-black/10 whitespace-nowrap',
+                'inline-flex items-center rounded border border-black/10 px-2 py-0.5 text-xs font-extrabold whitespace-nowrap',
                 style.bg,
                 style.text,
             )}
@@ -32,105 +36,44 @@ function TierBadge({ tier, label }: { tier: CharacterTier; label: string }) {
     );
 }
 
+/**
+ * One rating row: label on the left, stars and value on the right.
+ */
 function RatingStars({ label, value }: { label: string; value: number }) {
     return (
-        <div className='flex items-center justify-between gap-3'>
-            <span className='text-xs text-surface-subtle shrink-0'>{label}</span>
+        <div className='flex items-center justify-between gap-2'>
+            <span className='shrink-0 text-xs text-surface-subtle'>{label}</span>
             <Rating type='star' rating={value} max={5} showNumber />
         </div>
     );
 }
 
+/**
+ * Links that point back to the anime/game category page of this character.
+ */
 function SourceChip({ character }: { character: CharacterItem }) {
-    const animeLabels = langTextLabels(character.from.anime);
-    const gameLabels = langTextLabels(character.from.game);
-    if (animeLabels.length === 0 && gameLabels.length === 0) return null;
+    const getSources = useCharacterSources();
+    const { anime, game } = getSources(character.from);
+    if (!anime && !game) return null;
 
     return (
-        <span className='inline-flex flex-wrap items-center gap-x-1.5 gap-y-0.5 text-xs text-surface-subtle'>
-            {animeLabels.length > 0 && (
-                <span className='inline-flex items-center gap-1'>
-                    <FaClapperboard aria-hidden='true' className='shrink-0' />
-                    <span className='flex flex-wrap gap-x-1.5 gap-y-0.5'>
-                        {animeLabels.map(({ label }) => (
-                            <span key={label} className='whitespace-nowrap'>
-                                {label}
-                            </span>
-                        ))}
-                    </span>
-                </span>
-            )}
-            {animeLabels.length > 0 && gameLabels.length > 0 && (
-                <span className='opacity-50' aria-hidden='true'>
-                    ·
-                </span>
-            )}
-            {gameLabels.length > 0 && (
-                <span className='inline-flex items-center gap-1'>
-                    <FaGamepad aria-hidden='true' className='shrink-0' />
-                    <span className='flex flex-wrap gap-x-1.5 gap-y-0.5'>
-                        {gameLabels.map(({ label }) => (
-                            <span key={label} className='whitespace-nowrap'>
-                                {label}
-                            </span>
-                        ))}
-                    </span>
-                </span>
-            )}
+        <span className='inline-flex flex-wrap items-center gap-1.5 text-xs text-surface-subtle'>
+            {anime ? <SourceLink kind='anime' source={anime} /> : null}
+            {game ? <SourceLink kind='game' source={game} /> : null}
         </span>
     );
 }
 
-function Placeholder({ name, className }: { name: string; className?: string }) {
-    return (
-        <div
-            className={clsx(
-                'flex items-center justify-center bg-slate-300 px-2 text-center font-bold text-slate-700',
-                className,
-            )}
-        >
-            {name}
-        </div>
-    );
-}
-
-function FadeImage({
-    srcs,
-    active = 0,
-    alt,
-    className,
-}: {
-    srcs: string[];
-    active?: number;
-    alt: string;
-    className?: string;
-}) {
-    return (
-        <div className={clsx('relative overflow-hidden', className)}>
-            {srcs.map((src, i) => (
-                <img
-                    key={src}
-                    src={src}
-                    alt={alt}
-                    aria-hidden={i !== active}
-                    className={clsx(
-                        'absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-out',
-                        i === active ? 'opacity-100' : 'opacity-0',
-                    )}
-                />
-            ))}
-        </div>
-    );
-}
-
+/**
+ * Character details in two layouts: a compact hover card (`mini`) and the full
+ * responsive detail body used by the character modal.
+ */
 export default function CharacterDetailsCard({
     character,
     variant = 'full',
 }: CharacterDetailsCardProps) {
     const { t } = useTranslation();
-    const [index, setIndex] = useState(0);
     const images = character.images ?? [];
-    const image = images[Math.min(index, Math.max(images.length - 1, 0))];
     const isMini = variant === 'mini';
 
     const ratedKeys = RATING_KEYS.filter((key) => (character.rating?.[key] ?? 0) > 0);
@@ -150,34 +93,33 @@ export default function CharacterDetailsCard({
     ].filter((row): row is { label: string; value: string } => Boolean(row));
 
     if (isMini) {
-        const { image: miniImage, index: miniIndex } = useRandomImage(images);
+        const { image } = useRandomImage(images);
         return (
-            <div className='w-60 rounded-xl border border-border bg-surface-elevated shadow-xl shadow-black/10 p-3'>
+            <div className='w-60 max-w-[calc(100vw-2rem)] rounded-xl border border-border bg-surface-elevated p-3 shadow-xl shadow-black/10'>
                 <div className='flex items-center gap-2.5'>
-                    <div className='w-12 h-12 shrink-0 rounded-md overflow-hidden border border-border'>
-                        {miniImage ? (
-                            <FadeImage
-                                srcs={images}
-                                active={miniIndex}
+                    <div className='h-12 w-12 shrink-0 overflow-hidden rounded-md border border-border'>
+                        {image ? (
+                            <img
+                                src={image}
                                 alt={character.name}
-                                className='w-full h-full'
+                                className='h-full w-full object-cover'
                             />
                         ) : (
-                            <Placeholder
+                            <CharacterPlaceholder
                                 name={character.name.slice(0, 2)}
-                                className='w-full h-full text-[10px]'
+                                className='h-full w-full text-[10px]'
                             />
                         )}
                     </div>
-                    <div className='min-w-0 flex flex-col gap-0.5'>
-                        <span className='font-semibold text-sm leading-tight truncate'>
+                    <div className='flex min-w-0 flex-col gap-0.5'>
+                        <span className='truncate text-sm leading-tight font-semibold'>
                             {character.name}
                         </span>
                         <SourceChip character={character} />
                     </div>
                 </div>
 
-                <div className='flex gap-1.5 mt-2.5'>
+                <div className='mt-2.5 flex flex-wrap gap-1.5'>
                     <TierBadge
                         tier={character.tier.favorite}
                         label={t('favorites.tier.favorite')}
@@ -187,7 +129,7 @@ export default function CharacterDetailsCard({
 
                 {ratedKeys.length > 0 && (
                     <div className='mt-3 flex flex-col gap-2'>
-                        {ratedKeys.slice(0, 4).map((key) => (
+                        {ratedKeys.map((key) => (
                             <RatingStars
                                 key={key}
                                 label={t(`favorites.${key}`)}
@@ -201,124 +143,52 @@ export default function CharacterDetailsCard({
     }
 
     return (
-        <div className='flex flex-col gap-4'>
-            <div className='grid grid-cols-[auto_1fr] gap-4 sm:grid-cols-[180px_1fr]'>
-                <div className='flex flex-col gap-2'>
-                    <div className='relative w-28 h-40 sm:w-44 sm:h-56 rounded-lg overflow-hidden border border-border'>
-                        {image ? (
-                            <>
-                                <FadeImage
-                                    srcs={images}
-                                    active={index}
-                                    alt={character.name}
-                                    className='absolute inset-0 w-full h-full'
-                                />
-                                {images.length > 1 && (
-                                    <>
-                                        <button
-                                            type='button'
-                                            aria-label='previous'
-                                            onClick={() =>
-                                                setIndex(
-                                                    (index - 1 + images.length) % images.length,
-                                                )
-                                            }
-                                            className='absolute left-1 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/70 cursor-pointer'
-                                        >
-                                            <FaArrowLeft className='text-xs' />
-                                        </button>
-                                        <button
-                                            type='button'
-                                            aria-label='next'
-                                            onClick={() => setIndex((index + 1) % images.length)}
-                                            className='absolute right-1 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/70 cursor-pointer'
-                                        >
-                                            <FaArrowRight className='text-xs' />
-                                        </button>
-                                        <button
-                                            type='button'
-                                            aria-label='random'
-                                            onClick={() => {
-                                                let next = index;
-                                                while (next === index && images.length > 1) {
-                                                    next = Math.floor(
-                                                        Math.random() * images.length,
-                                                    );
-                                                }
-                                                setIndex(next);
-                                            }}
-                                            className='absolute top-1 right-1/2 translate-x-1/2 z-10 w-7 h-7 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/70 cursor-pointer'
-                                        >
-                                            <FaShuffle className='text-xs' />
-                                        </button>
-                                    </>
-                                )}
-                            </>
-                        ) : (
-                            <Placeholder
-                                name={character.name}
-                                className='absolute inset-0 w-full h-full'
-                            />
-                        )}
-                    </div>
-
-                    {images.length > 1 && (
-                        <div className='flex gap-1.5 max-w-[180px] sm:max-w-[220px] overflow-x-auto pb-1'>
-                            {images.map((src, i) => (
-                                <button
-                                    key={src}
-                                    type='button'
-                                    aria-label={`show image ${i + 1}`}
-                                    onClick={() => setIndex(i)}
-                                    className={clsx(
-                                        'shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-md overflow-hidden border-2 cursor-pointer transition',
-                                        i === index
-                                            ? 'border-brand ring-1 ring-brand'
-                                            : 'border-transparent opacity-70 hover:opacity-100',
-                                    )}
-                                >
-                                    <img src={src} alt='' className='w-full h-full object-cover' />
-                                </button>
-                            ))}
-                        </div>
-                    )}
+        <div className='flex flex-col gap-5'>
+            <header className='flex flex-col gap-2'>
+                <h3 className='text-xl leading-tight font-bold sm:text-2xl'>{character.name}</h3>
+                <SourceChip character={character} />
+                <div className='flex flex-wrap gap-1.5'>
+                    <TierBadge
+                        tier={character.tier.favorite}
+                        label={t('favorites.tier.favorite')}
+                    />
+                    <TierBadge tier={character.tier.waifu} label={t('favorites.tier.waifu')} />
                 </div>
+            </header>
 
-                <div className='flex flex-col gap-2'>
-                    <h3 className='text-xl font-bold leading-tight'>{character.name}</h3>
-                    <SourceChip character={character} />
-                    <div className='flex flex-wrap gap-1.5 mt-1'>
-                        <TierBadge
-                            tier={character.tier.favorite}
-                            label={t('favorites.tier.favorite')}
-                        />
-                        <TierBadge tier={character.tier.waifu} label={t('favorites.tier.waifu')} />
-                    </div>
+            <div className='grid gap-4 sm:grid-cols-[minmax(0,18rem)_1fr] sm:gap-5'>
+                <CharacterGallery name={character.name} images={images} />
 
+                <div className='flex min-w-0 flex-col gap-4'>
                     {info.length > 0 && (
-                        <dl className='mt-2 flex flex-col gap-1 text-sm'>
+                        <dl className='grid grid-cols-2 gap-2'>
                             {info.map((row) => (
-                                <div key={row.label} className='flex justify-between gap-4'>
-                                    <dt className='text-surface-subtle'>{row.label}</dt>
-                                    <dd className='font-semibold text-right'>{row.value}</dd>
+                                <div
+                                    key={row.label}
+                                    className='rounded-lg border border-border bg-surface-overlay/40 px-3 py-2'
+                                >
+                                    <dt className='text-[0.65rem] tracking-wide text-surface-muted uppercase'>
+                                        {row.label}
+                                    </dt>
+                                    <dd className='truncate text-sm font-semibold'>{row.value}</dd>
                                 </div>
                             ))}
                         </dl>
                     )}
+
+                    {ratedKeys.length > 0 && (
+                        <div className='flex flex-col gap-2 rounded-xl border border-border bg-surface-overlay/40 p-3'>
+                            {ratedKeys.map((key) => (
+                                <RatingStars
+                                    key={key}
+                                    label={t(`favorites.${key}`)}
+                                    value={character.rating![key]!}
+                                />
+                            ))}
+                        </div>
+                    )}
                 </div>
             </div>
-
-            {ratedKeys.length > 0 && (
-                <div className='flex flex-col gap-2.5'>
-                    {ratedKeys.map((key) => (
-                        <RatingStars
-                            key={key}
-                            label={t(`favorites.${key}`)}
-                            value={character.rating![key]!}
-                        />
-                    ))}
-                </div>
-            )}
         </div>
     );
 }

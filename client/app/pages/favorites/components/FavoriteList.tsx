@@ -1,10 +1,10 @@
 // -Path: "TeaChoco-Portfolio/client/src/pages/favorites/content/Datas.tsx"
 import { motion } from 'framer-motion';
-import { useEffect, useMemo, useState } from 'react';
-import { useSearchParams } from 'react-router';
+import { useQuery } from '~/hooks/useQuery';
 import type { SortMode } from '~/types/types';
 import { useTranslation } from 'react-i18next';
 import { FaClapperboard } from 'react-icons/fa6';
+import { useEffect, useMemo, useState } from 'react';
 import FavoriteTitle from '../components/FavoriteTitle';
 import ShowMoreButton from '../components/ShowMoreButton';
 import FadeOverflow from '~/components/layout/FadeOverflow';
@@ -44,18 +44,14 @@ export default function FavoriteList<Item extends DataItem>({
 }: FavoriteListProps<Item>) {
     const isPreview = rows != null;
     const { t } = useTranslation();
-    const [searchParams, setSearchParams] = useSearchParams();
-    const [query, setQuery] = useState(searchParams.get('search') ?? '');
+    const [search, setSearch] = useQuery('search');
+    const [query, setQuery] = useState(search);
     const showMore = isPreview && datas.length > rows!;
     const { setSize, setSort, setViewMode } = useFavoriteStore();
     const { size, sort, viewMode } = useFavoriteStore((state) => state[id]!);
 
     useEffect(() => {
-        const next = new URLSearchParams(searchParams);
-        if (query) next.set('search', query);
-        else next.delete('search');
-        if (next.toString() !== searchParams.toString())
-            setSearchParams(next, { preventScrollReset: true });
+        setSearch(query);
     }, [query]);
 
     const sortOptions: { value: SortMode; label: string }[] = [
