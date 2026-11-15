@@ -1,10 +1,13 @@
 // -Path: 'TeaChoco-Portfolio/client/app/pages/favorites/components/card/MediaModal.tsx'
-import { getAssetUrl } from '~/utils/url';
+import MediaPicture, { lqipStyle } from './MediaPicture';
 import { useTranslation } from 'react-i18next';
 import Rating from '~/components/custom/Rating';
 import { Modal } from '~/components/custom/Modal';
 import { FaGamepad, FaXmark, FaClapperboard } from 'react-icons/fa6';
 import { MediaNames, MediaTypeChips, type MediaItem } from './MediaBits';
+
+/** Modal poster widths per breakpoint for the responsive srcset. */
+const MODAL_SIZES = '(max-width: 640px) 100vw, 384px';
 
 interface MediaModalProps {
     item: MediaItem;
@@ -30,7 +33,6 @@ export default function MediaModal({
     const typeLabel = t(`favorites.${type}`);
     const title = Object.values(item.names)[0] ?? '';
     const TypeIcon = type === 'anime' ? FaClapperboard : FaGamepad;
-    const image = item.image ?? getAssetUrl(`/images/${type}/${item.id}.png`);
 
     return (
         <Modal size='xl' isOpen={isOpen} onClose={onClose} className='overflow-hidden'>
@@ -44,12 +46,25 @@ export default function MediaModal({
                     <FaXmark className='h-4 w-4' aria-hidden='true' />
                 </button>
 
-                <div className='relative aspect-3/4 max-h-[60dvh] w-full shrink-0 overflow-hidden bg-surface-sunken sm:aspect-auto sm:h-auto sm:max-h-none sm:w-56 md:w-96'>
-                    <img
-                        src={image}
-                        alt={title}
-                        className='h-full w-full object-cover object-[center_18%]'
-                    />
+                <div
+                    style={item.image ? undefined : lqipStyle(`${type}/${item.id}`)}
+                    className='relative aspect-3/4 max-h-[60dvh] w-full shrink-0 overflow-hidden bg-surface-sunken sm:aspect-auto sm:h-auto sm:max-h-none sm:w-56 md:w-96'
+                >
+                    {item.image ? (
+                        <img
+                            src={item.image}
+                            alt={title}
+                            className='h-full w-full object-cover object-[center_18%]'
+                        />
+                    ) : (
+                        <MediaPicture
+                            priority
+                            alt={title}
+                            id={item.id}
+                            type={type}
+                            sizes={MODAL_SIZES}
+                        />
+                    )}
                     <div className='ml-auto w-48 pointer-events-none absolute inset-0 bg-linear-to-t from-black/30 to-transparent sm:bg-linear-to-r sm:from-transparent sm:via-transparent sm:to-surface-elevated' />
                 </div>
 

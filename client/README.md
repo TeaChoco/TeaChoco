@@ -85,3 +85,22 @@ This template comes with [Tailwind CSS](https://tailwindcss.com/) already config
 ---
 
 Built with ❤️ using React Router.
+
+## Poster images (favorites)
+
+Originals live **outside** `public/` so they are never deployed:
+
+```
+assets/posters/anime/anime-1.png
+assets/posters/game/game-1.png
+assets/posters/image-lqip.json   # generated
+```
+
+Add a new poster:
+
+1. Put the original at `assets/posters/<anime|game>/<type>-<n>.png` (`.jpg`/`.jpeg` also work).
+   `n` must match the item's generated id — `app/data/favorites/anime.ts` derives it from the array position (`anime-${index + 1}`), so **append new items at the end** of the array. Inserting in the middle shifts every id and mismatches all posters.
+2. Run `pnpm images` (sharp). It writes one folder per poster — `public/images/<type>/<id>/300.avif|600.avif|300.webp|600.webp` — and regenerates `app/data/favorites/image-lqip.ts`. Partial run: `ONLY=anime-140 pnpm images`.
+3. Commit the variants, the manifest and the data change. `MediaPicture` serves AVIF first with a WebP fallback and an inline blurred placeholder.
+
+Optional: `pnpm og` regenerates the Open Graph cards in `public/og/` after project data changes.

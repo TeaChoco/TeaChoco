@@ -265,10 +265,32 @@
     "subtitle": "My projects and works",
     "readMore": "Read more →",
     "empty": "No projects in this category yet.",
+    "search": "Search projects...",
+    "noResults": "No projects match your search.",
+    "sort": {
+      "default": "Default",
+      "name": "Name",
+      "tags": "Most tags",
+      "live": "Live first"
+    },
+    "detail": {
+      "related": "Related projects",
+      "back": "Back to portfolio",
+      "notFound": "Project not found",
+      "stack": "Tech stack",
+      "categories": "Categories",
+      "links": "Links",
+      "source": "Source code",
+      "live": "Live demo"
+    },
     "projects": {
       "pokeRotom": {
         "title": "PokeRotom",
         "desc": "A real-time Pokémon companion app with WebSocket integration and interactive features."
+      },
+      "chocoGuildIdle": {
+        "title": "Choco Guild Idle",
+        "desc": "An idle fantasy RPG where you run a guild behind the scenes — auto-battle monsters, upgrade stats, manage gear and grow your guild."
       },
       "portfolio": {
         "title": "Portfolio Website",

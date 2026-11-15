@@ -1,17 +1,34 @@
-// -Path: "TeaChoco-Portfolio/client/src/pages/portfolio/components/ProjectGrid.tsx"
+// -Path: 'TeaChoco-Portfolio/client/app/pages/portfolio/content/ProjectGrid.tsx'
 import ProjectCard from './ProjectCard';
-import type { Project } from '~/types/projects';
 import { useTranslation } from 'react-i18next';
+import type { Project } from '~/types/projects';
 
-/** Grid แสดงรายการ project พร้อม empty state */
-export default function ProjectGrid({ projects }: { projects: Project[] }) {
+/** Props for {@link ProjectGrid}. */
+interface ProjectGridProps {
+    /** Reports an empty result caused by an active search query. */
+    hasQuery?: boolean;
+    projects: Project[];
+}
+
+/**
+ * Renders the project grid or a context-aware empty state.
+ *
+ * @param props - Projects to render plus the search state.
+ * @returns The grid or empty-state element.
+ */
+export default function ProjectGrid({ hasQuery = false, projects }: ProjectGridProps) {
     const { t } = useTranslation();
 
     if (projects.length === 0) {
+        /** Message differs when a search query caused the empty result. */
+        const message = hasQuery
+            ? t('portfolio.noResults', 'No projects match your search.')
+            : t('portfolio.empty', 'No projects in this category yet.');
+
         return (
             <div className='text-center py-16'>
-                <p className='text-text-muted-light dark:text-text-muted-dark text-lg'>
-                    {t('portfolio.empty', 'No projects in this category yet.')}
+                <p className='text-surface-muted text-lg'>
+                    {message}
                 </p>
             </div>
         );

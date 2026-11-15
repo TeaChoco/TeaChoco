@@ -1,11 +1,14 @@
 // -Path: 'TeaChoco-Portfolio/client/app/pages/favorites/components/card/MediaCard.tsx'
-import { getAssetUrl } from '~/utils/url';
+import MediaPicture, { lqipStyle } from './MediaPicture';
 import { useQuery } from '~/hooks/useQuery';
 import { useEffect, useState } from 'react';
 import MediaModal from './MediaModal';
 import { Link } from '~/i18n/routing';
 import Rating from '~/components/custom/Rating';
 import { MediaNames, MediaTypeChips, type MediaItem } from './MediaBits';
+
+/** Card widths per breakpoint for the responsive poster srcset. */
+const CARD_SIZES = '(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 18vw';
 
 interface MediaCardProps {
     href?: string;
@@ -62,18 +65,26 @@ export default function MediaCard({
     const content = (
         <>
             <div
+                style={item.image ? undefined : lqipStyle(`${type}/${item.id}`)}
                 className={`relative shrink-0 overflow-hidden bg-surface-sunken ${
                     isList
                         ? `aspect-video w-full sm:aspect-square ${thumbnailClass ?? 'sm:w-32'}`
                         : 'aspect-3/4 w-full'
                 }`}
             >
-                <img
-                    loading='lazy'
-                    alt={primaryName}
-                    src={item.image ? item.image : getAssetUrl(`/images/${type}/${item.id}.png`)}
-                    className='absolute inset-0 w-full transition-transform duration-300 hover:scale-105'
-                />
+                <div className='absolute inset-0 transition-transform duration-300 hover:scale-105'>
+                    {item.image ? (
+                        <img
+                            loading='lazy'
+                            alt={primaryName}
+                            decoding='async'
+                            src={item.image}
+                            className='h-full w-full object-cover object-[center_18%]'
+                        />
+                    ) : (
+                        <MediaPicture id={item.id} type={type} alt={primaryName} sizes={CARD_SIZES} />
+                    )}
+                </div>
             </div>
 
             <div className={`@container flex w-full min-w-0 flex-col ${contentClass}`}>

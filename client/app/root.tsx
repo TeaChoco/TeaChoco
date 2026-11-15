@@ -13,6 +13,7 @@ import {
 } from 'react-router';
 import i18n from '~/i18n';
 import env, { isDev } from '~/secure/env';
+import { MotionConfig } from 'framer-motion';
 import { getAssetUrl } from './utils/url';
 import type { Route } from './+types/root';
 import { useTranslation } from 'react-i18next';
@@ -126,7 +127,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-    return <Outlet />;
+    return (
+        <MotionConfig reducedMotion='user'>
+            <Outlet />
+        </MotionConfig>
+    );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {

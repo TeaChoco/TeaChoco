@@ -5,7 +5,6 @@ import { getTagIcon } from '~/constants/icon';
 import { useTranslation } from 'react-i18next';
 import useTextColor from '~/hooks/useTextColor';
 import type { CodingSkill } from '~/types/coding';
-import FadeOverflow from '~/components/layout/FadeOverflow';
 
 export default function SkillsList({ skills }: { skills: CodingSkill[] }) {
     const { t } = useTranslation();
@@ -16,7 +15,7 @@ export default function SkillsList({ skills }: { skills: CodingSkill[] }) {
 
     return (
         <div className='relative'>
-            <FadeOverflow className='grid gap-4 mt-2' active={skills.length > maxSkill}>
+            <div className='grid gap-4 mt-2'>
                 {displayedSkills.map((skill) => {
                     const icon = getTagIcon(skill.id);
 
@@ -24,6 +23,7 @@ export default function SkillsList({ skills }: { skills: CodingSkill[] }) {
                         <motion.div
                             key={skill.name}
                             className='card group'
+                            viewport={{ once: true }}
                             initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.4, delay: 0.1 }}
@@ -75,8 +75,8 @@ export default function SkillsList({ skills }: { skills: CodingSkill[] }) {
                         </motion.div>
                     );
                 })}
-            </FadeOverflow>
-            {skills.length > 8 && (
+            </div>
+            {skills.length > maxSkill && (
                 <div className='flex justify-center mt-4'>
                     <Link
                         to='/about'

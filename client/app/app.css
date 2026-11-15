@@ -378,3 +378,17 @@
         @apply bg-surface-overlay/50 border border-border rounded-2xl p-6 transition-all duration-200 hover:bg-surface-overlay hover:border-primary-emphasis hover:-translate-y-1 hover:shadow-lg hover:shadow-primary-emphasis/30;
     }
 }
+
+/* ===== Reduced motion ===== */
+/* Turns off CSS-driven movement for users who ask their OS to reduce motion.
+   Framer Motion is handled globally by <MotionConfig reducedMotion='user'>. */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

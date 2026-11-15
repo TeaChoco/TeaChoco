@@ -16,6 +16,7 @@ export default function CodingSkillLine({ icon, skill }: CodingSkillLineProps) {
         <div className='h-2 bg-border rounded-full overflow-hidden'>
             <motion.div
                 initial={{ width: 0 }}
+                viewport={{ once: true }}
                 className='h-full rounded-full'
                 whileInView={{ width: `${skill.level}%` }}
                 transition={{ delay: 0.1, duration: 0.8, ease: 'easeOut' }}

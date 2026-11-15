@@ -1,10 +1,16 @@
-// -Path: "TeaChoco-Portfolio/client/src/pages/portfolio/components/HoverLinks.tsx"
+// -Path: 'TeaChoco-Portfolio/client/app/pages/portfolio/components/HoverLinks.tsx'
 import type { Project } from '~/types/projects';
 import { FaGithub, FaArrowUpRightFromSquare } from 'react-icons/fa6';
 
+/**
+ * Floating external links shown while a project card is hovered.
+ *
+ * @param props - Project providing the GitHub and live URLs.
+ * @returns The hover link group element.
+ */
 export default function HoverLinks({ project }: { project: Project }) {
     return (
-        <div className='absolute bottom-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
+        <div className='absolute bottom-4 right-4 z-20 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
             {project.github && (
                 <a
                     href={project.github}

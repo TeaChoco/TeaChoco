@@ -5,8 +5,10 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "build": "react-router build",
+        "build": "pnpm og && react-router build",
         "dev": "react-router dev",
+        "images": "node scripts/optimize-images.mjs",
+        "og": "node scripts/generate-og.mjs",
         "start": "react-router-serve ./build/server/index.js",
         "typecheck": "react-router typegen && tsc"
     },
@@ -40,10 +42,13 @@
     },
     "devDependencies": {
         "@react-router/dev": "7.15.1",
+        "@resvg/resvg-js": "^2.6.2",
         "@tailwindcss/vite": "^4.2.2",
         "@types/node": "^22",
         "@types/react": "^19.2.14",
         "@types/react-dom": "^19.2.3",
+        "satori": "^0.63.2",
+        "sharp": "^0.35.5",
         "tailwindcss": "^4.2.2",
         "typescript": "^5.9.3",
         "vite": "^8.0.3"

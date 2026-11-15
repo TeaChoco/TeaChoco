@@ -682,6 +682,439 @@ const animes: Omit<AnimeItem, 'id'>[] = [
         },
         rating: 3.8,
     },
+    {
+        names: {
+            en: 'Cultural Exchange with a Game Centre Girl',
+            ja: 'ゲーセン少女と異文化交流',
+            th: 'แลกเปลี่ยนวัฒนธรรมกับสาวเกมเซ็นเตอร์',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'Marriagetoxin',
+            ja: 'マリッジトキシン',
+            th: 'วิวาห์แต้มพิษ',
+        },
+        rating: 4.3,
+    },
+    {
+        names: {
+            en: 'My Teen Romantic Comedy SNAFU',
+            ja: 'やはり俺の青春ラブコメはまちがっている。',
+            th: 'กะแล้วชีวิตรักวัยรุ่นของผมมันต้องไม่สดใสเลยสักนิด',
+        },
+        rating: 3.4,
+    },
+    {
+        names: {
+            en: 'The Pet Girl of Sakurasou',
+            ja: 'さくら荘のペットな彼女',
+            th: 'ซากุระโซว หอพักสร้างฝัน',
+        },
+        rating: 4.3,
+    },
+    {
+        names: {
+            en: 'Love, Chunibyo & Other Delusions!',
+            ja: '中二病でも恋がしたい！',
+            th: 'รักสุดเพี้ยนของยัยเกรียนหลุดโลก!',
+        },
+        rating: 4.3,
+    },
+    {
+        names: {
+            en: 'No-Rin',
+            ja: 'のうりん',
+            th: 'ไอดอลสาวชาวไร่',
+        },
+        rating: 4.1,
+    },
+
+    {
+        names: {
+            en: 'The 100 Girlfriends Who Really, Really, Really, Really, Really Love You',
+            ja: '君のことが大大大大大好きな100人の彼女',
+            th: 'รักรักรักรักรักรักเธอหมดหัวใจจากแฟนสาว 100 คน',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'The Ice-Cold Sato-san Is Only Sweet to Me',
+            ja: '塩対応の佐藤さんが俺にだけ甘い',
+            th: 'คุณซาโต้คนเย็นชา หวานกับผมแค่คนเดียว',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'FX Fighter Kurumi-chan',
+            ja: 'FX戦士くるみちゃん',
+            th: 'FX Fighter Kurumi-chan',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: "The Girl's Caretaker: I Became the Secret Caretaker of the Perfect Young Lady (Who Has Zero Life Skills) at a Prestigious High School Full of Flowers",
+            ja: 'お嬢様のお世話係～高嶺の花だらけな名門校で、学院一のお嬢様（生活能力皆無）を陰ながらお世話することになりました～',
+            th: 'ผมกลายเป็นผู้ดูแลแบบลับๆ ของคุณหนู (ที่ไม่มีความสามารถในการดำรงชีพ) ที่แสนเพียบพร้อมของโรงเรียนมัธยมอันทรงเกียรติที่เต็มไปด้วยดอกฟ้า',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'Non Non Biyori',
+            ja: 'のんのんびより',
+            th: 'สาวใสหัวใจบ้านทุ่ง',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'Laid-Back Camp',
+            ja: 'ゆるキャン△',
+            th: 'แคมป์สบายสไตล์สาวๆ',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'My Childhood Friend Who I Thought Was a Boy Turned Out to Be a Beautiful Girl at My New School',
+            ja: '男だと思っていた幼馴染が転校先で美少女になっていた件',
+            th: 'เพื่อนสมัยเด็กที่เคยคิดว่าเป็นผู้ชายดันกลายเป็นสาวสวยในโรงเรียนใหม่',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'Hanaori-san Wants to Have a Fight Even If She Reincarnates',
+            ja: '花織さんは転生しても喧嘩がしたい',
+            th: 'คุณฮานาโอริอยากจะทะเลาะกันแม้ว่าจะได้เกิดใหม่ก็ตาม',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'Though I Am an Inept Villainess: Tale of the Butterfly-Rat Body Swap in the Maiden Court',
+            ja: 'ふつつかな悪女ではございますが ～雛宮蝶鼠とりかえ伝～',
+            th: 'ถึงข้าจะเป็นนางร้ายที่ไร้ความสามารถ ~ตำนานสลับร่างผีเสื้อหนูแห่งวังใน~',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: "Heroine? Saint? No, I'm an All-Works Maid (And Proud of It)!",
+            ja: 'ヒロイン？聖女？いいえ、オールワークスメイドです（誇）！',
+            th: 'นางเอก? สตรีศักดิ์สิทธิ์? โนๆ เมดครบวงจรรับจบทุกงานค่า (ภูมิใจ)!',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: "Young Ladies Don't Play Fighting Games",
+            ja: '対ありでした。 ～お嬢さまは格闘ゲームなんてしない～',
+            th: 'คุณหนูสายปะทะ ไม่เล่นเกมต่อสู้หรอกนะ',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'Love Unseen Beneath the Clear Night Sky',
+            ja: '透明な夜に駆ける君と、目に見えない恋をした。',
+            th: 'รักที่มองไม่เห็นด้วยตากับเธอในค่ำคืนที่แสนจะเลือนราง',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'I Want to Love You Till Your Dying Day',
+            ja: 'きみが死ぬまで恋をしたい',
+            th: 'เพียงได้รักตราบสิ้นลมหายใจ',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'My Mental Choices Are Completely Interfering With My School Romantic Comedy',
+            ja: '俺の脳内選択肢が、学園ラブコメを全力で邪魔している',
+            th: 'ปรนัยบังคับเลือก',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'Yamada-kun and the Seven Witches',
+            ja: '山田くんと7人の魔女',
+            th: 'ยามาดะคุงกับแม่มดทั้ง 7 (สับขั้วมาลุ้นรัก)',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'You and I Are Polar Opposites',
+            ja: '正反対な君と僕',
+            th: 'ลุ้นรักฉบับคู่ต่างขั้ว',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'Mushoku Tensei: Jobless Reincarnation',
+            ja: '無職転生 ～異世界行ったら本気だす～',
+            th: 'เกิดชาตินี้พี่ต้องเทพ',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'The Saga of Tanya the Evil',
+            ja: '幼女戦記',
+            th: 'บันทึกสงครามของยัยเผด็จการ',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'The Elusive Samurai',
+            ja: '逃げ上手の若君',
+            th: 'นายน้อยจอมโกยก้าวสู่เส้นทางวีรบุรุษ',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'Even a Replica Can Fall in Love',
+            ja: 'レプリカだって、恋をする',
+            th: 'รักฉันเทียมเธอ',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'Nichijou - My Ordinary Life',
+            ja: '日常',
+            th: 'สามัญขยันรั่ว',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'Azumanga Daioh',
+            ja: 'あずまんが大王',
+            th: 'โรงเรียนป่วน นักเรียนเป๋อ',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'I Want You To Make a Disgusted Face and Show Me Your Underwear',
+            ja: '嫌な顔されながらおパンツ見せてもらいたい',
+            th: 'Iya na Kao Sarenagara Opantsu Misete Moraitai',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'Expressionless Face Girl and Emotional Face Boy',
+            ja: '顔に出ない柏田さんと顔に出る太田君',
+            th: 'คาชิวาดะที่ไม่แสดงออกและโอตะที่แสดงออก',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'I Want to End This Love Game',
+            ja: '愛してるゲームを終わらせたい',
+            th: 'เกมสารภาพรักนี้น่ะ เรามาจบมันกันเถอะ',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: "Goddess 'Cafe Terrace' / Reborn as a Spare Rib",
+            ja: '女神様「どうぞお好きなものへ転生してください」俺「じゃあ勇者の肋骨で」',
+            th: 'ท่านเทพธิดาจัดมา ผมก็จัดไป ขอเกิดใหม่เป็นซี่โครงผู้กล้าละกันครับ',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'Kill Blue',
+            ja: 'キルアオ',
+            th: 'คิลบลู',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'Parallel World Pharmacy',
+            ja: '異世界薬局',
+            th: 'เภสัชกรเทพสองโลก',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'Akane-banashi',
+            ja: 'あかね噺',
+            th: 'อาคาเนะ พลิกตำนานวงการราคุโกะ',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'The Dungeon of Black Company',
+            ja: '迷宮ブラックカンパニー',
+            th: 'กรรมกรดันเจี้ยน',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'Medaka Kuroiwa Is Impervious to My Charms',
+            ja: '黒岩メダカに私の可愛いが通じない',
+            th: 'คุโรอิวะ เมดากะ ไม่เข้าใจความน่ารักของฉันเลย',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: "The Villainess's Ghost and the Innocent Girl Solve a Big Case",
+            ja: '悪役令嬢の幽霊と純真令嬢の大事件簿',
+            th: 'ผีนางร้ายจับคู่สาวซื่อ รื้อคดีใหญ่',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'Pop Team Epic',
+            ja: 'ポプテピピック',
+            th: 'ป๊อป ทีม อีพิค',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'Summer Pockets',
+            ja: 'Summer Pockets',
+            th: 'Summer Pockets',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'Rooster Fighter',
+            ja: 'ニワトリ・ファイター',
+            th: 'ยอดไก่นักสู้กู้โลก',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'The Diary of a Human, a God, and a Demon',
+            ja: '人間と神と悪魔の日記',
+            th: 'ไดอารี่ของมนุษย์ เทพเจ้าและปีศาจ',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'Reborn as a Noble ~Unrivaled Since Birth~',
+            ja: '貴族転生 ～恵まれた生まれから最強の力を得る～',
+            th: 'เกิดใหม่มาเป็นผู้สูงศักดิ์ ~สุดแกร่งไร้เทียมทานแต่กำเนิด~',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'I Became Friends with the Second Cutest Girl in My Class',
+            ja: 'クラスで2番目に可愛い女の子と友だちになった',
+            th: 'เพื่อนคนแรกของผมคือสาวสวยอันดับสองของห้อง',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'Anohana: The Flower We Saw That Day',
+            ja: 'あの日見た花の名前を僕達はまだ知らない。',
+            th: 'ดอกไม้ มิตรภาพ และความทรงจำ',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'Made in Abyss',
+            ja: 'メイドインアビス',
+            th: 'ผ่าเหวนรก (Made in Abyss)',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'Cautious Hero: The Hero Is Overpowered but Overly Cautious',
+            ja: '慎重勇者～この勇者が俺TUEEEくせに慎重すぎる～',
+            th: 'ผู้กล้าสุดแกร่ง ขี้ระแวงขั้นวิกฤติ',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'Wandering Witch: The Journey of Elaina',
+            ja: '魔女の旅々',
+            th: 'การเดินทางของคุณแม่มด',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'Charlotte',
+            ja: 'シャーロット',
+            th: 'ชาร์ล็อตต์',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: "Marika's Love Meter Malfunction",
+            ja: '茉莉花ちゃんの好感度はぶっ壊れている',
+            th: 'ค่าความชอบของมาริกะจัง พังพินาศไปซะแล้ว',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'Love Flops',
+            ja: '恋愛フロップス',
+            th: 'เร็นไอฟล็อปส์',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'Cosmic Princess Kaguya',
+            ja: '超かぐや姫！',
+            th: 'เจ้าหญิงคางุยะแห่งห้วงอวกาศ',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'Wandance',
+            ja: 'ワンダンス',
+            th: 'วันแดนซ์',
+        },
+        rating: null,
+    },
+    {
+        names: {
+            en: 'Can a Boy-Girl Friendship Survive?',
+            ja: '男女の友情は成立する？（いや、しないっ!!）',
+            th: 'เธอกับฉันเพื่อนกันใช่มั้ย (ไม่ใช่!!)',
+        },
+        rating: null,
+    },
 ];
 
 export const animeList: AnimeItem[] = animes.map((anime, index) => ({

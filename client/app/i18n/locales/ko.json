@@ -18,6 +18,14 @@
       "favorite": "좋아요",
       "waifu": "와이프"
     },
+    "sortTitleAz": "이름 A→Z",
+    "sortTitleZa": "이름 Z→A",
+    "sortRatingDesc": "평점 높음→낮음",
+    "sortRatingAsc": "평점 낮음→높음",
+    "sortYearDesc": "연도 최신→오래된",
+    "sortYearAsc": "연도 오래된→최신",
+    "sortUploadNew": "추가 최신순",
+    "sortUploadOld": "추가 오래된순",
     "category": {
       "favorite": {
         "desc": "제 자신을 비추는 거울 같은 캐릭터 — 그 안에서 저 자신을 보게 되고, 현실에서도 절친으로 두고 싶은 존재입니다",
@@ -257,10 +265,32 @@
     "subtitle": "저의 프로젝트와 작업들",
     "readMore": "더 읽기 →",
     "empty": "이 카테고리에 아직 프로젝트가 없습니다.",
+    "search": "프로젝트 검색…",
+    "noResults": "검색어와 일치하는 프로젝트가 없습니다",
+    "sort": {
+      "default": "기본",
+      "name": "이름",
+      "tags": "태그 많은 순",
+      "live": "라이브 우선"
+    },
+    "detail": {
+      "related": "관련 프로젝트",
+      "back": "포트폴리오로 돌아가기",
+      "notFound": "프로젝트를 찾을 수 없습니다",
+      "stack": "기술 스택",
+      "categories": "카테고리",
+      "links": "링크",
+      "source": "소스 코드",
+      "live": "라이브 데모 보기"
+    },
     "projects": {
       "pokeRotom": {
         "title": "PokeRotom",
         "desc": "WebSocket 통합과 인터랙티브 기능을 갖춘 실시간 포켓몬 컴패니언 앱."
+      },
+      "chocoGuildIdle": {
+        "title": "Choco Guild Idle",
+        "desc": "길드 뒤에서 운영하는 방치형 판타지 RPG. 길드원을 자동으로 몬스터와 싸우게 하고 스탯과 장비를 관리해 길드를 성장시킵니다."
       },
       "portfolio": {
         "title": "포트폴리오 웹사이트",

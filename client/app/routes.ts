@@ -1,7 +1,8 @@
-// -Path: 'Vite-React-Router-TypeScript/app/routes.ts'
+// -Path: 'TeaChoco-Portfolio/client/app/routes.ts'
 import { type RouteConfig, layout, index, route } from '@react-router/dev/routes';
 
 export default [
+    route('sitemap.xml', 'routes/sitemap[.]xml.ts'),
     route(':lang', 'routes/$lang.tsx', [
         layout('routes/layout.tsx', [
             index('routes/page/home.tsx'),
@@ -12,6 +13,7 @@ export default [
             route('favorites/mv', 'routes/page/favorites/mv.tsx'),
             route('favorites/character', 'routes/page/favorites/character.tsx'),
             route('portfolio', 'routes/page/portfolio.tsx'),
+            route('portfolio/:id', 'routes/page/portfolio-detail.tsx'),
             route('contact', 'routes/page/contact.tsx'),
             route('*', 'routes/not-found.tsx'),
         ]),

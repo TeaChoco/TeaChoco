@@ -13,7 +13,7 @@ export default function ProjectImage({ project }: { project: Project }) {
                     loading='lazy'
                     src={project.image}
                     alt={t(`portfolio.projects.${project.key}.title`, project.id)}
-                    className='absolute inset-0 block w-full my-auto object-cover transition-transform duration-500 group-hover:scale-110'
+                    className='absolute inset-0 block h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-110'
                 />
             ) : (
                 <div className='absolute inset-0 flex items-center justify-center'>

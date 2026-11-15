@@ -18,6 +18,14 @@
       "favorite": "最爱",
       "waifu": "老婆"
     },
+    "sortTitleAz": "名称 A→Z",
+    "sortTitleZa": "名称 Z→A",
+    "sortRatingDesc": "评分 高→低",
+    "sortRatingAsc": "评分 低→高",
+    "sortYearDesc": "年份 新→旧",
+    "sortYearAsc": "年份 旧→新",
+    "sortUploadNew": "最新添加在前",
+    "sortUploadOld": "最早添加在前",
     "category": {
       "favorite": {
         "desc": "让我在他们身上看到自己的角色——既是一面映照自我的镜子，也是我现实中想要拥有的挚友",
@@ -257,10 +265,32 @@
     "subtitle": "我的项目和作品",
     "readMore": "阅读更多 →",
     "empty": "该分类下暂无项目。",
+    "search": "搜索项目…",
+    "noResults": "没有符合搜索条件的项目",
+    "sort": {
+      "default": "默认",
+      "name": "名称",
+      "tags": "标签最多",
+      "live": "在线演示优先"
+    },
+    "detail": {
+      "related": "相关项目",
+      "back": "返回作品集",
+      "notFound": "未找到项目",
+      "stack": "技术栈",
+      "categories": "分类",
+      "links": "链接",
+      "source": "源代码",
+      "live": "查看在线演示"
+    },
     "projects": {
       "pokeRotom": {
         "title": "PokeRotom",
         "desc": "一个集成了WebSocket和交互功能的实时Pokémon伴侣应用。"
+      },
+      "chocoGuildIdle": {
+        "title": "Choco Guild Idle",
+        "desc": "一款在幕后经营公会的放置类奇幻RPG——自动讨伐怪物、升级属性、管理装备，发展你的公会。"
       },
       "portfolio": {
         "title": "作品集网站",

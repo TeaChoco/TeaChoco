@@ -11,7 +11,7 @@ export function getFullUrl(path: string = ''): string {
 
     // clean up path
     const cleanPath = path.startsWith('/') ? path : `/${path}`;
-    const cleanBase = env.BASE === '/' ? '' : env.BASE;
+    const cleanBase = env.BASE === '/' ? '' : env.BASE.replace(/\/+$/, '');
 
     return `${baseUrl}${cleanBase}${cleanPath}`;
 }
@@ -24,7 +24,7 @@ export function getLocaleUrl(path: string = ''): string {
 export function getAssetUrl(path: string = ''): string {
     // สำหรับ asset ใน public folder
     const cleanPath = path.startsWith('/') ? path : `/${path}`;
-    const cleanBase = env.BASE === '/' ? '' : env.BASE;
+    const cleanBase = env.BASE === '/' ? '' : env.BASE.replace(/\/+$/, '');
 
     if (typeof window !== 'undefined') return `${window.location.origin}${cleanBase}${cleanPath}`;
 

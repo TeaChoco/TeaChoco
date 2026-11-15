@@ -18,6 +18,14 @@
       "favorite": "お気に入り",
       "waifu": "嫁"
     },
+    "sortTitleAz": "名前 A→Z",
+    "sortTitleZa": "名前 Z→A",
+    "sortRatingDesc": "評価 高→低",
+    "sortRatingAsc": "評価 低→高",
+    "sortYearDesc": "年 新→旧",
+    "sortYearAsc": "年 旧→新",
+    "sortUploadNew": "追加 新しい順",
+    "sortUploadOld": "追加 古い順",
     "category": {
       "favorite": {
         "desc": "自分を映す鏡のようなキャラクター — そこに自分を見いだせて、現実でも親友にしたいと思える存在",
@@ -257,10 +265,32 @@
     "subtitle": "私のプロジェクトと作品",
     "readMore": "続きを読む →",
     "empty": "このカテゴリにはまだプロジェクトがありません。",
+    "search": "プロジェクトを検索…",
+    "noResults": "検索に一致するプロジェクトがありません",
+    "sort": {
+      "default": "デフォルト",
+      "name": "名前",
+      "tags": "タグが多い順",
+      "live": "ライブ優先"
+    },
+    "detail": {
+      "related": "関連プロジェクト",
+      "back": "ポートフォリオに戻る",
+      "notFound": "プロジェクトが見つかりません",
+      "stack": "技術スタック",
+      "categories": "カテゴリ",
+      "links": "リンク",
+      "source": "ソースコード",
+      "live": "ライブデモを見る"
+    },
     "projects": {
       "pokeRotom": {
         "title": "PokeRotom",
         "desc": "WebSocket統合とインタラクティブ機能を備えたリアルタイムPokémonコンパニオンアプリ。"
+      },
+      "chocoGuildIdle": {
+        "title": "Choco Guild Idle",
+        "desc": "ギルドを裏から運営する放置系ファンタジーRPG。メンバーを自動でモンスターと戦わせ、ステータス強化や装備管理でギルドを育てます。"
       },
       "portfolio": {
         "title": "ポートフォリオサイト",
