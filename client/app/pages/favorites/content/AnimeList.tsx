@@ -29,7 +29,6 @@ const SIZE_GAP = [
     'gap-2',
 ];
 
-
 const SIZE_THUMB = [
     'sm:w-20',
     'sm:w-24',
@@ -96,16 +95,16 @@ const SIZE_CHIP = [
 ];
 
 const SIZE_CHIP_BOX = [
-    'max-h-16 overflow-hidden',
-    'max-h-14 overflow-hidden',
-    'max-h-14 overflow-hidden',
-    'max-h-12 overflow-hidden',
-    'max-h-12 overflow-hidden',
-    'max-h-12 overflow-hidden',
-    'max-h-10 overflow-hidden',
-    'max-h-10 overflow-hidden',
-    'max-h-10 overflow-hidden',
-    'max-h-10 overflow-hidden',
+    'max-h-16',
+    'max-h-14',
+    'max-h-14',
+    'max-h-12',
+    'max-h-12',
+    'max-h-12',
+    'max-h-10',
+    'max-h-10',
+    'max-h-10',
+    'max-h-10',
 ];
 
 interface AnimeListProps {
@@ -131,12 +130,12 @@ export default function AnimeList({ rows, viewMoreTo, initialItemId }: AnimeList
                             item={item}
                             layout='grid'
                             interactive={!isPreview}
-                            forceOpen={initialItemId === item.id}
-                            textClass={SIZE_TEXT[size]}
-                            contentClass={SIZE_CONTENT[size]}
-                            ratingClass={SIZE_RATING[size]}
                             chipClass={SIZE_CHIP[size]}
+                            textClass={SIZE_TEXT[size]}
+                            ratingClass={SIZE_RATING[size]}
+                            contentClass={SIZE_CONTENT[size]}
                             chipBoxClass={SIZE_CHIP_BOX[size]}
+                            forceOpen={initialItemId === item.id}
                             href={
                                 isPreview && viewMoreTo
                                     ? `${viewMoreTo}?item=${item.id}`
@@ -153,12 +152,12 @@ export default function AnimeList({ rows, viewMoreTo, initialItemId }: AnimeList
                             key={item.id}
                             item={item}
                             layout='list'
-                            thumbnailClass={SIZE_THUMB[size]}
                             interactive={!isPreview}
-                            textClass={SIZE_TEXT[size]}
-                            contentClass={SIZE_CONTENT[size]}
-                            ratingClass={SIZE_RATING[size]}
                             chipClass={SIZE_CHIP[size]}
+                            textClass={SIZE_TEXT[size]}
+                            ratingClass={SIZE_RATING[size]}
+                            contentClass={SIZE_CONTENT[size]}
+                            thumbnailClass={SIZE_THUMB[size]}
                             chipBoxClass={SIZE_CHIP_BOX[size]}
                             forceOpen={initialItemId === item.id}
                             href={

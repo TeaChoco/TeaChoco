@@ -1,8 +1,9 @@
 import clsx from 'clsx';
 import BoxTier from './BoxTier';
+import { getAssetUrl } from '~/utils/url';
 import { createPortal } from 'react-dom';
 import Skeleton from '~/components/custom/Skeleton';
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useMemo, useRef, useState } from 'react';
 import type { CharacterItem } from '~/types/favorites';
 import { AnimatePresence, motion } from 'framer-motion';
 import CharacterDetailsCard from './CharacterDetailsCard';
@@ -21,7 +22,7 @@ interface CharacterAvatarProps {
 /**
  * Renders a single character avatar used inside a tier row.
  * Hovering shows a mini details popup; clicking opens a full details modal.
- * Supports multiple images via `character.images`.
+ * Supports multiple local images via `character.image` count.
  */
 export function CharacterAvatar({ hide = false, character }: CharacterAvatarProps) {
     const [open, setOpen] = useState(false);
@@ -30,7 +31,11 @@ export function CharacterAvatar({ hide = false, character }: CharacterAvatarProp
     const [rect, setRect] = useState<DOMRect | null>(null);
     const hideTimer = useRef<number | undefined>(undefined);
     const sizeClass = 'w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20';
-    const images = character.images ?? [];
+    const images = useMemo(() => {
+        const count = character.image ?? 0;
+        const charIndex = character.id.replace('char-', '');
+        return Array.from({ length: count }, (_, i) => `/images/character/character-${charIndex}/${i + 1}`);
+    }, [character.id, character.image]);
     const { image, index } = useRandomImage(images);
 
     const close = useCallback(() => setOpen(false), []);
@@ -81,17 +86,24 @@ export function CharacterAvatar({ hide = false, character }: CharacterAvatarProp
                                 {!loaded && (
                                     <Skeleton className={clsx('absolute inset-0', sizeClass)} />
                                 )}
-                                {images.map((src, i) => (
-                                    <img
-                                        key={src}
-                                        src={src}
-                                        alt={character.name}
-                                        onLoad={() => setLoaded(true)}
+                                {images.map((base, i) => (
+                                    <picture
+                                        key={base}
                                         className={clsx(
-                                            'absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-out',
+                                            'absolute inset-0 h-full w-full transition-opacity duration-500 ease-out',
                                             i === index ? 'opacity-100' : 'opacity-0',
                                         )}
-                                    />
+                                    >
+                                        <source type='image/avif' srcSet={getAssetUrl(`${base}/300.avif`)} />
+                                        <img
+                                            src={getAssetUrl(`${base}/300.webp`)}
+                                            alt={character.name}
+                                            loading='lazy'
+                                            decoding='async'
+                                            onLoad={() => setLoaded(true)}
+                                            className='h-full w-full object-cover'
+                                        />
+                                    </picture>
                                 ))}
                             </>
                         ) : (

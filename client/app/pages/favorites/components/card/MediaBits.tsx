@@ -58,7 +58,7 @@ export function MediaNames({
                             />
                         ) : null}
                         <span
-                            className={`${wrap ? 'break-words' : 'truncate'} leading-tight ${nameWeight}`}
+                            className={`${wrap ? 'wrap-break-word' : 'truncate'} leading-tight ${nameWeight}`}
                         >
                             {name}
                         </span>
@@ -95,7 +95,7 @@ export function MediaTypeChips({
     if (labels.length === 0) return null;
 
     return (
-        <div className={`flex flex-wrap gap-1.5 ${boxClass}`}>
+        <div className={`flex flex-wrap gap-1.5 overflow-hidden ${boxClass}`}>
             {labels.map(({ type, label }) => (
                 <span
                     key={type}

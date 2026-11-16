@@ -1,7 +1,7 @@
 // -Path: 'TeaChoco-Portfolio/client/app/pages/portfolio/components/ProjectInfo.tsx'
 import ProjectTags from './ProjectTags';
-import type { Project } from '~/types/projects';
 import { useTranslation } from 'react-i18next';
+import type { Project } from '~/types/projects';
 
 /**
  * Compact project summary used inside a portfolio card.

@@ -1,15 +1,25 @@
 // -Path: 'TeaChoco-Portfolio/client/app/pages/favorites/components/character/CharacterGallery.tsx'
 import clsx from 'clsx';
 import { useState } from 'react';
+import { getAssetUrl } from '~/utils/url';
 import { FaArrowLeft, FaArrowRight, FaShuffle } from 'react-icons/fa6';
 
 interface CharacterGalleryProps {
     name: string;
+    /** Base paths per image, e.g. `/images/character/character-1/1`. */
     images: string[];
 }
 
 const CONTROL =
     'absolute z-10 flex h-7 w-7 items-center justify-center rounded-full bg-black/50 text-white transition-colors hover:bg-black/70';
+const WIDTHS = [300, 600] as const;
+
+/**
+ * Builds a responsive srcset for a character image base path.
+ */
+function srcSet(base: string, format: 'avif' | 'webp'): string {
+    return WIDTHS.map((width) => `${getAssetUrl(`${base}/${width}.${format}`)} ${width}w`).join(', ');
+}
 
 /**
  * Fallback tile shown when a character has no artwork.
@@ -57,17 +67,25 @@ export default function CharacterGallery({ name, images }: CharacterGalleryProps
                     <CharacterPlaceholder name={name} className='absolute inset-0' />
                 ) : (
                     <>
-                        {images.map((src, i) => (
-                            <img
-                                key={src}
-                                src={src}
-                                alt={name}
+                        {images.map((base, i) => (
+                            <picture
+                                key={base}
                                 aria-hidden={i !== index}
                                 className={clsx(
-                                    'absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ease-out',
+                                    'absolute inset-0 h-full w-full transition-opacity duration-500 ease-out',
                                     i === index ? 'opacity-100' : 'opacity-0',
                                 )}
-                            />
+                            >
+                                <source type='image/avif' srcSet={srcSet(base, 'avif')} sizes='(min-width: 640px) 18rem, 100vw' />
+                                <source type='image/webp' srcSet={srcSet(base, 'webp')} sizes='(min-width: 640px) 18rem, 100vw' />
+                                <img
+                                    src={getAssetUrl(`${base}/600.webp`)}
+                                    alt={name}
+                                    loading='lazy'
+                                    decoding='async'
+                                    className='h-full w-full object-cover'
+                                />
+                            </picture>
                         ))}
                         {hasMany && (
                             <>
@@ -103,9 +121,9 @@ export default function CharacterGallery({ name, images }: CharacterGalleryProps
 
             {hasMany && (
                 <div className='flex gap-1.5 overflow-x-auto pb-1'>
-                    {images.map((src, i) => (
+                    {images.map((base, i) => (
                         <button
-                            key={src}
+                            key={base}
                             type='button'
                             aria-label={`show image ${i + 1}`}
                             onClick={() => setIndex(i)}
@@ -116,7 +134,10 @@ export default function CharacterGallery({ name, images }: CharacterGalleryProps
                                     : 'border-transparent opacity-70 hover:opacity-100',
                             )}
                         >
-                            <img src={src} alt='' className='h-full w-full object-cover' />
+                            <picture>
+                                <source type='image/avif' srcSet={getAssetUrl(`${base}/300.avif`)} />
+                                <img src={getAssetUrl(`${base}/300.webp`)} alt='' loading='lazy' className='h-full w-full object-cover' />
+                            </picture>
                         </button>
                     ))}
                 </div>

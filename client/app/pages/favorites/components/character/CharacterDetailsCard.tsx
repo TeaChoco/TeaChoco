@@ -1,5 +1,7 @@
 // -Path: 'TeaChoco-Portfolio/client/app/pages/favorites/components/character/CharacterDetailsCard.tsx'
 import clsx from 'clsx';
+import { useMemo } from 'react';
+import { getAssetUrl } from '~/utils/url';
 import { useTranslation } from 'react-i18next';
 import { TIER_STYLES } from '~/constants/Tier';
 import Rating from '~/components/custom/Rating';
@@ -73,7 +75,11 @@ export default function CharacterDetailsCard({
     variant = 'full',
 }: CharacterDetailsCardProps) {
     const { t } = useTranslation();
-    const images = character.images ?? [];
+    const images = useMemo(() => {
+        const count = character.image ?? 0;
+        const charIndex = character.id.replace('char-', '');
+        return Array.from({ length: count }, (_, i) => `/images/character/character-${charIndex}/${i + 1}`);
+    }, [character.id, character.image]);
     const isMini = variant === 'mini';
 
     const ratedKeys = RATING_KEYS.filter((key) => (character.rating?.[key] ?? 0) > 0);
@@ -99,11 +105,15 @@ export default function CharacterDetailsCard({
                 <div className='flex items-center gap-2.5'>
                     <div className='h-12 w-12 shrink-0 overflow-hidden rounded-md border border-border'>
                         {image ? (
-                            <img
-                                src={image}
-                                alt={character.name}
-                                className='h-full w-full object-cover'
-                            />
+                            <picture>
+                                <source type='image/avif' srcSet={getAssetUrl(`${image}/300.avif`)} />
+                                <img
+                                    src={getAssetUrl(`${image}/300.webp`)}
+                                    alt={character.name}
+                                    loading='lazy'
+                                    className='h-full w-full object-cover'
+                                />
+                            </picture>
                         ) : (
                             <CharacterPlaceholder
                                 name={character.name.slice(0, 2)}

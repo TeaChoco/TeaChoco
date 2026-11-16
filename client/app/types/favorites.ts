@@ -66,5 +66,6 @@ export interface CharacterItem {
         height?: number;
         birthday?: string;
     };
-    images: string[];
-};
+    // quantity of local images in /images/character/character-{id}/
+    image?: number;
+}
