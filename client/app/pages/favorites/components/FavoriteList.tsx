@@ -107,7 +107,7 @@ export default function FavoriteList<Item extends DataItem>({
                     <FavoriteSection
                         icon={FaClapperboard}
                         count={datas.length}
-                        title={t('favorites.anime')}
+                        title={t(`favorites.${id}`)}
                     />
                 }
                 size={size}
